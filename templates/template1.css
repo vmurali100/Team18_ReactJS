@@ -1,0 +1,207 @@
+.container{
+    background-image: url(./nature1.jpg);
+    background-repeat: no-repeat;
+    /* background-size: auto; */
+    background-size: cover;
+    width: 1300px;
+    height: 500px;
+}
+.header {
+    display: flex;
+    justify-content: space-between;
+    color: azure;
+    padding: 12px;
+    background: darkgray;
+    background-attachment: fixed;
+}
+.header h1 {
+    padding-left: 45px;
+}
+    
+.header ul {
+    list-style-type: none;
+}
+.header ul li {
+    display: inline;
+    font-size: 30px;
+    margin-right: 50px;
+}
+span {
+    background: fuchsia;
+    border-radius: 12px;
+    padding: 3px;
+}
+.head {
+    text-align: center;
+}
+.head h6 {
+    font-size: 30px;
+    padding-bottom: 0px;
+}
+.head h1 {
+    position: relative;
+    bottom: 45px;
+    margin-left: 22px;
+    font-size: 60px;
+}
+.head button {
+    font-size: 47px;
+    background: aqua;
+    border-radius: 16px;
+    position: relative;
+    bottom: 35px;
+}
+img#image {
+    width: 300px;
+}
+.main {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 50px;
+}
+.first h1 {
+    font-size: 65px;
+}
+.first h4 {
+    font-size: 30px;
+}
+img#image {
+    width: 380px;
+    height: 400px;
+    margin-top: 79px;
+}.second {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    padding: 10px;
+    gap: 10px;
+}
+.one {
+    margin-top: 60px;
+    padding-left: 55px;
+    font-size: 30px;
+}
+.one img {
+    border-radius: 25pc;
+    width: 350px;
+    height: 300px;
+}
+.two {
+    padding-left: 80px;
+    margin-top: 235px;
+    font-size: 30px;
+}
+.two img {
+    border-radius: 30pc;
+    height: 300px;
+}
+.three {
+    margin-top: 70px;
+    margin-left: 65px;
+    font-size: 30px;
+}
+three img {
+    border-radius: 30pc;
+    height: 300px;
+}
+div#third {
+    margin-left: 445px;
+    margin-top: 84px;
+    font-size: 30px;
+}
+#third h1 {
+    background: blue;
+    color: white;
+    width: 30pc;
+}
+img.apple {
+    margin-left: 105px;
+    border-radius: 30pc;
+}
+.fourth {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    padding: 50px;
+    gap: 10px;
+    /* width: 800px; */
+    background: black;
+    color: white;
+}
+img.bulb {
+    width: 300px;
+    height: 360px;
+    padding-left: 67px;
+    padding-top: 53px;
+}
+img#person {
+    width: 300px;
+    height: 400px;
+    margin-top: 160px;
+}
+#person:nth-of-type(2/4){
+    width: 200px;
+}
+.four {
+    width: 430px;
+    margin-left: 35px;
+}
+
+.four h1 {
+    font-size: 58px;
+    color: aqua;
+}
+.four p {
+    font-size: 25px;
+    background: blue;
+}
+.four button {
+    font-size: 35px;
+    margin-left: 6px;
+    border-radius: 20px;
+    background: moccasin;
+    margin-top: 20px;
+}
+.fifth {
+    text-align: center;
+    /* font-size: 30px; */
+}
+.fifth h1 {
+    font-size: 50px;
+}
+.boat {
+    display: flex;
+    justify-content: space-evenly;
+}
+.boat h4 {
+    font-size: 25px;
+    border: 5px solid;
+    padding: 5px;
+}
+.boat h5 {
+    font-size: 25px;
+    font-family: math;
+    margin-top: 32px;
+}
+.boat h5 img {
+    width: 30px;
+    padding-inline: 7px;
+}
+.boat h2 img {
+    padding-inline: 10px;
+    width: 32px;
+}
+.boat h2 {
+    font-size: 35px;
+}
+h3#so {
+    font-size: 47px;
+    font-family: fantasy;
+    margin-top: 26px;
+}
+.boat h6 {
+    font-family: cursive;
+    margin-top: 30px;
+    font-size: 22px;
+}
+.boat h6 img {
+    width: 25px;
+}
