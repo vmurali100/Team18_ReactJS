@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var studentid = Number(prompt("please enter studentid"));
+      var mycase = null;
+      if (studentid <= 19) {
+        mycase = "RAM";
+      } else if (studentid > 20 && studentid < 40) {
+        mycase = "SAM";
+      } else {
+        mycase = "SS";
+      }
+      switch (mycase) {
+        case "RAM":
+          document.write("you are fresher!!!");
+          break;
+        case "SAM":
+          document.write("you are senior");
+          break;
+        case "SS":
+          document.write("you are most senior");
+      }
+    </script>
+  </body>
+</html>
