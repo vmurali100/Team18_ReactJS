@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var name=prompt("one.....")
+        var peru=null
+
+        if(name <= 10){
+            peru=1
+        }else if(name >= 11 && name <=20){
+            peru=2
+        }else if(name >= 21 && name <=40){
+            peru=3
+        }else{
+            peru=4
+        }
+
+        switch (peru) {
+            case 1:
+            document.write("Less than...10" )
+                
+                break;
+            case 2:
+                document.write("Greater than....11")
+            
+                break;
+                case 3:
+                 document.write("Less than......40") 
+                 break;
+                 case 4:
+                 document.write("Above........")                         
+        }
+    </script>
+</body>
+</html>
