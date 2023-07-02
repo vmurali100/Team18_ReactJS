@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var s1=Number(prompt("Enter s1"));
+        var s2=Number(prompt("Enter s2"));
+        var cal=function nym(){
+            var m3=((s1<=s2)&&(s1>s2));
+            var m4=((s1<=s2)||(s1>s2));
+            var m5=(s1>s2);
+            var m6=(s1>=s2);
+            var sp="<br>";
+            document.write("<b>The AND of m1 and m2:</b>"+m3,sp,
+                           "<b>The OR of m1 and m2:</b>"+m4,sp,
+                           "<b>Is m1 greater than m2:</b>"+m5,sp,
+                           "<b>Is m1 greater than or equal to m2:</b>"+m6,sp)
+        }
+        cal()
+    </script>
+</head>
+<body>
+</body>
+</html>
