@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var firstnumber = Number(prompt("please enter first number!!"));
+      var secondnumber = Number(prompt("please enter second number"));
+      function calculate() {
+        var total = firstnumber + secondnumber;
+        var diff = secondnumber - firstnumber;
+        var mul = firstnumber * secondnumber;
+        var divs = secondnumber / firstnumber;
+        var restvalue = secondnumber % firstnumber;
+document.write("total is:" +total +"<br>"+ "diff of two numbers:" +diff +"<br>"
++"multiplication of two numbers:"+mul +"<br>" +"division of two numbers:" +divs +"<br>"
++"modulus:"+restvalue )
+      }
+      calculate()
+    </script>
+  </body>
+</html>
