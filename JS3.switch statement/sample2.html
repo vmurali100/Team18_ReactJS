@@ -1,20 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-
 <body>
     <script>
-        var sayhello = function () {
-            document.write("hi...iam from javascript<br>")
-            document.write("hi...iam from function<br>")
+        var myage=Number(prompt("please enter your age"));
+        var mycase=null;
+        if (myage<19) {
+            mycase=1;
+        }else if(myage>20 && myage<55){
+            mycase=2;
+        }else{
+            mycase=3;
         }
-        sayhello()
+        switch(mycase){
+        case 1:
+            document.write("you are teenager")
+            break
+            case 2:
+            document.write("you are adult")
+            break
+            case 3:
+            document.write("you are a senior citizen")    
+        }
     </script>
 </body>
-
 </html>

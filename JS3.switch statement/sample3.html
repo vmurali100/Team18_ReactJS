@@ -7,10 +7,25 @@
 </head>
 <body>
     <script>
-        var sayhello =function helloworld(){
-            document.write("hi....iam from named function")
+        var myage=Number(prompt("please enter your age"));
+        var mycase=null;
+        if(myage<19){
+            mycase=1;
+        }else if(myage>20&&myage<55){
+            mycase=2;
+        }else{
+            mycase=3;
         }
-        sayhello()
+        switch(mycase){
+            case 1:
+            document.write("you are a teenager");  
+            break
+            case 2:
+            document.write("you are a adult") ; 
+            break
+            case 3:
+            document.write("you are a senior citizen") ;   
+        }
     </script>
 </body>
 </html>
