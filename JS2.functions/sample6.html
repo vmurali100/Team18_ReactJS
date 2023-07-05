@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var firstnumber=Number(prompt("please enter firstnumber"));
+        var secondnumber=Number(prompt("please enter secondnumber"));
+        function calculate(){
+            var total=firstnumber+secondnumber;
+            var diff=firstnumber-secondnumber;
+            var multitotal=firstnumber*secondnumber;
+            var divis=secondnumber/firstnumber;
+            var restvalue=secondnumber%firstnumber;
+            document.write(
+                "total is :"+total+"<br>diffence of given two numbers is :"+diff+"<br>multitotal:"+multitotal+"<br>division of given two numbers is:"+divis+"<br>modulus of given two numbers is:"+restvalue
+            );
+            
+        }
+        calculate()
+    </script>
+</body>
+</html>
