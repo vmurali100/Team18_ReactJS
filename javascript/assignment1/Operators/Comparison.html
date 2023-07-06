@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //"==" it checks only value but not datatype
+        //"===" it checks both value and data type
+        var sp="<br>";
+        var a="10";
+        var b=10;
+        var c=(a==b);
+        var d=(a===b);
+        document.write("Check 1 :"+c,sp,
+                       "Check 2 :"+d,sp)
+        // by using >,<,>=,<=,==,!== comparsion operators we can differntiate number and string.
+        //if string and number posses same value then we use "===" and "!==".Since,it checks value and data type.
+        var l1=2;
+        var l2="Mango";
+        var l3="2";
+        document.write("l1 is greater than l2 :"+(l1>l2),sp,
+                       "l1 is Less than l2 :"+(l1<l2),sp,
+                       "l1 is greater than or equal to l2 :"+(l1>=l2),sp,
+                       "l1 is Less than or equal to l2 :"+(l1<=l2),sp,
+                       "l1 is Equal to l3 :"+(l1==l3),sp,
+                       "l1 is Not equal to l3 :"+(l1!=l3),sp,
+                       "l1 is equal to l3 :"+(l1===l3),sp,
+                       "l1 is Not equal to l3 :"+(l1!==l3),sp)
+        //
+        console.log(1!=="1")
+        //by using "===" and "!==" comparison operator you can know whether the two variables are not equal in both type and value
+        var s1="7";
+        var s2=7;
+        document.write("s1 equal to s2 :"+(s1===s2),sp) 
+        // "<=" it is used to check a variable is less than or equal to another variable
+        var m1=prompt("Enter the m1");
+        var m2=prompt("Enter the m2");
+        var m3=(m1<=m2);
+        document.write("m1 is less than or equal to m2 :"+m3)
+    </script>
+</head>
+<body>
+</body>
+</html>
