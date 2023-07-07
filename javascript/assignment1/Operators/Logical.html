@@ -5,7 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script>
-        
+        // "&&" both are true then output is true
+        // "||" even one condition is true then output is true
+        var l1=((2<3)&&(3>2));
+        var l2=((3<8)||(4>9));
+        document.write("Check 1 :"+l1+"<br>")
+        document.write("Check 2 :"+l2+"<br>")
+        //
+        console.log((true || false) && (false && true));
+        //"!" operator negates the boolean value,so if the value is true,it will become false 
+        //if the value is false, it will become true.
+        var ka=!(3>2)
+        document.write("The output is :"+ka+"<br>")
+        //a,b,c are variables
+        var a=Number(prompt("Enter the a"));
+        var b=Number(prompt("Enter the b"));
+        var c=Number(prompt("Enter the c"));
+        var a1=(a<=b)&&(b<=a);
+        var b1=(a<=b)||(b=a);
+        document.write("And operation :"+a1+"<br>")
+        document.write("Or operation :"+b1+"<br>")
     </script>
 </head>
 <body>
