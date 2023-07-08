@@ -1,25 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <body>
+    <input type="range" min="0" max="100" step="10" value="50" />
     <script>
-        var i =1;
-        var myNumber = Number(prompt('PLease Enter a Number '))
-        do {
-            document.write(myNumber+" X "+i +" = "+myNumber*i+"<br>")
-            i++
-        } while (i<=10);
-    //     var i = 1;
-    //    var myNumber =  Number(prompt("Please enter a Number "))
-    //     while(i<=10){
-    //         document.write(myNumber+" X "+i +" = "+myNumber*i+"<br>")
-    //         i++
-    //     }
+      var slider = document.querySelector('input[type="range"]');
+      slider.addEventListener("input", function (event) {
+        var value = event.target.value;
+        // Style the slider based on the current value.
+        slider.style.width = value + "%";
+      });
+      // var i =1;
+      // var myNumber = Number(prompt('PLease Enter a Number '))
+      // do {
+      //     document.write(myNumber+" X "+i +" = "+myNumber*i+"<br>")
+      //     i++
+      // } while (i<=10);
+      //     var i = 1;
+      //    var myNumber =  Number(prompt("Please enter a Number "))
+      //     while(i<=10){
+      //         document.write(myNumber+" X "+i +" = "+myNumber*i+"<br>")
+      //         i++
+      //     }
     </script>
-</body>
+  </body>
 </html>
