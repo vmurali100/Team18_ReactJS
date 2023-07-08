@@ -29,7 +29,7 @@
             default :
             document.write("Enter the grade of the student"+"<br>")
         }
-        //Give the corresponding day
+        //display the name of the day, given its number (1-7)
         var n1=Number(prompt("Enter the n1"));
         switch(n1){
             case 1 :
@@ -57,7 +57,74 @@
             document.write("No Day"+"<br>");
             break;
         }
-        //
+        //BMI 
+        //Simple calculations like add,subtract,multiply,divide
+        var cal=prompt("Enter the operation ");
+        var l1=Number(prompt("Enter the first number"));
+        var l2=Number(prompt("Enter the second number"));
+        var l3=l1+l2;
+        var l4=l1-l2;
+        var l5=l1*l2;
+        var l6=l1/l2;
+        switch(cal){
+            case "add":
+                document.write("The addition of the given numbers is "+l3+"<br>")
+                break;
+            case "subtract":
+                document.write("The subtraction of the given numbers is "+l4+"<br>")
+                break;  
+            case "multiply":
+                document.write("The multiplication of the given numbers is "+l5+"<br>")
+                break;
+            case "divide":
+                document.write("The division of the given numbers is "+l6+"<br>")
+                break;
+            default:
+                document.write("Enter the operation")
+        }
+       //display the name of the month, given its number (1-12)
+       var num=Number(prompt("Enter the num"));
+        switch(num){
+            case 1 :
+                document.write("January"+"<br>");
+                break;
+            case 2  :
+                document.write("February"+"<br>");
+                break;
+            case 3  :
+                document.write("March"+"<br>");
+                break;
+            case 4  :
+                document.write("April"+"<br>");
+                break;
+            case 5  :
+                document.write("May"+"<br>");
+                break;
+            case 6  :
+                document.write("June"+"<br>");
+                break;
+            case 7 :
+                document.write("July"+"<br>");
+                break;
+            case 8 :
+                document.write("August"+"<br>");
+                break;  
+            case 9 :
+                document.write("September"+"<br>");
+                break; 
+            case 10 :
+                document.write("October"+"<br>");
+                break;
+            case 11:
+                document.write("November"+"<br>");
+                break;
+            case 12 :
+                document.write("December"+"<br>");
+                break;
+            default:
+            document.write("No Month Found"+"<br>");
+            break;
+        }
     </script>
 </head>
 <body>
