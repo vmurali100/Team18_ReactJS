@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+    //program that uses a for loop to print numbers from 1 to 100,
+    // but skips multiples of 5 using the continue statement
+    for(i=1;i<=100;i++){
+        if(i%5==0){
+        continue
+        }
+        document.write(i+"&nbsp")
+    }
+
+
+    //a program that finds the first number over 100 that is divisible by a number n, 
+    //where n is a user input, and then breaks the loop
+    var n=prompt("Enter the number")
+    for(i=1;i<=100;i++){
+        if(i%n==0){
+        document.write("<br>"+i+"&nbsp")
+        }
+    }
+    </script>
+</head>
+<body>
+</body>
+</html>
