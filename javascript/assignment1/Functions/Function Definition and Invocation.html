@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //function named `greet` that takes no parameters and, when invoked, prints "Hello, world!"
+        function greet(){
+         document.write("Hello, world!"+"<br>")
+        }
+        greet()
+        // function called `calculateSquare` that takes a number as an input and, when invoked, prints the square of that number
+        var s=Number(prompt("Enter the number"));
+        function calculateSquare(){
+         document.write("The Square of the number is"+s*s+"<br>")
+        }
+        calculateSquare()
+        // function called `isEven` that checks if a number is even. Test it with various inputs
+        var i=Number(prompt("Enter the number"));
+        function isEven(){
+          if(i%2==0){
+         document.write("The Number is Even"+"<br>")
+          }else{
+            document.write("The is not an Even Number"+"<br>")
+          }
+        }
+        isEven()
+        //a function that takes a string as a parameter and reverses the string. Invoke this function with different strings
+        var n=prompt("Enter the string");
+        var n1=n.split('');
+        var n2=n1.reverse();
+        var n3=n2.join('');
+        function reversestring(){
+            document.write("The reverse of the string is "+n3+"<br>")
+            
+        }
+        reversestring()
+    </script>
+</head>
+<body>
+</body>
+</html>
