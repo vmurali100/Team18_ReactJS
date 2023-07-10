@@ -6,13 +6,40 @@
     <title>Document</title>
     <script>
     //function `convertToFahrenheit` that takes a Celsius degree as a parameter and returns the Fahrenheit conversion
-    var c=prompt("Enter the Celsius value ");
-    var l1=(9/5)*c+32;
-    function convertToFahrenheit(){
-    return l1;
+    function convertToFahrenheit(c){
+        var c=prompt("Enter the Celsius value ");
+        var l1=(9/5)*c+32;
+        document.write(l1+"F"+"<br>")
+        return l1;
     }
     convertToFahrenheit()
-
+    //a function `isPrime` that takes a number as a parameter and returns `true` if the number is prime and `false` otherwise
+    function primenumber(){
+    var n=prompt("Enter the number");
+    var count=0;
+    for (i=1;i<=n;i++){
+        if ((n%i==0)){
+            count++;
+        }
+    }
+        if(count==2){
+            document.write(n+" is a prime number"+"<br>")
+        }else{
+            document.write(n+" is not a prime number"+"<br>")
+        }
+    }
+    primenumber()
+    //a function `calculateGCD` that takes two numbers and returns their Greatest Common Divisor (GCD)
+    function calculateGCD(n1,n2){
+    while(n1%n2!==0){
+        var rem=n1%n2;
+        var n1=n2;
+        var n2=rem;
+    }
+    var gcd=n2;
+    document.write("The gcd of "+n1+" and "+n2+" is "+gcd)
+    }
+    calculateGCD(10,20)
     </script>
 </head>
 <body>
