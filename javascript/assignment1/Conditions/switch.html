@@ -58,6 +58,36 @@
             break;
         }
         //BMI 
+        var h = Number(prompt("Please enter your Height "));
+        var w = Number(prompt("Please enter your weight "));
+
+        var BMI = w / (h*h);
+        var category;
+        if (BMI <= 18.4) {
+        category = 1;
+        } else if (BMI >= 18.5 && BMI <= 24.9) {
+        category = 2;
+        } else if (BMI >= 25 && BMI <= 39.9) {
+        category = 3;
+        } else {
+        category = 4;
+        }
+        switch (category) {
+        case 1:
+          document.write("Your BMI is Underweight"+"<br>");
+          break;
+        case 2:
+          document.write("Your BMI is Normal"+"<br>");
+          break;
+        case 3:
+          document.write("Your BMI is Over Weight"+"<br>");
+          break;
+        case 4:
+          document.write("Your BMI is Obese"+"<br>");
+          break;
+        default:
+          break;
+      }
         //Simple calculations like add,subtract,multiply,divide
         var cal=prompt("Enter the operation ");
         var l1=Number(prompt("Enter the first number"));
@@ -80,7 +110,7 @@
                 document.write("The division of the given numbers is "+l6+"<br>")
                 break;
             default:
-                document.write("Enter the operation")
+                document.write("Enter the operation"+"<br>")
         }
        //display the name of the month, given its number (1-12)
        var num=Number(prompt("Enter the num"));
