@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let dayNumber = Number(prompt("Enter the day number (1-7):"));
+        let dayOfWeek;
+        switch (dayNumber) {
+            case 1:
+                dayOfWeek = "Sunday";
+                break;
+            case 2:
+                dayOfWeek = "Monday";
+                break;
+            case 3:
+                dayOfWeek = "Tuesday";
+                break;
+            case 4:
+                dayOfWeek = "Wednesday";
+                break;
+            case 5:
+                dayOfWeek = "Thursday";
+                break;
+            case 6:
+                dayOfWeek = "Friday";
+                break;
+            case 7:
+                dayOfWeek = "Saturday";
+                break;
+            default:
+                dayOfWeek = "Invalid day number";
+                break;
+        }
+        document.write("The corresponding day of the week is: " + dayOfWeek);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
