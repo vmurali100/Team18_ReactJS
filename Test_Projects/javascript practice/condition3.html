@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function isLeapYear(year) {
+            if (year % 4 !== 0) {
+
+                return false;
+            } else if (year % 100 !== 0) {
+                // Divisible by 4 but not by 100, leap year
+                return true;
+            } else if (year % 400 !== 0) {
+                // Divisible by both 4 and 100, but not by 400, not a leap year
+                return false;
+            } else {
+                // Divisible by both 4, 100, and 400, leap year
+                return true;
+            }
+        }
+
+        // Test the function
+        const year = parseInt(prompt("Enter a year:"));
+
+        if (isLeapYear(year)) {
+            document.write(year + " is a leap year.");
+        } else {
+            document.write(year + " is not a leap year.");
+        }
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>
