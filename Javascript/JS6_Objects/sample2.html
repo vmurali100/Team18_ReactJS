@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var user = {
+        fname: "Ram",
+        lname: "krishna",
+        email: "ram@gmail.com",
+        age: 42,
+        city: "Chittoor",
+        state: "Andhra pradesh",
+        pin: 5174001,
+      };
+
+      delete user.city // will delete a Property 
+
+      for(a in user){
+        document.write(a+" - : "+user[a]+"<br>")
+      }
+
+      // var personDetails = {
+      //     fname:"Murali",
+      //     lname:"Krishna",
+      //     mobile:9663856625,
+      //     isWorking:true,
+      //     otherDetails:null,
+      //     fullName:function(){
+      //         document.write(personDetails.fname+" "+personDetails.lname)
+      //     }
+      // }
+      // personDetails.fullName()
+    </script>
+  </body>
+</html>
