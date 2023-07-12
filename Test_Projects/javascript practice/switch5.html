@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function calculator(operation, num1, num2) {
+  var result;
+  
+  switch (operation) {
+    case 'add':
+      result = num1 + num2;
+      break;
+    case 'subtract':
+      result = num1 - num2;
+      break;
+    case 'multiply':
+      result = num1 * num2;
+      break;
+    case 'divide':
+      result = num1 / num2;
+      break;
+    default:
+      document.write('Invalid operation');
+      return;
+  }
+  
+  document.write(`The result of ${operation} ${num1} and ${num2} is ${result}`);
+}
+    </script>
+</body>
+</html>
