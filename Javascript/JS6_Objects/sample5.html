@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      class Person {
+        constructor(fname, lname, email) {
+          this.fname = fname;
+          this.lname = lname;
+          this.email = email;
+        }
+      }
+
+      var person1 = new Person("Ram", "Krishna", "ram@gmail.com");
+      var person2 = new Person("Sam", "Sundar", "Sam@gmail.com");
+
+      console.log(person1);
+
+      // 1. Liter way of Creating Objects
+      var person = {
+        fname: "ramesh",
+      };
+
+      // 2. Constructor Function
+      function Student(fname, lname) {
+        this.fname = fname;
+        this.lname = lname;
+      }
+      var student = new Student("Ravi","Kumar")
+
+    //   3. Using Class 
+
+    class User{
+        constructor(fname,lname){
+            this.fname = fname;
+            this.lname = lname
+        }
+    }
+    var user1 = new User("Kiran","Kumar")
+
+    // 4. Built In Object 
+    var student1 = new Object({fname:"SS"})
+
+    console.log(student1)
+    </script>
+  </body>
+</html>
