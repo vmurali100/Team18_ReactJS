@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+        
+        function checkCase(str) {
+  const isLowerCase = /^[a-z]+$/.test(str);
+  const isUpperCase = /^[A-Z]+$/.test(str);
+
+  const caseType = isLowerCase
+    ? 'Lower case'
+    : isUpperCase
+    ? 'Upper case'
+    : 'Mixed case';
+
+  return caseType;
+}
+
+// Testing the function
+console.log(checkCase("hello")); // Output: Lower case
+console.log(checkCase("WORLD")); // Output: Upper case
+console.log(checkCase("HelloWorld")); // Output: Mixed case
+
+        
+    </script>
+</body>
+</html>
