@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function calculate(operation, num1, num2) {
+            var result;
+
+            switch (operation) {
+                case '+':
+                    result = num1 + num2;
+                    break;
+                case '-':
+                    result = num1 - num2;
+                    break;
+                case '*':
+                    result = num1 * num2;
+                    break;
+                case '/':
+                    result = num1 / num2;
+                    break;
+                default:
+                    console.log('Invalid operation');
+                    return;
+            }
+
+            document.write('Result:', result);
+        }
+
+        // Example usage:
+        calculate('+', 5, 3); // Addition: 5 + 3 = 8
+        calculate('-', 7, 2); // Subtraction: 7 - 2 = 5
+        calculate('*', 4, 6); // Multiplication: 4 * 6 = 24
+        calculate('/', 10, 2); // Division: 10 / 2 = 5
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

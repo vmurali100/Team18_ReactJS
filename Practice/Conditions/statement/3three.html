@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function calculateBMI(weight, height) {
+            var bmi = weight / (height * height);
+            return bmi;
+        }
+
+        function categorizeBMI(bmi) {
+            var category;
+
+            switch (true) {
+                case bmi < 18.5:
+                    category = "Underweight";
+                    break;
+                case bmi < 25:
+                    category = "Normal weight";
+                    break;
+                case bmi < 30:
+                    category = "Overweight";
+                    break;
+                default:
+                    category = "Obese";
+                    break;
+            }
+
+            return category;
+        }
+
+        // User input
+        var weight = Number(prompt("Enter your weight in kilograms: "));
+        var height = Number(prompt("Enter your height in meters: "));
+
+        // Calculate BMI
+        var bmi = calculateBMI(weight, height);
+
+        // Categorize BMI using switch case
+        var bmiCategory = categorizeBMI(bmi);
+
+        // Print the result
+        document.write("Your BMI category is: " + bmiCategory);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
