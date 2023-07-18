@@ -5,21 +5,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script>
-     //Literal way of Creating Objects
-      var person = {
-        fname: "Ramesh",
-        lname:"Babu",
-        city:"chittoor",
-        mail:"ramesh2078@gmail.com",
-        phno:"9874602863",
-        hobbies:"Playing Hockey"
-      };
+     //Objects are variables too. But objects can contain multiple values like string,numbers whereas string contain only one type either string or numbers.
+     //The values are written as "name:value" pairs (name and value separated by a colon).
+     //Objects can be created in 3 ways they are:
+
+     //1.By object literal
+      var person = {fname: "Ramesh",lname:"Babu",city:"chittoor",mail:"ramesh2078@gmail.com",phno:9874602863,hobbies:"Playing Hockey"};
       document.write(person.fname+"<br>"+
-                     person.lname+"<br>"+
+                     person.lname+"<br>"+  //it only prints "value" and "key" is not printed so use "for" loop to print both 
                      person.city+"<br>"+
                      person.mail+"<br>"+
                      person.phno+"<br>"+
                      person.hobbies)
+
+      var person = {fname: "Ramesh",lname:"Babu",city:"chittoor",state:"andhra pradesh",pincode:"517001"};
+      for(a in person){
+        document.write(a+" - "+person[a]+"<br>") //instead of using more "."statements to print we can use "for" loop
+      }
+    
+    //2.By object directly (using new keyword)
+    var emp=new Object();
+    emp.id=123;
+    emp.name="rahul";
+    emp.salary=55000;
+    for(a in emp){
+    document.write(a+"-"+emp[a]+"<br>")
+    }
+
+    //3.By using constructor functions
+    function han (rollno,name,branch){
+      this.rollno=rollno;       //object depends on how "this" is being invoked (used or called).
+      this.name=name;       
+      this.branch=branch;
+    }
+    var li=new han(421,"jaswanth","Ece");
+    var li1=new han(122,"jalal","Cse");
+    var li2=new han(523,"mourshith","Eee");
+    document.write(li.rollno+" "+li.name+" "+li.branch+"<br>")
+    document.write(li1.rollno+" "+li1.name+" "+li1.branch+"<br>")
+    document.write(li2.rollno+" "+li2.name+" "+li2.branch+"<br>")
     </script>
 </head>
 <body>  
