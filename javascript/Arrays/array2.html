@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+//Creating arrays
+//1.By array literal
+var students=["abhi","raju","karthik"]
+for(i=0;i<students.length;i++){
+    document.write(students[i]+"<br>");  //printing an array can be done by using a loop here we used "for" loop
+}    
+
+//2.By array directly (using new keyword)
+var i=0;
+var stu=new Array();   //array created
+    stu[0]="kiran";    //adding values to the array
+    stu[1]="adithya";
+    stu[2]="kasyap";
+    stu[3]="birla";
+while(i<stu.length){
+    document.write(stu[i]+"<br>");  //printing an array using while loop
+    i++;
+}
+
+//3.array constructor
+var emp=new Array("moni","sri","nandhu");
+for(i=0;i<emp.length;i++){
+    document.write(emp[i]+"<br>")
+}
+    </script>
+</head>
+<body>
+</body>
+</html>
