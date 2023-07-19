@@ -31,7 +31,7 @@
         var learn=new subject("maths","science")
         console.log(learn);
      </script> -->
-    <script>
+    <!-- <script>
       class dress {
         constructor(dress1, dress2) {
           this.dress1 = dress1;
@@ -44,6 +44,21 @@
       }
       console.log(wear)
       console.log(wear.dress1,wear.dress2)
+    </script> -->
+    <script>
+        class career{
+            constructor(teacher,software){
+                this.teacher=teacher;
+                this.software=software;
+            }
+        }
+        var mycareer=new career("maths","IT")
+        // document.write(mycareer.teacher +"<br>")
+        // document.write(mycareer.software)
+        // console.log(mycareer)
+for(a in mycareer){
+    document.write(a+":"+mycareer[a]+"<br>")
+}
     </script>
   </body>
 </html>

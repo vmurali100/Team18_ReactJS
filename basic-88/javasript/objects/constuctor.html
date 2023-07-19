@@ -23,7 +23,7 @@
         }
     </script> -->
 
-    <script>
+    <!-- <script>
         function myfamily(me,husband,son){
             this.me=me
             this.husband=husband
@@ -33,6 +33,20 @@
         console.log(family.me)
         var rayusdu=new myfamily("gad","fyg","ghuhy")
         console.log(rayusdu.son)
+    </script> -->
+    <script>
+        function career(teacher,software){
+            this.teacher=teacher
+            this.software=software
+        }
+        var profession=new career("maths","IT")
+        console.log(profession)
+        // document.write(profession.teacher +"<br>")
+        // document.write(profession.software)
+        for( a in profession){
+            document.write(a+":"+profession[a]+"<br>")
+        }
+        career()
     </script>
 
     
