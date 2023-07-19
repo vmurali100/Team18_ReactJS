@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class person{
+            constructor(fname,lname,email){
+                this.fname=fname;
+                this.lname=lname;
+                this.email=email;
+            }
+        }
+        var person1=new person("ram","krishna","ram@gmail.com");
+        var person2=new person("sam","sundar","sam@gmail.com");
+        console.log(person1);
+        //  literal way of creating objects
+             
+           var person={
+            fname:"ramesh",
+           };
+
+        //   2 constructorfunction
+
+           function student(fname,lname)
+           {
+            this.fname=fname;
+            this.lname=lname;
+           }
+           var student=new student("ravi","kumar")
+        // 3.using class
+          
+        class user{
+            constructor(fname,lname){
+                this.fname=fname;
+                this.lname=lname;
+            }
+        }
+        var user1=new user("kiran","kumar")
+        // 4.built in object
+         var student1=new object({fname:"ss"})
+         console.log(student1)
+         </script>
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

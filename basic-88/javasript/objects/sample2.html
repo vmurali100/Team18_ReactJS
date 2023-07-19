@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var user={
+            fname:"ram",
+            lname:"krishna",
+            email:"ram@gmail.com",
+            age:42,
+            city:"chittoor",
+            state:"Andhra pradesh",
+            pin:5174001,
+        };
+        delete user.city
+        for(b in user){
+            document.write(b+":-"+user[b]+"<br>")
+        }
+        </script>
+</body>
+</html>
