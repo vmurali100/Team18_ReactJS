@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var cricketplayers = [
+        "rohit sharma",
+        "virat kohli",
+        "hardik pandya",
+        "kl rahul",
+        "bhuvaneswar kumar",
+        "ms dhoni",
+        "shami",
+        "natrajan",
+        "sachin",
+      ];
+      // console.log(cricketplayers)
+      cricketplayers.unshift("Gill");
+      cricketplayers.push("bhumra");
+      cricketplayers.splice(2, 0, "sky");
+      cricketplayers.pop();
+      cricketplayers.reverse();
+      cricketplayers.shift();
+      cricketplayers.splice(4, 1, "Jadeja");
+      cricketplayers.sort();
+      cricketplayers.sort().reverse();
+      document.write(cricketplayers);
+    </script>
+  </body>
+</html>
