@@ -1,13 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <script>
-        
+        function person(fname, lname) {
+            this.fname = fname;
+            this.lname = lname;
+        }
+        var person1 = new person("ram", "krishna");
+        var person2 = new person("sam", "reddy")
+        person1.email = "ram@123"
+        person1.city = "chittoor"
+        for (a in person1) {
+            document.write(person1[a] + "br")
+        }
+        document.write(person1)
+        document.write(person2)
+        person2.lname = "rao"
+        document.write(person1)
+        document.write(person2)
+
     </script>
 </body>
+
 </html>
