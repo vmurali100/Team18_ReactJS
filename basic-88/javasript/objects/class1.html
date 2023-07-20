@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- <script>
+        class standard{
+            constructor( thiyash,siddu){
+                this.thiyash=thiyash
+                this.siddu=siddu
+
+            }
+        }
+        var mystudent=new standard("prekg","prekg")
+        console.log(mystudent)
+    </script> -->
+    <script>
+      class team {
+        constructor(shanthi, teja) {
+          this.shanthi = shanthi;
+          this.teja = teja;
+        }
+      }
+      var software = new team("teamleader", "HR");
+    //   document.write(software.shanthi +"<br>");
+    //   document.write(software.teja);
+    for(s in software){
+        document.write(s+":"+software[s]+"<br>")
+    }
+    </script>
+  </body>
+</html>

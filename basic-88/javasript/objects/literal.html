@@ -59,11 +59,14 @@ console.log(myfamily.me)
         second: "fontend developer",
       };
       console.log(mycareer);
-    //   document.write(mycareer.first+"<br>");
-    //   document.write(mycareer.second);
-      for( a in mycareer){
-        document.write(a+":"+mycareer[a]+"<br>")
+      //   document.write(mycareer.first+"<br>");
+      //   document.write(mycareer.second);
+      for (a in mycareer) {
+        document.write(a + ":" + mycareer[a] + "<br>");
       }
+      mycareer.package = "50000";
+      mycareer["city"] = "bangloor";
+      document.write(mycareer.package + "<br>" + mycareer.city + "<br>");
     </script>
   </body>
 </html>
