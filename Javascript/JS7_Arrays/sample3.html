@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var student1Marks = [31, 42, 65, 72, 77, 89];
+      var student2Marks = [39, 42, 65, 72, 77, 89];
+      var student3Marks = [38, 42, 65, 72, 27, 89];
+      var student4Marks = [31, 42, 65, 72, 37, 89];
+
+      var total = student1Marks.reduce(function (startingValue, val) {
+        console.log(
+          "Starting Value : ",
+          startingValue,
+          " Value : ",
+          val
+        );
+
+        return startingValue + val;
+
+      });
+      console.log("Total Marks : ",total)
+      // var isFail = student4Marks.some(function (val){
+      //     return val < 35;
+      // })
+
+      // var allCheck = student1Marks.every(function (val){
+      //     return val > 30
+      // })
+
+      // console.log("Check Every Method : ",allCheck)
+      // console.log("Student Results is : ", isFail)
+    </script>
+  </body>
+</html>

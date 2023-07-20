@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var studentMarks = [37, 42, 65, 72, 77, 89];
+
+      var Below40 = studentMarks.filter(function (val) {
+        return val < 40;
+      });
+
+      var above50Find = studentMarks.find(function (val){
+        return val > 50
+      })
+      var above50Filter = studentMarks.filter(function (val){
+        return val > 50
+      })
+      console.log("Find Value Above 50 : ",above50Find)
+      console.log("Filter Value Above 50 : ",above50Filter)
+    //   var Below50=studentMarks.filter(function (mm){
+    //     return mm < 50
+    //   })
+
+    //   var above70 = studentMarks.filter(function (val){
+    //     return val > 70
+    //   })
+    //   console.log(Below50)
+
+    //   console.log(Below40)
+
+    //   console.log("Above 70 : ",above70)
+    </script>
+  </body>
+</html>
