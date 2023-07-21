@@ -1,40 +1,38 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Login Page</title>
   <script>
-    let grade = prompt("Enter the grade here")
-    switch (grade) {
-      case "A":
-        document.write("your the Best")
-        break;
-      case "B":
-        document.write("your the GOOD")
-        break;
-      case "C":
-        document.write("your the ok ok")
-        break;
-      case "D":
-        document.write("your the average")
-        break;
-      case "E":
-        document.write("your the below average")
-        break;
-      case "F":
-        document.write("your the wrost")
-        break;
-      default:
-        document.write("invalid Synatx")
-        break;
+    function login() {
+      var username = document.getElementById('username').value;
+      var password = document.getElementById('password').value;
+
+      // Here, you can perform validation and authentication logic
+      // For simplicity, this example only checks if the fields are not empty
+
+      if (username !== '' && password !== '') {
+        alert('Login successful!');
+        // You can redirect the user to another page or perform additional actions here
+      } else {
+        alert('Please enter both username and password.');
+      }
     }
   </script>
 </head>
 
 <body>
+  <h1>Login Page</h1>
 
+  <label for="username">Username:</label>
+  <input type="text" id="username" name="username">
+  <br>
+
+  <label for="password">Password:</label>
+  <input type="password" id="password" name="password">
+  <br>
+
+  <button onclick="login()">Login</button>
 </body>
 
 </html>
