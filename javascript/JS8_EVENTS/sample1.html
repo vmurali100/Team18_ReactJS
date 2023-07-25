@@ -15,7 +15,7 @@
   keyboard events like "onkeyup,onkeypress,onkeydown"-->
   <form onreset="event10()">
   <input type="submit" value="Submit" id="d1"onclick="event1()" ondblclick="event2()" onmouseover="event3()" onmouseout="event4()">
-  <input type="text"  value="" id="d2"onfocus="event5()" onblur="event6()">
+  <input type="text"  value="" id="d2"onfocus="event5()" onblur="event6()" onkeypress="event11()">
   <input type="date" value="" id="" onchange="event7()">
   <input type="reset" value="reset">
   <select name="" id="" onchange="event7()">
@@ -54,6 +54,9 @@
    }
    function event10(){
     document.getElementById("p1").innerHTML="All Values are cleared";
+   }
+   function event11(){
+    document.getElementById("p1").innerHTML="you just pressed the key";
    }
   </script>
 </body>
