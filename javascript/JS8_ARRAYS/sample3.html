@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+    //foreach() method calls a function for each element in an array
+       var students=["suma","uma","ganesh","ritu","varsha"];
+       students.forEach(function(value,index,arr){
+         document.write(value)
+         document.write(index)
+         document.write(arr+"<br>")
+        })
+    //map() method creates a new array from calling a function for every array element
+    var newArray = students.map(function (value,index){
+    return value + index
+     });
+     document.write(newArray)
+
+    var nos = [2, 4, 6, 8, 10];
+    var newno=nos.map(function (num) {
+     return num * num;
+    });
+    document.write(newno)
+    //find method returns the value of the first element that passes a test
+    //filter method creates a new array filled with elements that pass a test provided by a function
+      var studentMarks = [37, 42, 65, 72, 77, 89];
+      var above50Filter = studentMarks.filter(function (val) {
+        return val > 50;
+      });
+
+      var above50Find = studentMarks.find(function (val){
+        return val > 50;
+      })
+      document.write("Find Value Above 50 : ",above50Find)
+      document.write("Filter Value Above 50 : ",above50Filter)
+      //The some() method executes the callback function once for each array element.T/F
+      var isFail = studentMarks.some(function (val){
+          return val < 50;
+       })
+      //The every() method will give output T/F when the condition is satisfied by every element in the array
+       var allCheck = studentMarks.every(function (val){
+           return val > 60
+       })
+       document.write("Check Every Method : ",allCheck)
+       document.write("Check Some method : ", isFail)
+    </script>
+</head>
+<body>
+</body>
+</html>
