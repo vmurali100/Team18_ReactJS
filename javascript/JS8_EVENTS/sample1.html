@@ -13,14 +13,14 @@
   focus events like "onfocus,onblur,onchange"
   form events like "onload,onsubmit,onreset"
   keyboard events like "onkeyup,onkeypress,onkeydown"-->
-  <input type="button" value="Submit" onclick="event1()" >
+  <input type="button" value="Submit" onclick="event1()" ondbclick="alert(you just clicked)">
   <input type="text"  value="" ondbclick="event2()">
   <script>
    function event1(){
-    document.getElementById("p1").innerHTML="Succesfully submitted"+"<br>";
+    document.getElementById("p1").innerHTML="Succesfully submitted";
    }
    function event2(){
-    document.getElementById("p1").style.background="blue";
+    document.getElementById("p1").innerHTML="Already submitted";
    }
   </script>
 </body>
