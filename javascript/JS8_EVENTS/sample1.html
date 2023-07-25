@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
 </head>
-<body>
+<body onload="event8()">
   <h1>Events and Event handlers</h1>
   <p id="p1"></p>
   <!-- we have events like mouse events,keyboard events,form events,focus events 
@@ -13,14 +13,17 @@
   focus events like "onfocus,onblur,onchange"
   form events like "onload,onsubmit,onreset"
   keyboard events like "onkeyup,onkeypress,onkeydown"-->
-  <input type="button" value="Submit" id="d1"onclick="event1()" ondblclick="event2()" onmouseover="event3()" onmouseout="event4()">
+  <form onreset="event10()">
+  <input type="submit" value="Submit" id="d1"onclick="event1()" ondblclick="event2()" onmouseover="event3()" onmouseout="event4()">
   <input type="text"  value="" id="d2"onfocus="event5()" onblur="event6()">
-  <input type="date" value="" id="d3" onchange="event7()">
-  <select name="" id="d3">
+  <input type="date" value="" id="" onchange="event7()">
+  <input type="reset" value="reset">
+  <select name="" id="" onchange="event7()">
     <option value="11">11</option>
     <option value="22">22</option>
     <option value="33">33</option>
   </select>
+  </form>
   <script>
    function event1(){
     document.getElementById("p1").innerHTML="Succesfully submitted";
@@ -41,7 +44,16 @@
     document.getElementById("p1").innerHTML="Enter details ";
    }
    function event7(){
-    document.getElementById("d3").innerHTML="details are updated";
+    document.getElementById("p1").innerHTML="you have changed the details";
+   }
+   function event8(){
+    document.getElementById("p1").innerHTML="Hello the form is opened";
+   }
+   function event9(){
+    document.getElementById("p1").innerHTML=Date();
+   }
+   function event10(){
+    document.getElementById("p1").innerHTML="All Values are cleared";
    }
   </script>
 </body>
