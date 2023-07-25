@@ -9,18 +9,24 @@
   <h1>Events and Event handlers</h1>
   <p id="p1"></p>
   <!-- we have events like mouse events,keyboard events,form events,focus events 
-  mouse events like "onclick,ondbclick,onmouseover,onmouseout"
+  mouse events like "onclick,ondblclick,onmouseover,onmouseout"
   focus events like "onfocus,onblur,onchange"
   form events like "onload,onsubmit,onreset"
   keyboard events like "onkeyup,onkeypress,onkeydown"-->
-  <input type="button" value="Submit" onclick="event1()" ondbclick="alert(you just clicked)">
-  <input type="text"  value="" ondbclick="event2()">
+  <input type="button" value="Submit" onclick="event1()" ondblclick="event2()" onmouseover="event3()" onmouseout="event4()">
+  <input type="text"  value="" ondblclick="event2()">
   <script>
    function event1(){
     document.getElementById("p1").innerHTML="Succesfully submitted";
    }
    function event2(){
     document.getElementById("p1").innerHTML="Already submitted";
+   }
+   function event3(){
+    document.getElementById("p1").style.background="pink";
+   }
+   function event4(){
+    document.getElementById("p1").style.background="red";
    }
   </script>
 </body>
