@@ -4,10 +4,24 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
-  <script>
-    
-  </script>
 </head>
 <body>
+  <h1>Events and Event handlers</h1>
+  <p id="p1"></p>
+  <!-- we have events like mouse events,keyboard events,form events,focus events 
+  mouse events like "onclick,ondbclick,onmouseover,onmouseout"
+  focus events like "onfocus,onblur,onchange"
+  form events like "onload,onsubmit,onreset"
+  keyboard events like "onkeyup,onkeypress,onkeydown"-->
+  <input type="button" value="Submit" onclick="event1()" >
+  <input type="text"  value="" ondbclick="event2()">
+  <script>
+   function event1(){
+    document.getElementById("p1").innerHTML="Succesfully submitted"+"<br>";
+   }
+   function event2(){
+    document.getElementById("p1").style.background="blue";
+   }
+  </script>
 </body>
 </html>
