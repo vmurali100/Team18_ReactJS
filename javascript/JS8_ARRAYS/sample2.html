@@ -5,32 +5,58 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script>
-//An array is a homogeneous collection of same data-type.How to create an array..?It can be created by 3 ways they are shown below;
-//1.By array literal
-var students=["abhi","raju","karthik"]
-for(i=0;i<students.length;i++){
-    document.write(students[i]+"<br>");  //printing an array can be done by using a loop here we used "for" loop
-}    
+        // Array methods
+        var numbers=[1,2,3,4,5];
+        document.write(numbers+"<br>")
 
-//2.By array directly (using new keyword)
-var i=0;
-var stu=new Array();   //array created
-    stu[0]="kiran";    //adding values to the array
-    stu[1]="adithya";
-    stu[2]="kasyap";
-    stu[3]="birla";
-while(i<stu.length){
-    document.write(stu[i]+"<br>");  //printing an array using while loop
-    i++;
-}
+        //1."push()" method is used to add elements at the end of array
+        numbers.push(6,7);
+        document.write(numbers+"<br>")
 
-//3.By using array constructor
-var emp=new Array("moni","sri","nandhu");
-for(i=0;i<emp.length;i++){
-    document.write(emp[i]+"<br>")
-}
+        //2."pop()" method is used to remove elements at the end of array
+        numbers.pop();
+        document.write(numbers+"<br>")
+
+        //3."unshift()" method is used to add elements at the starting of array
+        numbers.unshift(0)
+        document.write(numbers+"<br>")
+
+        //4."shift()" method is used to remove elements at the starting of array
+        numbers.shift()
+        document.write(numbers+"<br>")
+
+        //5."at()" method if  you give the index number it returns the value stored in that index
+        numbers.at(3)
+        document.write(numbers.at(3)+"<br>")
+
+        //6."reverse()" method is used to reverse the array order
+        document.write(numbers.reverse()+"<br>")
+
+        //7."fill()" method is used to fill the array with same value
+        document.write(numbers.fill(3)+"<br>")
+
+        //8."join('')" method is used to join elements in the array 
+        document.write(numbers.join('')+"<br>")
+
+        //9."includes()" method acts like a boolean and return "TRUE" if the element is present in the array else "FALSE"
+        document.write(numbers.includes(5)+" "+numbers.includes(3)+"<br>")
+
+       //10.fruits.sort().reverse() // will Sort And Reverse the Given Values
+
+       //11."splice()" will add a Value at given Index
+       var fruits = ["Banana", "Orange", "Apple", "Mango"];
+        fruits.splice(2,0,"Lemon","kiwi");
+        document.write(fruits+"<br>")
+
+       //12."splice()" will remove the value at given index
+       fruits.splice(0, 3);  //0 represents index and 3 represents no of values need to be removed
+       document.write(fruits+"<br>")
+
+       //13."sort()" will sort the array
+       fruits.sort();
+       document.write(fruits+"<br>");
     </script>
 </head>
-<body>
-</body>
+ <body>
+ </body>
 </html>
