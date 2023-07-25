@@ -13,8 +13,14 @@
   focus events like "onfocus,onblur,onchange"
   form events like "onload,onsubmit,onreset"
   keyboard events like "onkeyup,onkeypress,onkeydown"-->
-  <input type="button" value="Submit" onclick="event1()" ondblclick="event2()" onmouseover="event3()" onmouseout="event4()">
-  <input type="text"  value="" ondblclick="event2()">
+  <input type="button" value="Submit" id="d1"onclick="event1()" ondblclick="event2()" onmouseover="event3()" onmouseout="event4()">
+  <input type="text"  value="" id="d2"onfocus="event5()" onblur="event6()">
+  <input type="date" value="" id="d3" onchange="event7()">
+  <select name="" id="d3">
+    <option value="11">11</option>
+    <option value="22">22</option>
+    <option value="33">33</option>
+  </select>
   <script>
    function event1(){
     document.getElementById("p1").innerHTML="Succesfully submitted";
@@ -23,10 +29,19 @@
     document.getElementById("p1").innerHTML="Already submitted";
    }
    function event3(){
-    document.getElementById("p1").style.background="pink";
+    document.getElementById("d1").style.background="pink";
    }
    function event4(){
-    document.getElementById("p1").style.background="red";
+    document.getElementById("d1").style.background="red";
+   }
+   function event5(){
+    document.getElementById("d2").style.background="yellow";
+   }
+   function event6(){
+    document.getElementById("p1").innerHTML="Enter details ";
+   }
+   function event7(){
+    document.getElementById("d3").innerHTML="details are updated";
    }
   </script>
 </body>
