@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var students = ["venu", "sam", "ram", "ravi"];
+      for (i = 0; i < students.length; i++) {
+        console.log(students[i]);
+      }
+      console.log(students.length);
+      console.log(students[2])
+      var users=[{},{},{}]
+      var allgroups=[[],[],[]]
+      students.forEach(function(value,index,arr){
+        console.log(value)
+        console.log(index)
+        console.log(arr)
+      })
+      var newarray=students.map(function(value,index){
+        return value+index
+
+      })
+      var nos=[2,4,6,8,10];
+      var newnos=nos.map(function(num){
+        return num*num;
+      });
+      console.log(newnos)
+    </script>
+  </body>
+</html>

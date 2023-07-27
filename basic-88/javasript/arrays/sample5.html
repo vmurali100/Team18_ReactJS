@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var studentmarks=[37,45,65,72,77,89];
+        var below40=studentmarks.filter(function(val){
+            return val<40;
+        });
+        console.log(below40)
+        var above50=studentmarks.find(function(val){
+            return val>50
+        })
+        console.log(above50)
+        var lessthan50=studentmarks.filter(function(val){
+            return val<50;
+        })
+        console.log(lessthan50)
+        var lessthan50=studentmarks.find(function(val){
+            return val<50;
+        })
+        console.log(lessthan50)
+    </script>
+    
+</body>
+</html>

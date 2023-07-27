@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var students = ["shanthi", "jaga", "dilli", "tulasi", "vanitha", "yoga"];
+      for (i = 0; i < students.length; i++) {
+        console.log(students[i]);
+      }
+      console.log(students.length);
+      console.log(students[2]);
+      // var users=[{},{},{},{}]  objects in array
+      // var users=[[],[],[]] array in array
+
+      students.forEach(function (value, index, arr) {
+        console.log(value);
+        console.log(index);
+        console.log(arr);
+      });
+      var newArray = students.map(function (value, index) {
+        return value + index;
+      });
+      var nos = [2, 4, 5, 6, 8];
+      var newnos = nos.map(function (num) {
+        // return num * num;
+        return num + num;
+      });
+    //   console.log(newnos);
+      console.log(newnos);
+    </script>
+  </body>
+</html>
