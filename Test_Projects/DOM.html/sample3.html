@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<table border="2">
+    <thead>
+        <tr>
+            <th>name</th>
+            <th>hero</th>
+            <th>director</th>
+
+            
+        </tr>
+    </thead>
+    <tbody>
+
+    </tbody>
+</table>
+<body>
+    <script>
+        var movienames = [{
+            name: "RRR",
+            hero:"NTR",
+            director:"s.s Rajamouli"
+
+        },
+        {
+            name: "baby",
+            hero:"Anand devarakonda",
+            director:"sai rajesh neelam"
+        },
+        {
+            name: "lal vaikuntapuramulo",
+            hero:"alluarjun",
+            director:"trivikram srinivas"
+        },
+    
+        ]
+        movienames.forEach((user)=>{
+            var mytr=document.createElement("tr")
+            for(a in user){
+                var mytd=document.createElement("td")
+                 mytd.innerHTML=user[a]
+                 mytr.appendChild(mytd)
+            }
+            document.querySelector("tbody").appendChild(mytr)
+        })
+    </script>
+</body>
+
+</html>
