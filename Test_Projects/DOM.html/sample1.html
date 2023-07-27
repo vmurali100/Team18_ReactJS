@@ -6,14 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        img{
+        img {
             width: 100%;
-          
+
         }
-        body{
+
+        body {
             width: 50%;
         }
-        Div{
+
+        Div {
             border: 2px solid purple;
             border-radius: 10px;
             margin-bottom: 20px;
@@ -24,6 +26,18 @@
 </head>
 
 <body>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>God Name</th>
+                <th>pic</th>
+                <th>About</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
     <script>
         var diffrentGods = [
             {
@@ -47,83 +61,103 @@
                 about: "lakshmidevi"
             },
             {
-                Godname:"krishna",
-                pic:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQEkeO819q_fbBqfNXrom1-RFNUoPh8hHjkODrLyH-n&s",
-                about:"lord krishna"
+                Godname: "krishna",
+                pic: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQEkeO819q_fbBqfNXrom1-RFNUoPh8hHjkODrLyH-n&s",
+                about: "lord krishna"
             },
             {
-                Godname:"saibaba",
-                pic:"https://godhindus.com/wp-content/uploads/2022/10/sai-baba-Images.jpg",
-                about:"saibaba"
+                Godname: "saibaba",
+                pic: "https://godhindus.com/wp-content/uploads/2022/10/sai-baba-Images.jpg",
+                about: "saibaba"
             },
             {
-                Godname:"murugan",  
-                pic:"https://w0.peakpx.com/wallpaper/259/636/HD-wallpaper-murugan-with-grey-background-murugan-grey-background-lord-god-karthikeya.jpg",
-                about:"murugan"
+                Godname: "murugan",
+                pic: "https://w0.peakpx.com/wallpaper/259/636/HD-wallpaper-murugan-with-grey-background-murugan-grey-background-lord-god-karthikeya.jpg",
+                about: "murugan"
             },
             {
-                Godname:"saraswathi",  
-                pic:"https://wallpapercave.com/wp/wp4770529.png",
-                about:"about saraswathi",
+                Godname: "saraswathi",
+                pic: "https://wallpapercave.com/wp/wp4770529.png",
+                about: "about saraswathi",
             },
             {
-                Godname:"vaishnavmatha",  
-                pic:"https://thumbs.dreamstime.com/b/vaishno-devi-mata-mountainwhole-gufahan-163595115.jpg",
-                about:"about vaishno devi",
+                Godname: "vaishnavmatha",
+                pic: "https://thumbs.dreamstime.com/b/vaishno-devi-mata-mountainwhole-gufahan-163595115.jpg",
+                about: "about vaishno devi",
             },
             {
-                Godname:"padmavathi",  
-                pic:"https://e0.pxfuel.com/wallpapers/399/188/desktop-wallpaper-lord-venkateswara-padmavathi-thumbnail.jpg",
-                about:"about padmavathi",
+                Godname: "padmavathi",
+                pic: "https://e0.pxfuel.com/wallpapers/399/188/desktop-wallpaper-lord-venkateswara-padmavathi-thumbnail.jpg",
+                about: "about padmavathi",
             },
             {
-                Godname:"om shakthi",  
-                pic:"https://i.pinimg.com/originals/20/cc/8b/20cc8b0ba520b25265750016b563ef3f.jpg",
-                about:"about omshakthi",
+                Godname: "om shakthi",
+                pic: "https://i.pinimg.com/originals/20/cc/8b/20cc8b0ba520b25265750016b563ef3f.jpg",
+                about: "about omshakthi",
             },
             {
-                Godname:" srirama",  
-                pic:"https://www.bhaktiphotos.com/wp-content/uploads/2018/04/Sri-Lord-Rama-Images-Hindu-Bhagwan-HD-Free-Download.jpg",
-                about:"about srirama",
+                Godname: " srirama",
+                pic: "https://www.bhaktiphotos.com/wp-content/uploads/2018/04/Sri-Lord-Rama-Images-Hindu-Bhagwan-HD-Free-Download.jpg",
+                about: "about srirama",
             },
             {
-                Godname:"seetha",  
-                pic:"https://wallpapers.com/images/featured/ram-sita-rv0k2mh8h0dj1baj.jpg",
-                about:"about seetha",
+                Godname: "seetha",
+                pic: "https://wallpapers.com/images/featured/ram-sita-rv0k2mh8h0dj1baj.jpg",
+                about: "about seetha",
             },
             {
-                Godname:"durgamatha",  
-                pic:"https://play-lh.googleusercontent.com/88NuMcDnrXZyuCY8B6KhixC4SUmYBvlawmxUzpPiOpmcNq9fZsfVIuj6HP_EsKRsIvo",
-                about:"about durgamatha",
+                Godname: "durgamatha",
+                pic: "https://play-lh.googleusercontent.com/88NuMcDnrXZyuCY8B6KhixC4SUmYBvlawmxUzpPiOpmcNq9fZsfVIuj6HP_EsKRsIvo",
+                about: "about durgamatha",
             },
             {
-                Godname:"kalimatha",  
-                pic:"https://m.media-amazon.com/images/I/81zTlKY9GRL._AC_UF1000,1000_QL80_.jpg",
-                about:"about kalimatha",
+                Godname: "kalimatha",
+                pic: "https://m.media-amazon.com/images/I/81zTlKY9GRL._AC_UF1000,1000_QL80_.jpg",
+                about: "about kalimatha",
             },
             {
-                Godname:"hanuman",
-                pic:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR39Hh-l02rmQfDcVdwpijmXlcnXnxJ2H98QwY2abNK&s",
-                about:"about hanuman"
+                Godname: "hanuman",
+                pic: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR39Hh-l02rmQfDcVdwpijmXlcnXnxJ2H98QwY2abNK&s",
+                about: "about hanuman"
             }
         ];
-        diffrentGods.forEach(function (Gods) {
-            var myDiv = document.createElement("div");
-            document.body.appendChild(myDiv);
+        // diffrentGods.forEach(function (Gods) {
+        //     var myDiv = document.createElement("div");
+        //     document.body.appendChild(myDiv);
 
-            var mypara = document.createElement("p");
-            mypara.innerHTML = Gods.Godname;
-            myDiv.appendChild(mypara);
+        //     var mypara = document.createElement("p");
+        //     mypara.innerHTML = Gods.Godname;
+        //     myDiv.appendChild(mypara);
 
-            var myimg = document.createElement("img");
-            myimg.setAttribute("src", Gods.pic)
-            myDiv.appendChild(myimg);
+        //     var myimg = document.createElement("img");
+        //     myimg.setAttribute("src", Gods.pic)
+        //     myDiv.appendChild(myimg);
 
-            var myabout = document.createElement("p");
-            myabout.innerHTML = Gods.about;
-            myDiv.appendChild(myabout)
+        //     var myabout = document.createElement("p");
+        //     myabout.innerHTML = Gods.about;
+        //     myDiv.appendChild(myabout)
 
-        });
+        // });
+        diffrentGods.forEach((usr) => {
+            console.log(usr)
+            var myTr = document.createElement("tr")
+            for (a in usr) {
+                if (a != "pic") {
+                    var myTd = document.createElement("td")
+                    myTd.innerHTML = usr[a]
+                    myTr.appendChild(myTd)
+                } else if (a == "pic") {
+                    var imgTd = document.createElement("id")
+                    var myimg = document.createElement("img")
+                    myimg.setAttribute("src", usr[a])
+                    imgTd.appendChild(myimg)
+                    myTr.appendChild(imgTd)
+
+                }
+            }
+            document.querySelector("tbody").appendChild(myTr)
+
+        })
     </script>
 </body>
 
