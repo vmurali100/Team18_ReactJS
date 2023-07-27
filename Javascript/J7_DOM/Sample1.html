@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .div {}
+    </style>
+
+</head>
+
+<body>
+    <script>
+        var famousplacesindelhi = [
+            {
+                placename: "Redfort",
+                pic: "https://th.bing.com/th/id/ArzDM3HIgM7Uphw480x360?&rs=1&pid=ImgDet",
+                about: "The Red Fort or Lal Qila is a historic fort in the Old Delhi neighbourhood of Delhi, India, that historically served as the main residence of the Mughal emperors. Emperor Shah Jahan commissioned construction of the Red Fort on 12 May 1638, when he decided to shift his capital from Agra to Delhi."
+            },
+            {
+                placename: "tajmahal",
+                pic: "https://th.bing.com/th/id/OIP.np_XlysSHY3OKZsPyMUDxAHaFD?pid=ImgDet&rs=1",
+                about: "ఢిల్లీ వ్యాసం ఆరంభంలో మూడు వేరు వేరు పదాలగురించి తెలుసుకోవాలి.జాతీయ రాజధాని ప్రదేశం. ఇది చట్టపరంగా ఏర్పాటు చేయబడిన ప్రదేశం. ఇందులో ప్రధాన విభాగాలు. జాతీయ రాజధాని ప్రదేశం ఒక కేంద్రపాలిత ప్రాంతంగా 1956 నవంబరు 1న ఏర్పాటు చేయబడింది. దేశం నలుమూలలనుండి రాజధాని నగరానికి ప్రజలు వలస వస్తుండడంవల్ల అక్కడ జనం "
+            },
+            {
+                placename: "Indiagate",
+                pic: "https://th.bing.com/th/id/R.74d9a90afb40f83201b2ddb0b36c5e72?rik=K913hB%2bdp0l0Ig&riu=http%3a%2f%2famazingindiablog.in%2fwp-content%2fuploads%2f2015%2f06%2fIndia-Gate-Delhi.jpg&ehk=yANDlYjMFbeuUHEQhsUzeN0g465qhDAB9QktrOC6t20%3d&risl=&pid=ImgRaw&r=0",
+                about: "The India Gate (formerly known as All India War Memorial) is a war memorial located near the Kartavya path on the eastern edge of the of New Delhi, formerly called duty path.",
+            },
+        ];
+        famousplacesindelhi.forEach(function (place) {
+            var myDiv = document.createElement("div");
+            document.body.appendChild(myDiv);
+
+            var mypara = document.createElement("P");
+            mypara.innerHTML = place.placename;
+            myDiv.appendChild(mypara);
+
+            var myimg = document.createElement("img");
+            myimg.setAttribute("src", place.pic)
+            myDiv.appendChild(myimg)
+
+            var myabout = document.createElement("P")
+            myabout.innerHTML = place.about
+            myDiv.appendChild(myabout)
+        });
+    </script>
+</body>
+
+</html>

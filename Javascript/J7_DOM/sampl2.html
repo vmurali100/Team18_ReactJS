@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exploring Places in Delhi</title>
+    <style>
+        /* Add some basic styling for the content */
+        .place-info {
+            display: none;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f1f1f1;
+            position: absolute;
+            top: 50px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .place-img {
+            width: 300px;
+            height: 200px;
+            object-fit: cover;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Exploring Places in Delhi</h1>
+    <div id="places-container">
+        <div class="place-card">
+            <h2>Red Fort</h2>
+            <img class="place-img" src="https://example.com/red_fort_pic.jpg" alt="Red Fort">
+            <p>
+                The Red Fort, a UNESCO World Heritage Site, is a symbol of India's rich history. Constructed during the
+                Mughal era, it served as the main residence for emperors for nearly 200 years.
+            </p>
+        </div>
+
+        <!-- Add more place cards with relevant information and images -->
+
+    </div>
+
+    <script>
+        // Get all the place cards and the container
+        const placeCards = document.querySelectorAll('.place-card');
+        const placesContainer = document.getElementById('places-container');
+
+        // Loop through each place card to add event listeners
+        placeCards.forEach(placeCard => {
+            placeCard.addEventListener('click', () => {
+                // Hide all other place info
+                const allPlaceInfo = document.querySelectorAll('.place-info');
+                allPlaceInfo.forEach(info => {
+                    info.style.display = 'none';
+                });
+
+                // Create or show the information div
+                let placeInfo = placeCard.querySelector('.place-info');
+                if (!placeInfo) {
+                    placeInfo = document.createElement('div');
+                    placeInfo.className = 'place-info';
+                    placeInfo.innerHTML = placeCard.querySelector('p').innerText;
+                    placeCard.appendChild(placeInfo);
+                }
+
+                // Toggle the display of the information div
+                placeInfo.style.display = placeInfo.style.display === 'none' ? 'block' : 'none';
+            });
+        });
+    </script>
+</body>
+
+</html>
