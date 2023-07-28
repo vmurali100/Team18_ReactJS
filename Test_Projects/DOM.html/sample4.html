@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="changeText()">Change Text</button>
+    <h2>Welcome to Javascript Classes !!</h2>
+    <h2 name="myElement">Welcome to Javascript Classes !!</h2>
+    <h2 class="some">Welcome to Javascript Classes !!</h2>
+
+    <script>
+      function changeText() {
+        // document.querySelector("h2").innerHTML = "Hello I am From DOM Method !!!~"
+        document.getElementById("myElement").innerHTML = "Hello I am From DOM Method !!!"
+        // document.querySelectorAll("h2")[1].innerHTML="Content Cha nged !!"
+        // document.getElementsByTagName("h2")[2].innerHTML = "Content Changed in Message"
+        // document.getElementsByClassName("some")[0].innerHTML="Changed from Class ";
+        // document.getElementsByName("myElement")[0].innerHTML = "Changed from Class !!"
+    }
+    </script>
+</body>
+</html>
