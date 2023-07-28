@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <table border="1">
+      <thead>
+        <tr>
+          <th>Name:</th>
+          <th>About:</th>
+          <th>Product:</th>
+          <th>Img:</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+    <script>
+      var farming_types = [
+        {
+          name: "Rice Farming",
+          about:
+            "Rice is a staple food in India, primarily cultivated in states like West Bengal, Punjab, and Andhra Pradesh.",
+          product: "Rice",
+          img: "https://tse2.mm.bing.net/th?id=OIP.HyY_5WUf22l2N3EgXZqwNQHaE9&pid=Api&P=0&h=180",
+        },
+        {
+          name: "Wheat Farming",
+          about:
+            "Wheat is another staple crop in India, grown in states like Punjab, Haryana, and Uttar Pradesh.",
+          product: "Wheat",
+          img: "https://tse2.mm.bing.net/th?id=OIP.HyY_5WUf22l2N3EgXZqwNQHaE9&pid=Api&P=0&h=180.jpg",
+        },
+        {
+          name: "Tea Plantations",
+          about:
+            "India is known for its tea production, with Assam, Darjeeling, and Nilgiri being prominent tea-growing regions.",
+          product: "Tea",
+          img: "https://tse2.mm.bing.net/th?id=OIP.HyY_5WUf22l2N3EgXZqwNQHaE9&pid=Api&P=0&h=180.jpg",
+        },
+        {
+          name: "Coffee Plantations",
+          about:
+            "Coffee cultivation is mainly concentrated in regions like Karnataka, Kerala, and Tamil Nadu.",
+          product: "Coffee",
+          img: "https://tse2.mm.bing.net/th?id=OIP.HyY_5WUf22l2N3EgXZqwNQHaE9&pid=Api&P=0&h=180.jpg",
+        },
+        {
+          name: "Cotton Farming",
+          about:
+            "Cotton is grown in states like Gujarat, Maharashtra, and Telangana, contributing significantly to the textile industry.",
+          product: "Cotton",
+          img: "https://tse2.mm.bing.net/th?id=OIP.HyY_5WUf22l2N3EgXZqwNQHaE9&pid=Api&P=0&h=180.jpg",
+        },
+        {
+          name: "Sugarcane Farming",
+          about:
+            "Sugarcane is cultivated in states like Uttar Pradesh, Maharashtra, and Karnataka for sugar and ethanol production.",
+          product: "Sugarcane",
+          img: "https://tse2.mm.bing.net/th?id=OIP.HyY_5WUf22l2N3EgXZqwNQHaE9&pid=Api&P=0&h=180.jpg",
+        },
+        {
+          name: "Jute Farming",
+          about:
+            "Jute is grown in West Bengal, Bihar, and Assam and is used for making sacks, ropes, and textiles.",
+          product: "Jute",
+          img: "https://tse2.mm.bing.net/th?id=OIP.HyY_5WUf22l2N3EgXZqwNQHaE9&pid=Api&P=0&h=180.jpg",
+        },
+        {
+          name: "Pulses Farming",
+          about:
+            "Pulses like chickpeas, lentils, and beans are grown in various parts of India for their protein-rich seeds.",
+          product: "Pulses",
+          img: "https://tse2.mm.bing.net/th?id=OIP.HyY_5WUf22l2N3EgXZqwNQHaE9&pid=Api&P=0&h=180.jpg",
+        },
+        {
+          name: "Oilseed Farming",
+          about:
+            "Oilseeds such as mustard, groundnut, and sesame are cultivated for oil extraction.",
+          product: "Oilseeds",
+          img: "https://tse2.mm.bing.net/th?id=OIP.HyY_5WUf22l2N3EgXZqwNQHaE9&pid=Api&P=0&h=180.jpg",
+        },
+        {
+          name: "Fruit Orchards",
+          about:
+            "India has vast fruit orchards producing mangoes, apples, oranges, and more.",
+          product: "Fruits",
+          img: "https://tse2.mm.bing.net/th?id=OIP.HyY_5WUf22l2N3EgXZqwNQHaE9&pid=Api&P=0&h=180.jpg",
+        },
+        {
+          name: "Vegetable Farming",
+          about:
+            "Various vegetables like tomatoes, potatoes, onions, and others are grown across the country.",
+          product: "Vegetables",
+          img: "https://tse2.mm.bing.net/th?id=OIP.HyY_5WUf22l2N3EgXZqwNQHaE9&pid=Api&P=0&h=180.jpg",
+        },
+        {
+          name: "Soybean Farming",
+          about:
+            "Soybean is grown mainly in Madhya Pradesh, Maharashtra, and Rajasthan.",
+          product: "Soybean",
+          img: "https://tse2.mm.bing.net/th?id=OIP.HyY_5WUf22l2N3EgXZqwNQHaE9&pid=Api&P=0&h=180.jpg",
+        },
+        {
+          name: "Palm Oil Plantations",
+          about: "Some regions in South India have palm oil plantations.",
+          product: "Palm Oil",
+          img: "https://tse2.mm.bing.net/th?id=OIP.HyY_5WUf22l2N3EgXZqwNQHaE9&pid=Api&P=0&h=180.jpg",
+        },
+        {
+          name: "Rubber Plantations",
+          about: "Rubber is cultivated in Kerala and other southern states.",
+          product: "Rubber",
+          img: "https://tse2.mm.bing.net/th?id=OIP.HyY_5WUf22l2N3EgXZqwNQHaE9&pid=Api&P=0&h=180.jpg",
+        },
+        {
+          name: "Tobacco Farming",
+          about:
+            "Tobacco is grown in Andhra Pradesh, Karnataka, and Gujarat for the tobacco industry.",
+          product: "Tobacco",
+          img: "https://tse2.mm.bing.net/th?id=OIP.HyY_5WUf22l2N3EgXZqwNQHaE9&pid=Api&P=0&h=180.jpg",
+        },
+        {
+          name: "Floriculture",
+          about:
+            "Flowers like roses, marigolds, and jasmine are grown for the floral industry.",
+          product: "Flowers",
+          img: "https://tse2.mm.bing.net/th?id=OIP.HyY_5WUf22l2N3EgXZqwNQHaE9&pid=Api&P=0&h=180.jpg",
+        },
+        {
+          name: "Dairy Farming",
+          about:
+            "Dairy farming is prevalent in India, with states like Punjab and Haryana being major milk-producing regions.",
+          product: "Milk and Dairy Products",
+          img: "https://tse2.mm.bing.net/th?id=OIP.HyY_5WUf22l2N3EgXZqwNQHaE9&pid=Api&P=0&h=180.jpg",
+        },
+        {
+          name: "Poultry Farming",
+          about:
+            "Poultry farming is widespread across the country for egg and chicken meat production.",
+          product: "Eggs and Poultry Meat",
+          img: "https://tse2.mm.bing.net/th?id=OIP.HyY_5WUf22l2N3EgXZqwNQHaE9&pid=Api&P=0&h=180.jpg",
+        },
+        {
+          name: "Fisheries",
+          about:
+            "India has extensive freshwater and marine fisheries, contributing to the seafood industry.",
+          product: "Fish and Seafood",
+          img: "https://tse2.mm.bing.net/th?id=OIP.HyY_5WUf22l2N3EgXZqwNQHaE9&pid=Api&P=0&h=180",
+        },
+        {
+          name: "Sericulture",
+          about:
+            "Sericulture or silk farming is practiced in states like Karnataka and West Bengal to produce silk fibers.",
+          product: "Silk",
+          img: "https://tse2.mm.bing.net/th?id=OIP.HyY_5WUf22l2N3EgXZqwNQHaE9&pid=Api&P=0&h=180",
+        },
+      ];
+      farming_types.forEach((usr) => {
+        // console.log(farming_types);
+        var mytr = document.createElement("tr");
+        for (a in usr) {
+          if (a != "img") {
+            var mytd = document.createElement("td");
+            mytd.innerHTML = usr[a];
+            mytr.appendChild(mytd);
+          } else if (a == "img") {
+            var myimgtd = document.createElement("id");
+            var myimg = document.createElement("img");
+            myimg.setAttribute("src", usr[a]);
+            myimgtd.appendChild(myimg);
+            mytr.appendChild(myimgtd);
+          }
+        }
+        document.querySelector("tbody").appendChild(mytr);
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    div {
+    border: 2px solid red;
+    border-radius: 10px;
+    margin-bottom: 5px;
+    padding-left: 40px;
+}
+    img{
+        border-radius: 5px;
+    }
+  </style>
+  <body>
+    <a href="" target="_blank"> <h1>ABOUT ARMY</h1></a>
+    <table border="2">
+        <thead>
+            <tr>
+                <th>image_url</th>
+                <th>type</th>
+                <th>country</th>
+                <th>qualification</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+    <script>
+      soldiers = [
+        {
+            
+          image_url:
+            "https://tse1.mm.bing.net/th?id=OIP.0yYjy06Mvsh6Lo9mVMQVQAHaEH&pid=Api&P=0&h=180",
+          type: "Infantry Soldier",
+          country: "United States",
+          qualification: "Basic combat training, infantry tactics",
+        },
+        {
+          image_url: "https://tse2.mm.bing.net/th?id=OIP.e9pdmaSxaJiKzFoYyc9SMQHaEo&pid=Api&P=0&h=180",
+          type: "Special Forces Operator",
+          country: "United Kingdom",
+          qualification: "Special Forces selection, advanced combat training",
+        },
+        {
+          image_url: "https://tse1.mm.bing.net/th?id=OIP.Jjar7dPXB1_69QjF5mYbywHaEc&pid=Api&P=0&h=180",
+          type: "Sniper",
+          country: "Russia",
+          qualification: "Sniper school, marksmanship training",
+        },
+        {
+          image_url: "https://tse2.mm.bing.net/th?id=OIP.6Vki7OVMM5F3e5mI6w9ZzgHaEP&pid=Api&P=0&h=180",
+          type: "Medic",
+          country: "Israel",
+          qualification: "Combat medic training, emergency medical care",
+        },
+        {
+          image_url: "https://tse4.mm.bing.net/th?id=OIP.QpzKyWd8c1SlHfgs05vb8wHaE8&pid=Api&P=0&h=180",
+          type: "Combat Engineer",
+          country: "Germany",
+          qualification: "Engineering training, demolition expertise",
+        },
+        {
+          image_url: "https://tse4.mm.bing.net/th?id=OIP.jCOQGA82IJ6XB-9t812ujgHaE8&pid=Api&P=0&h=180",
+          type: "Tank Crew Member",
+          country: "France",
+          qualification: "Tank operation training, armor tactics",
+        },
+        {
+          image_url: "https://tse2.mm.bing.net/th?id=OIP.qv18P6OkiRQlgwxpGXwYTAHaE5&pid=Api&P=0&h=180",
+          type: "Artillery Operator",
+          country: "China",
+          qualification: "Artillery handling, indirect fire support",
+        },
+        {
+          image_url: "https://tse3.mm.bing.net/th?id=OIP.HTHm7pmR52UY_QyUg_yc7wHaEH&pid=Api&P=0&h=180",
+          type: "Airborne Trooper",
+          country: "Brazil",
+          qualification: "Airborne operations, parachute training",
+        },
+        {
+          image_url: "https://tse1.mm.bing.net/th?id=OIP.8jZWGIOwTyWP_HCfb_cebAHaEK&pid=Api&P=0&h=180",
+          type: "Intelligence Specialist",
+          country: "Canada",
+          qualification: "Intelligence analysis, information gathering",
+        },
+        {
+          image_url: "https://tse2.mm.bing.net/th?id=OIP.38tkUdypLj6ZlSirN5GxTAHaEJ&pid=Api&P=0&h=180",
+          type: "Communications Specialist",
+          country: "Australia",
+          qualification: "Communications equipment operation, signal protocols",
+        },
+        {
+          image_url: "https://tse2.mm.bing.net/th?id=OIP.6Vki7OVMM5F3e5mI6w9ZzgHaEP&pid=Api&P=0&h=180",
+          type: "Reconnaissance Scout",
+          country: "Sweden",
+          qualification: "Stealth operations, intelligence gathering",
+        },
+        {
+          image_url: "https://tse1.explicit.bing.net/th?id=OIP.uPS3KQUIRZi4tpc9fYn1rgHaEK&pid=Api&P=0&h=180",
+          type: "Combat Medic",
+          country: "Norway",
+          qualification: "Advanced medical training, trauma care",
+        },
+        {
+          image_url: "https://tse1.mm.bing.net/th?id=OIP.cp2JO5dmsa1-X5pXml9VfAHaE8&pid=Api&P=0&h=180",
+          type: "Military Police",
+          country: "South Korea",
+          qualification: "Law enforcement, military regulations",
+        },
+        {
+          image_url: "https://tse2.mm.bing.net/th?id=OIP.838UwpzCM8FdJBKxQyQkWwHaE5&pid=Api&P=0&h=180",
+          type: "Explosive Ordnance Disposal (EOD) Technician",
+          country: "Netherlands",
+          qualification: "EOD training, bomb disposal",
+        },
+        {
+          image_url: "https://tse1.mm.bing.net/th?id=OIP.h4BxYI1Tf15ZZ2vT62g6YQHaEH&pid=Api&P=0&h=180",
+          type: "Combat Search and Rescue (CSAR) Specialist",
+          country: "Switzerland",
+          qualification: "Rescue operations, survival skills",
+        },
+        {
+          image_url: "https://tse3.mm.bing.net/th?id=OIP.wx3qAlXR92tSY-aUJ_TAawHaEZ&pid=Api&P=0&h=180",
+          type: "Cyber Warfare Specialist",
+          country: "Estonia",
+          qualification: "Cybersecurity, offensive and defensive tactics",
+        },
+        {
+          image_url: "https://tse1.mm.bing.net/th?id=OIP.2Jp0k_jbDPvCoIwsQ0dL6QHaFz&pid=Api&P=0&h=180",
+          type: "Drone Operator",
+          country: "Israel",
+          qualification: "UAV piloting, surveillance operations",
+        },
+        {
+          image_url: "https://tse2.mm.bing.net/th?id=OIP.6Vki7OVMM5F3e5mI6w9ZzgHaEP&pid=Api&P=0&h=180",
+          type: "Chemical, Biological, Radiological, and Nuclear (CBRN) Specialist",
+          country: "United States",
+          qualification: "CBRN defense, hazardous materials handling",
+        },
+        {
+          image_url: "https://tse2.mm.bing.net/th?id=OIP.6Vki7OVMM5F3e5mI6w9ZzgHaEP&pid=Api&P=0&h=180",
+          type: "K-9 Handler",
+          country: "Belgium",
+          qualification: "K-9 training, working dog handling",
+        },
+        {
+          image_url: "https://tse2.mm.bing.net/th?id=OIP.6Vki7OVMM5F3e5mI6w9ZzgHaEP&pid=Api&P=0&h=180",
+          type: "Mountain Warfare Specialist",
+          country: "Italy",
+          qualification: "Mountain survival, high-altitude combat",
+        },
+        {
+          image_url: "https://tse2.mm.bing.net/th?id=OIP.6Vki7OVMM5F3e5mI6w9ZzgHaEP&pid=Api&P=0&h=180",
+          type: "Amphibious Assault Specialist",
+          country: "Spain",
+          qualification: "Amphibious operations, beach landings",
+        },
+        {
+          image_url: "https://tse2.mm.bing.net/th?id=OIP.6Vki7OVMM5F3e5mI6w9ZzgHaEP&pid=Api&P=0&h=180",
+          type: "Combat Diver",
+          country: "Denmark",
+          qualification: "Underwater operations, diving techniques",
+        },
+        {
+          image_url: "https://tse2.mm.bing.net/th?id=OIP.6Vki7OVMM5F3e5mI6w9ZzgHaEP&pid=Api&P=0&h=180",
+          type: "Psychological Operations (PSYOPS) Specialist",
+          country: "Greece",
+          qualification: "Psychological warfare, propaganda",
+        },
+        {
+          image_url: "https://tse2.mm.bing.net/th?id=OIP.6Vki7OVMM5F3e5mI6w9ZzgHaEP&pid=Api&P=0&h=180",
+          type: "Counterinsurgency (COIN) Specialist",
+          country: "Colombia",
+          qualification: "Counterinsurgency tactics, population engagement",
+        },
+        {
+          image_url: "https://tse2.mm.bing.net/th?id=OIP.6Vki7OVMM5F3e5mI6w9ZzgHaEP&pid=Api&P=0&h=180",
+          type: "Electronic Warfare (EW) Specialist",
+          country: "Finland",
+          qualification: "Electronic warfare operations, signal jamming",
+        },
+      ];
+
+    //   soldiers.forEach(function (army) {
+    //     var myDiv = document.createElement("div");
+    //     document.body.appendChild(myDiv);
+
+    //     var myimg = document.createElement("img");
+    //     myimg.setAttribute("src", army.image_url);
+    //     myDiv.appendChild(myimg);
+
+    //     var mytype=document.createElement("h4")
+    //     mytype.innerHTML= "Type:"+army.type
+    //     myDiv.appendChild(mytype)
+
+    //     var mycountry=document.createElement("h2")
+    //     mycountry.innerHTML="country:"+ army.country
+    //     myDiv.appendChild(mycountry)
+
+    //     var myqualification=document.createElement("h5")
+    //     myqualification.innerHTML="Qualification:"+army.qualification
+    //     myDiv.appendChild(myqualification)
+    //   });
+
+    soldiers.forEach((soldiers)=> {
+        var mytr=document.createElement("tr")
+        for (a in soldiers){
+            var mytd=document.createElement("td")
+            mytd.innerHTML=soldiers[a]
+            mytr.appendChild(mytd)
+        }
+        document.querySelector("tbody").appendChild(mytr)
+    })
+    </script>
+  </body>
+</html>
