@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>NAME</th>
+                <th>IMAGE</th>
+                <th>ABOUT</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+    <script>
+      var fruits = [
+        {
+          name: "Apple",
+          image:
+            "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Red_Apple.jpg/220px-Red_Apple.jpg",
+          about:
+            "Apples are one of the most popular fruits worldwide. They come in various colors, including red, green, and yellow. Apples are a rich source of dietary fiber, vitamin C, and various antioxidants. They are delicious and can be eaten fresh, used in desserts, or made into juices and sauces.",
+        },
+        {
+          name: "Banana",
+          image:
+            "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Banana-Single.jpg/220px-Banana-Single.jpg",
+          about:
+            "Bananas are elongated, curved fruits with a soft, sweet flesh inside. They are rich in potassium, vitamin B6, and fiber. Bananas are convenient and popular for snacking, as well as a common ingredient in smoothies and desserts.",
+        },
+        {
+          name: "Orange",
+          image:
+            "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Orange-Fruit-Pieces.jpg/220px-Orange-Fruit-Pieces.jpg",
+          about:
+            "Oranges are citrus fruits known for their juicy, sweet, and tangy flavor. They are an excellent source of vitamin C, fiber, and antioxidants. Oranges are often consumed fresh, juiced, or used to flavor various dishes.",
+        },
+        {
+          name: "Grapes",
+          image:
+            "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Table_grapes_on_white.jpg/220px-Table_grapes_on_white.jpg",
+          about:
+            "Grapes are small, round or oval-shaped fruits that grow in clusters. They are available in various colors, including green, red, and purple. Grapes are packed with vitamins, minerals, and antioxidants. They are commonly consumed as fresh fruits or used to make raisins and wine.",
+        },
+        {
+          name: "Mango",
+          image:
+            "https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Ataulfo_Mangoes_%28yellow%29.jpg/220px-Ataulfo_Mangoes_%28yellow%29.jpg",
+          about:
+            "Mangoes are tropical fruits known for their sweet, juicy, and fragrant flesh. They are rich in vitamin C, vitamin A, and dietary fiber. Mangoes are often eaten fresh, used in smoothies, salads, and various culinary preparations.",
+        },
+        {
+          name: "Watermelon",
+          image:
+            "https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Watermelon_slices.jpg/220px-Watermelon_slices.jpg",
+          about:
+            "Watermelon is a large, juicy fruit with a refreshing, sweet taste. It's a great source of hydration as it contains a lot of water. Watermelon is commonly consumed as a chilled snack during hot weather.",
+        },
+        {
+          name: "Pineapple",
+          image:
+            "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Pineapple_and_cross_section.jpg/220px-Pineapple_and_cross_section.jpg",
+          about:
+            "Pineapple is a tropical fruit known for its spiky, rough skin and sweet, juicy flesh. It contains vitamin C, manganese, and bromelain, an enzyme with potential health benefits. Pineapple is delicious when eaten fresh or used in fruit salads and desserts.",
+        },
+        {
+          name: "Strawberry",
+          image:
+            "https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/PerfectStrawberry.jpg/220px-PerfectStrawberry.jpg",
+          about:
+            "Strawberries are small, red, juicy fruits with a slightly sweet and tangy flavor. They are rich in vitamin C, antioxidants, and dietary fiber. Strawberries are commonly eaten fresh, used in desserts, jams, and smoothies.",
+        },
+        {
+          name: "Papaya",
+          image:
+            "https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Papaya_cross_section_BNC.jpg/220px-Papaya_cross_section_BNC.jpg",
+          about:
+            "Papaya is a tropical fruit with orange flesh and black seeds at the center. It is rich in vitamin C, vitamin A, and digestive enzymes like papain. Papayas are often eaten fresh or used in fruit salads and smoothies.",
+        },
+        {
+          name: "Kiwi",
+          image:
+            "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Kiwi_%28Actinidia_chinensis%29_1_Luc_Viatour.jpg/220px-Kiwi_%28Actinidia_chinensis%29_1_Luc_Viatour.jpg",
+          about:
+            "Kiwi is a small, green fruit with a fuzzy brown skin. It is a good source of vitamin C, vitamin K, and dietary fiber. Kiwi is usually eaten by scooping out the flesh or added to fruit salads and desserts.",
+        },
+      ];
+      fruits.forEach((user)=>{
+        var mytr=document.createElement("tr")
+        console.log(mytr)
+        for (a in user){
+           if(a !="image"){
+            var mytd=document.createElement("td")
+            mytd.innerHTML=user[a]
+            mytr.appendChild(mytd)
+
+
+           }else if(a=="image"){
+             var imagetd=document.createElement("id")
+             var myimage=document.createElement("img")
+             myimage.setAttribute("src",user[a])
+             imagetd.appendChild(myimage)
+
+             mytr.appendChild(imagetd)
+           }
+
+
+
+        }
+    
+        document.querySelector("tbody").appendChild(mytr)
+
+      })
+
+    </script>
+  </body>
+</html>

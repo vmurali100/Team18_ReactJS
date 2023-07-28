@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <table border="1">
+      <thead>
+        <tr>
+          <th>name</th>
+          <th>age</th>
+          <th>carrer</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+    <script>
+      var myfamily = [
+        {
+          name: "shanthi",
+          age: 30,
+          carrer: "frontend developer",
+        },
+        {
+          name: "haribabu",
+          age: 36,
+          carrer: "hotel manager",
+        },
+        {
+          name: "thiyash",
+          age: 3,
+          career: "software engineer",
+        },
+      ];
+      myfamily.forEach((user) => {
+        var mytr = document.createElement("tr");
+        for (a in user) {
+          var mytd = document.createElement("td");
+          mytd.innerHTML = user[a];
+          mytr.appendChild(mytd);
+        }
+        document.querySelector("tbody").appendChild(mytr);
+      });
+    </script>
+  </body>
+</html>
