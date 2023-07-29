@@ -36,6 +36,7 @@
         <tbody></tbody>
     </table>
     <script>
+        var users=[];
         function submit(){
             var name=document.getElementById("name").value;
             var email=document.getElementById("email").value;
@@ -51,10 +52,10 @@
                 password:password,
                 confirmpassword:confirmpassword,
             };
-            alluser.push
+            users.push(person);
 
-        }
-
+        console.log(users)
+             }
         
     
     </script>
