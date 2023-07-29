@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    table{
+        background-color: cornflowerblue;
+        width: 400px;
+           margin: auto;
+          
+    }
+    form{
+        width: 600px;
+            margin: auto;
+            text-align: center;
+            background-color: rgb(206, 241, 144);
+            padding-top: 20px;
+    }
+</style>
+<body>
+    <h2 style="text-align: center;">department</h2>
+    <form>
+        <label for="name">Name:</label>
+        <input type="text" name="name" id="name"><br><br>
+        <label for="department">Department:</label>
+        <input type="text" name="department" id="department"><br><br>
+        <label for="phnumber">Phnumber:</label>
+        <input type="text" name="phnumber" id="phnumber"><br><br>
+        <button type="button" onclick="addUser()">Add User</button>
+    </form>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Department</th>
+                <th>Phnumber</th>
+            </tr>
+        </thead>
+        <tbody id="userTableBody">
+
+        </tbody>
+    </table>
+    <script>
+        var users = [];
+
+        function addUser() {
+            var name = document.getElementById('name').value;
+            var department = document.getElementById('department').value;
+            var phnumber = document.getElementById('phnumber').value;
+
+            var person = {
+                name: name,
+                department: department,
+                phnumber: phnumber
+            };
+
+            users.push(person);
+            displayUsers(users);
+            console.log(users);
+            clearForm()
+        }
+        function clearForm() {
+            var user = {
+                name: "",
+                department: "",
+                phnumber:"",
+                
+            }
+            for (a in user) {
+                user[a] = document.getElementById(a).value = ""
+            }
+
+        }
+
+        function displayUsers(users) {
+            var tableBody = document.getElementById('userTableBody');
+            tableBody.innerHTML = '';
+
+            users.forEach(user => {
+                var myTr = document.createElement('tr');
+
+                for (var field in user) {
+                    var mytd = document.createElement('td');
+                    mytd.innerHTML = user[field];
+                    myTr.appendChild(mytd);
+                }
+
+                tableBody.appendChild(myTr);
+            });
+        }
+
+    </script>
+</body>
+
+</html>

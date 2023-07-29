@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+            background-color: yellow;
+            /* text-align: center; */
+           width: 400px;
+           margin: auto;
+          
+        }
+        form{
+            width: 600px;
+            margin: auto;
+            text-align: center;
+            background-color: rgb(211, 247, 235);
+            padding-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 style="text-align: center;">Sign Up</h1>
+    <form>
+
+        <label for="name">Name:</label>
+        <input type="text" id="name">
+          <br>
+        <br>
+        <label for="username">Username:</label>
+        <input type="text" id="username">
+        <br>
+        <br>
+        <label for="email">Email:</label>
+        <input type="text" id="email">
+        <br>
+        <br>
+        <label for="password">Password:</label>
+        <input type="password" id="password">
+        <br>
+        <br>
+        <label for="confirmPassword">Confirm Password:</label>
+        <input type="password" id="confirmPassword">
+        <br>
+        <br>
+        <td colspan="2" style="text-align: center;">
+            <button type="button" onclick="addUser()">Add User</button>
+
+    </form>
+
+    <table border="1">
+        <thead>
+
+            <th>Name</th>
+            <th>Username</th>
+            <th>Email</th>
+            <th>Password</th>
+            <th>Confirm Password</th>
+
+        </thead>
+        <tbody id="userTableBody"></tbody>
+    </table>
+
+    <script>
+        var users = [
+
+        ];
+
+        function addUser() {
+            var name = document.getElementById('name').value;
+            var username = document.getElementById('username').value;
+            var email = document.getElementById('email').value;
+            var password = document.getElementById('password').value;
+            var confirmPassword = document.getElementById('confirmPassword').value;
+
+
+            var person = {
+                name: name,
+                username: username,
+                email: email,
+                password: password,
+                confirmPassword: confirmPassword
+            };
+
+            users.push(person);
+            clearForm(users);
+            displayUsers(users);
+
+
+
+        }
+        function clearForm() {
+            var user = {
+                name: "",
+                username: "",
+                email: "",
+                password: "",
+                confirmPassword: ""
+            }
+            for (a in user) {
+                user[a] = document.getElementById(a).value = ""
+            }
+
+        }
+
+        function displayUsers(users) {
+            var tableBody = document.getElementById('userTableBody');
+            tableBody.innerHTML = '';
+
+            users.forEach(user => {
+                var myTr = document.createElement('tr');
+
+                for (var field in user) {
+                    var mytd = document.createElement('td');
+                    mytd.innerHTML = user[field];
+                    myTr.appendChild(mytd);
+                }
+
+                tableBody.appendChild(myTr);
+            });
+        }
+
+        displayUsers(users);
+
+    </script>
+</body>
+
+</html>
