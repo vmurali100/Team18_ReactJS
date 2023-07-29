@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+     #hyuk{
+        background-color: darkseagreen;
+        width: 219px;
+        height: 346px;
+        text-align: center;
+     }
+     button{
+    width: 168px;
+    background-color: blue;
+    color: rgb(47, 255, 127);
+     }
+     .hu{
+        border:2px solid rgb(15, 238, 242);
+     }
+     table{
+        border-collapse:collapse;
+     }
+    </style>
+</head>
+<body>
+    <form id="hyuk">
+    <caption><b>Create Registration Form Using Javascript</b><caption><br><br>
+
+    <label for="">Name :</label><br> 
+    <input type="text" name="" id="name" placeholder="Ravi" class="hu"><br><br>
+
+    <label for="Email">Email :</label><br>
+    <input type="text" name="" id="email"placeholder="Rav_2003@gmail.com"class="hu"><br><br>
+
+    <label for="Password">Password :</label><br>
+    <input type="text" name="" id="pass"  class="hu"><br><br>
+
+    <label for="Confirm Password">Confirm Password :</label><br>
+    <input type="text" name="" id="cpass" class="hu"><br><br>
+
+    <button type="button" onclick="reema()"> <b>Register</b></button>
+    </form>
+    <br><br>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Name </th>
+                <th>Email</th>
+                <th>Password</th>
+                <th>Confirm Password</th>
+            </tr>
+        </thead>
+        <tbody>
+           
+        </tbody>
+    </table>
+    <script>
+        var now = [];
+        function reema(){
+        var l1=document.getElementById("name").value;
+        var l2=document.getElementById("email").value;
+        var l3=document.getElementById("pass").value;
+        var l4=document.getElementById("cpass").value;
+
+        var jai={
+            name:l1,
+            email:l2,
+            pass:l3,
+            cpass:l4,
+        };
+        now.push(jai);
+        hali()
+    }
+
+        function hali (){
+        document.querySelector("tbody").innerHTML = ""
+        now.forEach(function(reva){
+            var mytr=document.createElement("tr")
+            for(a in reva){
+                var mytd=document.createElement("td")
+                mytd.innerHTML=reva[a]
+                mytr.appendChild(mytd)
+            }
+            document.querySelector("tbody").appendChild(mytr)
+        })
+        clearForm()
+        }
+        function clearForm(){
+        document.getElementById("name").value="";
+        document.getElementById("email").value="";
+        document.getElementById("pass").value="";
+        document.getElementById("cpass").value=""
+      }
+    </script>
+</body>
+</html>
