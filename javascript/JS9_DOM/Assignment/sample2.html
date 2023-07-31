@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>     
+        #hi{
+            border:1px solid blacK;
+            width:300px;
+            text-align: center;
+            margin: auto;
+            background-color: aqua;
+        }
+        button{
+            background-color:plum;
+            border-radius: 5px;
+        }
+        table{
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+<body>
+<form>
+<div id="hi">
+<legend><b>Registration Form</b></legend><br>
+<label>First Name :</label><br>
+<input type="text" name="" id="FirstName"><br>
+<label>Last Name :</label><br>
+<input type="text" name="" id="LastName"><br>
+<label>Gender :</label><br>
+<input type="radio" name=""id="Gender">male</input>
+<input type="radio" name=""id="Gender">Female</input><br>
+<label>Mobile :</label><br>
+<input type="text" name="" id="Mobile"><br>
+<label>Address :</label><br>
+<textarea rows="4" cols="20" id="Address"></textarea><br><br>
+<button type="button" onclick="user()">Submit</button>
+</div>
+<table border="1">
+    <thead>
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Gender</th>
+            <th>Mobile</th>
+            <th>Address</th>
+        </tr>
+    </thead>
+    <tbody>
+
+    </tbody>
+</table>
+</form>
+    <script>
+        var reg = [];
+        function user(){
+        var l1=document.getElementById("FirstName").value;
+        var l2=document.getElementById("LastName").value;
+        var l3=document.getElementById("Gender").value;
+        var l4=document.getElementById("Mobile").value;
+        var l5=document.getElementById("Address").value;
+        var reg1={
+           myFirstName:l1,
+           myLastName:l2,
+           myGender:l3,
+           myMobile:l4,
+           myAddress:l5,
+        };
+        reg.push(reg1);
+        ram()
+    }
+        function ram(){
+            document.querySelector("tbody").innerHTML = ""
+            reg.forEach(function(users){
+                var mytr=document.createElement("tr")
+                for(a in users){
+                 var mytd=document.createElement("td")
+                 mytd.innerHTML=users[a]
+                 mytr.appendChild(mytd)
+                }
+                document.querySelector("tbody").appendChild(mytr)
+            })
+          clear();     
+        }
+        function clear(){
+        document.getElementById("FirstName").value="";
+        document.getElementById("LastName").value="";
+        document.getElementById("Gender").value="";
+        document.getElementById("Mobile").value="";
+        document.getElementById("Address").value="";
+        }
+    </script>
+</body>
+</html>
