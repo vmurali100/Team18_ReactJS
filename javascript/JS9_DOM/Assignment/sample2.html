@@ -30,8 +30,8 @@
 <label>Last Name :</label><br>
 <input type="text" name="" id="LastName"><br>
 <label>Gender :</label><br>
-<input type="radio" name=""id="Gender">male</input>
-<input type="radio" name=""id="Gender">Female</input><br>
+<input type="radio" name="gender"id="">male</input>
+<input type="radio" name="gender"id="">Female</input><br>
 <label>Mobile :</label><br>
 <input type="text" name="" id="Mobile"><br>
 <label>Address :</label><br>
@@ -58,7 +58,6 @@
         function user(){
         var l1=document.getElementById("FirstName").value;
         var l2=document.getElementById("LastName").value;
-        var l3=document.getElementById("Gender").value;
         var l4=document.getElementById("Mobile").value;
         var l5=document.getElementById("Address").value;
         var reg1={
@@ -70,6 +69,11 @@
         };
         reg.push(reg1);
         ram()
+        var l3=document.getElementsByName("gender");
+        l3.forEach((gen)=>{
+            if(gender==checked)
+            reg1.myGender.push(gender).value;
+        })
     }
         function ram(){
             document.querySelector("tbody").innerHTML = ""
