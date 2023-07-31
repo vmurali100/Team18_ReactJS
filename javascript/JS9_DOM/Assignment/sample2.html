@@ -63,7 +63,7 @@
         var reg1={
            myFirstName:l1,
            myLastName:l2,
-           myGender:l3,
+           myGender:[],
            myMobile:l4,
            myAddress:l5,
         };
@@ -72,7 +72,7 @@
         var l3=document.getElementsByName("gender");
         l3.forEach((gen)=>{
             if(gender==checked)
-            reg1.myGender.push(gender).value;
+            reg1.myGender.push(gender.value);
         })
     }
         function ram(){
