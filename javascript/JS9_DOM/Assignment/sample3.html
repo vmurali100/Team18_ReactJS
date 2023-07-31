@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #fig{
+            border:2px solid black;
+            width:607px;
+            height:570px;
+            text-align: center;
+            background-image:url("https://media.istockphoto.com/id/1282569369/photo/adult-student-in-library-stock-photo.webp?b=1&s=170667a&w=0&k=20&c=TXv2ffPFo7B0bAleVX0l3nLYQKb54eUFnxwncOpiJVI=");
+            background-size: cover;
+            color:black;
+            margin: auto;
+        }
+        table{
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+<body>
+<form id="fig" action="">
+    <br><br><label for="">Firstname :</label>
+    <input type="text" id="fname"><br><br>
+    <label for="">Lastname :</label>
+    <input type="text" id="lname"><br>
+    <label for="">Course</label><br>
+    <input type="checkbox" name="subjects" value="Chemistry">Chemistry<br>
+    <input type="checkbox" name="subjects" value="Maths">Maths<br>
+    <input type="checkbox" name="subjects" value="Physics">Physics<br>
+    <label for="">Gender</label><br>
+    <input type="radio" name="gender" value="Female">Female<br>
+    <input type="radio" name="gender" value="Male">Male<br>
+    <input type="radio" name="gender" value="Others">Others<br>
+    <label for="">Phone no : </label>
+    <input type="text" id="phno"><br>
+    <label>Address</label><br>
+    <textarea name="" id="address" cols="30" rows="5"></textarea><br>
+    e-mail : <input type="email" id="mail"><br><br>
+    Password :<input type="text" id="pass"><br><br>
+    Re-Type Password :<input type="text" id="cpass"><br><br>
+    <button type="button" onclick="users()">Submit</button><br><br><br><br><br>
+    <table border="1">
+        <thead>
+            <th>Firstname</th>
+            <th>Lastname</th>
+            <th>Phone no</th>
+            <th>Address</th>
+            <th>e-mail</th>
+            <th>Password</th>
+            <th>Re-Type Password</th>
+            <th>Course</th>
+            <th>Gender</th>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+    <script>
+        var user=[];
+        function users(){
+        var l1=document.getElementById("fname").value;
+        var l2=document.getElementById("lname").value;
+        var l5=document.getElementById("phno").value;
+        var l6=document.getElementById("address").value;
+        var l7=document.getElementById("mail").value;
+        var l8=document.getElementById("pass").value;
+        var l9=document.getElementById("cpass").value;
+        var person={
+            myfname:l1,
+            mylname:l2,
+            myphno:l5,
+            myaddress:l6,
+            mymail:l7,
+            mypass:l8,
+            mycpass:l9,
+        }
+        var l3=document.getElementsByName("subjects");
+        l3.forEach(function (rbton){
+            if(rbton.checked==true){
+                person.course=rbton.value;
+            }
+        })
+        var l4=document.getElementsByName("gender");
+        l4.forEach(function(cbox){
+            if(cbox.checked==true){
+            person.gender=cbox.value;
+            }
+        })
+        user.push(person);
+        console.log(person);
+        ram();
+    }
+
+    function ram(){
+        document.querySelector("tbody").innerHTML=""
+        user.forEach(function (hlo){
+            var mytr=document.createElement("tr")
+            for(a in hlo){
+                var mytd=document.createElement("td")
+                mytd.innerHTML=hlo[a];
+                mytr.appendChild(mytd)
+            }
+            document.querySelector("tbody").appendChild(mytr);
+        })
+        clear();
+    };
+    function clear(){
+        document.getElementById("fname").value="";
+        document.getElementById("lname").value="";
+        document.getElementById("phno").value="";
+        document.getElementById("address").value="";
+        document.getElementById("mail").value="";
+        document.getElementById("pass").value="";
+        document.getElementById("cpass").value="";
+    }
+    </script>
+</form>
+</body>
+</html>
