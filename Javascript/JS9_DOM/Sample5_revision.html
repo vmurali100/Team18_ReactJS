@@ -11,7 +11,7 @@
     <!-- By defult Button Will Submit the date to myUser.php file  -->
     <!-- <form action="myUser.php">
         <label for="fname">First Name :</label>
-        <input type="text" name="" id="">
+        <input type="text" name="" >
         <button>Add User</button>
     </form> -->
     <form>
@@ -20,24 +20,51 @@
 
       <label for="">Last Name : </label>
       <input type="text" name="" id="lname" /> <br />
+      <label for="">Gender :</label>
+      <input type="radio" name="gender" value="Male" /> Male
+      <input type="radio" name="gender" value="Female" /> Female <br />
+      <br />
+      <label for="course">COURSE:</label> <br />
+      <input type="checkbox" name="course" value="english" />english <br />
+      <input type="checkbox" name="course" value="maths" />maths <br />
+      <input type="checkbox" name="course" value="science" />science <br />
+      <input type="checkbox" name="course" value="social" />social <br />
+      <label for="Selector">Selector:</label>
+      <select name="" id="Selector">
+        <input type="" name="" id="" />
+      </select>
       <button onclick="getValues()" type="button">Get Values</button>
     </form>
 
-    
     <script>
-        var allUsers = []
+      var allUsers = [];
       function getValues() {
         var fname = document.getElementById("fname").value;
         var lname = document.getElementById("lname").value;
         var person = {
           firstName: fname,
           lastName: lname,
+          course:[]
         };
+
+        var allRadioButtons = document.getElementsByName("gender");
+
+        allRadioButtons.forEach(function (rbton) {
+          if (rbton.checked == true) {
+            person.gender = rbton.value;
+          }
+        });
+        var allcheckboxes = document.getElementsByName("course");
+        allcheckboxes.forEach((element) => {
+          console.log(element.checked);
+          if (element.checked) {
+            person.course.push(element.value);
+          }
+        });
 
         allUsers.push(person);
 
-        console.log(allUsers)
-
+        console.log(allUsers);
       }
 
       // 1. Create A HTML Elements
