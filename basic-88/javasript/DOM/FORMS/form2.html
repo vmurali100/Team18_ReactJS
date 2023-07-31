@@ -4,27 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <style>
-        input#id {
-    margin-top: 10px;
-}
-label {
-    /* margin: 10px; */
-    float: left;
-    width: 130px;
-    padding: 10px;
-}
-button {
-    margin-left: 170px;
-}
-    </style>
 </head>
 <body>
     <h1 style="text-align: center;">Sign Up</h1>
-    <form style="width: 400px;background-color: aqua;margin: auto;">
-        <label for="id">Id:</label>
-        <input type="text" id="id">
-          <br>
+    <form>
+       
         <br>
         <label for="name">Name:</label>
         <input type="text" id="name">
@@ -42,10 +26,6 @@ button {
         <input type="password" id="password">
         <br>
         <br>
-        <label for="confirmPassword">Confirm Password:</label>
-        <input type="password" id="confirmPassword">
-        <br>
-        <br>
         <td colspan="2" style="text-align: center;">
             <button type="button" onclick="addUser()">Add User</button>
 
@@ -53,12 +33,12 @@ button {
 
     <table border="1">
         <thead>
-            <th>Id</th>
+            
             <th>Name</th>
             <th>Username</th>
             <th>Email</th>
             <th>Password</th>
-            <th>Confirm Password</th>
+           
 
         </thead>
         <tbody id="TableBody"></tbody>
@@ -70,21 +50,21 @@ button {
         ];
 
         function addUser() {
-            var id = document.getElementById('id').value;
+          
             var name = document.getElementById('name').value;
             var username = document.getElementById('username').value;
             var email = document.getElementById('email').value;
             var password = document.getElementById('password').value;
-            var confirmPassword = document.getElementById('confirmPassword').value;
+           
 
 
             var person = {
-                id:id,
+               
                 name: name,
                 username: username,
                 email: email,
                 password: password,
-                confirmPassword: confirmPassword
+               
             };
 
             users.push(person);
@@ -96,12 +76,12 @@ button {
         }
         function clearForm() {
             var user = {
-                id:"",
+                
                 name: "",
                 username: "",
                 email: "",
                 password: "",
-                confirmPassword: ""
+              
             }
             for (a in user) {
                 user[a] = document.getElementById(a).value = ""
@@ -130,5 +110,4 @@ button {
 
     </script>
 </body>
-
 </html>

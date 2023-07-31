@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form>
+      <label for="name">name</label>
+      <input type="text" id="name" /><br />
+      <label for="fathername">fathername</label>
+      <input type="text" id="fathername" /><br />
+      <label for="mothername">mothername</label>
+      <input type="text" id="mothername" /><br />
+      <label for="age">age</label>
+      <input type="text" id="age" /><br />
+      <label for="experience">experience</label>
+      <input type="text" id="experience" /><br />
+      <button type="button" onclick="adduser()">submit</button>
+    </form>
+    <table border="1">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>fathername</th>
+          <th>mothername</th>
+          <th>Age</th>
+          <th>experience</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+
+    <script>
+      var users = [];
+      function adduser() {
+        var person = {
+          name: "",
+          fathername: "",
+          mothername: "",
+          age: "",
+          experience: "",
+        };
+        for (a in person) {
+         person[a]=document.getElementById(a).value
+         console.log(person)
+        }
+       users.push(person)
+        displayUsers(users)
+        console.log(person)
+        clearForm()
+      }
+       function displayUsers(){
+          document.querySelector("tbody").innerHTML=""
+          users.forEach((usr) => {
+              var mytr=document.createElement("tr")
+              for(a in usr){
+                 var mytd=document.createElement("td")
+                 mytd.innerHTML=usr[a]
+                  mytr.appendChild(mytd)
+              }
+              document.querySelector("tbody").appendChild(mytr)
+          });
+       }
+        function clearForm(){
+          var  man={
+              name:"",
+              fathername:"",
+              mothername:"",
+              age:"",
+              experience:"",
+
+          }
+          for(a in man){
+              document.getElementById(a).value=""
+          }
+       }
+    </script>
+  </body>
+</html>

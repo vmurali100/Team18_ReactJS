@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Exhibitor Registration</h1>
+    <form>
+        <label for="prefix">Prefix</label>
+        <input type="text" id="prefix"><br><br>
+        <label for="name">Name</label>
+        <!-- <input type="text" id="fname"> -->
+        <input type="text" id="name"><br><br>
+        <label for="pronouns">Preferred Pronouns</label>
+        <input type="text" id="pronouns"><br><br>
+        <label for="email">Email</label>
+        <input type="text" id="email"><br><br>
+        <label for="workphone">Work Phone</label>
+        <input type="text" id="workphone"><br><br>
+        <label for="cellphone">Cell Phone</label>
+        <input type="text" id="cellphone"><br><br>
+        <label for="jobtitle">Job Title</label>
+        <input type="text" id="jobtitle"><br><br>
+        <label for="company">Company</label>
+        <input type="text" id="company"><br><br>
+        <label for="business">Full Business Adress</label><br>
+        <input type="text" id="business"><br><br>
+        <label for="website">Company Website</label><br><br>
+        <input type="text" name="" id="website"><br><br>
+        <label for="description">Company Description</label><br>
+        <input type="text" id="description"><br><br>
+        <label for="exhibit">Services to Exhibit</label><br>
+        <input type="text" id="exhibit"><br><br>
+        <button type="button" onclick="adduser()">submit</button>
+        </form>
+        <br><br>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Prefix</th>
+                    <th>Name</th>
+                    <th>Preffered pronouns</th>
+                    <th>Email</th>
+                    <th>Workphone</th>
+                    <th>Cellphone</th>
+                    <th>jobTitle</th>
+                    <th>Company</th>
+                    <th> Bussiness Adress</th>
+                    <th>Company Website</th>
+                    <th>Company Description</th>
+                    <th>Services to exhibit</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+        <script>
+            var users=[];
+            function adduser() {
+                var person={
+                    prefix:"",
+                    name:"",
+                    pronouns:"",
+                    email:"",
+                    workphone:"",
+                    cellphone:"",
+                    jobtitle:"",
+                    company:"",
+                    bussiness:"",
+                    website:"",
+                    description:"",
+                    exhibit:"",
+                };
+                for(a in person){
+                 person[a]=document.getElementById(a).value
+                 console.log(person)   
+                }
+                users.push(person)
+            }
+
+
+
+
+
+
+            
+
+            
+        </script>
+
+
+
+
+        
+
+    </form>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>registration form</h3>
+    <form>
+       <label for="name">Name:</label>
+       <input type="text" id="name"><br>
+       <label for="Age">Age:</label>
+       <input type="text" id="age"><br>
+       <label for="dateofbirth">Date Of Birth:</label>
+       <input type="text" id="dateofbirth"><br>
+       <label for="profession">profession:</label>
+       <input type="text" id="profession">
+       <label for="experience">experience:</label>
+       <input type="text" id="experience">
+       <label for="package">package:</label>
+       <input type="text" id="package">
+       <button type="button" onclick="adduser()">Adduser</button>
+</form>
+<br>
+<hr>
+<table border="1">
+    <thead>
+        <tr>
+            <th>name</th>
+            <th>age</th>
+            <th>dateofbirth</th>
+            <th>profession</th>
+            <th>experience</th>
+            <th>package</th>
+        </tr>
+        <tbody></tbody>
+    </thead>
+</table>
+<script>
+    var users=[]
+    function adduser(){
+        var person={
+            name:"",
+            age:"",
+            dateofbirth:"",
+            profession:"",
+            experience:"",
+            package:"",
+        }
+        for(a in person){
+          person[a]=document.getElementById(a).value
+            console.log(person)
+        }
+        users.push(person)
+        displayUsers(users)
+        clearForm()
+    }
+    function displayUsers(){
+        document.querySelector("tbody").innerHTML=""
+        users.forEach((usr)=>{
+            var myTr=document.createElement("tr")
+            for(a in usr){
+                var mytd=document.createElement("td")
+                mytd.innerHTML=usr[a]
+                myTr.appendChild(mytd)
+            }
+            document.querySelector("tbody").appendChild(myTr)
+                });
+    }
+    function clearForm(){
+        var person={
+            name:"",
+            age:"",
+            dateofbirth:"",
+            profession:"",
+            experience:"",
+            package:"",
+        }
+        for(a in person){
+            document.getElementById(a).value=""
+        }
+    }
+
+    
+</script>
+</body>
+</html>
