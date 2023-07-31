@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    h2{
+        text-align: center;
+        color: cadetblue;
+    }
+    table{
+        background-color: rgb(204, 217, 242);
+        width: 400px;
+           margin: auto;
+          
+    }
+    form{
+        width: 600px;
+            margin: auto;
+            text-align: center;
+            background-color: rgb(206, 241, 144);
+            padding-top: 20px;
+    }
+</style>
+<body>
+    <h2>community service hours form</h2>
+    <form>
+        <label for="firstname">firstname:</label>
+        <input type="text" name="" id="firstname">
+        <label for="lastname">lastname:</label>
+        <input type="text" name="" id="lastname"><br><br>
+        <label for="numberofhoursassigned">number of hours assigned:</label>
+        <input type="text" name="" id="numberofhoursassigned">
+        <label for="casenumber">casenumber:</label><br><br>
+        <input type="text" name="" id="casenumber">
+        <label for="placeagency">placeagency:</label>
+        <input type="text" name="" id="placeagency">
+        <button type="button" onclick="addUser()">Add User</button>
+    </form>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>firstname</th>
+                <th>lastname</th>
+                <th>numberofhoursassigned</th>
+                <th>casenumber</th>
+                <th>placeagency</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+</body>
+<script>
+    var users = [];
+    function addUser() {
+var person={
+    firstname:"",
+    lastname:"",
+    numberofhoursassigned:"",
+    casenumber:"",
+    placeagency:""
+}
+for(a in person){
+    person[a]=document.getElementById(a).value
+console.log(person)
+}
+users.push(person)
+displayUsers(users)
+clearform()
+
+    }
+function displayUsers(){
+    document.querySelector("tbody").innerHTML=""
+    users.forEach((user)=>{
+        var mytr=document.createElement("tr")
+        for(a in user){
+            var mytd=document.createElement("td")
+            mytd.innerHTML=user[a]
+            mytr.appendChild(mytd)
+        }
+        document.querySelector("tbody").appendChild(mytr)
+    })
+}
+function clearform(){
+    var person={
+    firstname:"",
+    lastname:"",
+    numberofhoursassigned:"",
+    casenumber:"",
+    placeagency:""
+}
+for (a in person){
+    document.getElementById(a).value=""
+}
+}
+</script>
+
+</html>

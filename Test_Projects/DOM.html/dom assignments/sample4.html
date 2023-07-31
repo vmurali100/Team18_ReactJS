@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form>
+
+        <label for="name">Name</label>
+        <input type="text" id="name"><br><br>
+        <label for="lastname">Lastname</label>
+        <input type="text" id="lastname"><br><br>
+        <label for="phno">Phno</label>
+        <input type="text" id="phno"><br><br>
+        <label for="age">Age</label>
+        <input type="text" id="age"><br><br>
+        <label for="email">Email</label>
+        <input type="text" id="email">
+        <button type="button" onclick="adduser()">submit</button>
+    </form>
+    <table>
+        <thead>
+            <tr>
+                <th>name</th>
+                <th>lastname</th>
+                <th>phno</th>
+                <th>age</th>
+                <th>email</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+</body>
+<script>
+    var users = [];
+    function adduser() {
+        var person = {
+            name: "",
+            lastname: "",
+            phno: "",
+            age: "",
+            email: "",
+        }
+        for (a in person) {
+            person[a] = document.getElementById(a).value
+            console.log(person)
+        }
+        users.push(person)
+        displayUsers(users)
+    }
+    function displayUsers() {
+        document.querySelector("tbody").innerHTML = ""
+        users.forEach((user) => {
+            var mytr = document.createElement("tr")
+            for (a in user) {
+                var mytd = document.createElement("td")
+                mytd.innerHTML = user[a]
+                mytr.appendChild(mytd)
+            }
+            document.querySelector("tbody").appendChild(mytr)
+        })
+    }
+
+</script>
+
+</html>
