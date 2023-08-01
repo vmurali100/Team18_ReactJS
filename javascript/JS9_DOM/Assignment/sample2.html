@@ -25,27 +25,27 @@
 <form>
 <div id="hi">
 <legend><b>Registration Form</b></legend><br>
-<label>First Name :</label><br>
+<label for="FirstName">First Name :</label><br>
 <input type="text" name="" id="FirstName"><br>
-<label>Last Name :</label><br>
+<label for="LastName">Last Name :</label><br>
 <input type="text" name="" id="LastName"><br>
-<label>Gender :</label><br>
+<label for="">Gender :</label><br>
 <input type="radio" name="gender" value="male">male</input>
 <input type="radio" name="gender" value="female">Female</input><br>
-<label>Mobile :</label><br>
-<input type="text" name="" id="Mobile"><br>
-<label>Address :</label><br>
+<label for="Mobile">Mobile :</label><br>
+<input type="number" name="" id="Mobile"><br>
+<label for="Address">Address :</label><br>
 <textarea rows="4" cols="20" id="Address"></textarea><br><br>
-<button type="button" onclick="user()">Submit</button>
+<button type="button" onclick="adduser()"> Submit </button>
 </div>
 <table border="1">
     <thead>
         <tr>
             <th>First Name</th>
             <th>Last Name</th>
+            <th>Gender</th>
             <th>Mobile</th>
             <th>Address</th>
-            <th>Gender</th>
         </tr>
     </thead>
     <tbody>
@@ -54,47 +54,58 @@
 </table>
 </form>
     <script>
-        var reg = [];
-        function user(){
-        var l1=document.getElementById("FirstName").value;
-        var l2=document.getElementById("LastName").value;
-        var l4=document.getElementById("Mobile").value;
-        var l5=document.getElementById("Address").value;
-        var reg1={
-           myFirstName:l1,
-           myLastName:l2,
-           myMobile:l4,
-           myAddress:l5,
-        };
+        var users = [];
         var allradiobuttons=document.getElementsByName("gender");
-        allradiobuttons.forEach(function (rbton){
-            if(rbton.checked == true) {
-            reg1.myGender = rbton.value;
-        }
-        });
-        reg.push(reg1);
-        console.log(reg)
-        ram()
+        function adduser(){
+        var user={
+            FirstName:"",
+            LastName:"",
+            gender:"",
+            Mobile:"",
+            Address:"",
+        };
+        for(a in user){
+            if(a != "gender"){
+            user[a]=document.getElementById(a).value;
+            }
+            else if(a == "gender"){
+            allradiobuttons.forEach((rb)=>{
+            if(rb.checked){
+                user.gender=rb.value;
+            }
+            })
+           }
     }
-        function ram(){
-            document.querySelector("tbody").innerHTML = ""
-            reg.forEach(function(users){
-                var mytr=document.createElement("tr")
-                for(a in users){
-                 var mytd=document.createElement("td")
-                 mytd.innerHTML=users[a]
-                 mytr.appendChild(mytd)
+           users.push(user);
+           displayuser();
+           clearform();  
+}
+        function displayuser(){
+            document.querySelector("tbody").innerHTML = "";
+            users.forEach((usr)=>{
+                var mytr=document.createElement("tr");
+                for(a in usr){
+                 var mytd=document.createElement("td");
+                 mytd.innerHTML=usr[a];
+                 mytr.appendChild(mytd);
                 }
                 document.querySelector("tbody").appendChild(mytr)
-            })
-          clear();     
+            }) ;  
         }
-        function clear(){
-        document.getElementById("FirstName").value="";
-        document.getElementById("LastName").value="";
-        document.getElementsByName("gender").value="";
-        document.getElementById("Mobile").value="";
-        document.getElementById("Address").value="";
+        function clearform() {
+            var user={
+            FirstName:"",
+            LastName:"",
+            gender:"",
+            Mobile:"",
+            number:"",
+        };
+        for(a in user){
+            document.getElementById(a).value=""
+            allradiobuttons.forEach((rb)=>{
+                rb.checked=false;
+            });
+        }
         }
     </script>
 </body>
