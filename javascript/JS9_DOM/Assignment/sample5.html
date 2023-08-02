@@ -6,67 +6,78 @@
     <title>Document</title>
 </head>
 <body>
+   <form>
     <label for="name">Name :</label>
-   <input type="text"id="name"> 
-   <label for="rollno">Rollno :</label>
-   <input type="text" id="rollno"> 
-   <label for="stream">Stream</label>
-   <input type="text"id="stream"> 
-   <label for="college">College</label>
-   <input type="text" id="college"> 
-   <button type="button" onclick="adduser()">Add</button>
+    <input type="text" id="name">
+    <label for="pass">Password :</label>
+    <input type="text" id="pass">
+    <label for="gender">gender :</label>
+    <input type="radio" name="gender" value="male">male
+    <input type="radio" name="gender" value="female">female
+    <input type="button" onclick="adduser()" value="add">
+   </form> 
    <table border="1">
     <thead>
         <tr>
-        <th>Name</th>
-        <th>Rollno</th>
-        <th>Stream</th>
-        <th>college</th>
-    </tr>
+         <th>Name</th>
+         <th>Password</th>
+         <th>gender</th>
+        </tr>
     </thead>
     <tbody>
-
+        
     </tbody>
-    <script>
-        var users=[];
-        function adduser(){
-            var person={
-                name:"",
-                rollno:"",
-                stream:"",
-                college:"",
-            }
-            for(a in person){
-                person[a]=document.getElementById(a).value;
-            }
-            user.push(person);
-            displayuser()
-        }
-        function displayuser() {
-            document.querySelector("tbody").innerHTML=""
-            users.forEach((usr)=>{
-                var mytr=document.createElement("tr")
-                for (a in usr){
-                    var mytd=document.createElement("td")
-                    mytd.innerHTML=usr[a]
-                    mytr.appendChild(mytd)
+   </table>
+   <script>
+    var users=[];
+    var rbtons=document.getElementsByName("gender");
+    function adduser(){
+     var person={
+        name:"",
+        pass:"",
+        gender:"",
+     }
+     for(a in person){
+        if(a != "gender"){
+            person[a]=document.getElementById(a).value;
+        }else if(a == "gender"){
+            rbtons.forEach((rb)=>{
+                if(rb.checked){
+                    person.gender=rb.value;
                 }
             })
-            document.querySelector("tbody").appendChild(mytr) 
-            clearform()
         }
-        function clearform(){
-            var person={
-                name:"",
-                rollno:"",
-                stream:"",
-                college:"",
+     }
+    users.push(person);
+    displayuser();  
+    clearform(); 
+    }
+    function displayuser(){
+        document.querySelector("tbody").innerHTML = ""
+        users.forEach((usr)=>{
+            var mytr=document.createElement("tr");
+            for(a in usr){
+                var mytd=document.createElement("td");
+                mytd.innerHTML=usr[a];
+                mytr.appendChild(mytd);
             }
-            for(a in person){
-                document.getElementById(a).value="";
-            }
-        }
-    </script>
-   </table>
+            document.querySelector("tbody").appendChild(mytr)
+        })
+        
+    }
+    function clearform(){
+        var person={
+        name:"",
+        pass:"",
+        gender:"",
+     }
+     for(a in person){
+        document.getElementById(a).value="";
+        rbtons.forEach((rb)=>{
+            rb.checked==false
+        });
+     }
+    }
+   </script>
 </body>
 </html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label for="name">Name :</label>
+   <input type="text"id="name"> 
+   <label for="rollno">Rollno :</label>
+   <input type="text" id="rollno"> 
+   <label for="stream">Stream</label>
+   <input type="text"id="stream"> 
+   <label for="college">College</label>
+   <input type="text" id="college"> 
+   <button type="button" onclick="adduser()">Add</button>
+   <table border="1">
+    <thead>
+        <tr>
+        <th>Name</th>
+        <th>Rollno</th>
+        <th>Stream</th>
+        <th>college</th>
+    </tr>
+    </thead>
+    <tbody>
+
+    </tbody>
+    <script>
+        var users=[];
+        function adduser(){
+            var person={
+                name:"",
+                rollno:"",
+                stream:"",
+                college:"",
+            }
+            for(a in person){
+                person[a]=document.getElementById(a).value;
+            }
+            user.push(person);
+            displayuser()
+        }
+        function displayuser() {
+            document.querySelector("tbody").innerHTML=""
+            users.forEach((usr)=>{
+                var mytr=document.createElement("tr")
+                for (a in usr){
+                    var mytd=document.createElement("td")
+                    mytd.innerHTML=usr[a]
+                    mytr.appendChild(mytd)
+                }
+            })
+            document.querySelector("tbody").appendChild(mytr) 
+            clearform()
+        }
+        function clearform(){
+            var person={
+                name:"",
+                rollno:"",
+                stream:"",
+                college:"",
+            }
+            for(a in person){
+                document.getElementById(a).value="";
+            }
+        }
+    </script>
+   </table>
+</body>
+</html>
