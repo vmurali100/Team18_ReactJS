@@ -5,28 +5,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
   </head>
+  <style>
+form{
+  text-align: center;
+  padding: 20px;
+  background-color: orange;
+  width: 500px;
+  margin: auto;
+}
+label {
+    float: left;
+    width: 150px;
+}
+button {
+    background: aqua;
+}
+
+  </style>
   <body>
     <form>
-      <label for="name">name:</label>
-      <input type="text" id="name" /><br /><br />
-      <label for="class">class:</label>
-      <input type="text" id="class" /><br /><br />
-      <label for="section">section:</label>
-      <input type="text" id="section" /><br /><br />
-      <label for="schoolname">schoolname:</label>
-      <input type="text" id="schoolname" /><br /><br />
-      <label for="city">city:</label>
-      <input type="text" id="city" /><br /><br />
-      <button type="button" onclick="adduser()">adduser</button>
+      <label for="name">patient name:</label>
+      <input type="text" id="name" /><br /><br>
+      <label for="age">age:</label>
+      <input type="text" name="" id="age" /><br /><br>
+      <label for="pain">pain:</label>
+      <input type="text" id="pain" /><br><br>
+      <label for="precausions">precausions</label>
+      <input type="text" id="precausions" /><br><br>
+      <button type="button" onclick="adduser()">submit</button>
     </form>
     <table border="1">
       <thead>
         <tr>
           <th>name</th>
-          <th>class</th>
-          <th>section</th>
-          <th>schoolname</th>
-          <th>city</th>
+          <th>age</th>
+          <th>pain</th>
+          <th>precausions</th>
         </tr>
       </thead>
       <tbody></tbody>
@@ -36,19 +50,19 @@
       function adduser() {
         var person = {
           name: "",
-          class: "",
-          section: "",
-          schoolname: "",
-          city: "",
+          age: "",
+          pain: "",
+          precausions: "",
         };
         for (a in person) {
           person[a] = document.getElementById(a).value;
-          console.log(person);
+          console.log(a);
         }
         users.push(person);
         displayUsers(users);
-        clearform();
+        clearForm()
       }
+
       function displayUsers() {
         document.querySelector("tbody").innerHTML = "";
         users.forEach((usr) => {
@@ -64,10 +78,9 @@
       function clearForm() {
         var person = {
           name: "",
-          class: "",
-          section: "",
-          schoolname: "",
-          city: "",
+          age: "",
+          pain: "",
+          precausions: "",
         };
         for (a in person) {
           document.getElementById(a).value = "";
