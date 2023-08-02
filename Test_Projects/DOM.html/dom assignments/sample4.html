@@ -6,23 +6,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-
+<style>
+    h2{
+        text-align: center;
+        color: black;
+    }
+    form{
+        text-align: center;
+        background-color: rgb(239, 196, 239);
+        width: 500px;
+        margin: auto;
+        padding: 20px;
+    }
+    input{
+        width: 300px;
+    }
+    table{
+        text-align: center;
+    }
+    label {
+    float: left;
+    width: 150px;
+}
+</style>
 <body>
+    <h2>form</h2>
     <form>
 
-        <label for="name">Name</label>
+        <label for="name">Name:</label>
         <input type="text" id="name"><br><br>
-        <label for="lastname">Lastname</label>
+        <label for="lastname">Lastname:</label>
         <input type="text" id="lastname"><br><br>
-        <label for="phno">Phno</label>
+        <label for="phno">Phno:</label>
         <input type="text" id="phno"><br><br>
-        <label for="age">Age</label>
+        <label for="age">Age:</label>
         <input type="text" id="age"><br><br>
-        <label for="email">Email</label>
+        <label for="email">Email:</label>
         <input type="text" id="email">
         <button type="button" onclick="adduser()">submit</button>
     </form>
-    <table>
+    <table border="1">
         <thead>
             <tr>
                 <th>name</th>
@@ -65,6 +88,18 @@
             }
             document.querySelector("tbody").appendChild(mytr)
         })
+    }
+    function clearform(){
+        var person = {
+            name: "",
+            lastname: "",
+            phno: "",
+            age: "",
+            email: "",
+        }
+        for(a in user){
+            document.getElementById(a).value=""
+        }
     }
 
 </script>
