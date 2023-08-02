@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+
+</head>
+
+<body>
+    <h2>Registration Form</h2>
+
+    <form>
+        <label for="">First Name:</label>
+        <input type="text" name="" id="FirstName"><br />
+
+        <label for="">Last Name:</label>
+        <input type="text" name="" id="LastName"><br>
+
+        <label for="Email">Email address:</label>
+        <input type="Email" name="" id="Email"><br>
+
+        <label for="Password">Password:</label>
+        <input type="Password" name="" id="password"><br><br>
+
+        <button type="button" onclick="">Register</button>
+
+    </form>
+
+    <br><br>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email address</th>
+                <th>Password</th>
+
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+    <script>
+        var users = [];
+        function Registerusers() {
+            var myfirstname = document.getElementById("FirstName").value
+            var myLastname = document.getElementById("LastName").value
+            var myEmail = document.getelmentbyid("Email").value
+            var myPassword = document.getElementById("Password").value
+
+            var user = {
+                firstname: myfirstname,
+                lastname: myLastname,
+                Email: myEmail,
+                password: myPassword,
+            }
+            users.push(user);
+            displayusers()
+        }
+
+
+    </script>
+</body>
+
+</html>
