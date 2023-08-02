@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form>
+      <label for="name">Name</label>
+      <input type="text" name="" id="name" /><br /><br />
+      <label for="class">Class</label>
+      <input type="text" name="" id="class" /><br /><br />
+      <label for="">Class</label> <br />
+      <input type="radio" name="gender" value="male" />male <br />
+      <input type="radio" name="gender" value="female" />female <br />
+      <input type="radio" name="gender" value="others" />others <br /><br />
+      <label for="">Subjects</label><br />
+      <input type="checkbox" name="Subjects" value="maths" />maths <br />
+      <input type="checkbox" name="Subjects" value="english" />english <br />
+      <input type="checkbox" name="Subjects" value="science" />science
+      <br /><br />
+
+      <button type="button" onclick="adduser()">submit</button>
+    </form>
+    <br />
+    <table border="1">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Class</th>
+          <th>Class</th>
+          <th>Subjects</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+   
+    <script>
+       var users = [];
+      var allRadioBtns=document.getElementsByName("gender")
+      var allcheckboxes=document.getElementsByName("Subjects")
+      function adduser() {
+        var allusers = {
+          name: "",
+          class: "",
+          gender: "",
+          Subjects: [],
+        };
+        for (a in allusers) {
+          if (a !== "gender" && a !== "Subjects") {
+            allusers[a] = document.getElementById(a).value;
+            console.log(allusers);
+          }else if(a=="gender"){
+            allRadioBtns.forEach((ge)=>{
+                if(ge.checked){
+                    allusers.gender=ge.value
+                }
+                
+            })
+          }else if (a=="Subjects"){
+            allcheckboxes.forEach((cb)=>{
+                if (cb.checked){
+                    allusers.Subjects.push(cb.value)
+                }
+            })
+          }
+        }
+        users.push(allusers);
+        displayUsers(users);
+        clearform()
+      }
+      function displayUsers() { 
+        document.querySelector("tbody").innerHTML="";
+        users.forEach((usr) => {
+          var mytr = document.createElement("tr");
+          for (a in usr) {
+            var mytd = document.createElement("td");
+            mytd.innerHTML = usr[a];
+            mytr.appendChild(mytd);
+          }
+          document.querySelector("tbody").appendChild(mytr);
+          allRadioBtns.forEach((ge)=>{
+            ge.checked=false
+          })
+          allcheckboxes.forEach((cb)=>{
+            cb.checked=false
+          })
+        });
+      }
+      function clearform(){
+        var allusers={
+          name: "",
+          class: "",
+          gender: "",
+          Subjects: [],
+        }
+        for(a in allusers){
+          document.getElementById(a).value="";
+        }
+      }
+    </script>
+  </body>
+</html>

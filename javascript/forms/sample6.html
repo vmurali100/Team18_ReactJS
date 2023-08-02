@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form>
+      <label for="name">Name</label><br>
+      <input type="text" name="" id="name" /><br /><br />
+      <label for="age">Age</label><br>
+      <input type="text" name="" id="age" /><br /><br />
+      <label for="gender">Gender</label><br>
+      <input type="radio" name="gender" value="Male" />Male 
+      <input type="radio" name="gender" value="Female" />Female 
+      <input type="radio" name="gender" value="others" />others <br /><br />
+      <label for="courses"> courses</label><br>
+      <input type="checkbox" name="courses" value="html" />html
+      <input type="checkbox" name="courses" value="css" />css
+      <input type="checkbox" name="courses" value="javas" />javas <br /><br />
+      <button type="button" onclick="adduser()">submit</button>
+    </form>
+    <table border="1">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Age</th>
+          <th>Gender</th>
+          <th>Courses</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+    <script>
+        users=[]
+        var allRadioBtns =document.getElementsByName("gender")
+        var allcheckboxes=document.getElementsByName("courses")
+    function adduser(){
+        var readvalue={
+            name:"",
+            age:"",
+            gender:"",
+            courses:[]
+        }
+        for(a in readvalue){
+            if (a!=="gender" && a!=="courses") {
+                readvalue[a]=document.getElementById(a).value;
+            console.log(readvalue) 
+            }else if(a=="gender"){
+                allRadioBtns.forEach((rd)=>{
+                    if(rd.checked){
+                        readvalue.gender=rd.value
+                    }
+                })
+            }else if(a=="courses"){
+                allcheckboxes.forEach((co)=>{
+                    if(co.checked){
+                        readvalue.courses.push(co.value)
+                    }
+                })
+            }
+            
+
+        }
+        users.push(readvalue)
+        displayUsers(users)
+        clearForm()
+
+    }
+    function displayUsers(){
+        document.querySelector("tbody").innerHTML=""
+        users.forEach((read)=>{
+            var mytr=document.createElement("tr")
+            for(b in read){
+                var mytd=document.createElement("td")
+                mytd.innerHTML=read[b]
+                mytr.appendChild(mytd)
+
+            }
+            document.querySelector("tbody").appendChild(mytr)
+             allRadioBtns.forEach((rd)=>{
+rd.checked=false
+
+             })
+             allcheckboxes.forEach((co)=>{
+                co.checked=false
+             })
+
+        })
+
+
+        
+    }
+    function clearForm(){
+        var readvalue={
+            name:"",
+            age:"",
+            gender:"",
+            courses:[]
+        } 
+        for(a in readvalue){
+            document.getElementById(a).value="";
+
+        }
+        
+    }
+        
+    </script>
+  </body>
+</html>

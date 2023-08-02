@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form>
+      <label for="fname">firstname</label>
+      <input type="text" name="" id="fname" /><br /><br />
+      <label for="lname">lastname</label>
+      <input type="text" name="" id="lname" /><br /><br />
+      <label for="password">Password</label>
+      <input type="text" name="" id="password" /> <br /><br />
+      <label for="cpass"> Confirm Paasword</label>
+      <input type="text" name="" id="cpass" />
+
+      <button type="button" onclick="createuser()">submit</button>
+    </form>
+
+    <table border="1">
+      <thead>
+        <tr>
+          <th>firstname</th>
+          <th>lastname</th>
+          <th>password</th>
+          <th>Confirm password</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+    <script>
+      users = [];
+      function createuser() {
+        var person = {
+          fname: "",
+          lname: "",
+          password: "",
+          cpass: "",
+        };
+
+
+        users.push(person)
+        displayUsers(users)
+      }
+    </script>
+  </body>
+</html>
