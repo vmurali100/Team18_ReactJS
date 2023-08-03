@@ -65,14 +65,18 @@
             }
             var edtd=document.createElement("td")
             var detd=document.createElement("td")
+
             var edtdbtn=document.createElement("button")
             edtdbtn.innerHTML= "Edit";
             edtdbtn.setAttribute("onclick","edituser("+i+")")
+
             var dttdbtn=document.createElement("button")
             dttdbtn.innerHTML="delete";
             dttdbtn.setAttribute("onclick","deleteuser("+i+")")
+
             edtd.appendChild(edtdbtn)
             detd.appendChild(dttdbtn)
+            
             mytr.appendChild(edtd)
             mytr.appendChild(detd)
             document.querySelector("tbody").appendChild(mytr)
