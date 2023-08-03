@@ -2,13 +2,125 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
 </head>
 
 <body>
+    <form>
+        <h1>Registration Form</h1>
+        <label for="name">Name:</label>
+        <input type="text" name="" id="name" /><br />
 
+        <label for="age">Age:</label>
+        <input type="number" name="" id="age" /><br />
+
+        <label for="phone">Phone Number:</label>
+        <input type="number" name="" id="phone" /><br />
+
+        <label for="city">City:</label>
+        <input type="text" name="" id="city" /><br />
+
+        <label for="gender">Gender : </label> <br />
+        <input type="radio" name="gender" value="Male" /> Male <br />
+        <input type="radio" name="gender" value="Female" /> Female <br />
+        <input type="radio" name="gender" value="Other" /> Other <br />
+
+        <label for="subject">Subjects :</label> <br />
+        <input type="checkbox" name="subject" value="HTML" /> HTML <br />
+        <input type="checkbox" name="subject" value="CSS" /> CSS <br />
+        <input type="checkbox" name="subject" value="JS" /> JS <br />
+        <input type="checkbox" name="subject" value="ReactJS" /> ReactJS <br />
+
+        <button type="button" onclick="addUser()">Adduser</button>
+    </form>
+    <br />
+    <hr />
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Phone Number</th>
+                <th>City</th>
+                <th>Gender</th>
+                <th>Subjects</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+    <script>
+        var users = [];
+        var allRadioBtns = document.getElementsByName("gender");
+        var allcheckboxes = document.getElementsByName("subject");
+        function addUser() {
+            var user = {
+                name: "",
+                age: "",
+                phone: "",
+                city: "",
+                gender: "",
+                subject: [],
+            };
+            for (a in user) {
+                if (a != "gender" && a != "subject") {
+                    user[a] = document.getElementById(a).value;
+                    console.log(user);
+                } else if (a == "gender") {
+                    allRadioBtns.forEach((radio) => {
+                        if (radio.checked) {
+                            user.gender = radio.value;
+                        }
+                    });
+                } else if (a == "subject") {
+                    allcheckboxes.forEach((cb) => {
+                        if (cb.checked) {
+                            user.subject.push(cb.value);
+                        }
+                    });
+                }
+            }
+            users.push(user);
+            displayersUsers(users);
+            clearForm();
+        }
+        function displayersUsers() {
+            document.querySelector("tbody").innerHTML = "";
+            users.forEach((usr) => {
+                var myTr = document.createElement("tr");
+                for (a in usr) {
+                    var mytd = document.createElement("td");
+                    mytd.innerHTML = usr[a];
+                    myTr.appendChild(mytd);
+                }
+
+                document.querySelector("tbody").appendChild(myTr);
+            });
+        }
+        function clearForm() {
+            var user = {
+                name: "",
+                age: "",
+                phone: "",
+                city: "",
+                gender: "",
+                subject: [],
+            };
+            for (a in user) {
+                document.getElementById(a).value = "";
+                allRadioBtns.forEach((radio) => {
+                    radio.checked = false;
+                });
+                allcheckboxes.forEach((cb) => {
+                    cb.checked = false;
+                });
+            }
+        }
+    </script>
+     
 </body>
 
 </html>
