@@ -18,6 +18,10 @@
         <input type="radio" name="gender" value="male">male
         <input type="radio" name="gender" value="female">female
         <input type="radio" name="gender" value="others">others<br><br>
+        <label for="sub">subjects</label>
+        <input type="checkbox" name="sub" value="english">english
+        <input type="checkbox" name="sub" value="science">science
+        <input type="checkbox" name="sub" value="telugu">telugu
         <button type="button" onclick="adduser()">adduser</button>
     </form><br>
     <table border="1">
@@ -26,6 +30,7 @@
                 <th>name</th>
                 <th>email</th>
                 <th>gender</th>
+                <th>subjects</th>
             </tr>
         </thead>
         <tbody>
@@ -35,49 +40,63 @@
     <script>
         var users = [];
         var rbts = document.getElementsByName("gender")
+        var chbox = document.getElementsByName("sub")
         function adduser() {
+
+            var person = {
+                name: "",
+                email: "",
+                gender: "",
+                sub: []
+            }
+            for (a in person) {
+                if (a !== "gender" && a !== "sub") {
+                    person[a] = document.getElementById(a).value;
+                } else if (a == "gender") {
+                    rbts.forEach((rb) => {
+                        if (rb.checked) {
+                            person.gender = rb.value
+                        }
+                    })
+                } else if (a == "sub") {
+                    chbox.forEach((ch) => {
+                        if (ch.checked) {
+                            person.sub.push(ch.value)
+
+                        }
+                    })
+                }
+
+
+                console.log(person)
+
+            }
+            users.push(person)
+            displayersUsers(users)
+        }
+
+        function displayersUsers() {
+            document.querySelector("tbody").value = ""
+            users.forEach((user) => {
+                var mytr = document.createElement("tr")
+                for (a in user) {
+                    var mytd = document.createElement("td")
+                    mytd.innerHTML = user[a]
+                    mytr.appendChild(mytd)
+                }
+                document.querySelector("tbody").appendChild(mytr)
+            })
+        }
+        function clearForm() {
             var person = {
                 name: "",
                 email: "",
                 gender: ""
             }
             for (a in person) {
-                if (a !== "gender") {
-                    person[a] = document.getElementById(a).value
-                    console.log(person)
-                } else if (a == "gender") {
-                    rbts.forEach((rb) => {
-                        if (rb.checked){
-                            person.gender=rb.value
-                        }
-                })
-                }
-
+                document.getElementById(a).value = ""
             }
-            users.push(person)
-        displayersUsers(users)
         }
-       
-function displayersUsers(){
-    users.forEach((user)=>{
-        var mytr=document.createElement("tr")
-        for(a in user){
-            var mytd=document.createElement("td")
-            mytd.innerHTML=user[a]
-            mytr.appendChild(mytd)
-        }
-        document.querySelector("tbody").appendChild(mytr)
-    })
-}
-function clearForm(){
-    var person = {
-                name: "",
-                email: "",
-                gender: ""
-            }
-            for(a in person){
-             document.getElementById(a).value=""            }
-}
     </script>
 </body>
 
