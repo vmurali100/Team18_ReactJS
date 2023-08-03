@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>form</h2>
+    <form>
+        <label for="name">name</label>
+        <input type="text" name="" id="name"><br>
+        <label for="email">email</label>
+        <input type="text" name="" id="email"><br>
+        <label for="gender">gender</label>
+        <input type="radio" name="gender" value="male">male
+        <input type="radio" name="gender" value="female">female
+        <input type="radio" name="gender" value="others">others<br><br>
+        <button type="button" onclick="adduser()">adduser</button>
+    </form><br>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>name</th>
+                <th>email</th>
+                <th>gender</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+    <script>
+        var users = [];
+        var rbts = document.getElementsByName("gender")
+        function adduser() {
+            var person = {
+                name: "",
+                email: "",
+                gender: ""
+            }
+            for (a in person) {
+                if (a !== "gender") {
+                    person[a] = document.getElementById(a).value
+                    console.log(person)
+                } else if (a == "gender") {
+                    rbts.forEach((rb) => {
+                        if (rb.checked){
+                            person.gender=rb.value
+                        }
+                })
+                }
+
+            }
+            users.push(person)
+        displayersUsers(users)
+        }
+       
+function displayersUsers(){
+    users.forEach((user)=>{
+        var mytr=document.createElement("tr")
+        for(a in user){
+            var mytd=document.createElement("td")
+            mytd.innerHTML=user[a]
+            mytr.appendChild(mytd)
+        }
+        document.querySelector("tbody").appendChild(mytr)
+    })
+}
+function clearForm(){
+    var person = {
+                name: "",
+                email: "",
+                gender: ""
+            }
+            for(a in person){
+             document.getElementById(a).value=""            }
+}
+    </script>
+</body>
+
+</html>
