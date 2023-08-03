@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- This action Attribute help to Submit the form Data to a file  -->
+    <!-- By defult Button Will Submit the date to myUser.php file  -->
+    <!-- <form action="myUser.php">
+        <label for="fname">First Name :</label>
+        <input type="text" name="" >
+        <button>Add User</button>
+    </form> -->
+    <form>
+      <label for="">First Name : </label>
+      <input type="text" name="" id="fname" /> <br />
+
+      <label for="">Last Name : </label>
+      <input type="text" name="" id="lname" /> <br />
+      <label for="">Gender :</label>
+      <input type="radio" name="gender" value="Male" /> Male
+      <input type="radio" name="gender" value="Female" /> Female <br />
+      <br />
+      <label for="course">COURSE:</label> <br />
+      <input type="checkbox" name="course" value="english" />english <br />
+      <input type="checkbox" name="course" value="maths" />maths <br />
+      <input type="checkbox" name="course" value="science" />science <br />
+      <input type="checkbox" name="course" value="social" />social <br />
+      <label for="Selector">Selector:</label>
+      <select name="" id="Selector">
+        <input type="" name="" id="" />
+      </select>
+      <button onclick="getValues()" type="button">Get Values</button>
+    </form>
+
+    <script>
+      var allUsers = [];
+      function getValues() {
+        var fname = document.getElementById("fname").value;
+        var lname = document.getElementById("lname").value;
+        var person = {
+          firstName: fname,
+          lastName: lname,
+          course:[]
+        };
+
+        var allRadioButtons = document.getElementsByName("gender");
+
+        allRadioButtons.forEach(function (rbton) {
+          if (rbton.checked == true) {
+            person.gender = rbton.value;
+          }
+        });
+        var allcheckboxes = document.getElementsByName("course");
+        allcheckboxes.forEach((element) => {
+          console.log(element.checked);
+          if (element.checked) {
+            person.course.push(element.value);
+          }
+        });
+
+        allUsers.push(person);
+
+        console.log(allUsers);
+      }
+
+      // 1. Create A HTML Elements
+      // 2. Add HTML Elements to the DOM (document.body.appendChild)
+      // 3. Edit HTML content (InnerHTML)
+      // 4. Delete HTML Elements (parentElement.removeChild)
+      // 5. Replace HTML Elements (parentChild.replaceChild)
+      // 6. Change HTML Attributes (element.setAttribute())
+      // 7. What is Synthetic Elements (Event.taret)
+      // 8. Displayed the Data in Table
+    </script>
+  </body>
+</html>

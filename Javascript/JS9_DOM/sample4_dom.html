@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table border="1">
+       <thead>
+        <tr>
+            <th>User Name</th>
+            <th>Email</th>
+            <th>City</th>
+            <th>State</th>
+            <th>Zip</th>
+        </tr>
+       </thead>
+<tbody></tbody>
+    </table>
+    <script>
+       
+        var users = [
+    {
+        "username": "user1",
+        "email": "user1@example.com",
+        "city": "San Francisco",
+        "state": "CA",
+        "zip": "94101"
+    },
+    {
+        "username": "user2",
+        "email": "user2@example.com",
+        "city": "Los Angeles",
+        "state": "CA",
+        "zip": "90001"
+    },
+    {
+        "username": "user3",
+        "email": "user3@example.com",
+        "city": "Seattle",
+        "state": "WA",
+        "zip": "98101"
+    },
+    {
+        "username": "user4",
+        "email": "user4@example.com",
+        "city": "Chicago",
+        "state": "IL",
+        "zip": "60601"
+    },
+    {
+        "username": "user5",
+        "email": "user5@example.com",
+        "city": "New York",
+        "state": "NY",
+        "zip": "10001"
+    },
+    {
+        "username": "user6",
+        "email": "user6@example.com",
+        "city": "Austin",
+        "state": "TX",
+        "zip": "73301"
+    },
+    {
+        "username": "user7",
+        "email": "user7@example.com",
+        "city": "Denver",
+        "state": "CO",
+        "zip": "80201"
+    },
+    {
+        "username": "user8",
+        "email": "user8@example.com",
+        "city": "Miami",
+        "state": "FL",
+        "zip": "33101"
+    },
+    {
+        "username": "user9",
+        "email": "user9@example.com",
+        "city": "Boston",
+        "state": "MA",
+        "zip": "02101"
+    },
+    {
+        "username": "user10",
+        "email": "user10@example.com",
+        "city": "Philadelphia",
+        "state": "PA",
+        "zip": "19019"
+    }
+]
+users.forEach((user)=>{
+            console.log(user)
+            var myTr = document.createElement("tr");
+            for(a in user){
+                var myTd = document.createElement("td")
+                myTd.innerHTML = user[a]
+                myTr.appendChild(myTd)
+            }
+            document.querySelector("tbody").appendChild(myTr)
+        })
+
+    </script>
+</body>
+</html>

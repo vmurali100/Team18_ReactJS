@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var firstNumber = Number(prompt("Please Enter first Number !!"));
+      var secondNumber = Number(prompt("Please Second  Number !!"));
+
+      function calculate() {
+        var total = firstNumber + secondNumber;
+        var diff = secondNumber - firstNumber;
+        var multiTotal = firstNumber * secondNumber;
+        var divis = secondNumber / firstNumber;
+        var restValue = secondNumber % firstNumber;
+
+        document.write(
+          "Total Is : " + total + "<br> Diff of Given Two Numbers is : " + diff
+          +"<br> Multi Total of Given Two Numbers is : " + multiTotal
+          +"<br> Divison of Given Two Numbers is : " + divis
+          +"<br> Modulus of Given Two Numbers is : " + restValue
+        );
+      }
+
+      calculate()
+    </script>
+  </body>
+</html>
