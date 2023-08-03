@@ -20,16 +20,16 @@
       <input type="radio" name="" value="gender" />Male
       <input type="radio" value="gender" />Female
       <input type="radio" value="gender" />other <br /><br />
-      <label for="courses">course</label>
+      <!-- <label for="courses">course</label>
       <input type="checkbox" name="courses" value="maths" />maths
       <input type="checkbox" name="courses" value="science" />science
-      <input type="checkbox" name="courses" value="telugu" />telugu <br /><br />
+      <input type="checkbox" name="courses" value="telugu" />telugu <br /><br /> -->
       <button type="button" onclick="adduser()">adduser</button>
     </form>
     <script>
       var users = [];
-       var allradiobtn = document.getElementsByName("gender")
-       var allcheckbox=document.getElementsByName("courses")
+       var allradiobtn =document.getElementsByName("gender")
+      //  var allcheckbox=document.getElementsByName("courses")
       function adduser() {
         var person = {
           name: "",
@@ -37,30 +37,26 @@
           phone: "",
           city: "",
           gender: "",
-          courses: [],
+          // courses: [],
         };
-        for (a in person) {
-          if (a !== "gender" && a !== "courses") {
-            person[a] = document.getElementById(a).value;
-            console.log(person);
-          } else if (a == "gender") {
+        for(a in person){
+          if(a !== "gender"){
+            person[a]=document.getElementById(a).value
+          console.log(person)
+          }
+          else if(a =="gender"){
             allradiobtn.forEach((rb)=>{
-                if(rb.checked){
-                    person.gender=rb.value
-                }
-
+              if (rb.checked){
+              person.gender=rb.value
+            }
             });
-        }else if(a =="courses"){
-            allcheckbox.forEach((cb)=>{
-                if(cb.checked){
-                    person.courses.push(cb.value)
-                }
-            })
-        }
-        
-        }
+
+            }
+
+
+          }
         users.push(person);
-      }
+        }
     </script>
   </body>
 </html>
