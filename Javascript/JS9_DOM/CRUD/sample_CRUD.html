@@ -11,8 +11,9 @@
         <label for="">First Name</label>
         <input type="text" name="" id="fname"> <br>
         <label for="">Last Name </label>
-        <input type="text" name="" id="lnames"> <br>
+        <input type="text" name="" id="lname"> <br>
         <button onclick="addUser()" type="button">Add User</button>
+        <button onclick="updateUser()" type="button">Update User</button>
     </form>
     <hr>
     <table border="1">
@@ -33,10 +34,10 @@
             // 1. Capture User Data as an object
             var user = {
                 fname:document.getElementById("fname").value,
-                lname:document.getElementById("lnames").value
+                lname:document.getElementById("lname").value
             }
             users.push(user)
-
+            localStorage.setItem("users",JSON.stringify(users))
             displayUsers()
 
         }
@@ -44,6 +45,10 @@
         // 2. Read User 
 
         function displayUsers(){
+            users = JSON.parse(localStorage.getItem("users"))
+            if(users == null){
+                users = []
+            }
             document.querySelector("tbody").innerHTML = ""
             users.forEach(function(usr,i){
                 var myTr = document.createElement("tr")
@@ -74,9 +79,37 @@
         }
         function clearForm(){
             document.getElementById("fname").value=""
-            document.getElementById("lnames").value=""
+            document.getElementById("lname").value=""
         }
+
+        function editUser(i){
+            gIndex = i
+            console.log(users[i])
+            document.getElementById("fname").value = users[i].fname
+            document.getElementById("lname").value = users[i].lname
+        }
+
+        function deleteUser(i){
+            users = users.filter((usr,index)=>{
+                return i != index
+            })
+            localStorage.setItem("users",JSON.stringify(users))
+            displayUsers()
+        }
+
+        displayUsers()
         // 3. Update User
+gIndex = null
+        function updateUser(){
+            var user = {
+                fname:document.getElementById("fname").value,
+                lname:document.getElementById("lname").value
+            }
+            users[gIndex] = user
+            localStorage.setItem("users",JSON.stringify(users))
+
+            displayUsers()
+        }
         // 4. Delete User 
     </script>
 </body>
