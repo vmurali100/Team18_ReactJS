@@ -4,9 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        .rody{
+            color: aqua;
+        }
+    </style>
 </head>
 <body>
-    <h2>form</h2>
+    <h2 class="rody">form</h2>
     <form>
         <label for="name">name</label>
         <input type="text" name="" id="name"><br>
@@ -14,6 +19,10 @@
         <input type="text" name="" id="email"><br>
         <label for="state">state</label>
         <input type="text" name="" id="state"><br>
+        <label for="gender">gender:</label>
+        <input type="radio" name="gender" value="male">male
+        <input type="radio" name="gender" value="female">female
+        <input type="radio" name="gender" value="others">others
         <button type="button" onclick="adduser()">adduser</button>
     </form>
     <table border="1">
@@ -22,6 +31,7 @@
         <th>name</th>
         <th>email</th>
         <th>state</th>
+        <th>gender</th>
     </tr>
 </thead>
 <tbody>
@@ -30,20 +40,32 @@
     </table>
     <script>
         var users=[];
+        var rbbts=document.getElementsByName("gender")
         function adduser(){
             var person={
                 name:"",
                 email:"",
-                state:""
+                state:"",
+                gender:""
             }
             for(a in person){
-                document.getElementById(a).value
+                if(a!=="gender"){
+                   person[a]= document.getElementById(a).value
                 console.log(person)
+                }else if(a=="gender"){
+                    rbbts.forEach((rb)=>{
+                        if(rb.checked){
+                        person.gender=rb.value
+                        }
+                    })
+                }
+                
             }
             users.push(person)
             displayUsers(users)
         }
         function displayUsers(){
+            document.querySelector("tbody").innerHTML=""
             users.forEach((user)=>{
                 var mytr=document.createElement("tr")
                 for(a in user){
