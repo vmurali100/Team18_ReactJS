@@ -15,6 +15,7 @@
     <input type="radio" name="gender" value="male">male
     <input type="radio" name="gender" value="female">female
     <input type="button" onclick="adduser()" value="add">
+    <button type="button" onclick="updateuser()">updateuser</button>
    </form> 
    <table border="1">
     <thead>
@@ -84,9 +85,33 @@
         
     }
     function edituser(i){
-        document.getElementById("name").value=users[].name
+        document.getElementById("name").value=users[i].name
+        document.getElementById("pass").value=users[i].pass
+        document.getElementsByName("gender").value=users[i].gender
     }
-    
+    function deleteuser(i){
+     users=users.filter((usr,index)=>{
+        return i!= index;
+     })
+     displayuser()
+    }
+    gIndex==null;
+    function updateuser() {
+        var person={
+        name:"",
+        pass:"",
+        gender:"",
+     }
+     users[i]=person,
+     displayuser() 
+    }
+    // function deleteUser(i){
+    //         users = users.filter((usr,index)=>{
+    //             return i != index
+    //         })
+    //         localStorage.setItem("users",JSON.stringify(users))
+    //         displayUsers()
+    //     }
     function clearform(){
         var person={
         name:"",

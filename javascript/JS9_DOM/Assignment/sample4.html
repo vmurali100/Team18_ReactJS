@@ -38,8 +38,9 @@
             }
             for(a in person){
                 person[a]=document.getElementById(a).value;
+                console.log(person)
             }
-            user.push(person);
+            users.push(person);
             displayuser()
         }
         function displayuser() {
@@ -51,8 +52,8 @@
                     mytd.innerHTML=usr[a]
                     mytr.appendChild(mytd)
                 }
+                document.querySelector("tbody").appendChild(mytr) 
             })
-            document.querySelector("tbody").appendChild(mytr) 
             clearform()
         }
         function clearform(){
