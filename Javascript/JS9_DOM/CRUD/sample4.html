@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form>
+        <label for="">First name</label>
+        <input type="text" name="" id="fname"><br>
+        <label for="">Last name</label>
+        <input type="text" name="" id="fname"><br>
+        <label for="">Email</label>
+        <input type="text" name="" id="email"><br>
+        <button onclick="adduser()" type="button">adduser</button>
+        <button onclick="updateuser()" type="button">updateUser</button>
+    </form>
+    <table border="1">
+        <thead>
+
+            <tr>
+                <th>First name</th>
+                <th>Last name</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+    <script>
+        var users = [];
+        function adduser() {
+            var user = {
+                fname: "",
+                lname: ""
+            }
+            for (a in user) {
+                user[a] = document.getElementById(a).value;
+                console.log(user)
+            }
+            users.push(user)
+            displayersUsers()
+        }
+        function displayersUsers() {
+            users.forEach(function (usr, i) {
+                var myTr = document.createElement("tr")
+                for (a in usr) {
+                    var mytd = document.createElement("td")
+                    mytd.innerHTML = usr[a]
+                    mytr.appendChild(mytd)
+                }
+
+                var editd = document.createElement("td")
+                var editbtn = document.createElement("button")
+                editbtn.innerHTML = "edit"
+                editbtn.setAttribute("onclick", "edituser(" + i + ")")
+                editd.appendChild(editbtn)
+                mytr.appendChild(editd)
+
+                var detd=document.createElement("td")
+                mytr.appendChild(detd)
+                var delbtn=document.createElement("button")
+                detd.appendChild(delbtn)
+                delbtn.innerHTML="delete"
+                delbtn.setAttribute("onclick","deleteuser("+i+")")
+
+                document.querySelector("tbody").appendChild(mytr)
+            })
+        }
+        function edituser(i){
+            gIndex=i
+            for (a in users[i]) {
+                document.getElementById(a).value =users[i][a]
+            }
+            displayersUsers()
+        }
+      
+    </script>
+</body>
+
+</html>
