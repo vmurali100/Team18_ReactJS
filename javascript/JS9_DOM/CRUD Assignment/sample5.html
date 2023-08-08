@@ -73,7 +73,7 @@
 
             var detd=document.createElement("td")
             mytr.appendChild(detd)
-            var debtn=document.createElement("td")
+            var debtn=document.createElement("button")
             detd.appendChild(debtn)
             debtn.innerHTML="delete"
             debtn.setAttribute("onclick","deleteuser("+i+")")
@@ -86,9 +86,8 @@
         for(a in users[i]){
             if(a != "gender"){
             document.getElementById(a).value=users[i][a]
-        }else if(a == "gender"){
-         rbtons.forEach((rb)=>{
-            if(rb.value=users[i].gender){
+            rbtons.forEach((rb)=>{
+            if(rb.value == users[i].gender){
                 rb.checked=true;
             }
          })
