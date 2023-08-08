@@ -1,0 +1,100 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+#container{
+    background-color:rgb(92, 64, 51);
+    color:blanchedalmond;
+}
+#header{
+    width:960px;
+    height: 69px;
+    margin: auto;
+    padding-bottom: 11px;
+}
+h3{
+    padding-top: 79px;
+}
+button{
+    background-color:blanchedalmond;
+    color:rgb(92, 64, 51);
+    border: 1px solid blanchedalmond;
+    float: right;
+    height: 30px;
+    width:127px;
+    
+}
+h2{
+    padding-top: 10px;
+}
+#nav{
+    background-color: blanchedalmond;
+    width:960px;
+    height: 34px;
+    margin: auto;
+    border-radius:3px ;
+    padding-top: 10px;
+   
+}
+a{
+color:rgb(92, 64, 51); 
+text-decoration: none;
+margin-left: 94px;
+}
+#gallery{
+    width:960px;
+    margin: auto;
+    margin-top:18px;
+}
+#bar{
+    width:960px;
+    margin: auto;
+}
+#box{
+    width:960px;
+    margin: auto; 
+    overflow: auto;
+    margin-top: 43px;
+}
+#box1{
+    width:480px;
+    float: right;
+    margin: auto;
+    height:313px;
+    text-align: center;
+}
+#box2{
+    width:480px;
+    float: left;
+    margin: auto;
+}
+#box3{
+    width:480px;
+    float: left;
+    margin: auto;
+    height:313px;
+    text-align: center;
+    margin-right: 100PX;
+}
+#box4{
+    width:380px;
+    float: left;
+    margin: auto;
+}
+legend {
+    background-color: beige;
+    color: rgb(92, 64, 51);
+    text-align: center;
+    height: 29px;
+    width: 950px;
+    border-radius: 3px;
+    margin-left: 5px;
+}
+#box6{
+    width: 960px;
+    border: 1px solid blanchedalmond;
+    margin: auto;
+}
+table{
+    border-collapse: collapse;
+}

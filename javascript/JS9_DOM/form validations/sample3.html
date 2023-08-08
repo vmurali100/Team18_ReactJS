@@ -1,11 +1,223 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="./sample3.css">
 </head>
+
 <body>
-    
+    <div id="container">
+        <div id="header">
+            <h2>Restaurants Tables Booking Facility</h2>
+            <button>Check Availability</button>
+        </div>
+        <div id="nav">
+            <nav>
+                <a href="">home</a>
+                <a href="">about</a>
+                <a href="">reservation</a>
+                <a href="">gallery</a>
+                <a href="">contact</a>
+                <a href="">reviews</a>
+            </nav>
+        </div>
+        <div id="gallery">
+            <img src="https://img.freepik.com/free-photo/restaurant-hall-with-lots-table_140725-6309.jpg?size=626&ext=jpg&ga=GA1.2.301797753.1688363773&semt=ais"
+                width="960px" height="420px" alt="">
+        </div>
+        <div id="bar">
+            <h2>Luxurious Dinning Decors</h2>
+            <button>Check Availability</button>
+        </div>
+        <div id="box">
+            <div id="box1">
+                <h3>Best Foods</h3><br>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic pari<br>atur facere sequi
+                    necessitatibus,
+                    eligendi corporis autem ullam. Quo sapiente aut ducimus dolorum odio pariatur ad, minima impedit
+                    obcaecati cumque quae!</p>
+                <button style="text-align: center;">Contact Us</button>
+            </div>
+            <div id="box2">
+                <img src="https://img.freepik.com/premium-photo/assorted-indian-recipes-food-various_79295-7226.jpg?size=626&ext=jpg&ga=GA1.2.301797753.1688363773&semt=ais"
+                    width="380px" height="343px" alt="">
+            </div>
+        </div>
+        <div id="box">
+            <div id="box3">
+                <h3>Cooldrinks & Icecreams</h3><br>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic pari<br>atur facere sequi
+                    necessitatibus,
+                    eligendi corporis autem ullam. Quo sapiente aut ducimus dolorum odio pariatur ad, minima impedit
+                    obcaecati cumque quae!</p>
+                <button style="text-align: center;">Make A Reservation</button>
+            </div>
+            <div id="box4">
+                <img src="https://img.freepik.com/premium-photo/delicious-colorful-ice-cream-bowl-explosion-flavor-ice-cream-different-varieties_158863-11056.jpg?size=626&ext=jpg&ga=GA1.2.301797753.1688363773&semt=ais"
+                    width="380px" height="343px" alt="">
+            </div>
+        </div>
+        <div id="box6">
+            <form id=box action="">
+                <legend>Make A Reservation</legend><br>
+                <label for="">Name*</label>
+                <input type="text" id="name"><br><br>
+                <label for="">email*</label>
+                <input type="text" id="email"><br><br>
+                <label for="">Phone Number*</label>
+                <input type="number" id="number"><br><br>
+                <label for="">date*</label>
+                <input type="date" id="date"><br><br>
+                <label for="size">Party size*</label>
+                <input type="radio" name="size" value="5-10">5-10
+                <input type="radio" name="size" value="10-15">10-15
+                <input type="radio" name="size" value="15-20">15-20
+                <input type="radio" name="size" value="20-25">20-25
+                <br><br>
+                <button type="button" onclick="adduser()" id="add">Make A Reservation</button>
+                <button type="button" onclick="updateuser()"id="update">update</button>
+            </form>
+        </div>
+    </div>
+    <br><br>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>email</th>
+                <th>Phone Number</th>
+                <th>date</th>
+                <th>Party size</th>
+                <th>edit</th>
+                <th>delete</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+    <script>
+        var users = [];
+        var sizebtn = document.getElementsByName("size")
+        function adduser() {
+            var user = {
+                name: "",
+                email: "",
+                number: "",
+                date: "",
+                size: "",
+            }
+            for (a in user) {
+                if (a != "size") {
+                    user[a] = document.getElementById(a).value;
+                }
+                else if (a == "size") {
+                    sizebtn.forEach((sz) => {
+                        if (sz.checked) {
+                            user.size = sz.value;
+                        }
+                    })
+                }
+            }
+            users.push(user)
+            displayuser();
+            clearform();
+        }
+        function displayuser() {
+            document.querySelector("tbody").innerHTML = ""
+            users.forEach((usr,i) => {
+                var mytr = document.createElement("tr")
+                for (a in usr) {
+                    var mytd = document.createElement("td")
+                    mytd.innerHTML = usr[a]
+                    mytr.appendChild(mytd)
+                }
+                var edtd=document.createElement("td")
+                mytr.appendChild(edtd)
+                var edbtn=document.createElement("button")
+                edtd.appendChild(edbtn)
+                edbtn.innerHTML="edit"
+                edbtn.setAttribute("onclick","edituser("+i+")")
+
+                var detd=document.createElement("td")
+                mytr.appendChild(detd)
+                var debtn=document.createElement("button")
+                detd.appendChild(debtn)
+                debtn.innerHTML="delete"
+                debtn.setAttribute("onclick","deleteuser("+i+")")
+
+                document.querySelector("tbody").appendChild(mytr)
+            })
+        }
+        function edituser(i){
+            gIndex=i
+            for( a in users[i]){
+                if( a!= "size"){
+                    document.getElementById(a).value = users[i][a]
+                }else if (a == "size") {
+                    sizebtn.forEach((sz) => {
+                        if (sz.value == users[i].size) {
+                            sz.checked = true
+                        }
+                    })
+                }
+            }
+            displayuser()
+            document.getElementById("add").style.display="none"
+            document.getElementById("update").style.display="block"
+        }
+        function updateuser(){
+            document.getElementById("add").style.display="block"
+            document.getElementById("update").style.display="none"
+            var user = {
+                name: "",
+                email: "",
+                number: "",
+                date: "",
+                size: "",
+            }
+            for (a in user) {
+                if (a != "size") {
+                    user[a] = document.getElementById(a).value;
+                }else if (a == "size") {
+                    sizebtn.forEach((sz) => {
+                        if (sz.checked) {
+                            user.size = sz.value;
+                        }
+                    })
+                }
+                
+            }
+            users[gIndex]=user
+            displayuser();
+            clearform();
+        }
+        function deleteuser(i) {
+            users = users.filter((usr, index) => {
+                return i != index;
+            })
+            displayuser()
+            clearform()
+        }
+        function clearform() {
+            var user = {
+                name: "",
+                email: "",
+                number: "",
+                date: "",
+                size: "",
+            }
+            for (a in user) {
+                if (a != "size") {
+                    document.getElementById(a).value = ""
+                    sizebtn.forEach((sz) => {
+                        sz.checked = false
+                    })
+                }
+            }
+        }
+    </script>
 </body>
+
 </html>
