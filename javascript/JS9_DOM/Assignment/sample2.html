@@ -12,9 +12,8 @@
             margin: auto;
             background-color: aqua;
         }
-        button{
-            background-color:plum;
-            border-radius: 5px;
+        #updatebutton{
+            display: none;
         }
         table{
             border-collapse: collapse;
@@ -36,7 +35,8 @@
 <input type="number" name="" id="Mobile"><br>
 <label for="Address">Address :</label><br>
 <textarea rows="4" cols="20" id="Address"></textarea><br><br>
-<button type="button" onclick="adduser()"> Submit </button>
+<button type="button" onclick="adduser()"id="addbutton"> Add data </button>
+<button type="button" onclick="updateuser()"id="updatebutton">Update data</button>
 </div>
 <table border="1">
     <thead>
@@ -46,6 +46,7 @@
             <th>Gender</th>
             <th>Mobile</th>
             <th>Address</th>
+            <th>Edit</th>
         </tr>
     </thead>
     <tbody>
@@ -82,15 +83,64 @@
 }
         function displayuser(){
             document.querySelector("tbody").innerHTML = "";
-            users.forEach((usr)=>{
+            users.forEach((usr,i)=>{
                 var mytr=document.createElement("tr");
                 for(a in usr){
                  var mytd=document.createElement("td");
                  mytd.innerHTML=usr[a];
                  mytr.appendChild(mytd);
                 }
+                var edtd=document.createElement("td")
+                mytr.appendChild(edtd)
+                var edbtn=document.createElement("button")
+                edtd.appendChild(edbtn)
+                edbtn.innerHTML="Edit"
+                edbtn.setAttribute("onclick","edituser("+i+")")
                 document.querySelector("tbody").appendChild(mytr)
             }) ;  
+        }
+        function edituser(i){
+            gIndex=i;
+            for(a in users[i]){
+                if(a !="gender"){
+                    document.getElementById(a).value=users[i][a]
+                }else if(a == "gender"){
+                    allradiobuttons.forEach((rb)=>{
+                        if(rb.value == users[i].gender){
+                            rb.checked=true
+                        }
+                    })
+                }
+            }
+            document.getElementById("addbutton").style.display="none"
+            document.getElementById("updatebutton").style.display="block"
+            displayuser()
+        }
+        function updateuser(){
+            document.getElementById("addbutton").style.display="block"
+            document.getElementById("updatebutton").style.display="none"
+            var user={
+            FirstName:"",
+            LastName:"",
+            gender:"",
+            Mobile:"",
+            Address:"",
+        };
+        for(a in user){
+            if(a != "gender"){
+            user[a]=document.getElementById(a).value;
+            }
+            else if(a == "gender"){
+            allradiobuttons.forEach((rb)=>{
+            if(rb.checked){
+                user.gender=rb.value;
+            }
+            })
+           }
+          }
+          users[gIndex]=user;
+          displayuser()
+          clearform()
         }
         function clearform() {
             var user={
@@ -98,7 +148,7 @@
             LastName:"",
             gender:"",
             Mobile:"",
-            number:"",
+            Address:"",
         };
         for(a in user){
             document.getElementById(a).value=""

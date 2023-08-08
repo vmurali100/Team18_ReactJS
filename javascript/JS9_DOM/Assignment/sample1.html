@@ -12,16 +12,15 @@
         text-align: center;
         margin: auto;
      }
-     button{
-    width: 168px;
-    background-color: blue;
-    color: rgb(47, 255, 127);
-     }
+
      .hu{
         border:2px solid rgb(15, 238, 242);
      }
      table{
         border-collapse:collapse;
+     }
+     #btn1{
+        display: none;
      }
     </style>
 </head>
@@ -36,7 +35,8 @@
     <input type="text" name="" id="pass"  class="hu"><br><br>
     <label for="cpass">Confirm Password :</label><br>
     <input type="text" name="" id="cpass" class="hu"><br><br>
-    <button type="button" onclick="adduser()"> <b>Register</b></button><br>
+    <button type="button" onclick="adduser()" id="btn">Register</button><br>
+    <button type="button" onclick=" updateuser()" id="btn1">update data</button>
     </form>
     <br><br>
     <table border="1">
@@ -46,6 +46,8 @@
                 <th>Email</th>
                 <th>Password</th>
                 <th>Confirm Password</th>
+                <th>Edit</th>
+                <th>Delete</th>
             </tr>
         </thead>
         <tbody>
@@ -66,21 +68,67 @@
         }
         users.push(user);
         displayUser()
+        clearForm()
     }
 
         function displayUser() {
         document.querySelector("tbody").innerHTML = ""
-        users.forEach((usr)=>{
+        users.forEach((usr,i)=>{
             var mytr=document.createElement("tr")
             for(a in usr){
                 var mytd=document.createElement("td")
                 mytd.innerHTML=usr[a]
                 mytr.appendChild(mytd)
             }
+            var edtd=document.createElement("td");
+            mytr.appendChild(edtd)
+            var edbtn=document.createElement("button")
+            edtd.appendChild(edbtn)
+            edbtn.innerHTML="Edit"
+            edbtn.setAttribute("onclick","edituser("+i+")")
             document.querySelector("tbody").appendChild(mytr)
+
+            var detd=document.createElement("td");
+            mytr.appendChild(detd)
+            var delbtn=document.createElement("button")
+            detd.appendChild(delbtn)
+            delbtn.innerHTML="Delete"
+            delbtn.setAttribute("onclick","deleteuser("+i+")")
+
         })
-        clearForm()
         }
+        function edituser(i){
+            gIndex=i;
+        for(a in users[i]){
+            document.getElementById(a).value=users[i][a];
+        }
+        document.getElementById("btn").style.display="none"
+        document.getElementById("btn1").style.display="block"
+        displayUser()
+        
+    }
+    function updateuser(){
+        document.getElementById("btn").style.display="block"
+        document.getElementById("btn1").style.display="none"
+        var user={
+            name:"",
+            email:"",
+            pass:"",
+            cpass:"",
+        };
+        for(a in user){
+            user[a]=document.getElementById(a).value;
+        }
+        users[gIndex] = user;
+        displayUser()
+        clearForm()
+    }
+    function deleteuser(i){
+        users=users.filter((usr,index)=>{
+            return i!=index
+        })
+        displayUser()
+    }
         function clearForm(){
             var user={
             name:"",
@@ -90,7 +138,9 @@
         };
         for(a in user){
             document.getElementById(a).value=""
+            
         }
+        
       }
     </script>
 </body>
