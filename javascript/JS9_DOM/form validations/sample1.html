@@ -1,43 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
-<form action="">
-    <label for="fname" >first name :</label>
-    <input type="text" id="fname" onkeyup="validate()" onblur="firstname()"><br>
-    <label for="">Last name :</label>
-    <input type="text" id="lname" onkeyup="validate()" onblur="lastname()"><br>
-    <button type="button" disabled>Login</button>
-</form>
-<script>
-   function validate(){
-    var fname=document.getElementById("fname").value;
-    var lname=document.getElementById("lname").value;
-    if(fname.length > 0 && lname.length > 0){
-       document.querySelector("button").removeAttribute("disabled") 
-    }else 
-    {
-        document.querySelector("button").setAttribute("disabled",true)
-    }
-   }
-   function firstname(){
-   if(fname.length<0){
-    document.getElementById("fname").style.border = 1px solid red;
-   }else{
-    document.getElementById("fname").style.border = 1px solid green;
-   }
-   }
-   function lastname(){
-   if(lname.length<0){
-    document.getElementById("lname").style.border = 1px solid red;
-   }else{
-    document.getElementById("lname").style.border = 1px solid green;
-   }
-   }
-</script>
+    <form action="">
+        <label for="fname">first name :</label>
+        <input type="text" id="fname" onkeyup="validate()" onblur="firstname()"><br>
+        <label for="">Last name :</label>
+        <input type="text" id="lname" onkeyup="validate()" onblur="lastname()"><br>
+        <button type="button" disabled>Login</button>
+    </form>
+    <script>
+        function validate() {
+            var fname = document.getElementById("fname").value;
+            var lname = document.getElementById("lname").value;
+            if (fname.length > 0 && lname.length > 0) {
+                document.querySelector("button").removeAttribute("disabled")
+            } else {
+                document.querySelector("button").setAttribute("disabled", true)
+            }
+        }
+        function firstname() {
+            var fname = document.getElementById("fname").value;
+            if (fname.length == 0) {
+                document.getElementById("fname").style.border = "1px solid red"
+            } else {
+                document.getElementById("fname").style.border = "1px solid green"
+            }
+        }
+        function lastname() {
+            var lname = document.getElementById("lname").value;
+            if (lname.length == 0) {
+                document.getElementById("lname").style.border = "1px solid red"
+            } else {
+                document.getElementById("lname").style.border = "1px solid green"
+            }
+        }
+    </script>
 </body>
+
 </html>
