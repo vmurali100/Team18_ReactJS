@@ -1,162 +1,185 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <style>     
-        #hi{
-            border:1px solid blacK;
-            width:300px;
+    <style>
+        #hi {
+            border: 1px solid blacK;
+            width: 300px;
             text-align: center;
             margin: auto;
             background-color: aqua;
         }
-        #updatebutton{
+
+        #updatebutton {
             display: none;
         }
-        table{
+
+        table {
             border-collapse: collapse;
         }
     </style>
 </head>
-<body>
-<form>
-<div id="hi">
-<legend><b>Registration Form</b></legend><br>
-<label for="FirstName">First Name :</label><br>
-<input type="text" name="" id="FirstName"><br>
-<label for="LastName">Last Name :</label><br>
-<input type="text" name="" id="LastName"><br>
-<label for="">Gender :</label><br>
-<input type="radio" name="gender" value="male">male</input>
-<input type="radio" name="gender" value="female">Female</input><br>
-<label for="Mobile">Mobile :</label><br>
-<input type="number" name="" id="Mobile"><br>
-<label for="Address">Address :</label><br>
-<textarea rows="4" cols="20" id="Address"></textarea><br><br>
-<button type="button" onclick="adduser()"id="addbutton"> Add data </button>
-<button type="button" onclick="updateuser()"id="updatebutton">Update data</button>
-</div>
-<table border="1">
-    <thead>
-        <tr>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Gender</th>
-            <th>Mobile</th>
-            <th>Address</th>
-            <th>Edit</th>
-        </tr>
-    </thead>
-    <tbody>
 
-    </tbody>
-</table>
-</form>
+<body>
+    <form>
+        <div id="hi">
+            <legend><b>Registration Form</b></legend><br>
+            <label for="FirstName">First Name :</label><br>
+            <input type="text" name="" id="FirstName"><br>
+            <label for="LastName">Last Name :</label><br>
+            <input type="text" name="" id="LastName"><br>
+            <label for="">Gender :</label><br>
+            <input type="radio" name="gender" value="male">male</input>
+            <input type="radio" name="gender" value="female">Female</input><br>
+            <label for="Mobile">Mobile :</label><br>
+            <input type="number" name="" id="Mobile"><br>
+            <label for="Address">Address :</label><br>
+            <textarea rows="4" cols="20" id="Address"></textarea><br><br>
+            <button type="button" onclick="adduser()" id="addbutton"> Add data </button>
+            <button type="button" onclick="updateuser()" id="updatebutton">Update data</button>
+        </div>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Gender</th>
+                    <th>Mobile</th>
+                    <th>Address</th>
+                    <th>Edit</th>
+                    <th>delete</th>
+                </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+    </form>
     <script>
         var users = [];
-        var allradiobuttons=document.getElementsByName("gender");
-        function adduser(){
-        var user={
-            FirstName:"",
-            LastName:"",
-            gender:"",
-            Mobile:"",
-            Address:"",
-        };
-        for(a in user){
-            if(a != "gender"){
-            user[a]=document.getElementById(a).value;
-            }
-            else if(a == "gender"){
-            allradiobuttons.forEach((rb)=>{
-            if(rb.checked){
-                user.gender=rb.value;
-            }
-            })
-           }
-    }
-           users.push(user);
-           displayuser();
-           clearform();  
-}
-        function displayuser(){
-            document.querySelector("tbody").innerHTML = "";
-            users.forEach((usr,i)=>{
-                var mytr=document.createElement("tr");
-                for(a in usr){
-                 var mytd=document.createElement("td");
-                 mytd.innerHTML=usr[a];
-                 mytr.appendChild(mytd);
+        var allradiobuttons = document.getElementsByName("gender");
+        function adduser() {
+            var user = {
+                FirstName: "",
+                LastName: "",
+                gender: "",
+                Mobile: "",
+                Address: "",
+            };
+            for (a in user) {
+                if (a != "gender") {
+                    user[a] = document.getElementById(a).value;
                 }
-                var edtd=document.createElement("td")
-                mytr.appendChild(edtd)
-                var edbtn=document.createElement("button")
-                edtd.appendChild(edbtn)
-                edbtn.innerHTML="Edit"
-                edbtn.setAttribute("onclick","edituser("+i+")")
-                document.querySelector("tbody").appendChild(mytr)
-            }) ;  
-        }
-        function edituser(i){
-            gIndex=i;
-            for(a in users[i]){
-                if(a !="gender"){
-                    document.getElementById(a).value=users[i][a]
-                }else if(a == "gender"){
-                    allradiobuttons.forEach((rb)=>{
-                        if(rb.value == users[i].gender){
-                            rb.checked=true
+                else if (a == "gender") {
+                    allradiobuttons.forEach((rb) => {
+                        if (rb.checked) {
+                            user.gender = rb.value;
                         }
                     })
                 }
             }
-            document.getElementById("addbutton").style.display="none"
-            document.getElementById("updatebutton").style.display="block"
-            displayuser()
+            users.push(user);
+            displayuser();
+            clearform();
         }
-        function updateuser(){
-            document.getElementById("addbutton").style.display="block"
-            document.getElementById("updatebutton").style.display="none"
-            var user={
-            FirstName:"",
-            LastName:"",
-            gender:"",
-            Mobile:"",
-            Address:"",
-        };
-        for(a in user){
-            if(a != "gender"){
-            user[a]=document.getElementById(a).value;
-            }
-            else if(a == "gender"){
-            allradiobuttons.forEach((rb)=>{
-            if(rb.checked){
-                user.gender=rb.value;
-            }
-            })
-           }
-          }
-          users[gIndex]=user;
-          displayuser()
-          clearform()
-        }
-        function clearform() {
-            var user={
-            FirstName:"",
-            LastName:"",
-            gender:"",
-            Mobile:"",
-            Address:"",
-        };
-        for(a in user){
-            document.getElementById(a).value=""
-            allradiobuttons.forEach((rb)=>{
-                rb.checked=false;
+        function displayuser() {
+            document.querySelector("tbody").innerHTML = "";
+            users.forEach((usr, i) => {
+                var mytr = document.createElement("tr");
+                for (a in usr) {
+                    var mytd = document.createElement("td");
+                    mytd.innerHTML = usr[a];
+                    mytr.appendChild(mytd);
+                }
+                var edtd = document.createElement("td")
+                mytr.appendChild(edtd)
+                var edbtn = document.createElement("button")
+                edtd.appendChild(edbtn)
+                edbtn.innerHTML = "Edit"
+                edbtn.setAttribute("onclick", "edituser(" + i + ")")
+
+                var detd = document.createElement("td");
+                mytr.appendChild(detd)
+                var debtn = document.createElement("button")
+                detd.appendChild(debtn)
+                debtn.innerHTML = "delete"
+                debtn.setAttribute("onclick", "deleteuser(" + i + ")")
+                document.querySelector("tbody").appendChild(mytr)
             });
         }
+        function edituser(i) {
+            gIndex = i;
+            for (a in users[i]) {
+                if (a != "gender") {
+                    document.getElementById(a).value = users[i][a]
+                } else if (a == "gender") {
+                    allradiobuttons.forEach((rb) => {
+                        if (rb.value == users[i].gender) {
+                            rb.checked = true
+                        }
+                    })
+                }
+            }
+            document.getElementById("addbutton").style.display = "none"
+            document.getElementById("updatebutton").style.display = "block"
+            displayuser()
+        }
+        function updateuser() {
+            document.getElementById("addbutton").style.display = "block"
+            document.getElementById("updatebutton").style.display = "none"
+            var user = {
+                FirstName: "",
+                LastName: "",
+                gender: "",
+                Mobile: "",
+                Address: "",
+            };
+            for (a in user) {
+                if (a != "gender") {
+                    user[a] = document.getElementById(a).value;
+                }
+                else if (a == "gender") {
+                    allradiobuttons.forEach((rb) => {
+                        if (rb.checked) {
+                            user.gender = rb.value;
+                        }
+                    })
+                }
+            }
+            users[gIndex] = user;
+            displayuser()
+            clearform()
+        }
+        function deleteuser(i) {
+            users = users.filter((usr, index) => {
+                return i != index;
+            })
+            displayuser()
+            clearform()
+        }
+        function clearform() {
+            var user = {
+                FirstName: "",
+                LastName: "",
+                gender: "",
+                Mobile: "",
+                Address: "",
+            };
+            for (a in user) {
+                if (a != "gender") {
+                    document.getElementById(a).value = ""
+                    allradiobuttons.forEach((rb) => {
+                        rb.checked = false;
+                    });
+                }
+            }
+
         }
     </script>
 </body>
+
 </html>

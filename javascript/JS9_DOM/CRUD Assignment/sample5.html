@@ -4,18 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        #updatedata{
+            display: none
+        }
+        table{
+        border-collapse:collapse;
+    }
+    </style>
 </head>
 <body>
    <form>
     <label for="name">Name :</label>
-    <input type="text" id="name">
+    <input type="text" id="name"><br><br>
     <label for="pass">Password :</label>
-    <input type="text" id="pass">
+    <input type="text" id="pass"><br><br>
     <label for="gender">gender :</label>
     <input type="radio" name="gender" value="male">male
-    <input type="radio" name="gender" value="female">female
-    <input type="button" onclick="adduser()" value="add">
-    <button type="button" onclick="updateuser()">updateuser</button>
+    <input type="radio" name="gender" value="female">female<br><br>
+    <button type="button" onclick="adduser()" id="adddata">Add data</button><br>
+    <button type="button" onclick="updateuser()"id="updatedata">update data</button><br><br>
    </form> 
    <table border="1">
     <thead>
@@ -93,6 +101,8 @@
          })
         }
         }
+        document.getElementById("adddata").style.display="none"
+        document.getElementById("updatedata").style.display="block"
     }
     function deleteuser(i){
      users=users.filter((usr,index)=>{
@@ -101,6 +111,8 @@
      displayuser()
     }
     function updateuser() {
+        document.getElementById("adddata").style.display="block"
+        document.getElementById("updatedata").style.display="none"
         var person={
         name:"",
         pass:"",
