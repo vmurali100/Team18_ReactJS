@@ -64,30 +64,32 @@
                 mytd.innerHTML=usr[a];
                 mytr.appendChild(mytd);
             }
-            var edtd=document.createElement("td")
-            var detd=document.createElement("td")
-
-            var edtdbtn=document.createElement("button")
-            edtdbtn.innerHTML= "Edit";
-            edtdbtn.setAttribute("onclick","edituser("+i+")")
-
-            var dttdbtn=document.createElement("button")
-            dttdbtn.innerHTML="delete";
-            dttdbtn.setAttribute("onclick","deleteuser("+i+")")
-
-            edtd.appendChild(edtdbtn)
-            detd.appendChild(dttdbtn)
-            
+            var edtd=document.createElement("td");
             mytr.appendChild(edtd)
-            mytr.appendChild(detd)
+            var edtbtn=document.createElement("button")
+            edtd.appendChild(edbtn)
+            edbtn.innerHTML="edit"
+            edbtn.SetAttribute("onclick","edituser("+i+")")
+
+            var detd=document.createElement("td")
+            mytr.appendChild(edtd)
+            var debtn=document.createElement("td")
+            detd.appendChild(debtn)
+            debtn.innerHTML="delete"
+            debtn.setAttribute("onclick","deleteuser("+i+")")
             document.querySelector("tbody").appendChild(mytr)
         })
         
     }
     function edituser(i){
-        document.getElementById("name").value=users[i].name
-        document.getElementById("pass").value=users[i].pass
-        document.getElementsByName("gender").value=users[i].gender
+        gIndex=i
+        if(a != "gender"){
+
+            
+        }
+        for(a in users[i]){
+            document.getElementById(a).value=users[i][a]
+        }
     }
     function deleteuser(i){
      users=users.filter((usr,index)=>{
@@ -105,13 +107,6 @@
      users[i]=person,
      displayuser() 
     }
-    // function deleteUser(i){
-    //         users = users.filter((usr,index)=>{
-    //             return i != index
-    //         })
-    //         localStorage.setItem("users",JSON.stringify(users))
-    //         displayUsers()
-    //     }
     function clearform(){
         var person={
         name:"",
