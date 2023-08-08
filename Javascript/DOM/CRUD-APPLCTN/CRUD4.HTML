@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form>
+      <label for="name">name</label>
+      <input type="name" id="name" />
+      <label for="age">age</label>
+      <input type="name" id="age" />
+      <label for="class">class</label>
+      <input type="name" id="class" />
+      <label for="section">section</label>
+      <input type="name" id="section" />
+      <button type="button" onclick="adduser()">adduser</button>
+      <button type="button" onclick="update()">update</button>
+    </form>
+    <table border="1">
+      <thead>
+        <tr>
+          <th>name</th>
+          <th>age</th>
+          <th>class</th>
+          <th>section</th>
+          <th>edit</th>
+          <th>delete</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+    <script>
+      var users = [];
+      function adduser() {
+        var user = {
+          name: "",
+          age: "",
+          class: "",
+          section: "",
+        };
+        for (a in user) {
+          user[a] = document.getElementById(a).value;
+          console.log(user);
+        }
+        users.push(user);
+        displayusers(users);
+        clearform();
+      }
+      function displayusers() {
+        document.querySelector("tbody").innerHTML = "";
+        users.forEach((usr, i) => {
+          var mytr = document.createElement("tr");
+          for (a in usr) {
+            var mytd = document.createElement("td");
+            mytd.innerHTML = usr[a];
+            mytr.appendChild(mytd);
+          }
+          var edittd = document.createElement("td");
+          var editBtn = document.createElement("button");
+          editBtn.innerHTML = "edit";
+          editBtn.setAttribute("onclick", "edituser(" + i + ")");
+          edittd.appendChild(editBtn);
+          mytr.appendChild(edittd);
+
+
+          var deltd = document.createElement("td");
+          var delbtn = document.createElement("button");
+          delbtn.innerHTML = "delete";
+          delbtn.setAttribute("onclick", "deleteuser(" + i + ")");
+          deltd.appendChild(delbtn);
+          mytr.appendChild(deltd);
+
+
+
+
+          document.querySelector("tbody").appendChild(mytr);
+        });
+      }
+      function edituser(i) {
+        gindex = i;
+        // document.getElementById("name").value = index[i].name;
+        // document.getElementById("age").value = index[i].age;
+        // document.getElementById("class").value = index[i].class;
+        // document.getElementById("section").value = index[i].section;
+        for (a in users[i]) {
+          document.getElementById(a).value = users[i][a];
+        }
+      }
+        function deleteuser(i) {
+         users=users.filter((usr,index)=>{
+          return index !=i
+         })
+        
+        displayusers();
+      }
+      function clearform() {
+        var user = {
+          name: "",
+          age: "",
+          class: "",
+          section: "",
+        };
+        for (a in user) {
+          document.getElementById(a).value = "";
+        }
+      }
+      function update(){
+        var user = {
+          name: "",
+          age: "",
+          class: "",
+          section: "",
+        };
+        for (a in user) {
+          user[a] = document.getElementById(a).value;
+          console.log(user);
+        }
+        users[gindex]=user
+        displayusers(users)
+        clearform()
+      }
+
+    </script>
+  </body>
+</html>

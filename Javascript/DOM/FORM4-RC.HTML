@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form>
+      <label for="fname">firstname</label>
+      <input type="text" name="" id="fname" /><br /><br />
+      <label for="lname">lastname</label>
+      <input type="text" name="" id="lname" /><br /><br />
+      <label for="gender">gender</label>
+      <input type="radio" name="gender" value="male" />male
+      <input type="radio" name="gender" value="female" />female
+      <button type="button" onclick="getvalues()">getvalues</button>
+    </form>
+    <script>
+      var users=[];
+      function getvalues(){
+          var user={
+              fname:"",
+              lname:"",
+          }
+          var radiobuttons=document.getElementById(gender)
+          allradiobuttons.forEach((rbton)=>{
+              if(rbton.checked==true){
+                  person.gender=rbton.value;
+              }
+          })
+        //   var allcheckboxes=document.getElementsByName("course");
+        //   allcheckboxes.forEach((cb)=>{
+        //       console.log(cb.checked)
+        //       if(cb.checked){
+        //           person.course.push(cb.value);
+        //       }
+
+        //   })
+        allusers.push(person);
+        console.log(allusers)
+
+
+
+
+      }
+    </script>
+  </body>
+</html>

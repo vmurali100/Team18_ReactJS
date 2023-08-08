@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form>
+      <label for="name">name</label>
+      <input type="text" id="name">
+      <label for="class">class</label>
+      <input type="text" id="class">
+      <label for="section">section</label>
+      <input type="text" id="section">
+      <label for="adress">adress</label>
+      <input type="text" id="adress">
+      <button type="button" onclick="adduser()">adduser</button>
+    </form>
+      <table border="1">
+        <thead>
+          <tr>
+            <th>name</th>
+            <th>class</th>
+            <th>section</th>
+            <th>adress</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    
+    <script>
+      var users = [];
+      function adduser() {
+        var person = {
+          name: "",
+          class: "",
+          section: "",
+          adress: "",
+        };
+        for (a in person) {
+          person[a] = document.getElementById(a).value;
+          console.log(person);
+        }
+        users.push(person);
+        displayusers(users);
+      }
+      function displayusers() {
+        document.querySelector("tbody").innerHTML = "";
+        users.forEach((usr) => {
+          var mytr = document.createElement("tr");
+          for (a in usr) {
+           var mytd = document.createElement("td");
+            mytd.innerHtml = usr[a];
+            mytr.appendChild(mytd);
+          }
+          document.querySelector("tbody").appendChild(mytr);
+        });
+      }
+    </script>
+  </body>
+</html>
