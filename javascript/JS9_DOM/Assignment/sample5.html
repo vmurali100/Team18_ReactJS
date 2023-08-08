@@ -66,13 +66,13 @@
             }
             var edtd=document.createElement("td");
             mytr.appendChild(edtd)
-            var edtbtn=document.createElement("button")
+            var edbtn=document.createElement("button")
             edtd.appendChild(edbtn)
             edbtn.innerHTML="edit"
-            edbtn.SetAttribute("onclick","edituser("+i+")")
+            edbtn.setAttribute("onclick","edituser("+i+")")
 
             var detd=document.createElement("td")
-            mytr.appendChild(edtd)
+            mytr.appendChild(detd)
             var debtn=document.createElement("td")
             detd.appendChild(debtn)
             debtn.innerHTML="delete"
@@ -83,12 +83,16 @@
     }
     function edituser(i){
         gIndex=i
-        if(a != "gender"){
-
-            
-        }
         for(a in users[i]){
+            if(a != "gender"){
             document.getElementById(a).value=users[i][a]
+        }else if(a == "gender"){
+         rbtons.forEach((rb)=>{
+            if(rb.value=users[i].gender){
+                rb.checked=true;
+            }
+         })
+        }
         }
     }
     function deleteuser(i){
@@ -97,15 +101,26 @@
      })
      displayuser()
     }
-    gIndex==null;
     function updateuser() {
         var person={
         name:"",
         pass:"",
         gender:"",
+     } 
+        for(a in person){
+            if(a != "gender"){
+        person[a]=document.getElementById(a).value;
+        }else if(a == "gender"){
+            rbtons.forEach((rb)=>{
+                if(rb.checked){
+                    person.gender=rb.value;
+                }
+            })
+        }
      }
-     users[i]=person,
+     users[gIndex]=person,
      displayuser() 
+     clearform()
     }
     function clearform(){
         var person={
@@ -114,10 +129,12 @@
         gender:"",
      }
      for(a in person){
+        if(a !== "gender"){
         document.getElementById(a).value="";
         rbtons.forEach((rb)=>{
-            rb.checked==false
+        rb.checked = false
         });
+        }
      }
     }
    </script>
