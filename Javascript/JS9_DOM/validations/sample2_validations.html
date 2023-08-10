@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <label for="">Email : </label
+            >
+        <input type="text" name="" id="email" onkeyup="validate()"> <br>
+        <p style="color: red;display: none;">Please enter a Valid Email Address</p>
+        <button disabled>Add User </button>
+    </form>
+    <script>
+        function validate(){
+            document.querySelector("p").style.display="block"
+            var emailValue = document.getElementById("email").value 
+            var pattern = /^[a-z0-9]+@[a-z]+\.[a-z]{2,3}$/
+            if(pattern.test(emailValue)){
+                document.querySelector("button").removeAttribute("disabled")
+                document.querySelector("p").style.display="none"
+            }else{
+                document.querySelector("button").setAttribute("disabled",true)
+            }
+        }
+    </script>
+</body>
+</html>

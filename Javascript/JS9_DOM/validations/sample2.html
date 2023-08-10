@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    form {
+      width: 600px;
+      margin: auto;
+      text-align: center;
+      background-color: darkkhaki;
+      padding-top: 20px;
+    }
+
+    label {
+      float: left;
+      width: 150px;
+    }
+
+    table {
+      width: 600px;
+      margin: auto;
+      text-align: center;
+      padding: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <h2 style="color: cornflowerblue; text-align: center;">Student Registration Form</h2>
+  <form>
+    <label for="">Name:</label>
+    <input type="text" name="" id="name"><br><br>
+    <label for="">Email:</label>
+    <input type="text" name="" id="email"><br><br>
+    <label for="">Password:</label>
+    <input type="text" name="" id="password"><br><br>
+    <label for="">Phone Number:</label>
+    <input type="text" name="" id="phonenumber"><br><br>
+    <label for="gender">Gender:</label>
+    <input type="radio" name="gender" value="female">female
+    <input type="radio" name="gender" value="male">male
+    <input type="radio" name="gender" value="others">others<br><br>
+    <label for="">Zip code:</label>
+    <input type="text" name="" id="zipcode"><br><br>
+    <label for="">About:</label>
+    <input type="text" name="" id="about"><br><br>
+    <label for="date">date:</label>
+    <input type="date" id="date"><br><br>
+    <button type="button" onclick="adduser()">adduser</button><br><br>
+    <button type="button" onclick="updateuser()">update user</button>
+  </form>
+  <table border="1">
+    <thead>
+      <tr>
+        <th>name</th>
+        <th>email</th>
+        <th>password</th>
+        <th>phonenumber</th>
+        <th>zipcode</th>
+        <th>about</th>
+        <th>date</th>
+        <th>gender</th>
+        <th>edit</th>
+        <th>delete</th>
+      </tr>
+    </thead>
+    <tbody>
+
+    </tbody>
+  </table>
+  <script>
+    var users = [];
+    var rbbts = document.getElementsByName("gender")
+    function adduser() {
+      var person = {
+        name: "",
+        email: "",
+        password: "",
+        phonenumber: "",
+        zipcode: "",
+        about: "",
+        date: "",
+        gender: "",
+      }
+      for (a in person) {
+        if (a !== "gender") {
+          person[a] = document.getElementById(a).value
+          console.log(person)
+        } else if (a == "gender") {
+          rbbts.forEach((rb) => {
+            if (rb.checked) {
+              person.gender = rb.value
+            }
+          })
+        }
+
+      }
+      users.push(person)
+      displayUsers()
+      clearForm()
+      // window.location.href="http://127.0.0.1:5500/Javascript/JS9_DOM/validations/sample4.html"
+    }
+
+    function displayUsers() {
+      document.querySelector("tbody").innerHTML = ""
+      users.forEach((user, i) => {
+        var mytr = document.createElement("tr")
+        for (a in user) {
+          var mytd = document.createElement("td")
+          mytd.innerHTML = user[a]
+          mytr.appendChild(mytd)
+        }
+
+        var editd = document.createElement("td")
+        var editbtn = document.createElement("button")
+        editbtn.innerHTML = "edit"
+        editbtn.setAttribute("onclick", "edituser(" + i + ")")
+        editd.appendChild(editbtn)
+        mytr.appendChild(editd)
+        document.querySelector("tbody").appendChild(mytr)
+
+        var deltd = document.createElement("td")
+        var deletebtn = document.createElement("button")
+        deletebtn.innerHTML = "delete"
+        deletebtn.setAttribute("onclick", "deleteuser(" + i + ")")
+        deltd.appendChild(deletebtn)
+        mytr.appendChild(deltd)
+        document.querySelector("tbody").appendChild(mytr)
+
+      })
+
+    }
+    function clearForm() {
+      var person = {
+        name: "",
+        email: "",
+        password: "",
+        phonenumber: "",
+        zipcode: "",
+        about: "",
+        date: "",
+        gender: ""
+      }
+      for (a in person) {
+        if (a != "gender") {
+          document.getElementById(a).value = ""
+        } else if (a == "gender") {
+          rbbts.forEach((rb) => {
+            rb.checked = false
+          })
+        }
+
+
+
+      }
+    }
+    function edituser(i) {
+      gIndex = i
+      for (a in users[i]) {
+        if (a != "gender") {
+          document.getElementById(a).value = users[i][a]
+        } else if (a == "gender") {
+          rbbts.forEach((radio) => {
+            if (radio.value == users[i].gender) {
+              radio.checked =true
+            }
+          })
+        }
+
+      }
+
+    }
+
+    function updateuser() {
+
+      var person = {
+        name: "",
+        email: "",
+        password: "",
+        phonenumber: "",
+        zipcode: "",
+        about: "",
+        date: "",
+        gender: "",
+      }
+      for (a in person) {
+        if (a !== "gender") {
+          person[a] = document.getElementById(a).value
+          console.log(person)
+        } else if (a == "gender") {
+          rbbts.forEach((rb) => {
+            if (rb.checked) {
+              person.gender = rb.value
+            }
+          })
+        }
+
+      }
+      users[gIndex] = person;
+      displayUsers()
+      clearform()
+    }
+    function deleteuser(i) {
+      users = users.filter((usr, index) => {
+        return i != index
+      })
+      displayUsers()
+    }
+
+
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Signup</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+  }
+  .container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  .form-group {
+    margin-bottom: 15px;
+  }
+  label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  input[type="date"],
+  input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+  }
+  .error-message {
+    color: red;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <h2>Student Signup</h2>
+  <form id="signup-form">
+    <div class="form-group">
+      <label for="first-name">First Name:</label>
+      <input type="text" id="first-name" name="first-name" required>
+    </div>
+    <div class="form-group">
+      <label for="last-name">Last Name:</label>
+      <input type="text" id="last-name" name="last-name" required>
+    </div>
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+    </div>
+    <div class="form-group">
+      <label for="phone">Phone Number:</label>
+      <input type="tel" id="phone" name="phone" required>
+    </div>
+    <div class="form-group">
+      <label for="dob">Date of Birth:</label>
+      <input type="date" id="dob" name="dob" required>
+    </div>
+    <div class="form-group">
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" required>
+    </div>
+    <div class="form-group">
+      <label for="confirm-password">Confirm Password:</label>
+      <input type="password" id="confirm-password" name="confirm-password" required>
+    </div>
+    <button type="submit">Sign Up</button>
+  </form>
+  <p class="error-message" id="error-message"></p>
+</div>
+
+<script>
+  const form = document.getElementById("signup-form");
+  const errorMessage = document.getElementById("error-message");
+
+  form.addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    const firstName = document.getElementById("first-name").value;
+    const lastName = document.getElementById("last-name").value;
+    const email = document.getElementById("email").value;
+    const phone = document.getElementById("phone").value;
+    const dob = document.getElementById("dob").value;
+    const password = document.getElementById("password").value;
+    const confirmPassword = document.getElementById("confirm-password").value;
+
+    if (password !== confirmPassword) {
+      errorMessage.textContent = "Passwords do not match.";
+      return;
+    }
+
+    // Perform any additional validations here
+
+    // If all validations pass, you can proceed with form submission
+    errorMessage.textContent = ""; // Clear any previous error message
+    // You can send the form data to a server or perform any other action here
+    alert("Signup successful!");
+  });
+</script>
+</body>
+</html>
