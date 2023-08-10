@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Facebook Signup Page</title>
+    <style>
+        /* Add your CSS styles here */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f4f7;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="password"],
+        input[type="date"],
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        select {
+            height: 36px;
+        }
+
+        .error-message {
+            color: red;
+            font-size: 0.9rem;
+            margin-top: -10px;
+            margin-bottom: 10px;
+            display: none;
+        }
+
+        button {
+            background-color: #1877f2;
+            color: #fff;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        button:hover {
+            background-color: #0f71f1;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Create a New Account</h1>
+        <form id="signup-form">
+            <label for="first-name">First Name</label>
+            <input type="text" id="first-name" name="first-name" required>
+            <div class="error-message" id="first-name-error">Please enter your first name.</div>
+
+            <label for="surname">Surname</label>
+            <input type="text" id="surname" name="surname" required>
+            <div class="error-message" id="surname-error">Please enter your surname.</div>
+
+            <label for="email-mobile">Email or Mobile Number</label>
+            <input type="text" id="email-mobile" name="email-mobile" required>
+            <div class="error-message" id="email-mobile-error">Please enter a valid email or mobile number.</div>
+
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required>
+            <div class="error-message" id="password-error">Please enter a password.</div>
+
+            <label for="confirm-password">Confirm Password</label>
+            <input type="password" id="confirm-password" name="confirm-password" required>
+            <div class="error-message" id="confirm-password-error">Passwords do not match.</div>
+
+            <label for="dob">Date of Birth</label>
+            <input type="date" id="dob" name="dob" required>
+            <div class="error-message" id="dob-error">Please select your date of birth.</div>
+
+            <label for="gender">Gender</label>
+            <select id="gender" name="gender" required>
+                <option value="" disabled selected>Select your gender</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+            </select>
+            <div class="error-message" id="gender-error">Please select your gender.</div>
+
+            <button type="button" id="signup-button">Sign Up</button>
+        </form>
+    </div>
+
+    <script>
+        var firstNameInput = document.getElementById("first-name");
+        var surnameInput = document.getElementById("surname");
+        var emailMobileInput = document.getElementById("email-mobile");
+        var passwordInput = document.getElementById("password");
+        var confirmPasswordInput = document.getElementById("confirm-password");
+        var dobInput = document.getElementById("dob");
+        var genderInput = document.getElementById("gender");
+        var signupButton = document.getElementById("signup-button");
+
+        var firstNameError = document.getElementById("first-name-error");
+        var surnameError = document.getElementById("surname-error");
+        var emailMobileError = document.getElementById("email-mobile-error");
+        var passwordError = document.getElementById("password-error");
+        var confirmPasswordError = document.getElementById("confirm-password-error");
+        var dobError = document.getElementById("dob-error");
+        var genderError = document.getElementById("gender-error");
+
+        signupButton.addEventListener("click", () => {
+            validateForm();
+        });
+
+        function validateForm() {
+            resetErrors();
+
+            let isValid = true;
+
+            if (!firstNameInput.value) {
+                isValid = false;
+                firstNameError.style.display = "block";
+            }
+
+            if (!surnameInput.value) {
+                isValid = false;
+                surnameError.style.display = "block";
+            }
+
+            if (!emailMobileInput.value) {
+                isValid = false;
+                emailMobileError.style.display = "block";
+            }
+
+            if (!passwordInput.value) {
+                isValid = false;
+                passwordError.style.display = "block";
+            }
+
+            if (passwordInput.value !== confirmPasswordInput.value) {
+                isValid = false;
+                confirmPasswordError.style.display = "block";
+            }
+
+            if (!dobInput.value) {
+                isValid = false;
+                dobError.style.display = "block";
+            }
+
+            if (!genderInput.value) {
+                isValid = false;
+                genderError.style.display = "block";
+            }
+
+            if (isValid) {
+                // Perform further actions, such as submitting the form
+                alert("Form submitted successfully!");
+            }
+        }
+
+        function resetErrors() {
+            const errorMessages = document.querySelectorAll(".error-message");
+            errorMessages.forEach((errorMessage) => {
+                errorMessage.style.display = "none";
+            });
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,86 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Facebook Login Page</title>
+    <link rel="stylesheet" href="./facebook.css">
+</head>
+
+<body>
+    <div class="content">
+        <div class="flex-div">
+            <div class="name-content">
+                <h1 class="logo">Facebook</h1>
+                <p>Connect with friends and the world around you on Facebook.</p>
+            </div>
+            <form>
+                <input type="text" id="email" onkeyup="emailvalidate()" onblur="handlefnameError()"
+                    placeholder="Email or Phone Number">
+
+
+
+                <input type="password" id="password" onkeyup="passwordvalidate()" onblur="handlelnameError()"
+                    placeholder="Password">
+                <button type="button" disabled class="login">Log In</button>
+
+                <a href="#">Forgot Password ?</a><br>
+                <p style="color: red;display: none;">Please enter a Valid Email Address</p>
+                <hr>
+                <button class="create-account">Create New Account</button><br>
+
+            </form>
+
+        </div>
+    </div>
+    <script>
+        function emailvalidate() {
+            document.querySelector("p").style.display = "block"
+            var email = document.getElementById("email").value
+            var pattern = /^[a-z0-9]+@[a-z]+\.[a-z]{2,3}$/
+            if (pattern.test(email)) {
+                document.querySelector("button").removeAttribute("disabled")
+
+                // document.querySelector("p").style.display = "none"
+            } else {
+                document.querySelector("button").setAttribute("disabled", true)
+            }
+        }
+        function passwordvalidate() {
+            var password = document.getElementById("password").value
+
+            if (password.length > 0) {
+                document.querySelector("button").removeAttribute("disabled")
+            } else {
+                document.querySelector("button").setAttribute("disabled", true)
+            }
+        }
+
+        function handlefnameError() {
+            var email = document.getElementById("email").value
+
+            if (email.length == 0) {
+                document.getElementById("email").style.border = "3px solid red"
+            } else {
+                document.getElementById("email").style.border = "3px solid"
+            }
+
+        }
+
+        function handlelnameError() {
+            var password = document.getElementById("password").value
+
+            if (password.length == 0) {
+                document.getElementById("password").style.border = "3px solid red"
+            } else {
+                document.getElementById("password").style.border = "3px solid"
+            }
+        }
+
+
+
+    </script>
+</body>
+
+</html>

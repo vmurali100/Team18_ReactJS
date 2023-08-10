@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validation</title>
+</head>
+
+<body>
+    <form>
+        <label for="">Username:</label>
+        <input type="text" name="" id="uname" onkeyup="validate()" onblur="handleusernameerror()"><br>
+
+        <label for="">Password:</label>
+        <input type="text" name="" id="password" onkeyup="validate()" onblur="handlepassworderror()"><br>
+
+        <button disabled>Login</button>
+    </form>
+    <script>
+        function validate() {
+            var uname = document.getElementById("uname").value
+            var password = document.getElementById("password").value
+            if (uname.length > 0 && password.length > 0) {
+                document.querySelector("button").removeAttribute("disabled")
+            } else {
+                document.querySelector("button").setAttribute("disabled", true)
+            }
+        }
+        function handleusernameerror() {
+            var uname = document.getElementById("uname").value
+
+            if (uname.length == 0) {
+                document.getElementById("uname").style.border = "1px solid red"
+            }
+            else {
+                document.getElementById("uname").style.border = "1px solid"
+            }
+        }
+        function handlepassworderror() {
+            var password = document.getElementById("password").value
+
+            if (password.length == 0) {
+                document.getElementById("password").style.border = "1px solid red"
+            }
+            else {
+                document.getElementById("password").style.border = "1px solid"
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>User Management</title>
+</head>
+
+<body>
+    <h2>Login</h2>
+    <form id="loginForm">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+        <br>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+        <br>
+        <button type="submit">Login</button>
+    </form>
+
+    <h2>User List</h2>
+    <table id="userTable" border="1">
+        <tr>
+            <th>Username</th>
+            <th>Password</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+    </table>
+
+    <script>
+        // Sample data (You can replace this with data from a server or a database)
+        let users = [
+            { username: "user1", password: "pass1" },
+            { username: "user2", password: "pass2" },
+            { username: "user3", password: "pass3" }
+        ];
+
+        // Function to create the table
+        function createTable() {
+            let table = document.getElementById("userTable");
+
+            users.forEach(user => {
+                let row = table.insertRow();
+                row.insertCell().textContent = user.username;
+                row.insertCell().textContent = user.password;
+                row.insertCell().innerHTML = '<button onclick="editUser(this)">Edit</button>';
+                row.insertCell().innerHTML = '<button onclick="deleteUser(this)">Delete</button>';
+            });
+        }
+
+        // Function to handle form submission
+        document.getElementById("loginForm").addEventListener("submit", function (event) {
+            event.preventDefault();
+            let username = document.getElementById("username").value;
+            let password = document.getElementById("password").value;
+            users.push({ username, password });
+            document.getElementById("loginForm").reset();
+            // Clear existing table
+            document.getElementById("userTable").innerHTML = '<tr><th>Username</th><th>Password</th><th>Edit</th><th>Delete</th></tr>';
+            createTable();
+        });
+
+        // Function to handle edit button click
+        function editUser(button) {
+            let row = button.parentNode.parentNode;
+            let username = row.cells[0].textContent;
+            let password = row.cells[1].textContent;
+            // You can implement your edit logic here, e.g., show a form to edit the user details
+            console.log("Edit user:", username, password);
+        }
+
+        // Function to handle delete button click
+        function deleteUser(button) {
+            let row = button.parentNode.parentNode;
+            let username = row.cells[0].textContent;
+            // Find the index of the user in the array
+            let index = users.findIndex(user => user.username === username);
+            if (index !== -1) {
+                // Remove the user from the array
+                users.splice(index, 1);
+                // Remove the row from the table
+                row.parentNode.removeChild(row);
+            }
+        }
+
+        // Initial table creation
+        createTable();
+    </script>
+</body>
+
+</html>
