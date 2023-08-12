@@ -70,7 +70,7 @@
           blood: "",
         };
         for (a in user) {
-          //if (a != "gender" && a!="subject") {
+          if (a != "gender" && a!="subject") {
             user[a] = document.getElementById(a).value;
           }
             //console.log(user);
@@ -91,7 +91,7 @@
         users.push(user);
         displayusers();
         clearform();
-      }
+      }}
       function displayusers(){
         document.querySelector("tbody").innerHTML=""
         users.forEach((usr,i)=>{
