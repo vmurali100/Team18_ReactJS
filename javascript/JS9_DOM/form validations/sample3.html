@@ -16,9 +16,9 @@
         </div>
         <div id="nav">
             <nav>
-                <a href="">home</a>
-                <a href="">about</a>
-                <a href="">reservation</a>
+                <a href="https://www.booking.com/index.en.html?aid=309654;label=hotels-english-en-india-8DW0FNCR9gZgfD3UQr1uBwS432876510914:pl:ta:p1:p2:ac:ap:neg:fi:tikwd-11212371:lp930264">home</a>
+                <a href="https://www.agoda.com/en-in/search?selectedproperty=463240&city=17269&hid=463240&site_id=1841706&tag=5d61ab35-f483-896d-7122-5012a7295f0e&device=c&network=g&adid=454628322905&rand=1695065421749674389&expid=&adpos=&gclid=Cj0KCQjwz8emBhDrARIsANNJjS72cAKrScUElrtObUnAeSZjZ1j-HuA0gIf05LS1t253tie7glV6cqoaAgS4EALw_wcB&pslc=1">about</a>
+                <a href="https://www.google.com/search?q=hotel+images&rlz=1C1RLNS_enIN1020IN1020&oq=hotel+images&aqs=chrome..69i57j0i512l9.7442j0j7&sourceid=chrome&ie=UTF-8#vhid=80kRAnG9M6qhXM&vssid=l">reservation</a>
                 <a href="">gallery</a>
                 <a href="">contact</a>
                 <a href="">reviews</a>
@@ -66,11 +66,15 @@
                 <label for="">Name*</label>
                 <input type="text" id="name"><br><br>
                 <label for="">email*</label>
-                <input type="text" id="email"><br><br>
+                <input type="text" id="email" onkeyup="validate()"><br><br>
                 <label for="">Phone Number*</label>
                 <input type="number" id="number"><br><br>
+                <label for="">ocassion</label>
+                <input type="text" id="ocassion">
                 <label for="">date*</label>
                 <input type="date" id="date"><br><br>
+                <label for="time">Time:</label>
+                <input type="time" id="time"><br><br>
                 <label for="size">Party size*</label>
                 <input type="radio" name="size" value="5-10">5-10
                 <input type="radio" name="size" value="10-15">10-15
@@ -89,7 +93,10 @@
                 <th>Name</th>
                 <th>email</th>
                 <th>Phone Number</th>
+                <input type="text" id="ocassion">
+                <th></th>
                 <th>date</th>
+                <th>time</th>
                 <th>Party size</th>
                 <th>edit</th>
                 <th>delete</th>
@@ -106,6 +113,7 @@
                 email: "",
                 number: "",
                 date: "",
+                time:"",
                 size: "",
             }
             for (a in user) {
@@ -206,6 +214,7 @@
                 email: "",
                 number: "",
                 date: "",
+                time:"",
                 size: "",
             }
             for (a in user) {
@@ -217,7 +226,17 @@
                 }
             }
         }
+        function validate(){
+        var emailValue=document.getElementById("email").value
+        var pattern=/^[a-z0-9]+@[a-z]+\.[a-z]{2,3}$/
+        if(pattern.test(emailValue)){
+            document.getElementById("add").removeAttribute("disabled")
+            document.getElementById("email").style.border="2px solid green"
+        }else{
+            document.getElementById("add").setAttribute("disabled",true)
+            document.getElementById("email").style.border="2px solid red"
+        }
+     }
     </script>
 </body>
-
 </html>
