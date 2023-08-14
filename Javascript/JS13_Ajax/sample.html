@@ -1,0 +1,30 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var api_url = "https://jsonplaceholder.typicode.com/users";
+
+        function getData(){
+            var getInfo = new XMLHttpRequest();
+            getInfo.onreadystatechange = function(){
+                if(getInfo.status == 200 && getInfo.readyState == 4){
+                    var info = JSON.parse(getInfo.response)
+                    console.log(info)
+                }
+            }
+
+            getInfo.open("GET",api_url)
+            getInfo.send()
+        }
+
+        getData()
+    </script>
+</body>
+</html>
