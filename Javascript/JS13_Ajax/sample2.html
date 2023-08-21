@@ -1,20 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <script>
-        function getData(){
+        var api_url = "http://127.0.0.1:5500/Javascript/JS9_DOM/CRUD/sample3.html"
+        function getData() {
             var getInfo = new XMLHttpRequest();
-            getInfo.onreadystatechange =function(){
-                
+            getInfo.onreadystatechange = function () {
+                if (getInfo.status == 200 && getInfo.onreadystate == 4) {
+                    var info = JSON.parse(grtinfo.response)
+                    console.log(info)
+                }
             }
-           
+            getInfo.open("GET", api_url)
+            getInfo.send()
+
         }
-        getdata()
+        getData()
     </script>
 </body>
+
 </html>
