@@ -8,12 +8,12 @@
 </head>
 <body>
     <form>
-        <label for="">First Name :</label>
-        <input type="text" name="" id="fname"> <br>
-        <label for="">Last Name : </label>
-        <input type="text" name="" id="lname"> <br>
-        <label for="">Email : </label>
-        <input type="text" name="" id="email"> <br>
+        <label for="fname">First Name :</label>
+        <input type="text"  id="fname"> <br>
+        <label for="lname">Last Name : </label>
+        <input type="text"  id="lname"> <br>
+        <label for="email">Email : </label>
+        <input type="text" id="email"> <br>
         <button type="button" onclick="addUser()">Add User</button>
     </form>
 <hr>
@@ -29,6 +29,7 @@
     <tbody></tbody>
 </table>
     <script>
+         var api_url = "http://localhost:3000/users";
         function addUser(){
             var person = {
                 fname:document.getElementById("fname").value,
@@ -38,8 +39,8 @@
 
             var postData = new XMLHttpRequest();
             postData.onreadystatechange = function (){
-                if(postData.readyState == 4 && postData.status == 201){
-                    console.log("User Added Succes")
+                if(postData.readyState == 4 && postData.status == 202){
+                    console.log("User Added Success")
                 }
             }
             postData.open("POST","http://localhost:3000/users");
