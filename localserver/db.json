@@ -1,5 +1,22 @@
 {
-    "users":[
-        
-    ]
+  "users": [
+    {
+      "fname": "vmr",
+      "lname": "infotech",
+      "email": "vmrinfotech25@gmail.com",
+      "id": 1
+    },
+    {
+      "fname": "Murali",
+      "lname": "V",
+      "email": "vmurali100@gmail.com",
+      "id": 2
+    },
+    {
+      "fname": "V",
+      "lname": "MURALI",
+      "email": "vmrinfotech25@gmail.com",
+      "id": 3
+    }
+  ]
 }
