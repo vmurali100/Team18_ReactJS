@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        .container {
+            border: 1px solid red;
+            background-color: greenyellow;
+            width: 403px;
+            text-align: center;
+            margin-left: 404px;
+            margin-top: 24px;
+            height: 665px;
+        }
+
+        h1 {
+            color: red;
+            text-transform: capitalize;
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 20px;
+        }
+
+        button {
+            width: 94px;
+            color: white;
+            background-color: orange;
+            height: 30px;
+            border-radius: 10px;
+            border-color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <form action="">
+        <div class="container">
+            <h1>Personal details</h1>
+            <br>
+            <label for="name">Name:</label>
+            <input type="text" id="name"><br><br>
+            <label for="pass">Password:</label>
+            <input type="text" id="pass"><br><br>
+            <label for="email">E-mail id:</label>
+            <input type="text" id="email"><br><br>
+            <label for="gender">Gender:</label>
+            <input type="radio" name="gender">Male
+            <input type="radio" name="gender">Female<br><br>
+            <label for="contact">Contact#:</label>
+            <input type="text" id="contact"><br><br>
+            <h1>educational qualifications</h1><br><br>
+            <!-- <label for="">Degree:</label> -->
+               
+            <h1>Address</h1><br>
+            <textarea name="" id="address" cols="38" rows="6"></textarea><br><br>
+            <label for="">Attach Resume:</label>
+            <input type="file" placeholder="Choose File" id="file">
+            <br><br>
+            <button type="button" onclick="adduser()">SUBMIT</button>
+        </div>
+    </form>
+    <script>
+       function addUser(){
+        var person={
+            Name:"",
+            Password:"",
+            Email:"",
+            gender:"",
+            contact:"",
+            ID:"",
+
+        }
+    for(a in person){
+        person[a]=document.getElementById(a).value
+    }
+    console.log(person)
+    var postData=new XMLHttpRequest()
+    postData.onreadystatechange=function(){
+        if(postData.readyState==4 && postData.status==201){
+            console.log("userr added suceesfully")
+        }
+    }
+    postData.open("POST","http://localhost:3000/person")
+    postData.setRequestHeader("Content-Type","application/json")
+    postData.send(JSON.stringify(person))
+
+    }
+    function getUsers(){
+      var getinfo = new XMLHttpRequest()
+      getinfo.onreadystatechange=function(){
+        if(getinfo.onreadystatechange==4&& getinfo.status==201){
+          console.log(JSON.parse(getinfo.response))
+                    displayUsers(JSON.parse(getinfo.response)) 
+        }
+      }
+      getinfo.open("GET","http://localhost:3000/person");
+            getinfo.send()
+    }
+    getUsers()
+    function displayUsers(users){
+            users.forEach((usr,i)=>{
+                var myTr = document.createElement("tr")
+                for(a in usr){
+                    var myTd = document.createElement("td")
+                    myTd.innerHTML = usr[a]
+                    myTr.appendChild(myTd)
+                }
+                var ediTd = document.createElement("td")
+                var delTd = document.createElement("td")
+
+                var editBtn = document.createElement("button")
+                editBtn.innerHTML = "Edit"
+                editBtn.setAttribute("onclick","editUser("+i+")")
+                var deleteBtn = document.createElement("button")
+                deleteBtn.innerHTML = "Delete"
+                 deleteBtn.setAttribute("onclick","deleteUser("+i+")")
+
+                ediTd.appendChild(editBtn)
+                delTd.appendChild(deleteBtn)
+
+                myTr.appendChild(ediTd)
+                myTr.appendChild(delTd)
+                document.querySelector("tbody").appendChild(myTr)
+            })
+        }
+  </script>

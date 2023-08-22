@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    form {
+      width: 600px;
+      margin: auto;
+      text-align: center;
+     border: 2px solid white;
+      padding-top: 20px;
+    
+    }
+
+    label {
+      float: left;
+      width: 150px;
+    }
+
+    table {
+      width: 600px;
+      margin: auto;
+      text-align: center;
+      padding: 10px;
+    }
+    body{
+        background-color: rgb(106, 106, 241);
+    }
+  </style>
+</head>
+
+<body>
+  <h2 style="color: white; text-align: center;">Student Registration Form</h2>
+  <form>
+    <label for="">Name:</label>
+    <input type="text" name="" id="name"><br><br>
+    <label for="">Email:</label>
+    <input type="text" name="" id="email"><br><br>
+    <label for="">Password:</label>
+    <input type="text" name="" id="password"><br><br>
+    <label for="">Phone Number:</label>
+    <input type="text" name="" id="phonenumber"><br><br>
+    
+    <label for="">Zip code:</label>
+    <input type="text" name="" id="zipcode"><br><br>
+    <label for="">About:</label>
+    <input type="text" name="" id="about"><br><br>
+    <label for="date">date:</label>
+    <input type="date" id="date"><br><br>
+    <button type="button" onclick="addUser()">Adduser</button>
+    
+  </form>
+  <script>
+    function addUser(){
+        var person={
+            name:"",
+            email:"",
+            password:"",
+            phonenumber:"",
+            zipcode:"",
+            about:"",
+            date:"",
+
+        }
+    for(a in person){
+        person[a]=document.getElementById(a).value
+    }
+    console.log(person)
+    var postData=new XMLHttpRequest()
+    postData.onreadystatechange=function(){
+        if(postData.readyState==4 && postData.status==201){
+            console.log("userr added suceesfully")
+        }
+    }
+    postData.open("POST","http://localhost:3000/users")
+    postData.setRequestHeader("Content-Type","application/json")
+    postData.send(JSON.stringify(person))
+
+    }
+    function getUsers(){
+      var getinfo = new XMLHttpRequest()
+      getinfo.onreadystatechange=function(){
+        if(getinfo.onreadystatechange==4&& getinfo.status==201){
+          console.log(JSON.parse(getinfo.response))
+                    displayUsers(JSON.parse(getinfo.response)) 
+        }
+      }
+      getinfo.open("GET","http://localhost:3000/users");
+            getinfo.send()
+    }
+    getUsers()
+    function displayUsers(users){
+            users.forEach((usr,i)=>{
+                var myTr = document.createElement("tr")
+                for(a in usr){
+                    var myTd = document.createElement("td")
+                    myTd.innerHTML = usr[a]
+                    myTr.appendChild(myTd)
+                }
+                var ediTd = document.createElement("td")
+                var delTd = document.createElement("td")
+
+                var editBtn = document.createElement("button")
+                editBtn.innerHTML = "Edit"
+                editBtn.setAttribute("onclick","editUser("+i+")")
+                var deleteBtn = document.createElement("button")
+                deleteBtn.innerHTML = "Delete"
+                 deleteBtn.setAttribute("onclick","deleteUser("+i+")")
+
+                ediTd.appendChild(editBtn)
+                delTd.appendChild(deleteBtn)
+
+                myTr.appendChild(ediTd)
+                myTr.appendChild(delTd)
+                document.querySelector("tbody").appendChild(myTr)
+            })
+        }
+  </script>
