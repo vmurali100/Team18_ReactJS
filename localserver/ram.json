@@ -1,0 +1,64 @@
+{
+  "ram": [
+    {
+      "u": "",
+      "i": "jjjjjjjjjjjjjjjjjjjj",
+      "group": "",
+      "select": "",
+      "gender": "",
+      "num": "",
+      "num1": "",
+      "exp": "",
+      "y": "",
+      "id": 1
+    },
+    {
+      "u": "",
+      "i": "jjjjjjjjjjj",
+      "group": "",
+      "select": "",
+      "gender": "",
+      "num": "",
+      "num1": "",
+      "exp": "",
+      "y": "",
+      "id": 2
+    },
+    {
+      "u": "",
+      "i": "bbbbbbbb",
+      "group": "Ece",
+      "select": "",
+      "gender": "Female",
+      "num": "17",
+      "num1": "5",
+      "exp": "-3",
+      "y": "nnnnnnnnnn",
+      "id": 3
+    },
+    {
+      "u": "aaaaaaa",
+      "i": "ddddddd",
+      "group": "Civil",
+      "select": "BCA",
+      "gender": "Male",
+      "num": "3",
+      "num1": "-7",
+      "exp": "-2",
+      "y": "dddddddddddd",
+      "id": 4
+    },
+    {
+      "u": "",
+      "i": "",
+      "group": "",
+      "select": "",
+      "gender": "",
+      "num": "",
+      "num1": "",
+      "exp": "",
+      "y": " mm",
+      "id": 5
+    }
+  ]
+}

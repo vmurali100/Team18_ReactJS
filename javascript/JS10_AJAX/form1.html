@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <label for="">Customer Name:</label>
+    <input type="text" id="name"><br><br>
+    <label for="">PartName:</label>
+    <input type="text" id="pname"><br><br>
+    <label for="">PartPrintNumber:</label>
+    <input type="text" id="pnumber"><br><br>
+    <label for="">Revision:</label>
+    <input type="text" id="revision"><br><br>
+    <label for="">Part Number:</label>
+    <input type="text" id="partnumber"><br><br>
+    <label for="">Date of Estimate:</label>
+    <input type="text" id="doe"><br><br>
+    <label for="">Estimator Name:</label>
+    <input type="text" id="en"><br><br>
+    <label for="">Buyer Name</label>
+    <input type="text" id="bn"><br><br>
+    <label for="">Estimated Base Quantity</label>
+    <input type="text" id="ebq"><br><br>
+    <label for="">Scrap Percentage</label>
+    <input type="text" id="sp"><br><br>
+    <label for="">Cost Associated with scrap</label>
+    <input type="checkbox" name="caw" value="Material">Material
+    <input type="checkbox" name="caw" value="Tooling">Tooling
+    <input type="checkbox" name="caw" value="Labour">Labour
+    <input type="checkbox" name="caw" value="Non-Machining">Non-Machining
+    <br><br>
+    <button type="button" onclick="addusers()">Close</button>
+    <table border="1">
+        <thead>
+        
+            <th>Customer Name</th>
+            <th>PartName</th>
+            <th>PartPrintNumber</th>
+            <th>Revision</th>
+            <th>Part Number</th>
+            <th>Date of Estimate</th>
+            <th>Estimator Name</th>
+            <th>Buyer Name</th>
+            <th>Estimated Base Quantity</th>
+            <th>Scrap Percentage</th>
+            <th>Cost Associated with scrap</th>
+            <th>Id</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </thead>
+        <tbody></tbody>
+    </table>
+    <script>
+        var cbox = document.getElementsByName("caw")
+        function addusers() {
+            var person = {
+                name: "",
+                pname: "",
+                pnumber: "",
+                revision: "",
+                partnumber: "",
+                doe: "",
+                en: "",
+                bn: "",
+                ebq: "",
+                sp: "",
+                caw: [],
+            }
+            for (a in person) {
+                if(a != "caw"){
+                    person[a] = document.getElementById(a).value
+                }
+                if (a == "caw") {
+                    cbox.forEach((cb) => {
+                        if (cb.checked) {
+                            person.caw.push(cb.value)
+                        }
+                    });
+                }
+            }
+        var postData = new XMLHttpRequest();
+        postData.onreadystatechange = function () {
+            if (postData.readyState == 4 && postData.status == 203) {
+                console.log("User Added Success")
+            }
+        }
+        postData.open("POST", " http://localhost:3000/roses")
+        postData.setRequestHeader("Content-Type", "application/json")
+        postData.send(JSON.stringify(person))
+        }
+
+        function getusers() {
+            var getinfo = new XMLHttpRequest();
+            getinfo.onreadystatechange = function () {
+                if (getinfo.readyState == 4 && getinfo.status == 200) {
+                    console.log(JSON.parse(getinfo.response))
+                    displayUsers(JSON.parse(getinfo.response))
+                }
+            }
+            getinfo.open("GET", " http://localhost:3000/roses")
+            getinfo.send()
+        }
+        getusers()
+        function displayUsers(users) {
+            users.forEach((usr,i) => {
+                var myTr = document.createElement("tr")
+                for (a in usr) {
+                    var myTd = document.createElement("td")
+                    myTd.innerHTML = usr[a]
+                    myTr.appendChild(myTd)
+                }
+                var ediTd = document.createElement("td")
+                var delTd = document.createElement("td")
+
+                var editBtn = document.createElement("button")
+                editBtn.innerHTML = "Edit"
+                editBtn.setAttribute("onclick", "editUser(" + i + ")")
+                var deleteBtn = document.createElement("button")
+                deleteBtn.innerHTML = "Delete"
+                deleteBtn.setAttribute("onclick", "deleteUser(" + i + ")")
+
+                ediTd.appendChild(editBtn)
+                delTd.appendChild(deleteBtn)
+
+                myTr.appendChild(ediTd)
+                myTr.appendChild(delTd)
+                document.querySelector("tbody").appendChild(myTr)
+            })
+        }
+    </script>
+</body>
+
+</html>

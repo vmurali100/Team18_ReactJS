@@ -1,0 +1,42 @@
+{
+  "users": [
+    {
+      "name": "jahnavi G",
+      "pass": "mjhyg",
+      "email": "jahnavi2002g@gmail.com",
+      "gender": "Female",
+      "contact": " h g",
+      "select": "B.Com",
+      "group": "Civil",
+      "hobb": [
+        "Reading Books"
+      ],
+      "address": "3-7 opposite line to s.k.kalyana mandapam,sowkarpet,chittoor",
+      "id": 1
+    },
+    {
+      "name": "",
+      "pass": "",
+      "email": "",
+      "gender": "",
+      "contact": "",
+      "select": "",
+      "group": "",
+      "hobb": [],
+      "address": "",
+      "id": 2
+    },
+    {
+      "name": "",
+      "pass": "",
+      "email": "",
+      "gender": "",
+      "contact": "",
+      "select": "",
+      "group": "Ece",
+      "hobb": [],
+      "address": "",
+      "id": 3
+    }
+  ]
+}
