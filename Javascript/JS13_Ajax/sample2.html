@@ -15,6 +15,7 @@
         <label for="">Email : </label>
         <input type="text" name="" id="email"> <br>
         <button type="button" onclick="addUser()">Add User</button>
+        <button type="button" onclick="updateUser()">Update User</button>
     </form>
 <hr>
 <table border="1">
@@ -29,6 +30,7 @@
     <tbody></tbody>
 </table>
     <script>
+        var users = []
         function addUser(){
             var person = {
                 fname:document.getElementById("fname").value,
@@ -52,7 +54,8 @@
             getinfo.onreadystatechange = function(){
                 if(getinfo.status == 200 && getinfo.readyState == 4){
                     console.log(JSON.parse(getinfo.response))
-                    displayUsers(JSON.parse(getinfo.response))
+                    users = JSON.parse(getinfo.response)
+                    displayUsers(users)
                 }
             }
             getinfo.open("GET","http://localhost:3000/users");
@@ -85,6 +88,43 @@
                 myTr.appendChild(delTd)
                 document.querySelector("tbody").appendChild(myTr)
             })
+        }
+        var index 
+        function editUser(i){
+            index = i
+            document.getElementById("fname").value = users[i].fname
+            document.getElementById("lname").value = users[i].lname
+            document.getElementById("email").value = users[i].email
+            console.log(users[i])
+        }
+
+        function updateUser(){
+            var user ={
+                fname :document.getElementById("fname").value,
+                lname:document.getElementById("lname").value,
+                email:document.getElementById("email").value
+            }
+            var updateUser = new XMLHttpRequest();
+            updateUser.onreadystatechange = function(){
+                if(updateUser.readyState == 4 && updateUser.status == 200){
+                    console.log("User Updated")
+                }
+            }
+            updateUser.open("PUT","http://localhost:3000/users/"+users[index].id);
+            updateUser.setRequestHeader("Content-Type","application/json");
+            updateUser.send(JSON.stringify(user))
+
+        }
+
+        function deleteUser(i){
+            var updateUser = new XMLHttpRequest();
+            updateUser.onreadystatechange = function(){
+                if(updateUser.readyState == 4 && updateUser.status == 200){
+                    console.log("User Updated")
+                }
+            }
+            updateUser.open("DELETE","http://localhost:3000/users/"+users[i].id);
+            updateUser.send()
         }
     </script>
 </body>
