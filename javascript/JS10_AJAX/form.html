@@ -184,6 +184,37 @@
                 document.querySelector("tbody").appendChild(myTr)
             })
         }
+        var index;
+        function editUser(i){
+            index=i;
+            for(a in person[i]){
+                document.getElementById(a).value=person[i][a];
+            }
+            console.log(person[a])
+        }
+        function deleteUser(i){
+            var person = {
+                name: "",
+                pass: "",
+                email: "",
+                gender: "",
+                contact: "",
+                select : "",
+                group: "",
+                hobb: [],
+                address: "",
+                
+            }
+            var updateUser=new XMLHttpRequest();
+            updateUser.onreadystatechange=function(){
+                if(updateUser.readyState == 4 &&updateUser.status == 200){
+                    console.log("updateUser")
+                }
+            }
+            updateUser.open("PUT","http://localhost:3000/users"+person[index].i)
+            updateUser.setRequestHeader("Content-Type","application/json")
+            updateUser.send(JSON.stringify(person))
+        }
     </script>
 </body>
 
