@@ -31,6 +31,7 @@ width: 150px;
   </form>
 </body>
 <script>
+  var user=[];
   function Adduser(){
     var person={
       customername:"",
@@ -92,6 +93,9 @@ width: 150px;
                 myTr.appendChild(delTd)
                 document.querySelector("tbody").appendChild(myTr)
             })
+        }
+        function editUser(i){
+          console.log(person)
         }
 
 </script>
