@@ -1,3 +1,10 @@
 {
-    "users": []
+  "users": [
+    {
+      "fname": "swkd",
+      "lname": "snl",
+      "email": "",
+      "id": 1
+    }
+  ]
 }
