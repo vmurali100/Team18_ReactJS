@@ -8,7 +8,7 @@ import { Busan } from './Busan';
 function App() {
   return (
     <div>
-      <Janvi name ={ name1:"Cran1",}/>
+      <Janvi name ={ "Cran1"} name1={"hboias"}/>
       <Kavya/>
       <Incheon/>
       <Busan/>
