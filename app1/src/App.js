@@ -1,9 +1,10 @@
+import { Progress } from "./Component/Progress";
 import { Service } from "./Component/Service";
 
 function App() {
   return (
     <div className="App">
-      <Service/>
+      <Progress/>
     </div>
   );
 }

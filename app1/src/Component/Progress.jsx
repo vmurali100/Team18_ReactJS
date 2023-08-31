@@ -1,3 +1,5 @@
+import { Class } from "./Class";
+
 export function Progress(){
     return <div>
         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlUJKXekIequKq9v9gmAGXNTdjyJ5WGZSMYxrBMBn2&s" alt="" />
@@ -33,6 +35,7 @@ export function Progress(){
             
 
         </table>
+        <Class Name={"vanitha"}/>
 
     </div>
 }
