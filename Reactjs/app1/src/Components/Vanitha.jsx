@@ -1,3 +1,5 @@
+import { Thulasi } from "./Thulasi";
+
 export function Vanitha() {
     return <div>
         <h4>hi vanithareddy</h4>
@@ -24,6 +26,7 @@ export function Vanitha() {
     </thead>
        </table>
        <a href="https://www.housebeautiful.com/lifestyle/gardening/g13074130/beautiful-flower-images/">flowers</a>
+       <Thulasi relation={"Brother"}/>
     </div>
     
 }

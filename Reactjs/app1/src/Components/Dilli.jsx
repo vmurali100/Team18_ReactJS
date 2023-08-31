@@ -1,3 +1,5 @@
+import { Employee } from "./Employee";
+
 export function Dilli(){
     return <div>
         <h1>vanitha reddy</h1>
@@ -20,5 +22,8 @@ export function Dilli(){
 </thead>
         </table>
         <a href="https://www.istockphoto.com/search/2/image?phrase=cow"></a>
+
+        <Employee Name={"vanitha"}/>
     </div>
+    
 }
