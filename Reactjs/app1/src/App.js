@@ -6,6 +6,8 @@ import { Mokshith } from './Components/Mokshith';
 import { Mokshajna } from './Components/Mokshajna';
 import {Vanitha} from './Components/Vanitha'
 import { Dilli } from './Components/Dilli';
+import { Thulasi } from './Components/Thulasi';
+
 
 
 
@@ -23,6 +25,7 @@ function App() {
       <Vanitha/>
       <hr/>
    <Dilli/>
+   <Thulasi/>
     </div>
   );
 }
