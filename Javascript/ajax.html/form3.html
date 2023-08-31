@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+    <label for="">fname</label>
+    <input type="text" id="fname">
+    <label for="">lname</label>
+    <input type="text" id="lname">
+    <label for="">email</label>
+    <input type="text" id="email">
+    <label for="">password</label>
+    <input type="text" id="password">
+    <label for="">gender</label>
+    <input type="radio" id="male">male
+    <input type="radio" id="female">female
+    <label for="">class</label>
+    <input type="checkbox" name="class" value="I">I
+    <input type="checkbox" name="class" value="II">II
+    <input type="checkbox" name="class" value="III">III
+    <input type="checkbox" name="class" value="IV">IV
+    <input type="checkbox" name="class" value="V">V
+    <button type="button" onclick="adduser()">submit</button>
+</form>
+
+
+<table border="1">
+   <thead>
+    <tr>
+        <th>fname</th>
+        <th>lname</th>
+        <th>email</th>
+        <th>password</th>
+        <th>gender</th>
+        <th>class</th>
+        <th>edit</th>
+        <th>delete</th>
+    </tr>
+   </thead>
+   <tbody></tbody>
+</table>
+
+
+<script>
+    function adduser(){
+        var person={
+            fname:"",
+            lname:"",
+            email:"",
+            password:"",
+            gender:"",
+            class:"",
+
+        }
+    
+        for(a in person){
+            if(a!="gender" && a!=="class"){
+               person[a]=document.getElementById(a).value 
+            }
+            else if(a=="gender"){
+                rb.forEach((usr) => {
+                    if(rb.checked){
+                       person.gender=rb.value 
+            }});
+        }else if(a=="class"){
+            cb.forEach((usr)=>{
+                if(cb.checked){
+                    person.class.push((cb.value))
+                }
+            })
+        }
+    }
+    function displayUsers(users){
+        users.forEach((usr,i)=>{
+            var mytr=document.createElement(tr)
+            for(a in usr){
+                var mytd=document.createElement("td")
+                mytd.innerHTML=usr[a]
+                mytr.appendChild(mytd)
+            }
+            document.querySelector("tbody").appendChild(mytr)
+
+
+            edittd.document.createElement("td")
+            deltd.document.createElement("td")
+
+
+            var  editbtn=document.createElement("button")
+            editbtn.innerHTML="edit"
+            editbtn.setAttribute("onclick","edituser("+i+")")
+
+
+
+            var delbtn=document.createElement("button")
+            delbtn.innerHTML="delete"
+            delbtn.setAttribute("onclick","deleteuser("+i+")")
+            
+
+
+
+
+            edittd.appendChild(editbtn)
+            deltd.appendChild(delbtn)
+         })
+        }
+    }
+    
+
+
+
+
+
+    
+</script>
+
+
+
+    
+</body>
+</html>

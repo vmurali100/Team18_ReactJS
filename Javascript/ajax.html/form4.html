@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form>
+      <label for="fname">fname</label>
+      <input type="text" id="fname" />
+      <label for="lname">lname</label>
+      <input type="text" name="" id="lname" />
+      <label for="email">email</label>
+      <input type="text" name="" id="email" />
+      <button type="button" onclick="adduser()">SUBMIT</button>
+    </form>
+
+    <table border="1">
+      <thead>
+        <tr>
+          <th>fname</th>
+          <th>lname</th>
+          <th>email</th>
+          <th>id</th>
+          <th>edit</th>
+          <th>delete</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+
+    <script>
+      var users = [];
+      function adduser() {
+        var person = {
+          fname: "",
+          lname: "",
+          email: "",
+        };
+        for (a in person) {
+          person[a] = document.getElementById(a).value;
+        }
+
+        var postuser = new XMLHttpRequest();
+        postuser.onreadystatechange = function () {
+          if (postuser.readyState == 4 && postuser.status == 201) {
+            console.log("postusersuccess");
+          }
+        };
+        postuser.open("post", "http://localhost:3000/posts");
+        postuser.setRequestHeader("Content-Type", "application/json");
+        postuser.send(JSON.stringify(person));
+      }
+      function getData() {
+        var getuser = new XMLHttpRequest();
+        getuser.onreadystatechange = function () {
+          if (getuser.readyState == 4 && getuser.status == 200) {
+           users = JSON.parse(getuser.responseText);           
+            displayUsers()
+          }
+        };
+        getuser.open("get", "http://localhost:3000/posts");
+        getuser.send();
+      }
+      console.log(users);
+      getData();
+
+      function displayUsers() {
+        document.createElement("tbody").innerHTML = "";
+        users.forEach((usr, i) => {
+          var mytr = document.createElement("tr");
+          for (a in usr) {
+            var mytd = document.createElement("td");
+            mytd.innerHTML = usr[a];
+            mytr.appendChild(mytd);
+          }
+          var edittd = document.createElement("td");
+          var editbtn = document.createElement("button");
+          edittd.appendChild(editbtn);
+          editbtn.innerHTML = "edit";
+          editbtn.setAttribute("onclick", "editusr((" + i + "))");
+
+          var deltd = document.createElement("td");
+          var delbtn = document.createElement("button");
+          deltd.appendChild(delbtn);
+          delbtn.innerHTML = "delete";
+          delbtn.setAttribute("onclick", "deluser((" + i + "))");
+          mytr.appendChild(edittd);
+          mytr.appendChild(deltd);
+
+          document.querySelector("tbody").appendChild(mytr);
+        });
+      }
+    </script>
+  </body>
+</html>

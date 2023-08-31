@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <label for="">Customer Name:</label>
+  <input type="text" id="name"><br><br>
+  <label for="">PartName:</label>
+  <input type="text" id="pname">
+  <label for="">PartPrintNumber:</label>
+  <input type="text" id="pnumber">
+  <label for="">Revision:</label>
+  <input type="text" id="revision"> <br><br>
+  <label for="">PartNumber:</label>
+  <input type="text" id="partnumber"> <br><br>
+  <label for="">Date of Estimate:</label>
+  <input type="text" id="doe"><br><br>
+  <label for="">Estimator Name:</label>
+  <input type="text" id="en"><br><br>
+  <label for="">Buyer Name</label>
+  <input type="text" name="" id="bn"> <br><br>
+  <label for="">Estimated Base Quantity</label>
+  <input type="text" id="ebq"><br> <br>
+  <label for="">Scrap percentage</label>
+  <input type="text" id="sp"> <br><br>
+  <label for="">Cost Associated with Scrap</label>
+  <input type="checkbox" name="caw" value="material">Material
+  <input type="checkbox" name="caw" value="tooling">Tooling
+  <input type="checkbox" name="caw" value="labour">Labour
+  <input type="checkbox" name="caw" value="non-matchining">non-matchining  <br><br>
+  <button type="button" onclick="addusers()">close</button>
+
+
+  <table border="1">
+    <thead>
+      <th>Customer name</th>
+      <th>Part name</th>
+      <th>part print number</th>
+      <th>revision</th>
+      <th>part number</th>
+      <th>date of estimate</th>
+      <th>estimator name</th>
+      <th>buyer name</th>
+      <th>estimated base quantity</th>
+      <th>scrap percentage</th>
+      <th>cost associated  with scrap</th>
+      <th>edit</th>
+      <th>delete</th>
+
+    </thead>
+    <tbody></tbody>
+  </table>
+  
+
+
+  <script>
+    var cbox=document.getElementsByName("caw")
+     function adduser(){
+      var person={
+        name:"",
+        pname:"",
+        Pnumber:"",
+        revision:"",
+        partnumber:"",
+        doe:"",
+        en:"",
+        bn:"",
+        ebq:"",
+        sp:"",
+        caw:[],
+      }
+      for(a in person){
+        if(a!="caw"){
+          person[a]=document.getElementById(a).value
+        }
+        if(a=="caw"){
+          cbox.forEach((cb)=>{
+            if(cb.checked){
+              person.caw.push(cb.value)
+            }
+          })
+        }
+        }
+      
+     }
+
+
+
+
+     function getusers(){
+      var getinfo=new XMLHttpRequest();
+      getinfo.onreadystatechange=function(){
+        if(getinfo.readyState==4 && getinfo.status==200){
+          console.log(JSON.parse(getinfo.response))
+          displayUsers(JSON.parse(getinfo.response))
+        }
+      }
+      getinfo.open("GET")
+      getinfo.send()
+    }
+
+
+    getusers()
+    function displayUsers(users){
+      users.foreach((usr,i)=>{
+        var mytr=document.createElement("tr")
+        for(a in usr){
+          var mytd=document.createElement("td")
+          mytd.innerHTML=usr[a]
+          mytd.appendChild(mytr)
+        }
+
+        var edittd=document.createElement("td")
+        var deltd=document.createElement("td")
+
+
+        var editbtn=document.createElement("button")
+        editbtn.innerHTML="Edit"
+        editbtn.setAttribute("onclick","edituser("+i+")")
+
+        var delbtn=document.createElement("button")
+        delbtn.innerHTML="Delete"
+        delbtn.setAttribute("onclick","deleteuser("+i+")")
+        
+        edittd.appendChild(editbtn)
+        deltd.appendChild(deletebtn)
+
+
+        mytr.appendChild(edittd)
+        mytr.appendChild(deltd)
+
+
+        document.querySelector("tbody").appendChild(mytr)
+      })
+    }
+    </script>
+
+</body>
+</html>
+    
+            
+          
