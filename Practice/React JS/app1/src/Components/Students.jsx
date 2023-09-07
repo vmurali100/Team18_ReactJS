@@ -16,7 +16,7 @@ export function Students() {
                     <td>Name</td>
                     <td>Mobile No</td>
                     <td>Contact</td>
-                    <td>Address</td>
+                    <td>Addresss</td>
                 </tr>
             </th>
 
