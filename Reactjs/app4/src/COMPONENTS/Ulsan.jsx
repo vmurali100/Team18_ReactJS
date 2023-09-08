@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Yeosu } from "./yeosu";
+import { Yeosu } from "./Yeosu";
 
 export const Ulsan=()=>{
     const [empName,setEmpName] = useState("SADDY");
