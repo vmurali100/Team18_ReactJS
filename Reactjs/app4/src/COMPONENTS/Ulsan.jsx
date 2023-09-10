@@ -2,22 +2,24 @@ import { useState } from "react";
 import { Yeosu } from "./Yeosu";
 
 export const Ulsan=()=>{
-    const [empName,setEmpName] = useState("SADDY");
+    const [empName,setEmpname] = useState("SADDY");
     const [age,setAge]=useState(54);
-    const [email,setEmail]=useState("SADDY@gmail.com")
+    const [email,setmail]=useState("SADDY@gmail.com")
+    const [phno,setPhno]=useState(9494494949);
    
     const changeEmpName=()=>{
-        setEmpName("sanvi");
+        setEmpname("sanvi");
         setAge("32");
-        setEmail('Sanvi@gmail.com')
+        setmail('Sanvi@gmail.com')
+        setPhno("0448385924");
     }
     
     return <div>
         <h2>Welcome to Company Component</h2>
         <button onClick={changeEmpName}>Change</button>
-        <Yeosu empName ={empName} age ={age} email={email}/>
-        <Yeosu empName ={"ramya"} age ={21} email={"ramya@gamil.com"}/>
-        <Yeosu empName ={"sravya"} age ={29} email={"sravya@gamil.com"}/>
-        <Yeosu empName ={"anjali"} age ={28} email={"anjali@gamil.com"}/>
+        <Yeosu empname ={empName} age ={age} mail={email} phno={phno}/>
+        <Yeosu empname ={"ramya"} age ={21} mail={"ramya@gamil.com"}/>
+        <Yeosu empname ={"sravya"} age ={29} mail={"sravya@gamil.com"}/>
+        <Yeosu empname ={"anjali"} age ={28} mail={"anjali@gamil.com"}/>
     </div>
 }
