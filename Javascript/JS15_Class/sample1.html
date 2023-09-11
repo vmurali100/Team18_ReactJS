@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <title>Document</title>
+</head>
+<body>
+    <script>
+        var person = {} // Literal Way Of Creating Objects 
+        var newPerson = new Object({}) // Built In Constructor 
+        function NewEmployee(fname,lname){
+            this.fname=fname;
+            this.lname=lname;
+        } // Constructor function 
+        var emp1 = new NewEmployee("Ram","Ravi")
+
+        class NewPerson {
+            constructor(fname,lname){
+                this.fname=fname;
+                this.lname=lname
+            }
+        }
+
+        class MainPerson extends NewPerson{
+            constructor(fname,lname,email,contact,address){
+                super(fname,lname)
+                this.email = email;
+                this.contact=contact;
+                this.address = address;
+            }
+        }
+        var person1 = new NewPerson("Ravi","Kumar")
+
+        var person2 = new MainPerson("Ram","Kumar","ram@gmail.com",9663856625,"Chittoor")
+        console.log(person2)
+    </script>
+</body>
+</html>
