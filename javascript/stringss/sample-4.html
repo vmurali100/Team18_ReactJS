@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="">
+        <label for="">Full Name:</label> 
+        <input type="text" name="" id="fname"> <br><br>
+        <label for="">Email id:</label>
+        <input type="text" name="" id="email"> <br><br>
+        <label for="">PH No:</label>
+        <input type="number" name="" id="number">
+
+        <button type="button" onclick="adduser()">submit</button>
+
+    </form>
+    <script>
+        function adduser(){
+            person={
+                fname:"", 
+                email:"",
+                number:""
+            }
+            for(a in person){
+                person[a]=document.getElementById(a).value
+                
+            }
+            var getinfo=new XMLHttpRequest()
+            getinfo.onreadystatechange=function(){
+                if(getinfo.readyState==4 && getinfo.status==201){
+                    console.log("add user")
+
+                }
+            }
+            getinfo.open ("POST","http://localhost:3000/users")
+            getinfo.setRequestHeader("Content-Type","application/json")
+            getinfo.send(JSON.stringify(person))
+        }
+    </script>
+</body>
+</html>

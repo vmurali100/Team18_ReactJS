@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form>
+        
+      <fieldset>
+        <legend>Registration Details</legend>
+        <label for="">University:</label>
+        <input type="text" name="" id="unv" /> <br /><br />
+        <label for="">Institute:</label>
+        <input type="text" name="" id="Ins" /> <br /><br />
+        <label for="">Branch:</label>
+        <select name="" id="brn">
+            <option value="brn">--select--</option>
+            <option value="brn">chittoor</option>
+            <option value="brn">Tirupati</option>
+        </select>
+        <br><br>
+        <label for="">Degree</label>
+        <select name="" id="deg">
+            <option value="deg">--select--</option>
+            <option value="deg">Bsc</option>
+            <option value="deg">Bcom</option>
+            <option value="deg">Bca</option>
+        </select>
+<input type="radio" name="std" value="pursing">pursing
+<input type="radio" name="std" value="Completed">Completed
+<br> <br>
+<label for="avg">Average CPI:</label>
+<input type="number" name="" id="avg"> 
+<label for="up">Upto:</label>
+<input type="number" name="" id="up">Th semester
+<br><br>
+<label for="">Experience:</label>
+<input type="number" name="" id="exp">Years
+<br><br>
+<label for="">Your Website or Blog</label>
+<input type="text" name="" id="yo" placeholder="http://">
+
+      </fieldset>
+      <button type="button" onclick="adduser()">SUBMIT</button>
+    </form>
+    <script>
+        var allradiobtns=document.getElementsByName("std")
+        function adduser(){
+            var person={
+                unv:"",
+                Ins:"",
+                brn:"",
+                std:"",
+                avg:"",
+                up:"",
+                exp:"",
+                yo:""
+            }
+            for(a in person){
+                if(a !="std"){
+                    person[a]=document.getElementById(a)
+                    console.log(person)
+                }else if(a== "std"){
+                    allradiobtns.forEach((rd)=>{
+                        if(rd.checked){
+                            person.std=rd.value
+                        }
+                    })
+                }
+            }
+            
+        }
+        var postData = new XMLHttpRequest();
+            postData.onreadystatechange = function (){
+                if(postData.readyState == 4 && postData.status == 201){
+                    console.log("User Added Succes")
+                }
+            }
+            postData.open("POST",
+            "github.com/typicode/json-server");
+            postData.setRequestHeader("Content-Type","application/json");
+            postData.send(JSON.stringify(person))
+        
+    </script>
+  </body>
+</html>

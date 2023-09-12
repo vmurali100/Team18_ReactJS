@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Movie Application Form</title>
+    <!-- <link rel="stylesheet" href="./movies.css"> -->
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+      }
+
+      .star-rating {
+        display: inline-block;
+      }
+
+      .star-rating > input {
+        display: none;
+      }
+
+      .star-rating > label {
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+        text-align: center;
+        line-height: 30px;
+        cursor: pointer;
+        font-size: 24px;
+      }
+
+      .star-rating > label:before {
+        content: "★";
+      }
+
+      .star-rating > input:checked ~ label:before {
+        content: "★";
+        color: gold;
+      }
+      table {
+        margin: auto;
+      }
+      h1 {
+        color: lightskyblue;
+      }
+    #updateUserBtn{
+      display: none;
+    }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Movie Application Form</h1>
+      <form>
+        <label for="title">Title:</label> <br />
+        <input type="text" id="title" /> <br /><br />
+
+        <label for="hero">Hero</label><br />
+        <input type="text" id="hero" /><br /><br />
+
+        <label for="heroine">Heroine</label><br />
+        <input type="text" id="heroine" /><br /><br />
+
+        <label for="director">Director:</label><br />
+        <input type="text" id="director" /><br /><br />
+
+        <label for="releaseYear">Release Year:</label><br />
+        <input type="number" id="releaseYear" /><br /><br />
+        
+        <!-- <div class="star-rating">
+          <br />
+          <input type="radio" name="rating" id="star5" />
+          <label for="star5"></label>
+          <input type="radio" name="rating" id="star4" />
+          <label for="star4"></label>
+          <input type="radio" name="rating" id="star3" />
+          <label for="star3"></label>
+          <input type="radio" name="rating" id="star2" />
+          <label for="star2"></label>
+          <input type="radio" name="rating" id="star1" />
+          <label for="star1"></label>
+        </div> <br><br> -->
+
+        
+        <button type="button" onclick="adduser()" id="addUserBtn">Submit</button>
+        <button type="button" onclick="updataUser()" id="updateUserBtn">updataUser</button>
+        
+    </div>
+
+    <hr />
+    <table border="2">
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Hero</th>
+          <th>Heroine</th>
+          <th>Director</th>
+          <th>Release Year</th>
+          <th>Edit</th>
+          <th>Delete</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+    <script>
+      var allusers = [];
+      function adduser() {
+        var users = {
+          title: "",
+          hero: "",
+          heroine: "",
+          director: "",
+          releaseYear: "",
+        };
+        for (a in users) {
+          users[a] = document.getElementById(a).value;
+          console.log(users);
+        }
+        allusers.push(users);
+        displayusers(users);
+        clearform()
+      }
+      function displayusers() {
+        document.querySelector("tbody").innerHTML = "";
+        allusers.forEach((usr,i) => {
+          var mytr = document.createElement("tr");
+          for (b in usr) {
+            var mytd = document.createElement("td");
+            mytd.innerHTML = usr[b];
+            mytr.appendChild(mytd);
+          }
+          var EditTd = document.createElement("td");
+          var editbtn = document.createElement("button");
+          editbtn.innerHTML = "EDIT";
+          editbtn.setAttribute("onclick", "edituser(" + i + ")");
+          EditTd.appendChild(editbtn);
+          mytr.appendChild(EditTd);
+
+          var DeleteTd = document.createElement("td");
+          var Deletebtn = document.createElement("button");
+          Deletebtn.innerHTML ="Delete";
+          Deletebtn.setAttribute("onclick","deleteuser("+i+")");
+          DeleteTd.appendChild(Deletebtn);
+          mytr.appendChild(DeleteTd);
+          document.querySelector("tbody").appendChild(mytr);
+        });
+      }
+
+      function deleteuser(i) {
+        allusers = allusers.filter((usr, index) => {
+          return i !== index;
+        });
+        displayusers();
+      }
+
+
+      function edituser(i) {
+        gIndex = i;
+        for (a in allusers[i]) {
+            document.getElementById(a).value = allusers[i][a];
+          }
+          document.getElementById("updateUserBtn").style.display = "none";
+        document.getElementById("addUserBtn").style.display = "block";
+          
+        }
+        function clearform(){
+        var users = {
+          title: "",
+          hero: "",
+          heroine: "",
+          director: "",
+          releaseYear: "",
+        };
+        for (a in users) {
+          document.getElementById(a).value="";
+      }
+    }
+
+      //   function updataUser(){
+      //     document.getElementById("updateUserBtn").style.display = "block";
+      //   document.getElementById("addUserBtn").style.display = "none";
+      //   var users = {
+      //     title: "",
+      //     hero: "",
+      //     heroine: "",
+      //     director: "",
+      //     releaseYear: "",
+      //   };
+      //   for (a in users) {
+      //     users[a] = document.getElementById(a).value;
+      //   }
+      //   displayusers()
+      //   allusers[gIndex]=users
+      //   clearform()
+      // }
+     
+    </script>
+  </body>
+</html>

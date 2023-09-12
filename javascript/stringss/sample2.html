@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        .container {
+            border: 1px solid red;
+            background-color: greenyellow;
+            width: 403px;
+            text-align: center;
+            margin-left: 404px;
+            margin-top: 24px;
+            height: 665px;
+        }
+
+        h1 {
+            color: red;
+            text-transform: capitalize;
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 20px;
+        }
+
+        button {
+            width: 94px;
+            color: white;
+            background-color: orange;
+            height: 30px;
+            border-radius: 10px;
+            border-color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <form action="">
+        <div class="container">
+            <h1>Personal details</h1>
+            <br>
+            <label for="name">Name:</label>
+            <input type="text" id="name"><br><br>
+            <label for="pass">Password:</label>
+            <input type="text" id="pass"><br><br>
+            <label for="email">E-mail id:</label>
+            <input type="text" id="email"><br><br>
+            <label for="gender">Gender:</label>
+            <input type="radio" name="gender">Male
+            <input type="radio" name="gender">Female<br><br>
+            <label for="contact">Contact#:</label>
+            <input type="text" id="contact"><br><br>
+            <h1>educational qualifications</h1><br><br>
+            <!-- <label for="">Degree:</label> -->
+                <select name="" id="opt1">
+                <option value="">B.Com</option>
+                <option value="">B.Sc</option>
+                <option value="">BBA</option>
+                <option value="">BCA</option>
+            </select><br><br>
+            <label for="">Engineering:</label>
+            <select name="" id="opt2">
+                <option value="">Cse</option>
+                <option value="">Ece</option>
+                <option value="">Eee</option>
+                <option value="">Civil</option>
+                <option value="">Mech</option> 
+            <!-- </select><br><br> -->
+            <label for="hobb">Hobbies: </label>
+            <input type="Checkbox" name="hobb">Playing chess
+            <input type="Checkbox" name="hobb">Reading Books
+            <br><br><br>
+            <h1>Address</h1><br>
+            <textarea name="" id="address" cols="38" rows="6"></textarea><br><br>
+            <label for="">Attach Resume:</label>
+            <input type="file" placeholder="Choose File" id="file">
+            <br><br>
+            <button type="button" onclick="adduser()">SUBMIT</button>
+        </div>
+    </form>
+    <script>
+        var rbtns = document.getElementsByName("gender")
+        var cbox = document.getElementsByName("hobb")
+        function adduser() {
+            var person = {
+                name: "",
+                pass: "",
+                email: "",
+                gender: "",
+                contact: "",
+                opt1: "",
+                // opt2: "",
+                hobb: [],
+                address: "",
+                file: "",
+            }
+            for (a in person) {
+                if (a != "gender" && a != "hobb") {
+                    person[a] = document.getElementById(a).value
+                }
+                else if (a == "gender") {
+                    rbtns.forEach((rb)=>{
+                        if (rb.checked) {
+                            person.gender = rb.value
+                        }
+                    });
+                } else if (a == "hobb") {
+                    cbox.forEach((cb)=>{
+                        if (cb.checked) {
+                            person.hobb.push(cb.value)
+                        }
+                    })
+                    person.opt1 = document.getElementById("opt1").value;
+                    console.log(person)
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

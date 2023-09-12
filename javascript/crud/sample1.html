@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+      <label for="">Name</label>  
+      <input type="text" name="" id="name"> <br><br>
+      <label for="">Father Name</label>
+      <input type="text" name="" id="fname"><br><br>
+      <button type="button" onclick="Adduser()">adduser</button><br>
+
+    </form><br><hr>
+    <table border="1">  
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Father Name</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+    <script>
+        var persons=[]
+        function Adduser(){
+            var users={
+                name:"",
+                fname:""
+            }
+            for(a in users){
+                users[a]=document.getElementById(a).value
+                console.log(users)
+            }
+            persons.push(users)
+            displayUsers(persons)
+            clearform()
+
+        }
+        function displayUsers(){
+            document.querySelector("tbody").innerHTML="";
+           persons.forEach((usr)=>{
+            var mytr=document.createElement("tr")
+            for(b in usr){
+                var mytd=document.createElement("td")
+            mytd.innerHTML=usr[b]
+            mytr.appendChild(mytd)
+            }
+            document.querySelector("tbody").appendChild(mytr)
+           })
+        }
+        function clearform(){
+            var users={
+                name:"",
+                fname:""
+            }
+            for(a in users){
+                users[a]=document.getElementById(a).value="";
+                
+            }
+        }
+    </script>
+</body>
+</html>
