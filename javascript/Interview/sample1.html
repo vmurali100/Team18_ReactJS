@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>uid</th>
+                <th>password</th>
+                <th>firstname</th>
+                <th>lastname</th>
+                <th>username</th>
+                <th>email</th>
+                <th>avtar</th>
+                <th>gender</th>
+                <th>phonenumber</th>
+                <th>social insurance number</th>
+                <th>date of birth</th>
+                <th>employment</th>
+                <th>address</th>
+                <th>credit card</th>
+                <th>subscription</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+    <script>
+        function getusers() {
+            var getdata = new XMLHttpRequest();
+            getdata.onreadystatechange = function () {
+                if (getdata.readyState == 4 && getdata.status == 200) {
+                    console.log(JSON.parse(getdata.response))
+                    displayUsers(JSON.parse(getdata.response))
+                }
+            }
+            getdata.open("GET", "https://random-data-api.com/api/v2/users?size=10")
+            getdata.send()
+        }
+        getusers()
+        function displayUsers(users) {
+            users.forEach((usr) => {
+                var mytr = document.createElement("tr");
+                for (a in usr) {
+                    if (a != "" &&
+                        a != "address" &&
+                        a != "subscription" &&
+                        a != "employment" &&
+                        a != "credit_card") {
+
+                        var mytd = document.createElement("td");
+                        mytd.innerHTML = usr[a];
+                        mytr.appendChild(mytd)
+
+                    } else if (a == "subscription" || a== "credit_card" || a== "employment") {
+                        var mytd = document.createElement("td");
+                        var results = "";
+                        for (b in usr[a]) {
+                                results = results + usr[a][b] + "<br>"
+                                mytd.innerHTML = results;
+                                mytr.appendChild(mytd)
+                            }
+                }else if (a == "address") {
+                        var mytd = document.createElement("td");
+                        var results = "";
+                        for (b in usr[a]) {
+                            if (b != "coordinates" && b != "") {
+                                results = results + usr[a][b] + "<br>"
+                                mytd.innerHTML = results;
+                                mytr.appendChild(mytd)
+                            }
+                        }
+                    }
+                }
+                document.querySelector("tbody").appendChild(mytr)
+            })
+        }
+    </script>
+</body>
+
+</html>
