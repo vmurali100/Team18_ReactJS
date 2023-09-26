@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <table border="1">
+        <thead>
+            <th>id</th>
+            <th>u id</th>
+            <th>password</th>
+            <th>first name</th>
+            <th>last name</th>
+            <th>user</th>
+            <th>email</th>
+            <th>avatar</th>
+            <th>gender</th>
+            <th>ph no</th>
+            <th>insurance no</th>
+            <th>date of birth</th>
+            <th>address</th>
+            <th>employment</th>
+            <th>credit card</th>
+            <th>subscription</th>
+        </thead>
+        <tbody></tbody>
+    </table>
+    <script>
+        var users = []
+        function getinfo() {
+            var getinfo = new XMLHttpRequest();
+            getinfo.onreadystatechange = function () {
+                if (getinfo.status == 200 && getinfo.readyState == 4) {
+                    console.log((getinfo.response))
+                    users = JSON.parse(getinfo.response)
+                    displayUsers(users)
+                }
+            }
+            getinfo.open("GET", "https://random-data-api.com/api/v2/users?size=10");
+            getinfo.send()
+        }
+        getinfo()
+
+        function displayUsers(users) {
+            users.forEach((usr) => {
+                var myTr = document.createElement("tr")
+                for (a in usr) {
+                    if (a != "" &&
+                        a != "address" &&
+                        a != "subscription" &&
+                        a != "employment" &&
+                        a != "credit_card") {
+
+                        var myTd = document.createElement("td")
+                        myTd.innerHTML = usr[a]
+                        myTr.appendChild(myTd)
+
+                    }else if (a == "subscription"||a =="employment"|| a=="credit_card" ) {
+                        var myTd = document.createElement("td");
+                        var results = "";
+                        for (b in usr[a]) {
+                            results += usr[a][b] + "<br/>"
+                            myTd.innerHTML = results;
+                            myTr.appendChild(myTd);
+                        }
+                    }else if (a = "address") {
+                        var myTd = document.createElement("td");
+                        var results = "";
+                        for (b in usr[a]) {
+                            if (b != "coordinates" && b!="") {
+                                results += usr[a][b] + "<br/>"
+                                myTd.innerHTML = results;
+                                myTr.appendChild(myTd);
+                            }                           
+                        }
+                    }
+                }
+                document.querySelector("tbody").appendChild(myTr)
+            })
+        }
+    </script>
+</body>
+
+</html>
