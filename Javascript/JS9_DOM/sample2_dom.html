@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      div {
+        border: 2px solid red;
+        border-radius: 10px;
+        padding: 20px;
+        margin-bottom: 5px;
+      }
+      img{
+        width: 100%;
+      }
+    </style>
+    <title>Document</title>
+  </head>
+  <body>
+    
+    <ul></ul>
+    <script>
+      var touristPlacesInChittoor = [
+        {
+          placeName: "Tirupathi",
+          pic: "https://i.ytimg.com/vi/lVbjZWsVtJk/maxresdefault.jpg",
+            about:"irupati is a city in the Indian state of Andhra Pradesh. Its Sri Venkateswara Temple sits atop one of the the 7 peaks of Tirumala Hills, attracting scores of Hindu pilgrims."
+        },
+        {
+          placeName: "Tala Kona",
+          pic: "https://i.ytimg.com/vi/HkgyQtdWVYo/maxresdefault.jpg",
+          about:"irupati is a city in the Indian state of Andhra Pradesh. Its Sri Venkateswara Temple sits atop one of the the 7 peaks of Tirumala Hills, attracting scores of Hindu pilgrims."
+
+        },
+        {
+          placeName: "Kanipakam",
+          pic: "https://www.holidify.com/images/cmsuploads/compressed/VinayakaTemple_20200508120615.jpg",
+          about:"irupati is a city in the Indian state of Andhra Pradesh. Its Sri Venkateswara Temple sits atop one of the the 7 peaks of Tirumala Hills, attracting scores of Hindu pilgrims."
+
+        },
+        {
+          placeName: "Kanigiri",
+          pic: "https://static.wixstatic.com/media/71d62d_8113970a52b14f5fbb72c1e473dd9785~mv2.jpeg/v1/fill/w_560,h_420,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/71d62d_8113970a52b14f5fbb72c1e473dd9785~mv2.jpeg",
+          about:"irupati is a city in the Indian state of Andhra Pradesh. Its Sri Venkateswara Temple sits atop one of the the 7 peaks of Tirumala Hills, attracting scores of Hindu pilgrims."
+
+        },
+      ];
+      touristPlacesInChittoor.forEach(function (place) {
+        var myDiv = document.createElement("div");
+        document.body.appendChild(myDiv);
+
+        // To display Place Name
+        var mypara = document.createElement("p");
+        mypara.innerHTML = place.placeName;
+        myDiv.appendChild(mypara);
+
+        var myImg = document.createElement("img")
+        myImg.setAttribute("src",place.pic)
+        myDiv.appendChild(myImg)
+
+        var myAbout = document.createElement("p")
+        myAbout.innerHTML = place.about;
+        myDiv.appendChild(myAbout)
+      });
+      // var students = ["Dilli","Jaga","Guna"]
+      // students.forEach(function(val){
+      //     var myLi = document.createElement("li")
+      //     myLi.innerHTML = val;
+      //     document.querySelector("ul").appendChild(myLi)
+      // })
+    </script>
+  </body>
+</html>

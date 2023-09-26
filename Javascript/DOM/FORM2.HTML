@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form>
+      <label for="name">name</label>
+      <input type="text" id="name">
+      <label for="age">age</label>
+      <input type="text" id="age">
+      <label for="class">class</label>
+      <input type="text" id="class">
+      <label for="section">section</label>
+      <input type="text" id="section">
+      <button type="button" onclick="adduser()">adduser</button>
+    </form>
+    <table border="1">
+      <thead>
+        <tr>
+          <th>name</th>
+          <th>age</th>
+          <th>class</th>
+          <th>section</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+    <script>
+      var users = [];
+      function adduser() {
+        var person = {
+          name: "",
+          age: "",
+          class: "",
+          section: "",
+        };
+        for (a in person) {
+          person[a] = document.getElementById(a).value;
+          console.log(person);
+        }
+        users.push(person);
+        displayusers(users);
+        clearform();
+      }
+      function displayusers() {
+        document.querySelector("tbody").innerHTML = "";
+        users.forEach((usr) => {
+          var mytr = document.createElement("tr");
+          for (a in usr) {
+            var mytd = document.createElement("td");
+            mytd.innerHTML = usr[a];
+            mytr.appendChild(mytd);
+          }
+          document.querySelector("tbody").appendChild(mytr);
+        });
+        // clearform();
+      }
+      function clearform() {
+        var person = {
+          name: "",
+          age: "",
+          class: "",
+          section: "",
+        };
+        for (a in person) {
+          document.getElementById(a).value = "";
+        }
+      }
+    </script>
+  </body>
+</html>

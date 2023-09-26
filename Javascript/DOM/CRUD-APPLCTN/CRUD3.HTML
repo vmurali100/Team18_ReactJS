@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form>
+      <label for="name">name</label>
+      <input type="text" name="" id="name" /><br /><br />
+      <label for="age">age</label>
+      <input type="text" name="" id="age" /><br /><br />
+      <label for="phone">phone</label>
+      <input type="text" name="" id="phone" /><br /><br />
+      <label for="city">city</label>
+      <input type="text" name="" id="city" /><br /><br />
+      <label for="gender">gender</label>
+      <!-- <input type="radio" name="gender" value="male" />male <br />
+      <input type="radio" name="gender" value="female" />female <br />
+      <input type="radio" name="gender" value="other" />other <br /><br />
+      <label for="subjects">subjects</label><br />
+      <input type="checkbox" name="subjects" value="HTML" />HTML <br />
+      <input type="checkbox" name="subjects" value="CSS" />CSS <br />
+      <input type="checkbox" name="subjects" value="JS" />JS <br />
+      <input type="checkbox" name="subjects" value="REACTJS" />REACTJS <br />
+      <label for="blood">bloodgroup</label><br />
+      <select name="" id="blood">
+        <option value="">select</option>
+        <option value="A">A</option>
+        <option value="B">B</option>
+        <option value="AB">AB</option>
+        <option value="O">O</option>
+      </select>
+      <br /><br /> -->
+      <button type="button" onclick="adduser()">adduser</button>
+      <button type="button" onclick="updateuser()" id="updatebtn">
+        updateuser
+      </button>
+    </form>
+    <br /><br />
+    <hr />
+    <table border="1">
+      <thead>
+        <tr>
+          <th>name</th>
+          <th>age</th>
+          <th>phone</th>
+          <th>city</th>
+          <th>gender</th>
+          <th>subjects</th>
+          <th>blood</th>
+          <th>edit</th>
+          <th>delete</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+    <script>
+      var users = [];
+      var allradiobtns=document.getElementsByName()
+      function adduser() {
+        var user = {
+          name: "",
+          age: "",
+          phone: "",
+          city: "",
+          gender: "",
+          subjects: [],
+          blood: "",
+        };
+        for (a in user) {
+          if (a != "gender" && a!="subject") {
+            user[a] = document.getElementById(a).value;
+          }
+            //console.log(user);
+        //   } else if (a=="gender") {
+        //     allradiobtns.forEach((radio) => {
+        //       if (radio.checked) {
+        //         user.gender = radio.value;
+        //       }
+        //     });
+        //   }else if(a=="subject"){
+        //     allcheckboxes.forEach((cb)=>{
+        //       if(cb.checked){
+        //         user.subject.push(cb.value)
+        //       }
+        //     })
+        //   }
+        // }
+        users.push(user);
+        displayusers();
+        clearform();
+      }}
+      function displayusers(){
+        document.querySelector("tbody").innerHTML=""
+        users.forEach((usr,i)=>{
+          var mytr=document.createElement("tr")
+          for(a in usr){
+            var mytd=document.createElement("td")
+            mytd.innerHTML=usr[a]
+            mytr.appendChild(mytd)
+          }
+          var edittd=document.createElement("td")
+          var editbutton=document.createElement("button")
+          editbutton.innerHTML="edit",
+          editbutton.setAttribute("onclick", "edituser("+i+")")
+          edittd.appendChild(editbutton)
+          mytr.appendChild(edittd)
+
+
+          var deletetd=document.createElement("td")
+          var deletebutton=document.createElement("button")
+          deletebutton.innerHTML="delete"
+          deletebutton.setAttribute("onclick","deleteuser("+i+")")
+          deletetd.appendChild(deletebutton)
+          mytr.appendChild(deletetd)
+          document.querySelector("tbody").appendChild(mytr)
+        })
+        function edituser(i){
+        
+        }
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <select
+      class="form-select form-select-lg mb-3"
+      aria-label="Large select example"
+    >
+      <option selected>Open this select menu</option>
+      <option value="FA1">FA1</option>
+      <option value="FA2">FA2</option>
+      <option value="FA3">FA3</option>
+    </select>
+    <br /><br />
+    <label for="">Telugu : </label>
+    <input type="text" name="" id="telugu" /> <br />
+    <label for="">Hindi : </label>
+    <input type="text" name="" id="hindi" /> <br />
+    <label for="">English : </label>
+    <input type="text" name="" id="english" /> <br />
+    <label for="">Maths : </label>
+    <input type="text" name="" id="maths" /> <br />
+    <label for="">Science : </label>
+    <input type="text" name="" id="science" /> <br />
+    <label for="">Social : </label>
+    <input type="text" name="" id="social" /> <br />
+
+    <button type="button" onclick="addMarks()">Add Marks</button>
+    <br /><br />
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Subject</th>
+                <th>FA1</th>
+                <th>FA2</th>
+                <th>FA3</th>
+                <th>SA1</th>
+                <th>SA2</th>
+                <th>FA4</th>
+            </tr>
+            
+        </thead>
+        <tbody>
+            
+           <tr>
+                <th>Telugu</th>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <th>Hindi</th>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            
+            
+
+        </tbody>
+    </table>
+    <script>
+        var users=[]
+      function addMarks() {
+        var totalMarks = {
+          telugu: document.getElementById("telugu").value,
+          hindi: document.getElementById("hindi").value,
+          english: document.getElementById("english").value,
+          maths: document.getElementById("maths").value,
+          science: document.getElementById("science").value,
+          social: document.getElementById("social").value,
+        };
+users.push(addMarks)
+
+        console.log(totalMarks);
+      }
+    </script>
+  </body>
+</html>

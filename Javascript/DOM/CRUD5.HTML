@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form>
+      <label for="fname">firstname</label>
+      <input type="text" id="fname" />
+      <label for="lname">lastname</label>
+      <input type="text" id="lname" />
+      <button type="button" onclick="adduser()">adduser</button>
+      <button type="button" onclick="update()">update</button>
+    </form>
+    <table border="1">
+      <thead>
+        <tr>
+          <th>fname</th>
+          <th>lname</th>
+          <th>edit</th>
+          <th>delete</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+    <script>
+      var users = [];
+      function adduser() {
+        var user = {
+          fname: "",
+          lname: "",
+        };
+        for (a in user) {
+          user[a] = document.getElementById(a).value;
+          console.log(user);
+        }
+        users.push(user);
+        displayusers(user);
+        clearform();
+      }
+      function displayusers() {
+        document.createElement("tbody").innerHTML = "";
+        users.forEach((usr, i) => {
+          var mytr = document.createElement("tr");
+          for (a in usr) {
+            var mytd = document.createElement("td");
+            mytd.innerHTML = usr[a];
+            mytr.appendChild(mytd);
+          }
+          var edittd = document.createElement("td");
+          var editBtn = document.createElement("button");
+          editBtn.innerHTML = "edit";
+          editBtn.setAttribute("onclick", "edituser((" + i + "))");
+          edittd.appendChild(editBtn);
+          mytr.appendChild(edittd);
+
+          var deltd = document.createElement("td");
+          var delbtn = document.createElement("button");
+          delbtn.innerHTML = "delete";
+          delbtn.setAttribute("onclick", "deletuser(" + i + ")");
+          deltd.appendChild(delbtn);
+          mytr.appendChild(deltd);
+
+          document.querySelector("tbody").appendChild(mytr);
+        });
+      }
+      function edituser(i) {
+        gindex = i;
+        for (a in users[i]) {
+          document.getElementById(a).value = users[i][a];
+        }
+      }
+      function deletuser(i) {
+        users = users.filter((usr, index) => {
+          return index != i;
+        });
+        displayusers();
+      }
+      function clearform() {
+        var user = {
+          fname: "",
+          lname: "",
+        };
+        for (a in user) {
+          document.getElementById(a).value = "";
+        }
+      }
+
+        function update() {
+          var user = {
+            fname: "",
+            lname: "",
+          };
+        }
+        for (a in user) {
+          user[a] = document.getElementById(a).value;
+          console.log(user);
+        }
+        users[gindex] = user;
+        displayusers(users);
+        clearform();
+    </script>
+  </body>
+</html>

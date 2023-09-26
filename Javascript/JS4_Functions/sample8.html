@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // function calculate(num1,num2){
+        //     // var num1 = 10;
+        //     // var num2=20;
+        //     var total = num1+num2
+
+        //     // document.write(total)
+
+        //     return total
+        // }
+
+        // var totalSum = calculate(20,50)
+
+        // document.write(totalSum)
+
+//  / a,b,method ARE CALLED ARGUMENTS or Parameters
+        function calculate(a,b,method){
+            if(method == "ADD"){
+                return a+b
+            }else if(method == "MULTIPLY"){
+                return a *b
+            }
+        }
+
+        // var total = calculate(10,20,"MULTIPLY")
+        var total = calculate(10,20,"ADD")
+        // document.write(total)    
+
+        function printSquare(n){
+            document.write(n*n)
+        }
+
+        function checkEven(n){
+            if(n%2==0){
+                document.write(n +" is Even Number !!")
+            }else{
+                document.write(n +" is not Even Number !!")
+            }
+        }
+        checkEven(9)
+        // printSquare(7)
+    </script>
+</body>
+</html>

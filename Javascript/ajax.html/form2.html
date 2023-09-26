@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="">
+        <div class="container">
+            <h1>personal details</h1>
+            <br>
+            <label for="name">Name:</label>
+            <input type="text" id="name"><br> <br>
+            <label for="pass">password:</label>
+            <input type="text" id="pass"><br><br>
+            <label for="email">Email id:</label>
+            <input type="text" id="email"> <br><br>
+            <label for="gender">gender:</label>
+            <input type="radio" name="gender" value="male">male
+            <input type="radio" name="gender" value="female">female <br> <br>
+            <label for="contact">contact#:</label>
+            <input type="text" id="contact"><br><br>
+            <h1>educational qualifications</h1> <br><br>
+            <label for="select">Degree:</label>
+            <select name="" id="select">
+                <option value="">---selectgroup---</option>
+                <option value="Bcom">Bcom</option>
+                <option value="Bsc">Bsc</option>
+                <option value="BBA">BBA</option>
+                <option value="BCA">BCA</option>
+            </select> <br><br>
+            <label for="group"> Engeneering:</label>
+            <select name="" id="">
+                <option value="Cse">Cse</option>
+                <option value="Ece">Ece</option>
+                <option value="Eee">Eee</option>
+                <option value="Civil">Civil</option>
+                <option value="Mtech">Mtech</option>
+            </select><br><br>
+            <input type="checkbox" name="hobb" value="playingchess">playing chess
+            <input type="checkbox" name="hobb" value="readingbooks">Reading books <br><br><br>
+            <h1>Address</h1> <br>
+            <textarea name="" id="" cols="30" rows="10"></textarea><br><br>
+            <label for="">Attach Resume:</label>
+            <input type="file" placeholder="chooseFile" id="file"><br><br>
+            <button type="button" onclick="adduser()">SUBMIT</button>
+            </div>
+        </form>
+        <table border="1">
+            <thead>
+                <th>Name</th>
+                <th>password</th>
+                <th>Email</th>
+                <th>Gender</th>
+                <th>Contact</th>
+                <th>Select</th>
+                <th>Group</th>
+                <th>Hobbies</th>
+                <th>Address</th>
+                <th>edit</th>
+                <th>delete</th>
+            </thead>
+            <tbody></tbody>
+            </table>
+            <script>
+                var rbtns=document.getElementsByName("gender")
+                var cbox=document.getElementsByName("hobb")
+                function adduser(){
+                    var person={
+                        name:"",
+                        pass:"",
+                        email:"",
+                        gender:"",
+                        contact:"",
+                        select:"",
+                        group:"",
+                        hobbies:[],
+                        adress:"",
+                        
+                    }
+                    for( a in person){
+                        if(a!="gender" && a!="hobb"){
+                            person[a]=document.getElementById(a).value
+                        }
+                        else if(a=="gender"){
+                            rbtns.forEach((rb)=>{
+                                if(rb.checked){
+                                    person.gender=rb.value
+                                }
+                            });
+                        }else if(a=="hobb"){
+                            cbox.forEach((cb)=>{
+                                if(cb.checked){
+                                    person.hobb.push((cb.value))
+                                }
+                            })
+                        }
+                }
+                var postData=new XMLHttpRequest();
+                postData.onreadystatechange=function(){
+                    if(postData.readyState==4 &&postData.status==202){
+                        console.log("User Added Success")
+                    }
+                    }
+                    postData.open("POST","http://localhost:3000/users")
+                    postData.setRequestHeader("Content-Type","application/json")
+                    postData.send(JSON.stringify(person))
+                }
+                function getusers(){
+                    var getinfo=new XMLHttpRequest();
+                    getinfo.onreadystatechange=function(){
+                        if(getinfo.readyState==4 && getinfo.status==200){
+                            console.log(JSON.parse(getinfo.response))
+                            displayUsers(JSON.parse(getinfo.response))
+                        }
+                    }
+                    getinfo.open("GET","http://localhost:3000/users")
+                    getinfo.send()
+                }
+                getusers()
+                function displayUsers(users){
+                    users.forEach((usr,i)=>{
+                        var mytr=document.createElement("tr")
+                        for(a in usr){
+                            var mytd=document.createElement("td")
+                            mytd.innerHTML=usr[a]
+                            mytr.appendChild(mytd)
+                        }
+                        var edittd=document.createElement("td")
+                        var deltd=document.createElement("td")
+                          
+
+                        var editbtn=document.createElement("button")
+                        editbtn.innerHTML="edit"
+                        editbtn.setAttribute("onclick","edituser("+i+")")
+                          
+
+                        var deletebtn=document.createElement("button")
+                        deltebtn.innerHTML="delete"
+                        deletebtn.setAttribute("onclick","deleteuser("+i+")")
+
+
+                        edittd.appendChild(editbtn)
+                        deltd .appendChild(deletebtn)
+
+                        mytr.appendChild(edittd)
+                        mytr.appendChild(deltd)
+                        document.querySelector("tbody").appendChild(mytr)
+                    
+                    })
+                }
+        
+            </script>
+    
+</body>
+</html>

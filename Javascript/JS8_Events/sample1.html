@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- <button onclick="alert('Hello You Just Clicked !!')">Click Me</button> -->
+    <!-- <button ondblclick="alert('Hello You Just Clicked !!')">Click Me</button> -->
+
+    <!-- <button onmouseover="alert('Hello You Just Clicked !!')">Click Me</button> -->
+    <!-- <button onmouseout="alert('Hello You Just Clicked !!')">Click Me</button> -->
+
+    <input
+      type="text"
+      name=""
+      id="myInput"
+      onfocus="changeBackGroundColor()"
+      onblur="revertBackgroundColor()"
+      onmouseover="handleMouseover()"
+      onmouseout="reverMouseHandle()"
+      onkeypress="handleKeyPress()"
+      onkeyup="handleKeyUp()"
+      onkeydown="handleKeyDown()"
+      onchange="handleChange()"
+    />
+    <script>
+      function changeBackGroundColor() {
+        console.log("YOU Just Focused On Input field !!");
+        document.getElementById("myInput").style.background = "red";
+      }
+
+      function revertBackgroundColor() {
+        document.getElementById("myInput").style.background = "";
+      }
+
+      function handleMouseover(){
+        document.getElementById("myInput").style.background = "lightblue";
+
+      }
+
+      function reverMouseHandle(){
+        document.getElementById("myInput").style.background = "yellow";
+
+      }
+
+      function handleKeyPress(){
+        console.log("You Just Pressed a key !!")
+      }
+
+      function handleKeyUp(){
+        console.log("You Just lifted your finger !!")
+      }
+
+      function handleKeyDown(){
+        console.log("You Just Down the Key !!!!")
+      }
+
+      function handleChange(){
+        console.log("You Just Changed a Value !!")
+      }
+      // Events
+      // Event Handlers b
+    </script>
+  </body>
+</html>
