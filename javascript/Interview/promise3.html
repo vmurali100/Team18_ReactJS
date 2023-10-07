@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table border="1">
+     <thead>
+      <tr>
+        <th>id</th>
+        <th>uid</th>
+        <th>accountnumber</th>
+        <th>iban</th>
+        <th>bankname</th>
+        <th>routingnumber</th>
+        <th>swiftbic</th>
+      </tr>
+     </thead>
+     <tbody></tbody>
+    </table>
+    <script>
+        function getusers(){
+            return new Promise((resolve,reject)=>{
+        var getdata=new XMLHttpRequest()
+        getdata.onreadystatechange=function(){
+            if(getdata.readyState==4 && getdata.status==200){
+                resolve(JSON.parse(getdata.response))
+            }
+        }
+        getdata.open("GET","https://random-data-api.com/api/v2/banks?size=10")
+        getdata.send()
+    })
+    }
+    getusers().then((data)=>{
+        displayusers(data)
+    })
+        function displayusers(users){
+        users.forEach((usr) => {
+            var mytr=document.createElement("tr")
+            for(a in usr){
+                var mytd=document.createElement("td")
+                mytd.innerHTML=usr[a]
+                mytr.appendChild(mytd)
+            }
+            document.querySelector("tbody").appendChild(mytr)
+        });
+        }
+    </script>
+</body>
+</html>
