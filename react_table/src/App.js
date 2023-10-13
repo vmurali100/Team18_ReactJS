@@ -1,12 +1,9 @@
-import './App.css';
-import Shanthi from './Shanthi';
+import { Table } from "./Table";
 
 function App() {
   return (
     <div className="App">
-    
-   <h1>hhhhh</h1>
-    <Shanthi/>
+      <Table/>
     </div>
   );
 }
