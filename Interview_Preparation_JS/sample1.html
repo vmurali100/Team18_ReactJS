@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // var a = 10;
+      // var b = 20;
+
+      // setTimeout(function (){
+      //     console.log(a)
+      // },5000)
+
+      // console.log(b);
+
+      // What is CallBack  ?
+
+      // setTimeout(function (){},2000)
+
+      var allUsers = [];
+
+
+      function displyAllUsers(){
+        console.log("allUsers",allUsers)
+      }
+
+      function getUsers() {
+        // setTimeout(()=>{
+        //     allUsers = ["Ram","Ravi","Sam"]
+        // },2000)
+        var getUsersfromserver = new XMLHttpRequest();
+        var api = "https://jsonplaceholder.typicode.com/users";
+          getUsersfromserver.open("GET", api);
+          getUsersfromserver.send();
+        getUsersfromserver.onreadystatechange = function () {
+          if (
+            getUsersfromserver.status == 200 &&
+            getUsersfromserver.readyState == 4
+          ) {
+            allUsers = JSON.parse(getUsersfromserver.response)
+            displyAllUsers()
+          }
+         
+        };
+
+       
+      }
+      getUsers(displyAllUsers);
+    //   displyAllUsers()
+    </script>
+  </body>
+</html>

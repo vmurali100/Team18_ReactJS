@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button id="myButton">Click</button>
+    <script>
+      const obj = {
+        name: "Example Object",
+        handleClick: function () {
+          console.log("Regular function this:", this.name); // 'this' refers to obj
+        },
+      };
+
+    //   const button = document.querySelector("#myButton");
+
+    //   button.addEventListener("click", obj.handleClick);
+    obj.handleClick()
+
+      const outerObj = {
+        outerProp: "Outer Object",
+        innerObj: {
+          innerProp: "Inner Object",
+          arrowFunction: () => {
+            console.log("Arrow function this:", this.outerProp); // 'this' refers to the outer lexical context
+          },
+        },
+      };
+
+      outerObj.innerObj.arrowFunction();
+      // function Student(fname,lname){
+      //     console.log(this)
+      //     this.fname = fname;
+      //     this.lname = lname;
+      //     this.sayFullName=function(){
+
+      //     }
+      // }
+
+      // var std1 = new Student("Ram","Krishna")
+
+      //   console.log(std1);
+    </script>
+  </body>
+</html>
