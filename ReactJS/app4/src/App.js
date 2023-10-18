@@ -3,11 +3,13 @@ import "./App.css";
 // import Student from "./Student";
 import { useState } from "react";
 import Person from "./Person";
-import Employee from "./Employee";
+// import Employee from "./Employee";
 import Parent from "./Components/Parent";
 import Demo from "./Components/Demo";
 import DemoComp from "./Components/DemoComp";
 import Student from "./ClassComponents/Student";
+import Employee from "./ClassComponents/Employee";
+import Users from "./ClassComponents/Users";
 
 function App() {
   var [person, setPerson] = useState("Welcome to ReactJS"); // Creating a State
@@ -23,7 +25,9 @@ function App() {
   }
   return (
     <div>
-      <Student/>
+      <Users/>
+      {/* <Employee/> */}
+      {/* <Student/> */}
       {/* <button onClick={changeMessage}>Change Message</button> */}
       {/* <h2>{person}</h2> */}
       {/* <DemoComp/> */}
