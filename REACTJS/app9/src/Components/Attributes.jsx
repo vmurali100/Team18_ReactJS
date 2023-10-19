@@ -1,6 +1,10 @@
-export const Attributes=()=>{
-    return <div>
-        <table border={4}>
+import React, { Component } from 'react'
+
+export default class  extends Component {
+  render() {
+    return (
+      <div>
+          <table border={4}>
             <thead>
                 <tr>
                     <th rowSpan={2}>A</th>
@@ -29,5 +33,7 @@ export const Attributes=()=>{
             </thead>
         </table>
         <hr />
-    </div>
+      </div>
+    )
+  }
 }

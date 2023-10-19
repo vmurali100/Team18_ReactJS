@@ -1,7 +1,10 @@
-export const Timetable=()=>{
-    return <div>
-       
-        <table border={5} >
+import React, { Component } from 'react'
+
+export default class  extends Component {
+  render() {
+    return (
+      <div>
+  <table border={5} >
             <thead>
                 <tr>
                     <th rowSpan={2}>Day</th>
@@ -72,6 +75,7 @@ export const Timetable=()=>{
                 </tr>
             </tbody>
         </table>
-    
-    </div>
-} 
+      </div>
+    )
+  }
+}
