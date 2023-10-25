@@ -39,7 +39,7 @@ export default class User extends Component {
     console.log(user);
   };
         
-    };
+    
     render() {
         return(<form>
             <div>
