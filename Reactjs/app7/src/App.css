@@ -12,6 +12,70 @@
     animation: App-logo-spin infinite 20s linear;
   }
 }
+div{
+  background-color: burlywood;
+  width: 400px;
+  height: 300px;
+  margin: auto;
+}
+.ji{
+  font-weight: 600;
+  float: left;
+  margin-left: 5px;
+}
+input{
+  float: right;
+  margin-bottom:2px;
+  height: 13px;
+  margin-right:5px;
+}
+button{
+  background-color: rgb(80, 255, 89);
+  width: 120px;
+  height: 28px;
+  border-radius: 30%;
+}
+#imu{
+  background-color:rgb(191, 191, 243);
+  color: white;
+  margin-top: 0px;
+  padding-top: 15px;
+  height: 230px;
+}
+.im{
+  font-weight: 500;
+  float: left;
+  margin-left: 5px;
+}
+#inki{
+  background-color:rgb(255, 141, 47);
+  height: 470px;
+}
+.ink{
+  font-weight: 500;
+  float: left;
+  margin-left: 5px;
+}
+h3{
+  color: rgb(119, 204, 232);
+}
+#btn{
+color: bisque;
+background-color: rgb(246, 86, 246);
+border-radius: 0%;
+height: 35px;
+position:absolute;
+left: 570px;
+}
+#pen{
+  margin-left: 0%;
+  width: 340vh;
+  height: 97vh;
+}
+table{
+  border-collapse: collapse;
+  border-color:rgb(34, 34, 207);
+}
 
 .App-header {
   background-color: #282c34;
