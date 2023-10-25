@@ -64,8 +64,9 @@ export default class User extends Component {
             <label htmlFor="" class="ji">Scrap percentage : </label>
             <input type="text" name="sp" value={this.state.sp} onChange={this.handlechange}/><br /><br /><br />
             <button type="button" onClick={this.addUser}>Submit</button>
-            </div>
+            
         </form>
+        </div>
         
         );
     }
