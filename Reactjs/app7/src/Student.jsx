@@ -33,7 +33,12 @@ export default class User extends Component {
             ebq:this.state.ebq,
             sp:this.state.sp,
         }
-        console.log(user)
+        let newUsers = [...this.state.users];
+    newUsers.push(user);
+    this.setState({users:newUsers,fname:"",lname:""})
+    console.log(user);
+  };
+        
     }
     render() {
         return(<form>
