@@ -41,8 +41,10 @@ export default class User extends Component {
         
     
     render() {
-        return(<form>
+        return(
+        
             <div>
+                <form>
             <label htmlFor="" class="ji">Customer Name : </label>
             <input type="text" name="cname" value={this.state.cname} onChange={this.handlechange} /><br />
             <label htmlFor="" class="ji">Part Name : </label>
@@ -66,6 +68,7 @@ export default class User extends Component {
             <button type="button" onClick={this.addUser}>Submit</button>
             
         </form>
+        
         </div>
         
         );
