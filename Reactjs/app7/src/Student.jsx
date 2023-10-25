@@ -66,5 +66,7 @@ export default class User extends Component {
             <button type="button" onClick={this.addUser}>Submit</button>
             </div>
         </form>
+        
         );
     }
+}
