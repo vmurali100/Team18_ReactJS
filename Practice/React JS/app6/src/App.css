@@ -32,7 +32,84 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
+}
+
+div {
+  background-color: yellow;
+  width: 400px;
+  height: 300px;
+  margin: auto;
+}
+
+.ji {
+  font-weight: 600;
+  float: left;
+  margin-left: 5px;
+}
+
+input {
+  float: right;
+  margin-bottom: 2px;
+  height: 13px;
+  margin-right: 5px;
+}
+
+button {
+  background-color: coral;
+  width: 120px;
+  height: 28px;
+  border-radius: 30%;
+}
+
+#imu {
+  background-color: orange;
+  color: white;
+  margin-top: 0px;
+  padding-top: 15px;
+  height: 230px;
+}
+
+.im {
+  font-weight: 500;
+  float: left;
+  margin-left: 5px;
+}
+
+#inki {
+  background-color: red;
+  height: 470px;
+}
+
+.ink {
+  font-weight: 500;
+  float: left;
+  margin-left: 5px;
+}
+
+h3 {
+  color: red;
+}
+
+#btn {
+  color: bisque;
+  background-color: darkmagenta;
+  border-radius: 0%;
+  height: 35px;
+  position: absolute;
+  left: 433px;
+}
+
+#pen {
+  margin-left: 0%;
+  width: 340vh;
+  height: 97vh;
+}
+
+table {
+  border-collapse: collapse;
+  border-color: red;
 }
