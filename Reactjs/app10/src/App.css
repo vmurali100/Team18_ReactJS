@@ -36,11 +36,3 @@
     transform: rotate(360deg);
   }
 }
-table{
-  width: 300px;
-  height: 200px;
-  text-align: center;
-}
-#go{
-  margin: 0 auto;
-}
