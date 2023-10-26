@@ -68,7 +68,30 @@ export default class User extends Component {
             <button type="button" onClick={this.addUser}>Submit</button>
             
         </form>
-        
+        <table border={1}>
+          <thead>
+            <tr>
+              <th>First Name </th>
+              <th>Last  Name</th>
+              <th>Edit</th>
+              <th>Delete</th>
+            </tr>
+          </thead>
+          <tbody>
+            {this.state.users.map((usr)=>{
+              return <tr>
+                <td>{usr.fname}</td>
+                <td>{usr.lname}</td>
+                <td>
+                  <button>Edit</button>
+                </td>
+                <td>
+                  <button>Delete</button>
+                </td>
+              </tr>
+            })}
+          </tbody>
+        </table>
         </div>
         
         );

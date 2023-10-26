@@ -12,7 +12,7 @@
     animation: App-logo-spin infinite 20s linear;
   }
 }
-div{
+/* div{
   background-color: burlywood;
   width: 400px;
   height: 300px;
@@ -99,4 +99,4 @@ table{
   to {
     transform: rotate(360deg);
   }
-}
+} */
