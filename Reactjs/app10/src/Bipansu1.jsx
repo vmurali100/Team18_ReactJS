@@ -53,8 +53,7 @@ export default class User1 extends Component {
                 <label htmlFor="" class="im">Experience : </label>
                 <input type="text" name="exp" value={this.state.exp} onChange={this.change} /><br />
                 <label htmlFor="" class="im">Your website or Blog : </label>
-                <input type="text" name="wb" value={this.state.wb} onChange={this.change} /><br />
-                <br /><br />
+                <input type="text" name="wb" value={this.state.wb} onChange={this.change} /><br /><br />
                 <button type="button" onClick={this.addUser}>click</button><br /><br />
                 </form>
                 <table border={1}>

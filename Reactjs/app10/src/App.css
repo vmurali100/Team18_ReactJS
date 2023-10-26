@@ -60,11 +60,11 @@ button{
   border-radius: 30%;
 }
 #imu{
-  background-color:midnightblue;
-  color: white;
+  background-color:cadetblue;
+  color: brown;
   margin-top: 0px;
   padding-top: 15px;
-  height: 230px;
+  height: 270px;
 }
 .im{
   font-weight: 500;
