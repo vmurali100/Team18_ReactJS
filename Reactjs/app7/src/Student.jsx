@@ -72,15 +72,18 @@ export default class User extends Component {
                     <label htmlFor="sp" className="ji">Scrap percentage: </label>
                     <input type="text" name="sp" value={this.state.sp} onChange={this.handleChange} /><br /><br /><br />
                     <button type="button" onClick={this.addUser}>Submit</button>
-                </form>
+                </form><br></br><br></br><br></br><br></br><br></br><br></br>
                 <table border={1}>
                     <thead>
                         <tr>
                             <th>Customer Name</th>
                             <th>Part Name</th>
+                            <th>part print number</th>
                             {/* Add similar headers for other fields */}
                             <th>Estimated base quantity</th>
                             <th>Scrap percentage</th>
+                            <th>Edit</th>
+                            <th>Delete</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -88,9 +91,16 @@ export default class User extends Component {
                             <tr key={index}>
                                 <td>{usr.cname}</td>
                                 <td>{usr.pname}</td>
+                                <td>{usr.ppno}</td>
                                 {/* Add similar TDs for other fields */}
                                 <td>{usr.ebq}</td>
                                 <td>{usr.sp}</td>
+                                <td>
+                                    <button>Edit</button>
+                                </td>
+                                <td>
+                                    <button>Delete</button>
+                                </td>
                             </tr>
                         ))}
                     </tbody>

@@ -12,6 +12,7 @@ export default class User1 extends Component {
             avgcpi: "",
             exp: "",
             wb: "",
+            user:[]
         };
     }
     change = (e) => {
@@ -29,6 +30,9 @@ export default class User1 extends Component {
             exp: this.state.exp,
             wb: this.state.wb,
         }
+        let newUsers=[...this.state.users];
+        newUsers.push(sami);
+        this.setState({users:newUsers,})
         console.log(sami)
     }
     render() {
