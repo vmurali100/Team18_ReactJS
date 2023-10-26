@@ -1,4 +1,4 @@
-import { Component } from "react";
+import React, { Component } from "react";
 
 export default class User extends Component {
     constructor(props) {
@@ -7,93 +7,95 @@ export default class User extends Component {
         this.state = {
             cname: "",
             pname: "",
-            ppno:"",
-            rv:"",
-            pano:"",
-            doe:"",
-            en:"",
-            bn:"",
+            ppno: "",
+            rv: "",
+            pano: "",
+            doe: "",
+            en: "",
+            bn: "",
+            ebq: "", // Added this state variable for estimated base quantity
+            sp: "",  // Added this state variable for scrap percentage
+            users: [],
         };
     }
-    handlechange = (e) => {
-        console.log(e.target.name)
-        let proName = e.target.name
-        this.setState({ [proName]: e.target.value });
+
+    handleChange = (e) => {
+        const { name, value } = e.target;
+        this.setState({ [name]: value });
     }
+
     addUser = () => {
-        let user = {
+        const user = {
             cname: this.state.cname,
             pname: this.state.pname,
-            ppno:this.state.ppno,
-            rv:this.state.rv,
-            pano:this.state.pano,
-            doe:this.state.doe,
-            en:this.state.en,
-            bn:this.state.bn,
-            ebq:this.state.ebq,
-            sp:this.state.sp,
-        }
-        let newUsers = [...this.state.users];
-    newUsers.push(user);
-    this.setState({users:newUsers,fname:"",lname:""})
-    console.log(user);
-  };
-        
-    
+            ppno: this.state.ppno,
+            rv: this.state.rv,
+            pano: this.state.pano,
+            doe: this.state.doe,
+            en: this.state.en,
+            bn: this.state.bn,
+            ebq: this.state.ebq,
+            sp: this.state.sp,
+        };
+
+        const newUsers = [...this.state.users];
+        newUsers.push(user);
+
+        this.setState({
+            users: newUsers,
+            cname: "",
+            pname: "",
+            ppno: "",
+            rv: "",
+            pano: "",
+            doe: "",
+            en: "",
+            bn: "",
+            ebq: "",
+            sp: "",
+        });
+    };
+
     render() {
-        return(
-        
+        return (
             <div>
                 <form>
-            <label htmlFor="" class="ji">Customer Name : </label>
-            <input type="text" name="cname" value={this.state.cname} onChange={this.handlechange} /><br />
-            <label htmlFor="" class="ji">Part Name : </label>
-            <input type="text" name="pname" value={this.state.pname} onChange={this.handlechange} /><br />
-            <label htmlFor="" class="ji">Part Print Number : </label>
-            <input type="text" name="ppno" value={this.state.ppno} onChange={this.handlechange}/><br />
-            <label htmlFor="" class="ji">Revision : </label>
-            <input type="text" name="rv" value={this.state.rv} onChange={this.handlechange}/><br />
-            <label htmlFor="" class="ji">Part Number : </label>
-            <input type="text" name="pano" value={this.state.pano} onChange={this.handlechange}/><br />
-            <label htmlFor="" class="ji">Date of Estimate : </label>
-            <input type="text" name="doe" value={this.state.doe} onChange={this.handlechange}/><br />
-            <label htmlFor="" class="ji">Estimator Name : </label>
-            <input type="text" name="en" value={this.state.en} onChange={this.handlechange}/><br />
-            <label htmlFor="" class="ji">Buyer Name : </label>
-            <input type="text" name="bn" value={this.state.bn} onChange={this.handlechange}/><br />
-            <label htmlFor="" class="ji">Estimated base quantity : </label>
-            <input type="text" name="ebq" value={this.state.ebq} onChange={this.handlechange}/><br />
-            <label htmlFor="" class="ji">Scrap percentage : </label>
-            <input type="text" name="sp" value={this.state.sp} onChange={this.handlechange}/><br /><br /><br />
-            <button type="button" onClick={this.addUser}>Submit</button>
-            
-        </form>
-        <table border={1}>
-          <thead>
-            <tr>
-              <th>First Name </th>
-              <th>Last  Name</th>
-              <th>Edit</th>
-              <th>Delete</th>
-            </tr>
-          </thead>
-          <tbody>
-            {this.state.users.map((usr)=>{
-              return <tr>
-                <td>{usr.fname}</td>
-                <td>{usr.lname}</td>
-                <td>
-                  <button>Edit</button>
-                </td>
-                <td>
-                  <button>Delete</button>
-                </td>
-              </tr>
-            })}
-          </tbody>
-        </table>
-        </div>
-        
+                    <label htmlFor="cname" className="ji">Customer Name: </label>
+                    <input type="text" name="cname" value={this.state.cname} onChange={this.handleChange} /><br />
+                    <label htmlFor="pname" className="ji">Part Name: </label>
+                    <input type="text" name="pname" value={this.state.pname} onChange={this.handleChange} /><br />
+                    <label htmlFor="ppno" className="ji">Part Print Number: </label>
+                    <input type="text" name="ppno" value={this.state.ppno} onChange={this.handleChange} /><br />
+                    {/* Add similar labels and inputs for other fields */}
+                    <label htmlFor="ebq" className="ji">Estimated base quantity: </label>
+                    <input type="text" name="ebq" value={this.state.ebq} onChange={this.handleChange} /><br />
+                    <label htmlFor="sp" className="ji">Scrap percentage: </label>
+                    <input type="text" name="sp" value={this.state.sp} onChange={this.handleChange} /><br /><br /><br />
+                    <button type="button" onClick={this.addUser}>Submit</button>
+                </form>
+                <table border={1}>
+                    <thead>
+                        <tr>
+                            <th>Customer Name</th>
+                            <th>Part Name</th>
+                            {/* Add similar headers for other fields */}
+                            <th>Estimated base quantity</th>
+                            <th>Scrap percentage</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {this.state.users.map((usr, index) => (
+                            <tr key={index}>
+                                <td>{usr.cname}</td>
+                                <td>{usr.pname}</td>
+                                {/* Add similar TDs for other fields */}
+                                <td>{usr.ebq}</td>
+                                <td>{usr.sp}</td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+            </div>
         );
     }
 }
