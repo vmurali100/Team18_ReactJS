@@ -14,6 +14,7 @@ export default class Usam extends Component {
             eng: "",
             hob: "",
             add: "",
+            users:[]
         };
     }
     changing = (e) => {
@@ -33,12 +34,16 @@ export default class Usam extends Component {
             hob: this.state.hob,
             add: this.state.add,
         }
+        let newUsers = [...this.state.users];
+        newUsers.push(details);
+        this.setState({ users: newUsers, name: "", pass: "", mail: "", gender: "", cno: "", deg: "", eng: "" ,hob:"",add:""})
         console.log(details)
     }
     render() {
-        return (<form>
+        return (
 
             <div id="inki">
+                <form>
                 <h3>Personal Details</h3>
                 <label htmlFor="" class="ink">Name : </label>
                 <input type="text" name="name" value={this.state.name} onChange={this.changing} /><br />
@@ -61,8 +66,47 @@ export default class Usam extends Component {
                 <textarea name="add" id="" cols="29" rows="4" value={this.state.add} onChange={this.changing}></textarea>
                 <br /><br />
                 <button type="button" onClick={this.addUser}>click</button><br /><br />
+                </form>
+                <table border={1}>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Password</th>
+                            <th>Email-id</th>
+                            <th>Gender</th>
+                            <th>Contact no </th>
+                            <th>Degree</th>
+                            <th>Engineering</th>
+                            <th>Hobbies</th>
+                            <th>Address</th>
+                            <th>Edit</th>
+                            <th>Delete</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {this.state.users.map((usr) => {
+                            return <tr>
+                                <td>{usr.name}</td>
+                                <td>{usr.pass}</td>
+                                <td>{usr.mail}</td>
+                                <td>{usr.gender}</td>
+                                <td>{usr.cno}</td>
+                                <td>{usr.deg}</td>
+                                <td>{usr.eng}</td>
+                                <td>{usr.hob}</td>
+                                <td>{usr.add}</td>
+                                <td>
+                                    <button>Edit</button>
+                                </td>
+                                <td>
+                                    <button>Delete</button>
+                                </td>
+                            </tr>
+                        })}
+                    </tbody>
+                </table>
             </div>
-        </form>
+      
         );
     }
 }
