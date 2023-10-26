@@ -10,8 +10,12 @@ function App() {
   return (
     <div className="App">
       <User />
+      <br />
+      <br />
       <User1 />
+      <br />
       <Usam />
+      <br />
       <Aria />
     </div>
   );

@@ -60,6 +60,7 @@ export default class User extends Component {
                 <input type="text" name="sp" value={this.state.sp} onChange={this.handlechange} /><br /><br /><br />
                 <button type="button" onClick={this.addUser}>Submit</button>
             </div>
+
         </form>
         );
     }
