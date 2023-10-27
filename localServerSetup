@@ -1,0 +1,6 @@
+1. Create a local Server Folder
+2. In Local Server folder run "npm init" . a new file called package.json will be created
+3. run "npm install -g json-server"
+4. run "npm install json-server"
+5. create a file called db.json 
+6. run json-server --watch db.json 
