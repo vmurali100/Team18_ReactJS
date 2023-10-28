@@ -1,84 +1,82 @@
-import { Component } from "react";
+import React, { Component } from "react";
+import axios from "axios";
 
-export default class User extends Component {
+export default class Student extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      fname: "",
-      lname: "",
-      isEdit: false,
-      users: [
-        { fname: "John", lname: "Doe" },
-        { fname: "Jane", lname: "Smith" },
-        { fname: "Alice", lname: "Johnson" },
-        { fname: "Bob", lname: "Brown" },
-        { fname: "Eva", lname: "Williams" },
-      ],
-      index: null,
+      users: [],
+      isEdit:false,
+      user:{
+        fname:"",
+        lname:"",
+        email:""
+      }
     };
   }
 
-  handleChange = (e) => {
-    console.log(e.target.name);
-    let proName = e.target.name;
-    this.setState({ [proName]: e.target.value });
-  };
+  handleChange=(e)=>{
 
-  addUser = () => {
-    let user = {
-      fname: this.state.fname,
-      lname: this.state.lname,
-    };
-    let newUsers = [...this.state.users];
-    newUsers.push(user);
-    this.setState({ users: newUsers, fname: "", lname: "" });
-    console.log(user);
-  };
+    let newUser = {...this.state.user}
+    newUser[e.target.name] = e.target.value
+    this.setState({user:newUser})
+  }
 
-  handleDelete = (usr, i) => {
-    // let newUsers = [...this.state.users]
-    // newUsers.splice(i,1)
-
-    let newUsers = this.state.users.filter((us) => {
-      return us.fname !== usr.fname;
-    });
-
-    this.setState({ users: newUsers });
-  };
-  handleEdit = (usr, i) => {
-    this.setState({
-      fname: usr.fname,
-      lname: usr.lname,
-      isEdit: true,
-      index: i,
+  getDataFromServer = () => {
+    axios.get("http://localhost:3000/users").then((res) => {
+      console.log(res.data);
+      this.setState({ users: res.data });
     });
   };
 
-  handleUpdate = () => {
-    let newUsers = [...this.state.users];
-    let user = {
-      fname: this.state.fname,
-      lname: this.state.lname,
-    };
-    newUsers[this.state.index] = { ...user };
-    this.setState({ users: newUsers,isEdit:false });
-    this.clearForm()
-  };
+  addUser=()=>{
+    console.log(this.state.user)
+    axios.post("http://localhost:3000/users",this.state.user).then((res)=>{
+        this.getDataFromServer()
+        this.clearForm()
+    })
+  }
 
+  handleEdit=(usr)=>{
+    console.log(usr)
+    this.setState({user:usr,isEdit:true})
+  }
+
+  handleUpdate=()=>{
+    axios.put("http://localhost:3000/users/"+this.state.user.id,this.state.user).then((res)=>{
+        this.getDataFromServer()
+        this.clearForm()
+    })
+  }
   clearForm=()=>{
-    this.setState({fname:"",lname:""})
+    let newUser={
+        fname:"",
+        lname:"",
+        email:""
+    }
+    this.setState({user:newUser,isEdit:false})
   }
+
+  handleDelete=(usr)=>{
+    axios.delete("http://localhost:3000/users/"+usr.id).then((res)=>{
+        this.getDataFromServer()
+    })
+  }
+
   render() {
     return (
       <div>
+
+        <button onClick={this.getDataFromServer}>Get Data</button>
+
         <form>
           <label htmlFor="">First Name : </label>
           <input
             type="text"
             name="fname"
             onChange={this.handleChange}
-            value={this.state.fname}
+            value={this.state.user.fname}
           />
           <br />
           <label htmlFor="">Last Name : </label>
@@ -86,7 +84,14 @@ export default class User extends Component {
             type="text"
             name="lname"
             onChange={this.handleChange}
-            value={this.state.lname}
+            value={this.state.user.lname}
+          />{" "} <br />
+          <label htmlFor="">Email : </label> 
+          <input
+            type="text"
+            name="email"
+            onChange={this.handleChange}
+            value={this.state.user.email}
           />{" "}
           <br />
           {this.state.isEdit ? (
@@ -99,12 +104,14 @@ export default class User extends Component {
             </button>
           )}
         </form>
-
+        <hr />
         <table border={1}>
           <thead>
             <tr>
               <th>First Name </th>
               <th>Last Name</th>
+              <th>Email</th>
+              <th>Id</th>
               <th>Edit</th>
               <th>Delete</th>
             </tr>
@@ -112,11 +119,12 @@ export default class User extends Component {
           <tbody>
             {this.state.users.map((usr, i) => {
               return (
-                <tr>
+                <tr key={i}>
                   <td>{usr.fname}</td>
                   <td>{usr.lname}</td>
+                  <td>{usr.email}</td>
+                  <td>{usr.id}</td>
                   <td>
-                    {/* <button onClick={this.handleEdit}>Edit</button> */}
                     <button
                       onClick={() => {
                         this.handleEdit(usr, i);
