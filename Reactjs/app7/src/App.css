@@ -11,7 +11,7 @@
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
-}
+/* }
 div{
   background-color: burlywood;
   width: 400px;
@@ -86,7 +86,7 @@ table{
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
-}
+} */
 
 .App-link {
   color: #61dafb;
@@ -99,4 +99,5 @@ table{
   to {
     transform: rotate(360deg);
   }
+}
 }
