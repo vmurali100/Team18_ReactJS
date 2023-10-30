@@ -5,17 +5,33 @@ export default class Student extends Component {
         super(props);
         this.state = {
             Student:{
-                
-            }
-        }
+                Customercare:"",
+                PartName:"",
+                PartprintNumber:"",
+                Revision:"",
+                PartNumber:"",
+                DateofEstimation:"",
+                EstimatorName:"",
+                BuyerName:"",
+                Estimatebasequantity:"",
+                Scrappercentage:"",
+            },
+            allStudents:[]
+        };
 
         }
+        handleChange = (e) => {
+            const newStudent = {...this.state.student};
+            newStudent[e.target.name] = e.target.value;
+            this.setState({student:newStudent});
+        };
+        
     }
   render() {
     return (
       <div>
         <form >
-          <label for="Customer care">Customer care:</label>
+          <label for="Customercare">Customercare:</label>
           <input
             type="text"
             id="Customer care"
@@ -26,7 +42,7 @@ export default class Student extends Component {
           />
           <br />
           <br />
-          <label for="Part Name">Part Name:</label>
+          <label for="PartName">PartName:</label>
           <input
             type="text"
             id="Part Name"
@@ -37,7 +53,7 @@ export default class Student extends Component {
           />
           <br />
           <br />
-          <label for="Partprint Number">Partprint Number:</label>
+          <label for="PartprintNumber">PartprintNumber:</label>
           <input
             type="text"
             id="Partprint Number"
@@ -59,7 +75,7 @@ export default class Student extends Component {
           />
           <br />
           <br />
-          <label for="Part Number">Part Number:</label>
+          <label for="PartNumber">PartNumber:</label>
           <input
             type="text"
             id="Part Number"
@@ -69,7 +85,7 @@ export default class Student extends Component {
             value={this.state.student.degree}
           />
          
-          <label for="Date of  Estimation">Date of  Estimation:</label>
+          <label for="DateofEstimation">DateofEstimation:</label>
           <input
             type="Date"
             id="Date of  Estimation"
@@ -81,7 +97,7 @@ export default class Student extends Component {
          
           <br />
           <br />
-          <label for="Estimator Name">Estimator Name:</label>
+          <label for="EstimatorName">EstimatorName:</label>
           <input
             type="Date"
             id="Estimator Name"
@@ -92,7 +108,7 @@ export default class Student extends Component {
           />
           <br />
           <br />
-          <label for="Buyer Name">Buyer Name:</label>
+          <label for="BuyerName">BuyerName:</label>
           <input
             type="text"
             id="Buyer Name"
@@ -112,7 +128,7 @@ export default class Student extends Component {
         <hr />
         <StudentsTable students={this.state.allStudents}/>
         <div id='second'>
-        <label for="Estimate base quantity">Estimate base quantity:</label>
+        <label for="Estimate base quantity">Estimatebasequantity:</label>
           
           <input
             type="number"
@@ -122,7 +138,7 @@ export default class Student extends Component {
             onChange={this.handleChange}
             value={this.state.student.degree}
           ></input>
-          <label for="Scrap percentage">Scrap percentage:</label>
+          <label for="Scrap percentage">Scrappercentage:</label>
           
           <input
             type="percentage"
@@ -140,6 +156,6 @@ export default class Student extends Component {
      
     );
   }
-}
+
 
 
