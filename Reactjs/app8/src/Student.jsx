@@ -6,7 +6,7 @@ export default class
     return (
       <div>
         <form >
-          <label for="Customer care">University:</label>
+          <label for="Customer care">Customer care:</label>
           <input
             type="text"
             id="university"
@@ -96,13 +96,38 @@ export default class
           <br />
           <br />
           
+          
          
           <input type="button" value="Submit"  onClick={this.handleSubmit}/>
         </form>
 
         <hr />
         <StudentsTable students={this.state.allStudents}/>
+        <div id='second'>
+        <label for="Estimate base quantity">Experience:</label>
+          
+          <input
+            type="number"
+            id="Quantity"
+            name="degree"
+            required
+            onChange={this.handleChange}
+            value={this.state.student.degree}
+          ></input>
+          <label for="Scrap percentage">Experience:</label>
+          
+          <input
+            type="percentage"
+            id="Quantity"
+            name="degree"
+            required
+            onChange={this.handleChange}
+            value={this.state.student.degree}
+          ></input>
+          
+        </div>
       </div>
+     
     );
   }
 }
