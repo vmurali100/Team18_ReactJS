@@ -1,6 +1,6 @@
 import { Component } from "react";
 
-export default class Usam extends Component {
+export default class Student2 extends Component {
     constructor(props) {
         super(props);
 
@@ -14,6 +14,9 @@ export default class Usam extends Component {
             eng: "",
             hob: "",
             add: "",
+            users:[],
+            gIndex:0,
+            isEdit:false
         };
     }
     changing = (e) => {
@@ -33,12 +36,65 @@ export default class Usam extends Component {
             hob: this.state.hob,
             add: this.state.add,
         }
+        let newUsers = [...this.state.users];
+        newUsers.push(details);
+        this.setState({ users: newUsers, name: "", pass: "", mail: "", gender: "", cno: "", deg: "", eng: "" ,hob:"",add:""})
         console.log(details)
     }
+    handledelete = (i) => {
+    let newUsers=[...this.state.users];
+    newUsers.splice(i,1);
+    this.setState({users:newUsers})
+    }
+    handleedit = (usr,i) => {
+    this.setState({
+            name: usr.name,
+            pass: usr.pass,
+            mail: usr.mail,
+            gender:usr.gender,
+            cno: usr.cno,
+            deg: usr.deg,
+            eng: usr.eng,
+            hob:usr.hob,
+            add: usr.add,
+            isEdit:true
+        })
+    }
+    updateuser = () => {
+        let newUsers = [...this.state.users];
+        let details = {
+            name: this.state.name,
+            pass: this.state.pass,
+            mail: this.state.mail,
+            gender: this.state.gender,
+            cno: this.state.cno,
+            deg: this.state.deg,
+            eng: this.state.eng,
+            hob: this.state.hob,
+            add: this.state.add,
+        }
+        newUsers[this.state.gIndex] = { ...details};
+        this.setState({ users: newUsers,isEdit:false });
+        this.clearForm()
+    }
+    clearForm = () => {
+        this.setState({
+            name: "",
+            pass: "",
+            mail: "",
+            gender: "",
+            cno: "",
+            deg: "",
+            eng: "",
+            hob: "",
+            add: ""
+        })
+    }
     render() {
-        return (<form>
+        return (
 
             <div id="inki">
+                <form>
                 <h3>Personal Details</h3>
                 <label htmlFor="" class="ink">Name : </label>
                 <input type="text" name="name" value={this.state.name} onChange={this.changing} /><br />
@@ -60,9 +116,56 @@ export default class Usam extends Component {
                 <h3>Address </h3>
                 <textarea name="add" id="" cols="29" rows="4" value={this.state.add} onChange={this.changing}></textarea>
                 <br /><br />
-                <button type="button" onClick={this.addUser}>click</button><br /><br />
+                {this.state.isEdit ? (
+                        <button type="button" onClick={this.updateuser}>
+                            UpdateUser
+                        </button>
+                    ) : (
+                        <button type="button" onClick={this.addUser}>
+                            AddUser
+                        </button>
+                    )}<br /><br />
+                </form>
+                <table border={1}>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Password</th>
+                            <th>Email-id</th>
+                            <th>Gender</th>
+                            <th>Contact no </th>
+                            <th>Degree</th>
+                            <th>Engineering</th>
+                            <th>Hobbies</th>
+                            <th>Address</th>
+                            <th>Edit</th>
+                            <th>Delete</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {this.state.users.map((usr,i) => {
+                            return <tr key={i}>
+                                <td>{usr.name}</td>
+                                <td>{usr.pass}</td>
+                                <td>{usr.mail}</td>
+                                <td>{usr.gender}</td>
+                                <td>{usr.cno}</td>
+                                <td>{usr.deg}</td>
+                                <td>{usr.eng}</td>
+                                <td>{usr.hob}</td>
+                                <td>{usr.add}</td>
+                                <td>
+                                    <button onClick={()=>this.handleedit(usr,i)}>Edit</button>
+                                </td>
+                                <td>
+                                    <button onClick={() => this.handledelete(i)}>Delete</button>
+                                </td>
+                            </tr>
+                        })}
+                    </tbody>
+                </table>
             </div>
-        </form>
+      
         );
     }
 }

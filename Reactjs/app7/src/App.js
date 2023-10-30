@@ -6,6 +6,7 @@ import Usam from './Student2';
 import Aria from './Student3';
 import Krishna from './Sample6';
 import Student from './Student';
+import Student2 from './Student2';
 
 
 function App() {
@@ -15,7 +16,9 @@ function App() {
   <User1/><br></br><br></br><br></br><br></br>
   <Usam/><br></br><br></br><br></br><br></br>
   <Aria/> */}
-<Student/>
+<Student/><br></br><br></br><br></br><br></br>
+
+<Student2/>
     </div>
   );
 }
