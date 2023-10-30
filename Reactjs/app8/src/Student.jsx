@@ -152,10 +152,9 @@ export default class Student extends Component {
           
         </div>
       </div>
-      
-     
     );
   }
+}
 
 
 
