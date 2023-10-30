@@ -38,7 +38,7 @@ export default class Student extends Component {
             name="Customer care"
             required
             onChange={this.handleChange}
-            value={this.state.student.university}
+            value={this.state.student.Customercare}
           />
           <br />
           <br />
@@ -49,7 +49,7 @@ export default class Student extends Component {
             name="Part Name"
             required
             onChange={this.handleChange}
-            value={this.state.student.institute}
+            value={this.state.student.PartName}
           />
           <br />
           <br />
@@ -60,7 +60,7 @@ export default class Student extends Component {
             name="Partprint Number"
             required
             onChange={this.handleChange}
-            value={this.state.student.branch}
+            value={this.state.student.PartprintNumber}
           />
           <br />
           <br />
@@ -71,7 +71,7 @@ export default class Student extends Component {
             name="Revision"
             required
             onChange={this.handleChange}
-            value={this.state.student.degree}
+            value={this.state.student.Revision}
           />
           <br />
           <br />
@@ -82,7 +82,7 @@ export default class Student extends Component {
             name="Part Number"
             required
             onChange={this.handleChange}
-            value={this.state.student.degree}
+            value={this.state.student.PartNumber}
           />
          
           <label for="DateofEstimation">DateofEstimation:</label>
@@ -92,7 +92,7 @@ export default class Student extends Component {
             name="Date of  Estimation"
             required
             onChange={this.handleChange}
-            value={this.state.student.degree}
+            value={this.state.student.DateofEstimation}
           />
          
           <br />
@@ -104,7 +104,7 @@ export default class Student extends Component {
             name="Estimator Name"
             required
             onChange={this.handleChange}
-            value={this.state.student.degree}
+            value={this.state.student.EstimatorName}
           />
           <br />
           <br />
@@ -115,18 +115,17 @@ export default class Student extends Component {
             name="Buyer Name"
             required
             onChange={this.handleChange}
-            value={this.state.student.degree}
+            value={this.state.student.BuyerName}
           ></input>
           <br />
           <br />
           
           
          
-          <input type="button" value="Submit"  onClick={this.handleSubmit}/>
+         
         </form>
 
-        <hr />
-        <StudentsTable students={this.state.allStudents}/>
+        
         <div id='second'>
         <label for="Estimate base quantity">Estimatebasequantity:</label>
           
@@ -136,7 +135,7 @@ export default class Student extends Component {
             name="Estimate base quantity"
             required
             onChange={this.handleChange}
-            value={this.state.student.degree}
+            value={this.state.student.Estimatebasequantity}
           ></input>
           <label for="Scrap percentage">Scrappercentage:</label>
           
@@ -146,15 +145,19 @@ export default class Student extends Component {
             name="Scrap percentage"
             required
             onChange={this.handleChange}
-            value={this.state.student.degree}
+            value={this.state.student.Scrappercentage}
           ></input><br></br>
           <br></br>
+          <input type="button" value="Clearform" onClick={this.handlesubmit}/>
+
           
         </div>
+
       </div>
     );
   }
-}
+  
+
 
 
 
