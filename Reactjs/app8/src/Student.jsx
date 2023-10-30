@@ -9,62 +9,62 @@ export default class
           <label for="Customer care">Customer care:</label>
           <input
             type="text"
-            id="university"
-            name="university"
+            id="Customer care"
+            name="Customer care"
             required
             onChange={this.handleChange}
             value={this.state.student.university}
           />
           <br />
           <br />
-          <label for="Part Name">Institute:</label>
+          <label for="Part Name">Part Name:</label>
           <input
             type="text"
-            id="institute"
-            name="institute"
+            id="Part Name"
+            name="Part Name"
             required
             onChange={this.handleChange}
             value={this.state.student.institute}
           />
           <br />
           <br />
-          <label for="Partprint Number">Branch:</label>
+          <label for="Partprint Number">Partprint Number:</label>
           <input
             type="text"
-            id="branch"
-            name="branch"
+            id="Partprint Number"
+            name="Partprint Number"
             required
             onChange={this.handleChange}
             value={this.state.student.branch}
           />
           <br />
           <br />
-          <label for="Revision">Degree:</label>
+          <label for="Revision">Revision:</label>
           <input
             type="text"
-            id="degree"
-            name="degree"
+            id="Revision"
+            name="Revision"
             required
             onChange={this.handleChange}
             value={this.state.student.degree}
           />
           <br />
           <br />
-          <label for="Part Number">Status:</label>
+          <label for="Part Number">Part Number:</label>
           <input
             type="text"
-            id="degree"
-            name="degree"
+            id="Part Number"
+            name="Part Number"
             required
             onChange={this.handleChange}
             value={this.state.student.degree}
           />
          
-          <label for="Date of  Estimation">Status:</label>
+          <label for="Date of  Estimation">Date of  Estimation:</label>
           <input
             type="Date"
-            id="degree"
-            name="degree"
+            id="Date of  Estimation"
+            name="Date of  Estimation"
             required
             onChange={this.handleChange}
             value={this.state.student.degree}
@@ -72,23 +72,22 @@ export default class
          
           <br />
           <br />
-          <label for="Estimator Name">Status:</label>
+          <label for="Estimator Name">Estimator Name:</label>
           <input
             type="Date"
-            id="degree"
-            name="degree"
+            id="Estimator Name"
+            name="Estimator Name"
             required
             onChange={this.handleChange}
             value={this.state.student.degree}
           />
           <br />
           <br />
-          <label for="Buyer Name">Experience:</label>
-          <label for="Date of  Estimation">Status:</label>
+          <label for="Buyer Name">Buyer Name:</label>
           <input
-            type="Date"
-            id="degree"
-            name="degree"
+            type="text"
+            id="Buyer Name"
+            name="Buyer Name"
             required
             onChange={this.handleChange}
             value={this.state.student.degree}
@@ -104,29 +103,31 @@ export default class
         <hr />
         <StudentsTable students={this.state.allStudents}/>
         <div id='second'>
-        <label for="Estimate base quantity">Experience:</label>
+        <label for="Estimate base quantity">Estimate base quantity:</label>
           
           <input
             type="number"
-            id="Quantity"
-            name="degree"
+            id="Estimate base quantity"
+            name="Estimate base quantity"
             required
             onChange={this.handleChange}
             value={this.state.student.degree}
           ></input>
-          <label for="Scrap percentage">Experience:</label>
+          <label for="Scrap percentage">Scrap percentage:</label>
           
           <input
             type="percentage"
-            id="Quantity"
-            name="degree"
+            id="Scrap percentage"
+            name="Scrap percentage"
             required
             onChange={this.handleChange}
             value={this.state.student.degree}
-          ></input>
+          ></input><br></br>
+          <br></br>
           
         </div>
       </div>
+      
      
     );
   }
