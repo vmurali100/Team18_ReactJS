@@ -1,3 +1,27 @@
 {
-    "users": []
+  "users": [
+    {
+      "cname": "kyli",
+      "pname": "jnnbn10222",
+      "ppno": "209999",
+      "rv": "21",
+      "pano": "1333",
+      "doe": "3/3/3",
+      "en": "hioon",
+      "bn": "njive",
+      "ebq": "8",
+      "sp": "0.55%",
+      "id": 3
+    },
+    {
+      "university": "mnbjbbjb",
+      "institute": "",
+      "Branch": "i34hh4",
+      "Degree": "",
+      "avgcpi": "",
+      "exp": "",
+      "wb": "",
+      "id": 4
+    }
+  ]
 }
