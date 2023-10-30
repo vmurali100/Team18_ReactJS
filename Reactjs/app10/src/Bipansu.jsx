@@ -13,9 +13,11 @@ export default class User extends Component {
             doe: "",
             en: "",
             bn: "",
-            ebq:"",
-            sp:"",
-            users:[]
+            ebq: "",
+            sp: "",
+            users: [],
+            gIndex: 0,
+            isEdit: false,
         };
     }
     handlechange = (e) => {
@@ -23,7 +25,13 @@ export default class User extends Component {
         let proName = e.target.name
         this.setState({ [proName]: e.target.value });
     }
-    addUser = () => {
+    updateuser = () =>{
+        var allUsersCopy = [...this.state.users];
+    allUsersCopy[this.state.gIndex] = this.state.user;
+    this.setState({ users: allUsersCopy, isEdit: false });
+
+    }
+    adduser = () => {
         let user = {
             cname: this.state.cname,
             pname: this.state.pname,
@@ -38,9 +46,61 @@ export default class User extends Component {
         }
         let newUsers = [...this.state.users];
         newUsers.push(user);
-        this.setState({ users: newUsers, cname: "", pname: "",ppno: "", rv: "",pano: "",doe: "",en: "",bn: "",ebq:"",sp:""})
+        this.setState({ users: newUsers, cname: "", pname: "", ppno: "", rv: "", pano: "", doe: "", en: "", bn: "", ebq: "", sp: "" })
         console.log(user)
     }
+    handledelete = (i) => {
+        let newUsers = [...this.state.users];
+        newUsers.splice(i, 1);
+        this.setState({ users: newUsers });
+    }
+    handleedit = (usr,i) => {
+        this.setState({
+            cname:usr.cname,
+            pname: usr.pname,
+            ppno: usr.ppno,
+            rv: usr.rv,
+            pano: usr.pano,
+            doe: usr.doe,
+            en: usr.en,
+            bn: usr.bn,
+            ebq: usr.ebq,
+            sp: usr.sp,
+            isEdit:true
+        })
+    }
+    updateuser = () =>{
+        let newUsers = [...this.state.users];
+        let user = {
+            cname: this.state.cname,
+            pname: this.state.pname,
+            ppno: this.state.ppno,
+            rv: this.state.rv,
+            pano: this.state.pano,
+            doe: this.state.doe,
+            en: this.state.en,
+            bn: this.state.bn,
+            ebq: this.state.ebq,
+            sp: this.state.sp,
+        };
+        newUsers[this.state.gIndex] = { ...user };
+        this.setState({ users: newUsers,isEdit:false });
+        this.clearForm()
+    }
+    clearForm = () => {
+        this.setState ({
+            cname: "",
+            pname: "",
+            ppno: "",
+            rv: "",
+            pano: "",
+            doe: "",
+            en: "",
+            bn: "",
+            ebq: "",
+            sp: "",
+    })
+}
     render() {
         return (
             <div>
@@ -65,7 +125,15 @@ export default class User extends Component {
                     <input type="text" name="ebq" value={this.state.ebq} onChange={this.handlechange} /><br />
                     <label htmlFor="" class="ji">Scrap percentage : </label>
                     <input type="text" name="sp" value={this.state.sp} onChange={this.handlechange} /><br /><br /><br />
-                    <button type="button" onClick={this.addUser}>Submit</button>
+                    {this.state.isEdit ? (
+                        <button type="button" onClick={this.updateuser}>
+                            UpdateUser
+                        </button>
+                    ) : (
+                        <button type="button" onClick={this.adduser}>
+                            AddUser
+                        </button>
+                    )}
                 </form><br />
                 <table border={1}>
                     <thead>
@@ -85,8 +153,8 @@ export default class User extends Component {
                         </tr>
                     </thead>
                     <tbody>
-                        {this.state.users.map((usr) => {
-                            return <tr>
+                        {this.state.users.map((usr, i) => {
+                            return <tr key={i}>
                                 <td>{usr.cname}</td>
                                 <td>{usr.pname}</td>
                                 <td>{usr.ppno}</td>
@@ -98,10 +166,10 @@ export default class User extends Component {
                                 <td>{usr.ebq}</td>
                                 <td>{usr.sp}</td>
                                 <td>
-                                    <button>Edit</button>
+                                    <button onClick={() => this.handleedit(usr,i)}>Edit</button>
                                 </td>
                                 <td>
-                                    <button>Delete</button>
+                                    <button onClick={() => this.handledelete(i)}>Delete</button>
                                 </td>
                             </tr>
                         })}

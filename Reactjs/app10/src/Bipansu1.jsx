@@ -12,7 +12,9 @@ export default class User1 extends Component {
             avgcpi: "",
             exp: "",
             wb: "",
-            users: []
+            users: [],
+            isEdit:false,
+            gIndex:0,
         };
     }
     change = (e) => {
@@ -35,6 +37,50 @@ export default class User1 extends Component {
         this.setState({ users: newUsers, university: "", institute: "", Branch: "", Degree: "", avgcpi: "", exp: "", wb: "" })
         console.log(sami)
     }
+    handledelete = (i) => {
+    let newUsers=[...this.state.users];
+    newUsers.splice(i,1);
+    this.setState({users:newUsers})
+    }
+    handleedit = (usr,i) => {
+        this.setState({
+            university:usr.university,
+            institute: usr.institute,
+            Branch: usr.Branch,
+            Degree:usr.Degree,
+            avgcpi: usr.avgcpi,
+            exp: usr.exp,
+            wb: usr.wb,
+            isEdit:true
+        })
+    }
+    updateuser = () => {
+        let newUsers = [...this.state.users];
+        let user = {
+            university: this.state.university,
+            institute: this.state.institute,
+            Branch: this.state.Branch,
+            Degree: this.state.Degree,
+            avgcpi: this.state.avgcpi,
+            exp: this.state.exp,
+            wb: this.state.wb,
+            isEdit:false
+        };
+        newUsers[this.state.gIndex] = { ...user };
+        this.setState({ users: newUsers,isEdit:false });
+        this.clearForm()
+    }
+    clearForm = () => {
+        this.setState ({
+            university: "",
+            institute: "",
+            Branch: "",
+            Degree: "",
+            avgcpi: "",
+            exp: "",
+            wb: "",
+        })
+    }
     render() {
         return (
             <div id="imu"> 
@@ -54,7 +100,15 @@ export default class User1 extends Component {
                 <input type="text" name="exp" value={this.state.exp} onChange={this.change} /><br />
                 <label htmlFor="" class="im">Your website or Blog : </label>
                 <input type="text" name="wb" value={this.state.wb} onChange={this.change} /><br /><br />
-                <button type="button" onClick={this.addUser}>click</button><br /><br />
+                {this.state.isEdit ? (
+                        <button type="button" onClick={this.updateuser}>
+                            UpdateUser
+                        </button>
+                    ) : (
+                        <button type="button" onClick={this.addUser}>
+                            AddUser
+                        </button>
+                    )}<br /><br />
                 </form>
                 <table border={1}>
                     <thead>
@@ -71,8 +125,8 @@ export default class User1 extends Component {
                         </tr>
                     </thead>
                     <tbody>
-                        {this.state.users.map((usr) => {
-                            return <tr>
+                        {this.state.users.map((usr,i) => {
+                            return <tr key={i}>
                                 <td>{usr.university}</td>
                                 <td>{usr.institute}</td>
                                 <td>{usr.Branch}</td>
@@ -81,10 +135,10 @@ export default class User1 extends Component {
                                 <td>{usr.exp}</td>
                                 <td>{usr.wb}</td>
                                 <td>
-                                    <button>Edit</button>
+                                    <button onClick={()=>this.handleedit(usr,i)}>Edit</button>
                                 </td>
                                 <td>
-                                    <button>Delete</button>
+                                    <button onClick={()=>this.handledelete(i)}>Delete</button>
                                 </td>
                             </tr>
                         })}
