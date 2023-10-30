@@ -30,5 +30,40 @@
       "email": "MM",
       "id": 5
     }
+  ],
+  "students": [
+    {
+      "university": "ammm",
+      "institute": "ssss",
+      "branch": "ddd",
+      "degree": "fff",
+      "status": "Persuing",
+      "averageCPI": "11",
+      "experience": "aaaa",
+      "website": "http://localhost:3000/",
+      "id": 1
+    },
+    {
+      "university": "ammm",
+      "institute": "ssss",
+      "branch": "ddd",
+      "degree": "fff",
+      "status": "Persuing",
+      "averageCPI": "22",
+      "experience": "ss",
+      "website": "http://localhost:3000/",
+      "id": 2
+    },
+    {
+      "university": "Ram",
+      "institute": "Sam",
+      "branch": "rrr",
+      "degree": "ssss",
+      "status": "Persuing",
+      "averageCPI": "",
+      "experience": "sss",
+      "website": "http://localhost:3001/",
+      "id": 3
+    }
   ]
 }
