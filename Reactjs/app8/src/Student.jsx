@@ -1,8 +1,9 @@
-import React, { Component } from 'react'
+import { Component } from "react";
 
-export default class Student extends Component {
-    constructor(props){
+export default class User extends Component {
+    constructor(props) {
         super(props);
+
         this.state = {
             cname: "",
             pname: "",
