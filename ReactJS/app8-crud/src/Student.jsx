@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import axios from 'axios'
+import axios from "axios";
 import StudentsTable from "./StudentsTable";
 export default class Student extends Component {
   constructor(props) {
@@ -16,7 +16,8 @@ export default class Student extends Component {
         experience: "",
         website: "",
       },
-      allStudents:[]
+      isEdit: false,
+      allStudents: [],
     };
   }
 
@@ -25,22 +26,57 @@ export default class Student extends Component {
     newStudent[e.target.name] = e.target.value;
     this.setState({ student: newStudent });
   };
-  getAllStudetnsFromServer=()=>{
-    axios.get("http://localhost:3000/students").then(res=>{
-        console.log(res)
-        this.setState({allStudents:res.data})
+  getAllStudetnsFromServer = () => {
+    axios.get("http://localhost:3000/students").then((res) => {
+      console.log(res);
+      this.setState({ allStudents: res.data });
+    });
+  };
+  handleSubmit = () => {
+    console.log(this.state.student);
+    axios
+      .post("http://localhost:3000/students/", this.state.student)
+      .then(() => {
+        this.getAllStudetnsFromServer();
+        this.clearForm()
+      });
+  };
+
+  handleEditStudent = (std) => {
+    this.setState({ student: std, isEdit: true });
+  };
+
+  handleUpdate=()=>{
+    axios.put("http://localhost:3000/students/"+this.state.student.id,this.state.student).then(()=>{
+        this.getAllStudetnsFromServer();
+        this.setState({isEdit:false})
+        this.clearForm()
     })
   }
-  handleSubmit=()=>{
-    console.log(this.state.student)
-    axios.post("http://localhost:3000/students/",this.state.student).then(()=>{
+
+  clearForm=()=>{
+    let newStudent = {
+        university: "",
+        institute: "",
+        branch: "",
+        degree: "",
+        status: "",
+        averageCPI: "",
+        experience: "",
+        website: "",
+    }
+    this.setState({student:newStudent})
+  }
+
+  handleDelete=(std)=>{
+    axios.delete("http://localhost:3000/students/"+std.id).then(()=>{
         this.getAllStudetnsFromServer()
     })
   }
   render() {
     return (
       <div>
-        <form >
+        <form>
           <label for="university">University:</label>
           <input
             type="text"
@@ -114,7 +150,7 @@ export default class Student extends Component {
             step="0.01"
             required
             onChange={this.handleChange}
-            checked={this.state.student.averageCPI}
+            value={this.state.student.averageCPI}
           />
           <br />
           <br />
@@ -125,7 +161,7 @@ export default class Student extends Component {
             rows="4"
             cols="50"
             onChange={this.handleChange}
-            checked={this.state.student.experience}
+            value={this.state.student.experience}
           ></textarea>
           <br />
           <br />
@@ -135,15 +171,28 @@ export default class Student extends Component {
             id="website"
             name="website"
             onChange={this.handleChange}
-            checked={this.state.student.website}
+            value={this.state.student.website}
           />
           <br />
           <br />
-          <input type="button" value="Submit"  onClick={this.handleSubmit}/>
+          {this.state.isEdit ? (
+            <input type="button" value="Update" onClick={this.handleUpdate} />
+          ) : (
+            <input
+              type="button"
+              value="Add Student"
+              onClick={this.handleSubmit}
+            />
+          )}
         </form>
 
         <hr />
-        <StudentsTable students={this.state.allStudents}/>
+        <button onClick={this.getAllStudetnsFromServer}>Get Data</button>
+        <StudentsTable
+          students={this.state.allStudents}
+          handleEditStudent={this.handleEditStudent}
+          handleDelete={this.handleDelete}
+        />
       </div>
     );
   }

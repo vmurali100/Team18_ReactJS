@@ -1,6 +1,6 @@
 import React from 'react'
 
-const StudentsTable = ({students}) => {
+const StudentsTable = ({students,handleEditStudent,handleDelete}) => {
   return (
     <div>
        <table border={1}>
@@ -27,13 +27,13 @@ const StudentsTable = ({students}) => {
                   <td>{usr.branch}</td>
                   <td>{usr.degree}</td>
                   <td>{usr.status}</td>
-                  <td>{usr.average}</td>
+                  <td>{usr.averageCPI}</td>
                   <td>{usr.experience}</td>
                   <td>{usr.website}</td>
                   <td>
                     <button
                       onClick={() => {
-                        this.handleEdit(usr, i);
+                        handleEditStudent(usr, i);
                       }}
                     >
                       Edit
@@ -42,7 +42,7 @@ const StudentsTable = ({students}) => {
                   <td>
                     <button
                       onClick={() => {
-                        this.handleDelete(usr, i);
+                        handleDelete(usr, i);
                       }}
                     >
                       Delete

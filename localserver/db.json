@@ -33,37 +33,37 @@
   ],
   "students": [
     {
-      "university": "ammm",
-      "institute": "ssss",
-      "branch": "ddd",
-      "degree": "fff",
-      "status": "Persuing",
-      "averageCPI": "11",
-      "experience": "aaaa",
-      "website": "http://localhost:3000/",
-      "id": 1
-    },
-    {
-      "university": "ammm",
-      "institute": "ssss",
+      "university": "APS",
+      "institute": "RRMMLK",
       "branch": "ddd",
       "degree": "fff",
       "status": "Persuing",
       "averageCPI": "22",
-      "experience": "ss",
+      "experience": "I have 3+ years",
       "website": "http://localhost:3000/",
       "id": 2
     },
     {
-      "university": "Ram",
-      "institute": "Sam",
-      "branch": "rrr",
-      "degree": "ssss",
-      "status": "Persuing",
-      "averageCPI": "",
-      "experience": "sss",
-      "website": "http://localhost:3001/",
+      "university": "UNI1",
+      "institute": "INST1",
+      "branch": "Chittoor",
+      "degree": "BSC",
+      "status": "Completed",
+      "averageCPI": "9.5",
+      "experience": "Some Experience I Have",
+      "website": "http://some.com",
       "id": 3
+    },
+    {
+      "university": "UNI2",
+      "institute": "INST2",
+      "branch": "Chittoor2",
+      "degree": "BCom",
+      "status": "Completed",
+      "averageCPI": "8.70",
+      "experience": "Some Additional Experience",
+      "website": "http://someother.com",
+      "id": 4
     }
   ]
 }
