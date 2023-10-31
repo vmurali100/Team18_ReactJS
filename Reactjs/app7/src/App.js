@@ -1,12 +1,8 @@
 import logo from './logo.svg';
 import './App.css';
-import User from './Student';
-import User1 from './Student1';
-import Usam from './Student2';
-import Aria from './Student3';
-import Krishna from './Sample6';
+
 import Student from './Student';
-import Student2 from './Student2';
+// import Student2 from './Student2';
 
 
 function App() {
@@ -18,7 +14,7 @@ function App() {
   <Aria/> */}
 <Student/><br></br><br></br><br></br><br></br>
 
-<Student2/>
+{/* <Student2/> */}
     </div>
   );
 }

@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-
-
+import axios from "axios"
 
         export default class Student extends Component {
             constructor(props){
@@ -31,6 +30,13 @@ import React, { Component } from "react";
             allUsersCopy[this.state.gIndex] = this.state.user;
             this.setState({ users: allUsersCopy, isEdit: false });
         
+            }
+            getdatafromserver= ()=>{
+                axios.get("http://localhost:3000/students").then (res=>{
+                    console.log(res)
+                    this.setState({users:res.data})
+                    
+                })
             }
             adduser = () => {
                 let user = {
