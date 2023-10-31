@@ -98,7 +98,7 @@
     border-collapse: collapse;
     border-color:green;
   }
-/* }
+}
 div{
   background-color: burlywood;
   width: 400px;
@@ -124,7 +124,7 @@ button{
 }
 #imu{
   background-color:rgb(191, 191, 243);
-  color: white;
+  color: black;
   margin-top: 0px;
   padding-top: 15px;
   height: 230px;
@@ -173,7 +173,7 @@ table{
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
-} */
+}
 
 .App-link {
   color: #61dafb;
@@ -186,5 +186,4 @@ table{
   to {
     transform: rotate(360deg);
   }
-}
 }
