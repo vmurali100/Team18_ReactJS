@@ -73,6 +73,11 @@ export default class Student extends Component {
         this.getAllStudetnsFromServer()
     })
   }
+
+  // The Following Method will Run , when the Project Started or Component Rendering Completed 
+  componentDidMount(){
+    this.getAllStudetnsFromServer();
+  }
   render() {
     return (
       <div>
@@ -185,7 +190,6 @@ export default class Student extends Component {
             />
           )}
         </form>
-
         <hr />
         <button onClick={this.getAllStudetnsFromServer}>Get Data</button>
         <StudentsTable
