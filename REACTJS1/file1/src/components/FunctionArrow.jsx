@@ -48,4 +48,3 @@ export const ShanthiArrow=()=>{
 
     </div>
 }
-m

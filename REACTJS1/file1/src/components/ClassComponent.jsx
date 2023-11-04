@@ -35,4 +35,3 @@ import { Component } from "react";
         </div>
     }
 }
-``
