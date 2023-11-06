@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 export default class LifeCycleCompB extends Component {
   constructor(props) {
-    console.log("I am constructor Method In LifeCycle B Compoent ");
+    console.log("I am constructor Method In LifeCycle B Compoent ",props);
     super(props);
   }
   static getDerivedStateFromProps(nextProps, prevState) {
@@ -28,6 +28,7 @@ export default class LifeCycleCompB extends Component {
     return (
       <div>
         <h2>Welcome to LifeCycle B Component !!</h2>
+        <h2>Count From parent :{this.props.count}</h2>
       </div>
     );
   }

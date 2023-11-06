@@ -22,7 +22,7 @@ export default class LifeCycleCompA extends Component {
 
         <hr />
 
-        <LifeCycleCompB/>
+        <LifeCycleCompB count={this.state.count}/>
 
         <hr />
 
