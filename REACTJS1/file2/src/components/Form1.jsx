@@ -48,3 +48,15 @@ console.log(e.target.value)
     </div>
   );
 };
+
+
+
+import React from 'react'
+
+export const form1 = () => {
+  return (
+    <div>
+      
+    </div>
+  )
+}
