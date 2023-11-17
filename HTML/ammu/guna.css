@@ -1,0 +1,20 @@
+.car {
+    background-color: rgb(231, 228, 225);
+    width: 100%;
+    height: 400px;
+    padding: 30px;
+}
+
+.seconddd {
+    float: right;
+    width: 400px;
+}
+
+.firstdd {
+    float: left;
+    width: 300px;
+}
+
+.seconddd h1 {
+    line-height: 50px;
+}

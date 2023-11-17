@@ -651,17 +651,446 @@ h3 {
     color: white;
 }
 
-@media only screen and (max-width: 468px) {
-    body {
-        background-color: #df1a1a;
-
+.header {
+    * {
+        margin: 0;
+        padding: 0;
     }
 
-    nav {
-        display: none
+    @media screen and (max-width:425px) {
+        body {
+            background-color: pink;
+            width: 100%;
+        }
+
+        /* ---------------------header-------------------------- */
+
+        .row1 .header {
+            width: 100%;
+        }
+
+        .container {
+            padding: 0;
+        }
+
+        .header nav {
+            float: none;
+            width: 100%;
+        }
+
+        .header nav a {
+            width: 100%;
+            background-color: rgb(97, 53, 53);
+        }
+
+        .header img {
+            margin-left: 90px;
+        }
+
+        .header nav a {
+            font-size: 20px;
+            margin-right: 15px;
+            text-align: center;
+            color: lawngreen;
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        #search-symbol {
+            margin-left: 130px;
+        }
+
+        #login-button {
+            margin-top: 6px;
+        }
+
+        #login-button img {
+            margin: 0;
+        }
+
+        /*---------------------------img-----------------------------------  */
+
+        #firstdiv {
+            width: 100%;
+            height: 340px;
+        }
+
+        .child {
+            padding: 0px;
+            width: 100%;
+            height: 0px;
+        }
+
+        h1 {
+            font-size: 25px;
+            color: black;
+            margin-left: 90px;
+        }
+
+        h3 {
+            font-size: 18px;
+            color: black;
+            margin-left: 90px;
+        }
+
+        .vmr,
+        p {
+            font-size: 14px;
+            margin-left: 90px;
+        }
+
+        #went {
+            left: 0px;
+            margin: 0px;
+            margin-top: 61px;
+            float: left;
+
+        }
+
+        #go {
+            margin: 0px;
+            float: right;
+            margin-top: 25px;
+        }
+
+        /* ----------------------article--------------------------------- */
+        .Article h5 {
+            text-align: center;
+        }
+
+        .Article p {
+            margin-left: 20px;
+        }
+
+        .Article,
+        .dileep,
+        h6 {
+            text-align: center;
+        }
+
+
+
+
+        /* -------------------Dispachbox---------------------------------------------*/
+
+        .Dispachbox {
+            width: 100%;
+            display: block;
+            margin-left: 0px;
+            padding: 0px;
+            height: 47rem;
+        }
+
+        h2 {
+            margin-left: 40px;
+            margin-top: -32px;
+        }
+
+        .box1 p {
+            margin-left: 40px;
+        }
+
+        .box2 p {
+            margin-left: 40px;
+        }
+
+        .box3 p {
+            margin-left: 40px;
+        }
+
+        .box3 .icon p {
+            padding: 0;
+        }
+
+        .box4 p {
+            margin-left: 40px;
+        }
+
+        .box5 p {
+            margin-left: 40px;
+        }
+
+        .box6 p {
+            margin-left: 40px;
+        }
+
+        .icon {
+            padding: 0px;
+            width: 100%;
+        }
+
+        .icon a img {
+            width: 25px;
+            margin-left: 10px;
+        }
+
+
+        /* -------------------------------item-------------------------------------------- */
+        #item {
+            width: 100%;
+        }
+
+        #item h1 {
+            color: blue;
+        }
+
+        #item p {
+            margin: 0;
+            color: orangered;
+        }
+
+        /* ------------------------------line1------------------------------------------------ */
+        #line {
+            width: 100%;
+            display: block;
+        }
+
+        #line li {
+            color: purple;
+        }
+
+        #list {
+            margin-left: 90px;
+        }
+
+        .line1 button {
+            margin-left: 60px;
+        }
+
+        /* -------------------------------line2------------------------------------------------ */
+        .line2 {
+            padding: 0px;
+        }
+
+        /*-------------------------------anotherpara-------------------------------------------  */
+        .anotherhead {
+            width: 100%;
+        }
+
+        .anotherpara {
+            height: 1400px;
+        }
+
+        .middle {
+            width: 100%;
+        }
+
+        .headers h3 {
+            width: 100%;
+            text-align: center;
+            color: aqua;
+        }
+
+        .headers p {
+            margin: 0px;
+            color: lightcoral;
+        }
+
+        .headers h6 {
+            margin-top: 12px;
+        }
+
+        /*  -----------------------------threeboxs1-------------------------------------------------*/
+
+        .threeboxs1 {
+            display: block;
+            width: 100%;
+        }
+
+        .threeboxs1 p {
+            text-align: center;
+            width: 100%;
+        }
+
+        .boxs1 {
+            width: 90%;
+            margin-left: 18px;
+            height: 100px;
+        }
+
+        .cloud {
+            margin-left: 20px;
+            width: 100px;
+        }
+
+        .cloud1 {
+            float: none;
+            width: 250px;
+            margin-left: 50px;
+        }
+
+        .cloud1 h6 {
+            text-align: center;
+            margin-left: 80px;
+            width: 100%;
+        }
+
+        .boxs2 {
+            width: 90%;
+            margin-left: 18px;
+            height: 110px;
+            margin-top: 5px;
+        }
+
+        .boxs3 {
+            width: 90%;
+            margin-left: 18px;
+            height: 110px;
+            margin-top: 5px;
+        }
+
+        /* ------------------------------threeboxs2-------------------------------------------- */
+        .threeboxs2 {
+            display: block;
+            width: 100%;
+        }
+
+        .threeboxs2 p {
+            text-align: center;
+            width: 100%;
+        }
+
+        .boxs4 {
+            width: 90%;
+            margin-left: 18px;
+            height: 110px;
+        }
+
+        .boxs5 {
+            width: 90%;
+            margin-left: 18px;
+            height: 110px;
+            margin-top: 5px;
+        }
+
+        .boxs6 {
+            width: 90%;
+            margin-left: 18px;
+            height: 110px;
+            margin-top: 5px;
+        }
+
+        /* ------------------------------anotherhead-------------------------------------------- */
+        .anotherpara {
+            height: 1100px;
+        }
+
+        .anotherhead {
+            padding-top: 30px;
+            margin-left: 0px;
+        }
+
+        .anotherhead h3 {
+            margin: 0px;
+            color: khaki;
+        }
+
+        .anotherhead p {
+            text-align: start;
+            margin-top: 5px;
+            color: darkcyan;
+            font-size: 12px;
+        }
+
+        .thulasi {
+            left: 0px;
+        }
+
+        .started {
+            margin-left: 70px;
+        }
+
+        .demo {
+            margin-left: 40px;
+        }
+
+        /* ----------------------------- paper---------------------------------------------------*/
+        #para {
+            width: 100%;
+        }
+
+        #para h6 {
+            width: 100%;
+            padding: 50px;
+            color: rgb(215, 248, 250);
+            font-size: 30px;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+
+        form {
+            width: 100%;
+            left: 0px;
+        }
+
+        /* ------------------------------subsection---------------------------------------- */
+        .subsection {
+            width: 100%;
+        }
+
+        section {
+            width: 100%;
+            margin: 0px;
+            margin-top: 25px;
+        }
+
+        section h3 {
+            text-align: center;
+            margin: 0px;
+            font-size: 22px;
+            color: rgb(223, 178, 184);
+        }
+
+        #hifi {
+            text-align: center;
+            margin: 0px;
+            margin-top: 20px;
+            color: cadetblue;
+        }
+
+        section h4 {
+            text-align: center;
+            color: rgb(223, 178, 184);
+            width: 100%;
+        }
+
+        li {
+            text-align: center;
+        }
+
+        section a {
+            color: cadetblue;
+        }
+
+        .ji {
+            width: 100%;
+            margin: 0px;
+        }
+
+        /* --------------------------------footer------------------------------------------- */
+
+        footer {
+            width: 100%;
+            float: none;
+        }
+
+        .leftPara {
+            margin-right: 57px;
+        }
+
+        .leftPara {
+            color: chartreuse;
+        }
+
+        .rightpara {
+            color: chartreuse;
+        }
     }
 
-    #login-button {
-        display: none;
+    /* ------------------------------mediaquires ends upto 425px--------------------------- */
+    /* ------------------------------mediaquires starts from 768px------------------------- */
+
+    * {
+        margin: 0;
+        padding: 0;
     }
 }
