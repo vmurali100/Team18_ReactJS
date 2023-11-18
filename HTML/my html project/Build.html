@@ -1,0 +1,1156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .wrapper {
+            width: 100%;
+        }
+
+        .row1 {
+            color: red;
+            background-color: white;
+        }
+
+        #header {
+            width: 1000px;
+            margin: auto;
+
+            padding: 10px 0;
+            overflow: auto;
+        }
+
+        #header #hgroup {
+            float: left;
+            margin: 0 0 20px 0;
+        }
+
+        #header #hgroup {
+            font-size: 30px;
+        }
+
+        #header #hgroup a {
+
+            color: black;
+            text-decoration: none;
+        }
+
+        #header nav {
+            float: right;
+            margin: 10px 0 0 0;
+            padding: 25px 0;
+            /* color: white; */
+            /* background-color: black; */
+        }
+
+        #header nav ul {
+            padding: 0 25px;
+
+        }
+
+        #header nav li {
+            display: inline;
+            margin-right: 25px;
+
+        }
+
+        #header nav li a {
+            color: black;
+            text-decoration: none;
+            font-size: 18px;
+
+        }
+
+
+        #container {
+            padding: 30px;
+            display: block;
+            width: 960px;
+            margin: 0 auto;
+            clear: both;
+        }
+
+        #container section {
+            display: block;
+            margin-bottom: 30px;
+            padding: 0;
+        }
+
+        #container #slider figure {
+            display: block;
+            margin: 0;
+            padding: 0;
+            float: right;
+        }
+
+        #container #slider figure img {
+            float: right;
+            width: 510px;
+            height: 372px;
+            border-radius: 250px;
+        }
+
+        h2 {
+            font-size: 45px;
+        }
+
+        h3 {
+            font-size: 20px;
+
+        }
+
+        .more {
+            float: left;
+            border-radius: 10px;
+            background-color: skyblue;
+            padding: 6px;
+        }
+
+        #header #hgroup h1 img {
+            width: 100px;
+        }
+
+        /* santhosh */
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #container1 {
+            height: 100%;
+            width: 100%;
+            /* background-color: aqua; */
+        }
+
+
+
+        #container1 header {
+            width: 100%;
+            background-color: black;
+            color: white;
+            font-weight: 900;
+            padding: 20px;
+            display: flex;
+            justify-content: space-around;
+            border-radius: 5px;
+            box-sizing: border-box;
+
+        }
+
+        header nav ul {
+            list-style-type: none;
+        }
+
+        header nav ul li {
+            display: inline;
+            margin: 30px;
+
+        }
+
+        header nav ul li:hover {
+            color: rgb(11, 125, 190);
+            cursor: pointer;
+        }
+
+        #slider {
+            width: 100%;
+            padding: 40px 0;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        #slider .cars {
+            height: 240px;
+            width: 200px;
+            border: 1px solid black;
+            border-radius: 7px;
+            box-shadow: 10px 10px 6px lightgray;
+        }
+
+        #slider .cars2 {
+            height: 240px;
+            width: 200px;
+            border: 1px solid black;
+            border-radius: 7px;
+            box-shadow: 10px 10px 6px lightgray;
+        }
+
+        #slider .cars3 {
+            height: 240px;
+            width: 200px;
+            border: 1px solid black;
+            border-radius: 7px;
+            box-shadow: 10px 10px 6px lightgray;
+        }
+
+        #slider .cars4 {
+            height: 240px;
+            width: 200px;
+            border: 1px solid black;
+            border-radius: 7px;
+            box-shadow: 10px 10px 6px lightgray;
+        }
+
+
+        #leftbtn button {
+            height: 40px;
+            width: 160px;
+
+        }
+
+        #rightbtn button {
+            height: 40px;
+            width: 160px;
+
+        }
+
+        /* .car img {
+            width: 100%;
+            background-size: cover;
+            position: relative;
+            top: 20px;
+        } */
+
+        .max1 {
+            display: flex;
+            padding-top: 10px;
+            justify-content: space-evenly;
+            /* padding-left: 5px; */
+            margin-left: -10px;
+        }
+
+        .max2 {
+            display: flex;
+            padding-top: 10px;
+            justify-content: space-evenly;
+            /* padding-left: 5px; */
+            margin-left: -10px;
+        }
+
+        .max3 {
+            display: flex;
+            padding-top: 10px;
+            justify-content: space-evenly;
+            /* padding-left: 5px; */
+            margin-left: -10px;
+        }
+
+        .max4 {
+            display: flex;
+            padding-top: 10px;
+            justify-content: space-evenly;
+            /* padding-left: 5px; */
+            margin-left: -10px;
+        }
+
+        .mercedes1 h5 {
+            font-family: ui-monospace;
+            padding: -12px;
+        }
+
+        .mercedes2 h5 {
+            font-family: ui-monospace;
+            padding: -12px;
+        }
+
+        .mercedes3 h5 {
+            font-family: ui-monospace;
+            padding: -12px;
+        }
+
+        .mercedes4 h5 {
+            font-family: ui-monospace;
+            padding: -12px;
+        }
+
+        .fa-solid,
+        .fas {
+            font-weight: 900;
+            /* margin-left: -26px; */
+        }
+
+        small {
+            font-family: auto;
+            font-weight: 100;
+        }
+
+        #slider .cars {
+            height: 240px;
+            width: 200px;
+            border: 1px solid black;
+            border-radius: 7px;
+            box-shadow: 10px 10px 6px lightgray;
+        }
+
+        i.dollar_fa {
+            font-weight: 900;
+            font-family: fantasy;
+        }
+
+        .mercedes-benz-png {
+            top: 14px;
+            width: 100%;
+            left: -5px;
+            top: 26px;
+        }
+
+        img.car_01 {
+            top: 40px;
+            width: 190px;
+            height: 110px;
+        }
+
+        img.car_02 {
+            top: 40px;
+            width: 190px;
+            height: 110px;
+        }
+
+        button {
+            margin-top: 130px;
+            height: 25px;
+            width: 150px;
+        }
+
+        /* vanitha */
+        .container3 {
+            width: 100%;
+            background-color: rgb(204, 201, 201);
+            height: 500px;
+            margin: auto;
+            padding: 58px 60px 58px 60px;
+            display: flex;
+        }
+
+        .left1 {
+            width: 20%;
+            height: 400px;
+            margin-left: 60px;
+            float: left;
+        }
+
+        .left1 img {
+            width: 224px;
+            height: 480px;
+        }
+
+        .right1 {
+            width: 20%;
+            height: 400px;
+            float: right;
+            position: relative;
+            left: 841px;
+        }
+
+        .right1 img {
+            width: 224px;
+            height: 480px;
+        }
+
+        h5#first {
+            position: relative;
+            right: 203px;
+            bottom: 13px;
+        }
+
+        .subject {
+            position: relative;
+            right: 203px;
+            top: 75px;
+        }
+
+        .subject h1 {
+            font-size: 50px;
+        }
+
+        .subject h1 {
+            font-size: 79px;
+            position: relative;
+            right: 80px;
+            font-family: sans-serif;
+        }
+
+        .car img {
+            height: 117px;
+            width: 119px;
+            position: relative;
+            right: 768px;
+            top: 154px;
+        }
+
+        .paragraph1 h2 {
+            position: relative;
+            bottom: 120px;
+            left: 852px;
+            font-size: small;
+            font-family: sans-serif;
+
+        }
+
+        /* yyy */
+        .wrapper_row {
+            margin: 0 30px;
+            width: 1000px;
+            margin: auto;
+        }
+
+        .deen {
+            position: relative;
+            left: 100px;
+        }
+
+        .child2 img {
+            width: 420px;
+            height: 227px;
+            border: 1px solid black;
+            border-radius: 20px;
+
+        }
+
+        .child3 img {
+            width: 420px;
+            height: 227px;
+            border: 1px solid black;
+            border-radius: 20px;
+
+        }
+
+        .child6 img {
+            width: 420px;
+            height: 227px;
+            border: 1px solid black;
+            border-radius: 20px;
+
+        }
+
+        .child7 img {
+            width: 420px;
+            height: 227px;
+            border: 1px solid black;
+            border-radius: 20px;
+
+        }
+
+        .first,
+        .second,
+        .third,
+        .four {
+            display: flex;
+        }
+
+        .child1,
+        .child4,
+        .child8 {
+            width: 55%;
+
+        }
+
+        .first p {
+            font-size: x-small;
+        }
+
+        .child2,
+        .child3,
+        .child7 {
+            width: 10%;
+        }
+
+        .child1 button,
+        .child3 button,
+        .child5 button {
+            margin-bottom: 30px;
+        }
+
+        .child1 p,
+        .child4 p,
+        .child5 p,
+        .child8 p {
+            line-height: 16px;
+            /* text-align: justify; */
+            width: 50%;
+            font-size: x-small;
+        }
+
+        button {
+            border: 2px solid lightblue;
+            border-radius: 30px;
+            padding: 15px;
+        }
+
+        .child4 {
+            float: right;
+            position: relative;
+            left: 450px;
+        }
+
+        .child8 {
+            position: relative;
+            left: 450px;
+        }
+
+        /* .first,
+        .second,
+        .third,
+        .four {
+            display: flex;
+            margin-top: 30px;
+        } */
+
+        .wrapper_row {
+
+            margin: 0 30px;
+            width: 1000px;
+            margin: auto;
+            height: 1072px;
+        }
+
+
+        /* vanitha2 */
+        .container4 {
+            width: 100%;
+            height: 700px;
+            background-color: rgb(243, 236, 236);
+            padding: 43px 20px 20px 83px;
+        }
+
+        .topdiv {
+            height: 200px;
+            width: 960px;
+            margin: auto;
+        }
+
+        .topdiv.first img {
+            width: 404px;
+            height: 196px;
+            position: relative;
+            right: 270px;
+            border-radius: 18px;
+        }
+
+        .topdiv.seconddiv img {
+            width: 200px;
+            height: 196px;
+            position: relative;
+            left: 145px;
+            bottom: 200px;
+            border-radius: 18px;
+        }
+
+        .topdiv.thirddiv img {
+            width: 500px;
+            height: 199px;
+            position: relative;
+            left: 360px;
+            bottom: 401px;
+            border-radius: 18px;
+
+        }
+
+        .bottomdiv.bofirst img {
+            height: 200px;
+            width: 190px;
+            border-radius: 18px;
+            margin-top: 5px;
+        }
+
+        .bottomdiv.bosecond img {
+            height: 196px;
+            width: 418px;
+            border-radius: 18px;
+            margin-top: 18px;
+            position: relative;
+            left: 205px;
+            bottom: 219px;
+        }
+
+        .bottomdiv.bothird img {
+            width: 273px;
+            height: 194px;
+            border-radius: 18px;
+            position: relative;
+            left: 636px;
+            bottom: 418px;
+        }
+
+        .bottomdiv.bofour img {
+            width: 200px;
+            height: 194px;
+            border-radius: 18px;
+            position: relative;
+            bottom: 616px;
+            left: 923px;
+        }
+
+        .container4 h1 {
+            font-family: sans-serif;
+        }
+
+        img.firstpic {
+            width: 365px;
+            height: 191px;
+            position: relative;
+            top: 20px;
+            border-radius: 15px;
+        }
+
+        img.secondpic {
+            width: 180px;
+            height: 187px;
+            position: relative;
+            left: 102px;
+            bottom: 171px;
+            border-radius: 15px;
+        }
+
+        img.thirdpic {
+            width: 400px;
+            height: 187px;
+            position: relative;
+            left: 298px;
+            bottom: 356px;
+            border-radius: 15px;
+        }
+
+        img.fouthpic {
+            width: 194px;
+            height: 170px;
+            position: relative;
+            bottom: 163px;
+            border-radius: 15px;
+        }
+
+        img.fifthpic {
+            width: 349px;
+            height: 174px;
+            position: relative;
+            bottom: 333px;
+            left: 211px;
+            border-radius: 15px;
+        }
+
+        img.sixthpic {
+            width: 246px;
+            position: relative;
+            bottom: 509px;
+            left: 579px;
+            border-radius: 15px;
+            height: 173px;
+        }
+
+        img.seventhpic {
+            height: 172px;
+            position: relative;
+            bottom: 691px;
+            left: 841px;
+            width: 133px;
+            border-radius: 15px;
+        }
+        #header #hgroup h1 img {
+    width: 101px;
+    height: 41px;
+}
+
+       .container5 {
+            width: 100%;
+            height: 300px;
+            display: flex;
+            border-radius: to right 100px;
+        }
+
+        #firstbox {
+            width: 500px;
+            height: 250px;
+            background-color: whitesmoke;
+        }
+
+        #firstbox img {
+            position: relative;
+            left: 348px;
+            bottom: 30px;
+        }
+
+        img {
+            width: 500px;
+            height: 250px;
+
+        }
+
+        #secondbox {
+            border-radius: 100px;
+        }
+
+        #secondbox img {
+            margin-right: 1px solid black;
+            border-radius: 0px 50px 50px 0px;
+        }
+
+        .container6 {
+            width: 100%;
+            height: 250px;
+            display: flex;
+        }
+
+        .container6 #thiredbox img {
+            width: 300px;
+            height: 250px;
+        }
+
+        #fourthbox {
+            width: 500px;
+        }
+
+        #thiredbox {
+            width: 500px;
+            text-align: center;
+        }
+
+        .container6 #fourthbox h1 {
+            font-size: larger;
+        }
+
+        h4 {
+            margin-top: -32px;
+            margin-left: 27px;
+        }
+        #firstbox {
+    width: 730px;
+    height: 250px;
+    background-color: whitesmoke;
+    padding: 23px 0 10px 88px;
+}
+.parentsection {
+    width: 100%;
+    background: #36454F;
+}
+
+/* .subsection {
+    background: #36454F;
+    width: 890px;
+    margin: auto;
+    overflow: auto;
+} */
+.subsection {
+    background: #36454F;
+    width: 1000px;
+    overflow: auto;
+    position: relative;
+    left: 140px;
+}
+
+section {
+    width: 200px;
+    float: left;
+    margin: 20px 74px 0px 0px;
+}
+
+.ji {
+    width: 200px;
+    float: left;
+    margin: 20px 15px 0px 10px;
+    /* position: relative;
+    right: 10px; */
+}
+
+h4 {
+    color: white;
+    font-size: 20px;
+    MARGIN: 10PX 0PX 10PX 35PX;
+    position: relative;
+    right: 37px;
+}
+
+ul {
+    list-style-type: none;
+}
+
+section a {
+    text-decoration: none;
+    color: grey;
+}
+
+li {
+    line-height: 1.7;
+    /* border-bottom
+: 1px solid; */
+}
+
+.parentFooter {
+    background-color: #36454F;
+    width: 100%;
+}
+
+footer {
+    width: 890px;
+    margin: auto;
+    overflow: auto;
+}
+
+/* p {
+    font-size: 20px;
+    color: white;
+} */
+
+.leftPara {
+    float: right;
+    color: grey;
+}
+
+.rightpara {
+    float: left;
+    color: grey;
+}
+
+.subtopics p {
+    color: #36454F;
+    text-align: justify;
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+#hifi {
+    color: grey;
+    font-size: 15px;
+    line-height: 20px;
+}
+
+h3 {
+    font-size: 30px;
+    color: white;
+}
+img.parentimg {
+    height: 38px;
+    width: 68px;
+}
+
+        
+    </style>
+</head>
+
+<body>
+    <div class="wrapper row1">
+        <header id="header" class="clear">
+            <div id="hgroup">
+                <h1>
+                    <img src="./WhatsApp Image 2023-11-16 at 11.01.12_bfd0e321.jpg" alt="">
+                </h1>
+
+            </div>
+            <nav>
+                <ul>
+                    <li>
+                        <a href="#">Home</a>
+                    </li>
+                    <li>
+                        <a href="#">About Us</a>
+                    </li>
+                    <li>
+                        <a href="#">services</a>
+                    </li>
+                    <li>
+                        <a href="#">icars choices</a>
+                    </li>
+                    <li>
+                        <a href="#">Gallery</a>
+                    </li>
+                    <li>
+                        <a href="#">contact us</a>
+                    </li>
+                </ul>
+            </nav>
+
+
+
+        </header>
+    </div>
+    <div id="container">
+        <section id="slider">
+            <figure>
+                <img src="./a-Black--removebg-preview.png" alt="">
+                <figcaption>
+                    <h2>YOUR TRAVEL
+                        COMPANION</h2>
+
+                    <p>we take pride in the high level of chaffeur sevices
+                        provide by all of our chauffeurs and the care and
+                        respect that they take in servicing the needs of our cistomers</p>
+                    <button class="more">find services----------- ----- ></button><br><br><br><br>
+                    <h3>MOST FAVORITE</h3>
+                </figcaption>
+            </figure>
+
+        </section>
+    </div>
+    <!-- santhosh -->
+    <div id="container1">
+        <header>
+            <nav>
+                <ul>
+                    <li>First class</li>
+                    <li>Airport Transfer</li>
+                    <li>Sight seeing</li>
+                    <li>Luxury</li>
+                    <li>Comfort</li>
+                    <li>Limousine</li>
+                </ul>
+            </nav>
+        </header>
+        <div id="slider">
+            <div class="cars">
+                <img class="car_01" src="./a-Black--removebg-preview.png" alt="mercedes"><br><br><br><br>
+                <hr>
+                <div class="mercedes1">
+                    <h5>Mercedes S Class</h5>
+                    <div class="max1">
+                        <i class="fa-solid fa-user-group user"><small>max.3</small></i>
+                        <i class="fa-solid fa-car truck"><small>max.2</small></i>
+                        <i class="dollar_fa">$651<sub>/hr</sub></i>
+
+                    </div>
+                </div>
+            </div>
+            <button id="leftbtn">----------</button>
+            <button id="rightbtn">----------</button>
+
+            <div class="cars2">
+                <img class="car_02" src="./a-Black--removebg-preview.png" alt="bmw_img"><br><br>
+                <hr>
+                <div class="mercedes2">
+                    <h5>Mercedes S Class</h5>
+                    <div class="max2">
+                        <i class="fa-solid fa-user-group user"><small>max.3</small></i>
+                        <i class="fa-solid fa-car truck"><small>max.2</small></i>
+                        <i class="dollar_fa">$651<sub>/hr</sub></i>
+
+                    </div>
+                </div>
+            </div>
+            <div class="cars3">
+                <img class="mercedes-benz-png" src="./a-Black--removebg-preview.png" alt=""><br><br><br>
+                <hr>
+                <div class="mercedes3">
+                    <h5>Mercedes S Class</h5>
+                    <div class="max3">
+                        <i class="fa-solid fa-user-group user"><small>max.3</small></i>
+                        <i class="fa-solid fa-car truck"><small>max.2</small></i>
+                        <i class="dollar_fa">$651<sub>/hr</sub></i>
+
+                    </div>
+                </div>
+
+            </div>
+            <div class="cars4">
+                <img class="car_02" src="./a-Black--removebg-preview.png" alt="rolls_royaz"> <br> <br>
+                <hr>
+                <div class="mercedes4">
+                    <h5>Mercedes S Class</h5>
+                    <div class="max4">
+                        <i class="fa-solid fa-user-group user"><small>max.3</small></i>
+                        <i class="fa-solid fa-car truck"><small>max.2</small></i>
+                        <i class="dollar_fa">$651<sub>/hr</sub></i>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- vanitha -->
+    <div class="container3">
+        <div class="left1">
+            <img src="./oran.jpg" alt="">
+        </div>
+        <div class="right1">
+            <img src="./business 4.5.jpg" alt="">
+        </div>
+
+        <h5 id="first"><span style="color: rgb(19, 183, 183);font-size: x-large;">01</span>We Working since 1980 with
+            4000 + Customers.</h5>
+        <div class="subject">
+            <h1><span style="color: cadetblue;">YOUR </span> TRAVEL COMPANION</h1>
+        </div>
+        <div class="car5">
+            <img src="./54d4b9f998f5483488ab7b5333263973.png" alt="" ;>
+        </div>
+
+    </div>
+    <div class="paragraph1">
+        <h2>We provide services in over 50 cities pan india. <span style="color: cadetblue;">02</span></h2>
+    </div>
+    <!-- yyy -->
+    <h2 class="deen">HOW ICARS WORKS</h2>
+    <div class="wrapper_row">
+        <div class="first">
+            <div class="child1">
+                <h3>Select A Car</h3>
+                <p>
+                    We take pride in the high level of chauffeur service provided by all
+                    of our chauffeurs and the care and respect that they take in
+                    servicing the needs of our customers.
+                </p>
+                <button>Know More -----------</button>
+            </div>
+            <div class="child2">
+                <img src="./girl1.jpg" alt="not found" />
+            </div>
+        </div>
+
+        <div class="second">
+            <div class="child3">
+                <img src="./girl2.jpg" alt="not found" />
+            </div>
+            <div class="child4">
+                <h3>Apply Offers</h3>
+                <p>
+                    We take pride in the high level of chauffeur service provided by all
+                    of our chauffeurs and the care and respect that they take in
+                    servicing the needs of our customers
+                </p>
+                <button>Know More -----------</button>
+            </div>
+        </div>
+
+        <div class="third">
+            <div class="child5">
+                <h3>Pay & Book</h3>
+                <p>
+                    We take pride in the high level of chauffeur service provided by all
+                    of our chauffeurs and the care and respect that they take in
+                    servicing the needs of our customers.
+                </p>
+                <button>Know More -----------</button>
+            </div>
+            <div class="child6">
+                <img src="./girl3.jpg" alt="not found" />
+            </div>
+        </div>
+
+        <div class="four">
+            <div class="child7">
+                <img src="./girl4.jpg" alt="not found" />
+            </div>
+            <div class="child8">
+                <h3>Delivery</h3>
+                <p>
+                    We take pride in the high level of chauffeur service provided by all
+                    of our chauffeurs and the care and respect that they take in
+                    servicing the needs of our customers.
+                </p>
+                <button>Know More -----------</button>
+            </div>
+        </div>
+    </div>
+    <!-- vanitha2 -->
+    <div class="container4">
+        <h1>HOW ICARS WORKS</h1>
+        <h6>We take pride in the high level of chauffeur service provided by all of our chauffeurs.</h6>
+        <div class="firstdiv">
+            <div class="firstpic">
+                <img class="firstpic" src="./bussiness 1.jpg" alt="">
+            </div>
+        </div>
+        <div class="topdiv">
+            <div class="first">
+                <img class="secondpic" src="./business 2.5.jpg" alt="">
+            </div>
+            <div class="seconddiv">
+                <img class="thirdpic" src="./businessman 3.5.avif" alt="">
+            </div>
+            <!-- <div class="thirddiv">
+                <img class="fourthpic" src="" alt="">
+            </div> -->
+        </div>
+        <div class="bottomdiv">
+            <div class="bofirst">
+                <img class="fouthpic" src="./business 4.5.jpg" alt="">
+            </div>
+            <div class="bosecond">
+                <img class="fifthpic" src="./business 5.webp" alt="">
+            </div>
+            <div class="bothird">
+                <img class="sixthpic" src="./business 6.jpg" alt="">
+            </div>
+            <div class="bofour">
+                <img class="seventhpic" src="./business7.5.jpg" alt="">
+            </div>
+        </div>
+    </div>
+    
+    <div class="container5">
+        <div id="firstbox">
+            <h1>OUR COMPANY PROVIDES QUALITY SERVICES</h1>
+            <p>we take pride in the hight level of chauffeur services provided <br>
+                by all of our chauffeurs.</p><br><br>
+                <p class="para">Email us now</p>
+            <hr style="width: 350px;">
+            <img src="./send.svg" alt=""  style="width: 50px; height: 30px;">
+            
+        </div>
+        <div id="secondbox">
+            <img src="./IMG-20231116-WA0065.jpg" alt="">
+
+        </div>
+    </div>
+    <div class="container6">
+        <div id="thiredbox">
+            <img src="./IMG-20231116-WA0062.jpg" alt="">
+        </div>
+        <div id="fourthbox">
+            <h2>Jonathan Miller</h2>
+            <img src="./IMG-20231116-WA0063.jpg" alt="" style="width: 20px; height: 20px; margin-bottom: 10px;">
+            <h4>Carlifonis US</h4>
+            <h1>No matter which country i travel, I always prefer ICars</h1>
+            <p>Lorem ipsum dolor sit amet, consectetuer adipising elit.Aenean commodo ligula eget dolor. Aenean
+                massa.Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus.</p>
+        </div>
+    </div>
+    <div class="parentsection">
+        <div class="subsection">
+            <section>
+               <img class="parentimg" src="./WhatsApp Image 2023-11-16 at 11.01.12_bfd0e321.jpg" alt="">
+                <p id="hifi">
+                   We take pride in the high level of <br>chaufeur service <br>
+                </p>
+            </section>
+            <section>
+                <h4>BUSINESS SOLUTIONS</h4>
+                <ul>
+                    <li><a href="#">Corporate</a></li>
+                    <li><a href="#">Travel Agencies</a></li>
+                    <li><a href="#">Event Management</a></li>
+                    <h4>OUR FLEETS</h4>
+                    <h4>BECOME A SUPPLIER</h4>
+                </ul>
+            </section>
+            <section class="ji">
+                <h4>SERVICES</h4>
+                <ul>
+                    <li><a href="#">airport Transfers</a></li>
+                    <li><a href="#">Road Shows</a></li>
+                    <li><a href="#">Event Transfers</a></li>
+                    <li><a href="#">Intercity Transfers</a></li>
+                    <h4>FAQ</h4>
+                    <h4>BLOGS</h4>
+                </ul>
+            </section>
+            <section class="ji">
+                <h4>LEGALS</h4>
+                <ul>
+                    <li><a href="#">Terms & Conditions</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">GDPR Policy</a></li>
+                    <li><span style="color: seagreen;">CONTACT US</span></li>
+                    <li><span style="color: seagreen;">CHAT WITH US</span></li>
+                </ul>
+            </section>
+        </div>
+    </div
+    <!-- </div> -->
+
+</body>
+
+</html>
+
+
