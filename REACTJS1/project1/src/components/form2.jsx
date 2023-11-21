@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-export const form2 = () => {
+export const Form2 = () => {
   const [form, setform] = useState({
     fname: "",
     lname: "",
@@ -16,14 +16,13 @@ export const form2 = () => {
     <div>
       <form action="">
         <label htmlFor="">fname:</label>
-        <input
-          type="text"
+        <input type="text"
           name="fname"
           value={form.fname}
           onChange={handleChange}
         />
         <label htmlFor="">lname:</label>
-        <input
+      <input
           type="text"
           name="lname"
           id=""
