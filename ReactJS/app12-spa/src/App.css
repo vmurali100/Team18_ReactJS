@@ -37,14 +37,16 @@
   }
 }
 
-li{
+#nav li{
   display: inline-block;
   margin: 30px;
   padding: 10px;
   background: red;
  
 }
-
+li{
+  list-style: none;
+}
 a{
-  color: white;
+  color: black;
 }
