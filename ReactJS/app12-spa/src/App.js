@@ -7,6 +7,7 @@ import Contact from "./Components/Contact";
 import { BrowserRouter as Router, Link, Route, Routes } from "react-router-dom";
 import NotAvailble from "./Components/NotAvailble";
 import ContactDetails from "./Components/ContactDetails";
+import UserDetails from "./Components/UserDetails";
 
 function App() {
   return (
@@ -35,6 +36,8 @@ function App() {
         <Routes>
           <Route path="/" exact element={<Home />} />
           <Route path="/about" element={<About />} />
+          <Route path="/about/aboutDetails" element={<UserDetails />} />
+          
           {/* <Route path="/contact" element={<Contact />}>
             <Route path=":id" element={<ContactDetails />} />
           </Route> */}
