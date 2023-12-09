@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        //create an array with five numbers
+        function array() {
+            var user = [1, 2, 3, 4, 5];
+            document.write(user + "<br>")
+            
+
+            //accessed "2" and modified as "100"
+            user[1]=100;
+            document.write(user+"<br>")
+
+
+            //unshift is used to add the element at the array start 
+            user.unshift(0)
+            document.write(user+"<br>")
+            //splice method is used to add elements at the array middle
+            user.splice(3,0,3.17)
+            document.write(user+"<br>")
+            //push is used to add the element at the array end
+            user.push(6)
+            document.write(user+"<br>")
+
+
+            //shift is used to delete the element at the array start 
+            user.shift(0)
+            document.write(user+"<br>")
+            //splice method is used to delete elements at the array middle
+            user.splice(2,1)
+            document.write(user+"<br>")
+            //pop is used to delete the element at the array end
+            user.pop(6)
+            document.write(user+"<br>")
+
+            
+            //check whether the index is present or not
+            var index=Number(prompt("Enter the index"));
+            if(index < user.length){
+                var user1=user[index];
+                document.write("Index : "+index + " Value Present at the index : "+user1+"<br>")
+            }else{
+                document.write("-1")
+            }
+        }
+        array();
+
+    </script>
+</body>
+
+</html>

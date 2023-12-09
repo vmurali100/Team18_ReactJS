@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function add() {
+            var num1 = Number(prompt("Enter the Number1"));
+            var num2 = Number(prompt("Enter the Number2"));
+            var sum = (num1 + num2);
+            document.write("Sum of 2 numbers is:" + sum + "<br>")
+        }
+        add()
+
+        function Multiply() {
+            var Mnum = Number(prompt("Enter the Mnum"));
+            var Factor = Number(prompt("Enter the Factor"));
+            var product = (Mnum * Factor);
+            document.write("Product of 2 numbers is:" + product + "<br>")
+        }
+        Multiply()
+
+        function division() {
+            var divisor = Number(prompt("Enter the divisor"));
+            var dividend = Number(prompt("Enter the dividend"));
+            var remainder = (dividend % divisor);
+            document.write("Remainder is :" + remainder + "<br>")
+        }
+        division()
+
+        function comparison() {
+            var Cnum1 = Number(prompt("Enter the Cnum1"));
+            var Cnum2 = Number(prompt("Enter the Cnum2"));
+            if (Cnum1 < Cnum2) {
+                document.write("Dry Fruit"+"<br>");
+            } else if(Cnum1 > Cnum2) {
+                document.write("Fresh fruit rich in vitamins"+"<br>");
+            }else {
+                document.write("Fruit Not Found"+"<br>");
+            }
+        }
+        comparison()
+
+        function increment() {
+        var a=Number(prompt("Enter the a Value : "));
+        document.write("Decrement value : "+(--a)+"<br>"+"Increment Value :"+(a++)+"<br>")
+        }
+        increment()
+    </script>
+</body>
+
+</html>

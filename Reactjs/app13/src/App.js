@@ -16,13 +16,13 @@ function App() {
       <li><Link to={''}>Home</Link></li>
       <li><Link to={'gallery'}>Gallery</Link></li>
       <li><Link to={'contact'}>Contactus</Link></li>
-      <li><Link to={'details'}>Contact Details</Link></li>
+      <li><Link to={'contactdetails'}>Contact Details</Link></li>
      </ul>
       <Routes>
         <Route path="/" element={<Bana/>}/>
         <Route path="/gallery"  element={<Bana1/>}/>
         <Route path="/contact"  element={<Bana2/>}/>
-        <Route path="/contactdetails" element={<Bana3/>}/>
+        <Route path="/contact/:id" element={<Bana3/>}/>
       </Routes>
      </Router>
     <hr></hr>

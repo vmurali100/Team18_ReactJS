@@ -5,11 +5,11 @@ import { useParams } from "react-router-dom";
 
 const Bana3 = () => {
   const [contact, setContact] = useState({});
-  const { username } = useParams();
-  console.log(username);
+  const { id } = useParams();
+  console.log(id);
   useEffect(() => {
     const getUser = async () => {
-      const userResponse = await fetch("https://jsonplaceholder.typicode.com/users/" + username);
+      const userResponse = await fetch("https://jsonplaceholder.typicode.com/users/" + id);
       const data = await userResponse.json();
       setContact(data);
     };

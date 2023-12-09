@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function obj1() {
+            //created object with 3 key value pairs
+            var user1 = { fname: "Kiran", mname: "Kumar", lname: "Goya" }
+            document.write(user1.fname + user1.mname + user1.lname+"<br>")
+
+            //accessed mname key using dot operator and modified value
+            user1.mname="goud";
+            document.write(user1.fname + user1.mname + user1.lname+"<br>")
+            
+            //Checking whether the key is exists/not
+            const b = prompt("Enter the key");
+            if (b in user1) {
+                document.write("Present"+"<br>")
+            } else {
+                document.write("Absent"+"<br>")
+            }
+        }
+        obj1()
+         
+        //created object and printing through iteration
+        function obj() {
+            var user = { name: "janvi", rollno: "11", place: "Chittoor" };
+            for (a in user) {
+                document.write(user[a] + "<br>");
+            }
+            delete user.name;
+            for (a in user) {
+                document.write(user[a] + "<br>");
+            }
+        }
+        obj()
+    </script>
+</body>
+
+</html>

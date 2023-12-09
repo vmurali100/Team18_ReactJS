@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        //print numbers from 1 to 10 using  a for loop
+        for(i=1;i<=10;i++){
+            document.write(i+"<br>")
+        }
+        
+        //print numbers from 10 to 1 using a while loop
+        i=10;
+        while(i>=0){
+            document.write(i+"<br>");
+            --i;
+        }
+
+        //printing array using for loop
+        var user=["ramya","kavya","pariha","muskan","azak"]
+        for(i in user){
+            document.write(user[i]+"<br>")
+        }
+    
+        //printing array using for-of loop
+        for( i of user){
+            document.write(i+"<br>")
+        }
+
+        //printing array using forEach loop
+        user.forEach((i)=>{
+        document.write(i+"<br>")
+        })
+
+        //Check even or odd
+        var num=Number(prompt("Enter the number"));
+        if(num%2 == 0 ){
+            document.write("Even Number"+"<br>")
+        }else{
+            document.write("odd Number"+"<br>")
+        }
+
+        //check positive,negative,zero
+        if(num > 0 ){
+            document.write("Positive Number"+"<br>");
+        }else if(num < 0 ){
+            document.write("Negative Number"+"<br>");
+        }else{
+            document.write("Zero"+"<br>")
+        }
+    </script>
+</body>
+</html>
