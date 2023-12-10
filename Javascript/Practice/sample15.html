@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+let myArray = [10, 20, 25, 30, 40, 50];
+
+let removedFromBeginning = myArray.shift();
+console.log("Array after removing element from the beginning:", myArray);
+console.log("Removed element from the beginning:", removedFromBeginning);
+
+let middleIndex = Math.floor(myArray.length / 2);
+let removedFromMiddle = myArray.splice(middleIndex, 1)[0];
+console.log("Array after removing element from the middle:", myArray);
+console.log("Removed element from the middle:", removedFromMiddle);
+
+
+let removedFromEnd = myArray.pop();
+console.log("Array after removing element from the end:", myArray);
+console.log("Removed element from the end:", removedFromEnd);
+
+    </script>
+</body>
+</html>

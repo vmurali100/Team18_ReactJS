@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+let myArray = [20, 30, 40];
+myArray.unshift(10);
+console.log("Array after adding element to the beginning:", myArray);
+
+let middleIndex = Math.floor(myArray.length / 2);
+myArray.splice(middleIndex, 0, 25);
+console.log("Array after adding element to the middle:", myArray);
+
+myArray.push(50);
+console.log("Array after adding element to the end:", myArray);
+
+    </script>
+</body>
+</html>

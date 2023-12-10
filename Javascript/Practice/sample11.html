@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+let myObject = {
+  name: 'John',
+  age: 25,
+  city: 'New York'
+};
+function deleteProperty(object, property) {
+  if (object.hasOwnProperty(property)) {
+    delete object[property];
+    console.log(`Property '${property}' deleted.`);
+  } else {
+    console.log(`Property '${property}' not found.`);
+  }
+}
+console.log("Before deletion:", myObject);
+deleteProperty(myObject, 'age');
+console.log("After deletion:", myObject);
+
+    </script>
+</body>
+</html>

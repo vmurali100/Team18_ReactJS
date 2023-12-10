@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function checkPositiveNegativeZero(number) {
+  if (number > 0) {
+    return "Positive";
+  } else if (number < 0) {
+    return "Negative";
+  } else {
+    return "Zero";
+  }
+}
+
+let result1 = checkPositiveNegativeZero(10);
+console.log(result1); // Output: Positive
+
+let result2 = checkPositiveNegativeZero(-5);
+console.log(result2); // Output: Negative
+
+let result3 = checkPositiveNegativeZero(0);
+console.log(result3); // Output: Zero
+
+    </script>
+</body>
+</html>

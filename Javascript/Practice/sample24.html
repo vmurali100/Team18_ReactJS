@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function checkInRange(number, min, max) {
+  if (number >= min && number <= max) {
+    return "In range";
+  } else {
+    return "Out of range";
+  }
+}
+let result1 = checkInRange(5, 1, 10);
+console.log(result1); // Output: In range
+
+let result2 = checkInRange(15, 1, 10);
+console.log(result2); // Output: Out of range
+
+    </script>
+</body>
+</html>

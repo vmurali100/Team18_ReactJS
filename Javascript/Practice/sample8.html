@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Creating an object
+var person = {
+    name: "John",
+    age: 25,
+    occupation: "Developer"
+};
+
+// Checking if the 'age' property exists
+if (person.hasOwnProperty('age')) {
+    console.log("The 'age' property exists. Value: " + person.age);
+} else {
+    console.log("The 'age' property does not exist in the object.");
+}
+
+// Checking if the 'gender' property exists
+if (person.hasOwnProperty('gender')) {
+    console.log("The 'gender' property exists. Value: " + person.gender);
+} else {
+    console.log("The 'gender' property does not exist in the object.");
+}
+
+    </script>
+</body>
+</html>

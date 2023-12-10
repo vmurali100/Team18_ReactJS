@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+let myArray = [10, 20, 30, 40, 50];
+function searchElement(array, element) {
+  let index = array.indexOf(element);
+  return index;
+}
+let elementToSearch = 30;
+let result = searchElement(myArray, elementToSearch);
+
+if (result !== -1) {
+  console.log(`Element ${elementToSearch} found at index ${result}.`);
+} else {
+  console.log(`Element ${elementToSearch} not found in the array.`);
+}
+
+    </script>
+</body>
+</html>
