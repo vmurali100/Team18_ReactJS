@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form>
+      <label for="">First Number :</label>
+      <input type="number" name="" id="fname" /> <br />
+      <label for="">Seconf Number :</label>
+      <input type="number" name="" id="lname" /> <br />
+      <button onclick="readAndTotalNos()" type="button">Display Total</button>
+    </form>
+    <div id="display"></div>
+    <script>
+      // 1. Read Two Numbers from HTML
+      // 2. ADD Two Numbers and Store in a Variable
+      // 3. Display the Total in document
+
+      function readAndTotalNos() {
+        // Getting Values By GetElementByid
+        var number1 = Number(document.getElementById("fname").value);
+        console.log(typeof number1)
+        var number2 = Number(document.getElementById("lname").value);
+        console.log(typeof number2)
+        var total = number1 + number2;
+        document.getElementById("display").innerHTML = "The Total is: " + total;
+
+        //Getting Values by Query Selector
+        // var number1 = Number(document.querySelector("#fname").value);
+        // var number2 = Number(document.querySelector("#lname").value);
+        // var total = number1 + number2;
+        // var alNumbers = {
+        //     number1:document.getElementById("fname").value,
+        //     number2:document.getElementById("lname").value
+        // }
+        // document.querySelector("#display").innerHTML =  "The Total is: "+total    
+      }
+    </script>
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

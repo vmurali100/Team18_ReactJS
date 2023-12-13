@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Calculator</title>
+</head>
+<body>
+
+  <h2>Product Calculator</h2>
+
+  <label for="">Enter a number: </label>
+  <input type="number" id="numberInput" /><br>
+
+  <label for="">Enter a factor: </label>
+  <input type="number" id="factorInput" /><br>
+
+  <button onclick="calculateProduct()">Calculate Product</button>
+
+  <div id="result">Result: </div>
+
+  <script>
+    function calculateProduct() {
+      var number = Number(document.getElementById('numberInput').value);
+      var factor = Number(document.getElementById('factorInput').value);
+      var product = number * factor;3
+      
+      document.getElementById('result').innerText = 'Result: ' + product;
+    }
+  </script>
+
+</body>
+</html>

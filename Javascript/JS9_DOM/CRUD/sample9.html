@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <label for="">First number:</label>
+        <input type="text" name="" id="fname"><br>
+        <label for="">second number:</label>
+        <input type="text" name="" id="lname"><br>
+        <button onclick="division()" type="button">Display</button>
+    </form>
+    <div id="display"></div>
+    <script>
+        function division(){
+            var number1=Number(document.getElementById("fname").value);
+            console.log(number1)
+            var number2=Number(document.getElementById("lname").value);
+            console.log(number2)
+            var total=number1%number2;
+            document.getElementById("display").innerHTML="The total is:"+total
+        }
+    </script>
+</body>
+</html>

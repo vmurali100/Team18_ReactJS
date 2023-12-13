@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form>
+        <label for="">first number</label>
+        <input type="text" class="" id="fname">
+        <label for="">second number</label>
+        <input type="text" class="" id="lname">
+        <button onclick="Adduser()" type="button">Add user</button>
+    </form>
+
+    <div id="display">
+
+    </div>
+    <script>
+        function Adduser() {
+            var number1 = Number(document.getElementById("fname"))
+            var number2 = Number(document.getElementById("lname"))
+            if (number1 > number2) {
+                return "Greater";
+            } else if (number1 < number2) {
+                return "less"
+            } else {
+                return "Equal"
+            }
+            var result = compareNumbers(number1, number2);
+            console.log("The result of the comparison is: " + result);
+        }
+    </script>
+
+</body>
+
+</html>
