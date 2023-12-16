@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Increment and Decrement</title>
+</head>
+<body>
+
+  <h1>Number Manipulation</h1>
+
+  <p>Current Number: <span id="display">0</span></p>
+
+  <button onclick="increment()">Increment</button>
+  <button onclick="decrement()">Decrement</button>
+
+  <script>
+    let number = 0;
+    function updateDisplay() {
+      document.getElementById('display').innerText = number;
+    }
+    function increment() {
+      number++;
+      updateDisplay();
+    }
+    function decrement() {
+      number--;
+      updateDisplay();
+    }
+    updateDisplay();
+  </script>
+
+</body>
+</html>

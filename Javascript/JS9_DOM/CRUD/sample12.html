@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Object Creation</title>
+</head>
+<body>
+
+  <h1>Object Creation</h1>
+
+  <script>
+    let myObject = {
+      key1: 'value1',
+      key2: 42,
+      key3: true
+    };
+
+    // Display the object properties
+    for (let key in myObject) {
+      if (myObject.hasOwnProperty(key)) {
+        let paragraph = document.createElement('p');
+        paragraph.textContent = key + ': ' + myObject[key];
+        document.body.appendChild(paragraph);
+      }
+    }
+  </script>
+
+</body>
+</html>

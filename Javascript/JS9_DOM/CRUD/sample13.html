@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Object Access and Modification</title>
+</head>
+<body>
+
+  <script>
+    let myObject = {
+      propertyName: 'Initial Value'
+    };
+    let initialParagraph = document.createElement('p');
+    initialParagraph.textContent = 'Initial Property Value: ' + myObject.propertyName;
+    document.body.appendChild(initialParagraph);
+    myObject.propertyName = 'New Value';
+
+    let modifiedParagraph = document.createElement('p');
+    modifiedParagraph.textContent = 'Modified Property Value: ' + myObject.propertyName;
+    document.body.appendChild(modifiedParagraph);
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function printObjectProperties(obj) {
+    for (let prop in obj) {
+      if (obj.hasOwnProperty(prop)) {
+        console.log(`Property: ${prop}, Value: ${obj[prop]}`);
+      }
+    }
+  }
+  const myObject = {
+    name: 'John',
+    age: 30,
+    city: 'New York',
+  };
+  printObjectProperties(myObject);
+  
+    </script>
+</body>
+</html>

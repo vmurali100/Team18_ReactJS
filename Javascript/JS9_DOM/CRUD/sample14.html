@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Check Property Existence</title>
+</head>
+<body>
+
+  <h1>Check Property Existence</h1>
+
+  <script>
+    let myObject = {
+      existingProperty: 'Value'
+    };
+
+    function checkPropertyExistence(propertyName) {
+      return myObject.hasOwnProperty(propertyName);
+    }
+    let propertyToCheck = 'existingProperty';
+
+    let resultParagraph = document.createElement('p');
+    resultParagraph.textContent = `Does "${propertyToCheck}" exist in the object? ${checkPropertyExistence(propertyToCheck) ? 'Yes' : 'No'}`;
+    document.body.appendChild(resultParagraph);
+  </script>
+
+</body>
+</html>

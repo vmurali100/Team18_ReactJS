@@ -10,9 +10,9 @@
 <body>
     <form>
         <label for="">first number</label>
-        <input type="text" class="" id="fname">
+        <input type="text" class="" id="fname"><br>
         <label for="">second number</label>
-        <input type="text" class="" id="lname">
+        <input type="text" class="" id="lname"><br>
         <button onclick="Adduser()" type="button">Add user</button>
     </form>
 
@@ -21,17 +21,12 @@
     </div>
     <script>
         function Adduser() {
-            var number1 = Number(document.getElementById("fname"))
-            var number2 = Number(document.getElementById("lname"))
+            var number1 = Number(document.getElementById("fname").value)
+            var number2 = Number(document.getElementById("lname").value)
             if (number1 > number2) {
-                return "Greater";
-            } else if (number1 < number2) {
-                return "less"
-            } else {
-                return "Equal"
+                document.getElementById("display").innerHTML=number1+"greater than"+number2
             }
-            var result = compareNumbers(number1, number2);
-            console.log("The result of the comparison is: " + result);
+           
         }
     </script>
 
