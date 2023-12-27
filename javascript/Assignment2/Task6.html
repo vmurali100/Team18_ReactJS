@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        //code that removes duplicative elements in the array
+        var user = [1, 2, 22, 2, 2, 2, 3, 4, 4, 5];
+        document.write(user+"<br>");
+        var newuser = user.filter((el,index)=>{
+            return user.indexOf(el)===index
+        })
+        document.write(newuser+"<br>")
+        
+
+        //sorts an array in ascending or descending order
+        var user1=[4,1,7,8,3]
+        user1.sort(function(a,b){
+            return a-b
+        })
+        document.write(user1+"<br>")
+        user1.sort(function(a,b){
+            return b-a;
+        })
+        document.write(user1+"<br>")
+
+
+        // filters an array based on specific condition
+        var num = [1,3,4,5,2,4,7,9,43]
+        var f1  = num.filter((num)=>{return num%2 == 0})
+        document.write(num+"<br>")
+        document.write(f1)
+    </script>
+</body>
+
+</html>

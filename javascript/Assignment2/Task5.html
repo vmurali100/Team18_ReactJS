@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+</head>
+
+<body>
+   <script>
+
+      //function that checks if a number is within a specific range and returns "in range" or"out of range"
+
+      var num = Number(prompt("Enter the Number"));
+      if (num >= 25 && num <= 100) {
+         document.write("In range")
+      } else {
+         document.write("Out range")
+      }
+
+      //that uses nested conditions to check multiple conditions and print different messages based on outcome
+
+      var age = Number(prompt("Enter the Number"));
+      if (age < 19) {
+         document.write("Teenager");
+      } else if (age > 19 && age < 50) {
+         document.write("Adult");
+         if(age > 19 && age < 30){
+            document.write("Adult Phase1")
+         }else{
+            document.write("Adult Phase2")
+         }
+      } else {
+         document.write("Senior Citizen");
+      }
+
+      //Ternary operator to assign a value based on condition
+      var number=Number(prompt("Enter the Number"));
+      var result= (number % 2==0)? document.write("Even Number") :document.write("Odd Number")
+   </script>
+</body>
+
+</html>

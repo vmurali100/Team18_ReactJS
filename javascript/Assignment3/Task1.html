@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <label for="hi">Enter First Number :</label>
+    <input type="number" value="" id="hi">
+    <label for="ji">Enter Second Number :</label>
+    <input type="number" value="" id="ji">
+    <button type="button" onclick="sam()">Add</button><br><br>
+
+    <label for="no">Enter the Number :</label>
+    <input type="number" value="" id="no">
+    <label for="fact">Enter the Factor :</label>
+    <input type="number" value="" id="fact">
+    <button type="button" onclick="reva()">Product</button><br><br>
+
+    <label for="dividend">Enter the dividend :</label>
+    <input type="number" value="" id="dividend">
+    <label for="divisor">Enter the divisor :</label>
+    <input type="number" value="" id="divisor">
+    <button type="button" onclick="division()">Remainder</button><br><br>
+
+    <label for="no1">Enter the Number1 :</label>
+    <input type="text" name="" id="no1">
+    <label for="no2">Enter the Number2 :</label>
+    <input type="text" value="" id="no2">
+    <button type="button" onclick="demo()">Result</button><br><br>
+
+    <label for="num">Enter the Number :</label>
+    <input type="text" value="" id="num">
+    <button type="button" onclick="Increment()">Increment Number</button>
+    <button type="button" onclick="Decrement()">Decrement Number</button><br><br>
+
+    <label for="name">Enter Name :</label>
+    <input type="text" value="" id="name">
+    <label for="age">Enter Age :</label>
+    <input type="text" value="" id="age">
+    <button type="button" onclick="obj()">Show Object</button>
+
+    <label for="fnam">Fruit Name :</label>
+    <input type="text" name="" id="fnam">
+    <label for="count">Count :</label>
+    <input type="text" name="" id="count"> 
+    <script>
+
+        function obj() {
+            var user = {
+                name: "",
+                age: ""
+            }
+            user.name=document.getElementById("name").value;
+            user.age=document.getElementById("age").value;
+            console.log(user)
+        }
+
+        function Increment() {
+            var i1 = document.getElementById("num").value;
+            var i2 = ++i1;
+            console.log(i2);
+
+        }
+
+        function Decrement() {
+            var de1 = document.getElementById("num").value;
+            var de2 = --de1;
+            console.log(de2);
+        }
+
+        function demo() {
+            var c1 = document.getElementById("no1").value;
+            var c2 = document.getElementById("no2").value;
+            if (c1 > c2) {
+                console.log("c1 is greater than c2");
+            } else if (c1 < c2) {
+                console.log("c1 is less than c2");
+            } else {
+                console.log("c1 is equal to c2");
+            }
+        }
+        function sam() {
+            var a = Number(document.getElementById("hi").value);
+            var b = Number(document.getElementById("ji").value);
+            var sum = (a + b);
+            console.log(sum)
+        }
+
+        function reva() {
+            var a1 = Number(document.getElementById("no").value);
+            var a2 = Number(document.getElementById("fact").value);
+            var product = (a1 * a2);
+            console.log(product)
+        }
+
+        function division() {
+            var d1 = Number(document.getElementById("dividend").value);
+            var d2 = Number(document.getElementById("divisor").value);
+            var remain = (d1 % d2);
+            console.log(remain)
+        }
+    </script>
+</body>
+
+</html>
