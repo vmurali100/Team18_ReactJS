@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var originalArray=[1, 2, 3, 4, 5, 6]
+        var newArray=originalArray.map(function(Element){
+            var newElement=document.createElement('p')
+            newElement.textContent=element*2;
+            document.body.appendChild(newElement);
+            return element*2;
+
+        })
+        console.log(newArray);
+    </script>
+</body>
+</html>

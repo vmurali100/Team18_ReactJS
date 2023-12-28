@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="number" name="" id="myNumber"> <button onclick="checkNumber()">Check</button>
+    <div id="demo"></div>
+    <script>
+        function checkNumber(){
+            var enteredNumber = document.getElementById("myNumber").value;
+            if(enteredNumber <= 19 && enteredNumber > 1){
+                var information = prompt("Are You Studying ?")
+               console.log(information)
+               information == "yes" ? 
+                document.getElementById("demo").innerHTML = "You Are a Teenager Hope Your Studies Going Well" 
+                : document.getElementById("demo").innerHTML = "All the best for your Job Search !!"
+            //    if(information == "yes"){
+            //     document.getElementById("demo").innerHTML = "You Are a Teenager Hope Your Studies Going Well" ;
+            //    }else{
+            //     document.getElementById("demo").innerHTML = "All the best for your Job Search !!" ;
+            //    }
+                
+                
+            }else if(enteredNumber > 19 && enteredNumber <60){
+                document.getElementById("demo").innerHTML = "You Are an Adult"
+
+            }else{
+                document.getElementById("demo").innerHTML = "You are Senior Citizen"
+            }
+        }
+    </script>
+</body>
+</html>

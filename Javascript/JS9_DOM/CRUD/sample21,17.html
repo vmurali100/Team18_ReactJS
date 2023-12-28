@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="">
+        <label for="">Elementone</label>
+        <input type="number" id="firstelement"><br>
+        <label for="">Elementtwo</label>
+        <input type="number" id="secondelement"><br>
+        <label for="">Elementthree</label>
+        <input type="number" id="thiredelement"><br>
+        <label for="">Elementfour</label>
+        <input type="number" id="fourthelement"><br>
+        <label for="">Elementfive</label>
+        <input type="number" id="fifithelement"><br>
+        <label for="">Elementsix</label>
+        <input type="number" id="sixthelement"><br>
+        <label for="">Elementseven</label>
+        <input type="number" id="seventhelement"><br>
+        <label for="">Elementeight</label>
+        <input type="number" id="eighthelement"><br>
+        <label for="">Elementnine</label>
+        <input type="number" id="ninethelement"><br>
+        <label for="">Elementten</label>
+        <input type="number" id="tenthelement"><br>
+        <button onclick="numbers()" type="button">clickonMe</button>
+    </form>
+    <div id="display"></div>
+    <script>
+        function numbers(){
+            var Array=[
+                num1=(document.getElementById("firstelement").value),
+                num2=(document.getElementById("secondelement").value),
+                num3=(document.getElementById("thiredelement").value),
+                num4=(document.getElementById("fourthelement").value),
+                num5=(document.getElementById("fifithelement").value),
+                num6=(document.getElementById("sixthelement").value),
+                num7=(document.getElementById("seventhelement").value),
+                num8=(document.getElementById("eighthelement").value),
+                num9=(document.getElementById("ninethelement").value),
+                num10=(document.getElementById("tenthelement").value)
+            ]
+            var result = [];
+            var i = 10;
+            while ( i >0 ) {
+                result .push(Array[i]);
+                 i--;
+            }
+            document.getElementById("display").innerHTML = "Printing numbers 1 to 10:  <br>[" + result + "]";
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<form>
+    <label>Enter First Element</label>
+    <input type="text" id="one"><br>
+    <label>Enter Second Element</label>
+    <input type="text" id="two"><br>
+    <label>Enter Third Element</label>
+    <input type="text" id="three"><br>
+    <label>Enter Fourth Element</label>
+    <input type="text" id="four"><br>
+    <label>Enter Fifth Element</label>
+    <input type="text" id="five"><br>
+
+    <button onclick="createArray()" type="button">Creating An Array</button>
+    <div id="display">
+
+    </div>
+</form>
+<script>
+    function createArray() {
+        var arrNames = [
+            num1 = document.getElementById("one").value,
+            num2 = document.getElementById("two").value,
+            num3 = document.getElementById("three").value,
+            num4 = document.getElementById("four").value,
+            num5 = document.getElementById("five").value          
+          ]
+        var result = [];
+        var arr = arrNames.forEach((item) => {
+            result .push( item )
+            console.log(item);
+        })
+        document.getElementById("display").innerHTML = "Array is:  <br>[" + result + "]";
+    }  
+</script>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="number" name="" id="myNumber"> <button onclick="checkNumber()">Check</button>
+    <div id="demo"></div>
+   <script>
+     function checkNumber(){
+            var enteredNumber = document.getElementById("myNumber").value;
+            if(enteredNumber <= 19 && enteredNumber > 1){
+                var information = prompt("Are You Studying ?")
+               console.log(information)
+               information == "yes" ? 
+                document.getElementById("demo").innerHTML = "You Are a Teenager Hope Your Studies Going Well" 
+                : document.getElementById("demo").innerHTML = "All the best for your Job Search !!"
+            }
+        }
+   </script> 
+</body>
+</html>

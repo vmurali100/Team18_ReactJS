@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <label for="">first Eliment</label>
+        <input type="text" name="" id="one"><br>
+        <label for="">second Eliment</label>
+        <input type="text" name="" id="two"><br>
+        <label for="">Third Eliment</label>
+        <input type="text" name="" id="three"><br>
+        <label for="">fourth Eliment</label>
+        <input type="text" name="" id="fourth"><br>
+        <label for="">fiveth Element</label>
+        <input type="text" name="" id="five">
+        <button onclick="creatingarray()" type="button">crating an array</button>
+        <button onclick="addingstart()" type="button">addindingstart</button>
+        <button onclick="addingmiddle()" type="button">addingmiddle</button>
+        <button onclick="addingend()" type="button">addingend</button>
+        <div id="display"></div>
+        <div id="add"></div>
+        <div id="len"></div>
+        <div id="middle"></div>
+        <div id="end"></div>
+ </form>
+ <script>
+    var myarray=[]
+    function creatingarray(){
+        myarray = [
+            Element1 = document.getElementById("one").value,
+            Element2 = document.getElementById("two").value,
+            Element3 = document.getElementById("three").value,
+            Element4 = document.getElementById("fourth").value,
+            Element5 = document.getElementById("five").value
+
+
+        ]
+        var result=[];
+        for(var i = 0; i < myarray.length; i++){
+        result.push(myarray[i]);
+        }
+        document.getElementById("display").innerHTML = "array is: <br/>["+ result +"]";
+
+    }
+    function addingstart(){
+        var addstart = myarray.unshift("poori");
+        console.log(addingstart);
+        document.getElementById("add").innerHTML = "modify array is <br/> ["+myarray     +"]"
+        document.getElementById("len").innerHTML = "total lenght of modify array is <br/> "+ addstart ;
+    }
+    function addingmiddle(){
+        var addmiddle = myarray.splice(2,0,"vasu","mouli");
+        console.log(addingmiddle);
+        document.getElementById("middle").innerHTML ="modify array is <br/> ["+ myarray+"]"
+    }
+    function addingend(){
+        var addend = myarray.push("pavan")
+        console.log(addingend);;
+        document.getElementById("end").innerHTML = "modify array is <br/> ["+myarray+"]"
+}
+</script>
+
+</body>
+</html>
