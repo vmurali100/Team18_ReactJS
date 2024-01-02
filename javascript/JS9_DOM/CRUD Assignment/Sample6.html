@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <label for="name">Name :</label>
+    <input type="text" name="" id="name">
+    <button type="button" onclick="sam()">Submit</button>
+    <button type="button" onclick="updateuser()">Update</button>
+    <table border="1">
+        <thead><tr>
+            <th>Name</th>
+        </tr></thead>
+        <tbody></tbody>
+    </table>
+    <script>
+        user = []
+        function sam() {
+            var users = {
+                name: ""
+            }
+            user.push(users)
+            for(a in users){
+            users[a]=document.getElementById(a).value;
+        }
+         displayUser()
+        clearForm()
+        }
+        console.log(user)
+        function displayUser() {
+            document.querySelector("tbody").innerHTML="";
+            user.forEach((usr,i) => {
+                var mytr=document.createElement("tr");
+                for(a in usr){
+                    var mytd=document.createElement("td");
+                    mytr.appendChild(mytd);
+                    mytd.innerHTML=usr[a];
+                }
+                document.querySelector("tbody").appendChild(mytr);
+                var edbt=document.createElement("td");
+                mytr.appendChild(edbt);
+                var edbtn=document.createElement("button");
+                edbt.appendChild(edbtn)
+                edbtn.innerHTML="edit"
+                edbtn.setAttribute("onclick","edituser("+i+")")
+
+                var debt=document.createElement("td");
+                mytr.appendChild(debt);
+                var debtn=document.createElement("button");
+                debt.appendChild(debtn)
+                debtn.innerHTML="delete"
+                debtn.setAttribute("onclick","deleteuser("+i+")")
+            });
+        }
+        function updateuser(){
+        var users={
+            name:""
+        };
+        for(a in users){
+            users[a]=document.getElementById(a).value;
+        }
+        user[gIndex] = users;
+        displayUser()
+        clearForm()
+    }
+        function edituser(i) {
+            gIndex=i;
+        for(a in user[i]){
+            document.getElementById(a).value=user[i][a];
+        }
+        }
+        function deleteuser(i){
+            user=user.filter((usr,index)=>{
+             return i!=i
+            })
+            displayUser()
+        }
+        function clearForm() {
+            var users = {
+                name: ""
+            }
+            for(a in users){
+            document.getElementById(a).value="";
+        }
+        }
+    </script>
+</body>
+
+</html>
