@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <table border="1">
+        <thead>
+         <tr>
+            <th>fruit1</th>
+            <th>fruit2</th>
+            <th>fruit3</th>
+            <th>fruit4</th>
+            <th>fruit5</th>
+            <th>fruit6</th>
+         </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+    <script>
+        var user = {
+            fruit1: "jamun",
+            fruit2: "grapes",
+            fruit3: "banana",
+            fruit4: "orange",
+            fruit5: "Avacado",
+            fruit6: "pista"
+        }
+        var mytr=document.createElement("tr");
+        for( a in user){
+            var mytd=document.createElement("td");
+            mytr.appendChild(mytd);
+            mytd.innerHTML=user[a]
+        }
+        document.querySelector("tbody").appendChild(mytr)
+    </script>
+</body>
+
+</html>

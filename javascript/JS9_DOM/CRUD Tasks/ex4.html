@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>firstName</th>
+                <th>lastName</th>
+                <th>age</th>
+                <th>eyeColor</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+    <script>
+        var person = {
+            firstName: "John",
+            lastName: "Doe",
+            age: 50,
+            eyeColor: "blue"
+        };
+        var mytr=document.createElement("tr");
+        for(a in person){
+            var mytd=document.createElement("td");
+            mytd.innerHTML=person[a];
+            mytr.appendChild(mytd)
+        }
+        document.querySelector("tbody").appendChild(mytr)
+    </script>
+</body>
+
+</html>
