@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Firstname</th>
+                <th>Lastname</th>
+                <th>Email</th>
+                <th>Password</th>
+                <th>City</th>
+                <th>ph no</th>
+                <th>state</th>
+                <th>contact us</th>
+            </tr>
+        </thead>
+        <script>
+
+            var student = {
+                fname: "vanitha",
+                lname: "reddy",
+                email: "vanitha123@gmail.com",
+                password: 1134465,
+                city: "chittoor",
+                phno: 96332475512,
+                state: "andhrapradesh",
+                contactus: 12345667
+            }
+            var myTr = document.createElement("tr")
+            for (a in student) {
+                var mytd = document.createElement("td")
+                mytd.innerHTML = student[a]
+                myTr.appendChild(mytd)
+            }
+
+
+            document.querySelector("tbody").appendChild(myTr)
+        </script>
+</body>
+
+</html>
