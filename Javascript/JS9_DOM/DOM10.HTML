@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table border="">
+ <thead>
+    <tr>
+        <th>fname</th>
+        <th>lname</th>
+        <th>tel</th>
+        <th>address</th>
+        <th>city</th>
+        <th>state</th>
+        <th>zip</th>
+    </tr>
+ </thead>
+ <tbody>
+
+ </tbody>
+    </table>
+</body>
+<script>
+    var users=[
+    {
+        "fname": "Lei",
+        "lname": "Willey",
+        "tel": "(913)948-5739",
+        "address": "3185 Egestas Dr",
+        "city": "Westwood",
+        "state": "FL",
+        "zip": 19882
+    },
+    {
+        "fname": "Lolita",
+        "lname": "Mooney",
+        "tel": "(637)635-0285",
+        "address": "7298 Orci Ln",
+        "city": "Panama City Beach",
+        "state": "PA",
+        "zip": 75884
+    },
+    {
+        "fname": "Danielle",
+        "lname": "Red",
+        "tel": "(733)449-6057",
+        "address": "8434 Placerat Ln",
+        "city": "Saint Louis",
+        "state": "IN",
+        "zip": 46242
+    },
+    {
+        "fname": "Magdalena",
+        "lname": "Siecke",
+        "tel": "(341)333-0456",
+        "address": "1715 Suspendisse Ave",
+        "city": "Odessa",
+        "state": "HI",
+        "zip": 79144
+    },
+    {
+        "fname": "Tara",
+        "lname": "Spataro",
+        "tel": "(870)899-0454",
+        "address": "6389 Turpis Dr",
+        "city": "Riverdale",
+        "state": "RI",
+        "zip": 57985
+    },
+    {
+        "fname": "Cary",
+        "lname": "Simpson",
+        "tel": "(221)303-7409",
+        "address": "8771 Sit Ln",
+        "city": "Chambersburg",
+        "state": "NH",
+        "zip": 30046
+    },
+    {
+        "fname": "Guadalupe",
+        "lname": "Reinhardt",
+        "tel": "(233)541-7951",
+        "address": "8827 Odio St",
+        "city": "Hattiesburg",
+        "state": "DC",
+        "zip": 26261
+    },
+    {
+        "fname": "Dalton",
+        "lname": "Holland",
+        "tel": "(542)701-4037",
+        "address": "6506 Placerat Dr",
+        "city": "Castle Rock",
+        "state": "TN",
+        "zip": 44578
+    },
+    {
+        "fname": "Shunita",
+        "lname": "Reinhard",
+        "tel": "(312)018-9831",
+        "address": "9651 Dolor Rd",
+        "city": "Mooresville",
+        "state": "WI",
+        "zip": 99553
+    },
+    {
+        "fname": "Liang",
+        "lname": "Burrs",
+        "tel": "(398)213-5527",
+        "address": "5656 Orci Rd",
+        "city": "Moulton",
+        "state": "AL",
+        "zip": 12782
+    }
+]
+    for(i=0; i<users.length;i++){
+        var mytr=document.createElement("tr")
+        for(a in users[i]){
+            var mytd=document.createElement("td")
+            mytd.innerHTML=users[i][a]
+            mytr.appendChild(mytd)
+        }
+        document.querySelector("tbody").appendChild(mytr)
+    }
+</script>
+</html>
