@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <label for="id"> ID</label>
+        <input type="text" id="id"> <br>
+        <label for="id"> Email</label>
+        <input type="text" id="email"> <br>
+        <label for="id"> Password</label>
+        <input type="text" id="password"> <br>
+        <button onclick="Adduser()" type="button" id="adduser">adduser</button>
+        <button onclick="updateuser()" type="button" id="updateuser">updateuser</button>
+
+    </form>
+    <script>
+        var user=[]
+        function displayStudents(){
+           var student={
+            id:"",
+            email:"",
+            password:"",
+           }
+           for(a in student){
+            document.getElementById(a).value=student[a]
+           }
+           user.push(student)
+        }
+        
+
+    </script>
+</body>
+</html>

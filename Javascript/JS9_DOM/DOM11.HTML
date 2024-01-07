@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+
+<body>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                
+                <th>Email</th>
+                <th>Username</th>
+                <th>Password</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+    <script>
+        var students = [
+            {
+                "id": 61,
+                "email": "DVanatta@fringilla.net",
+                "username": "FHerrick",
+                "password": "xGrKC"
+            },
+            {
+                "id": 62,
+                "email": "RForenda@sapien.io",
+                "username": "ISpellicy",
+                "password": "ODqoB"
+            },
+            {
+                "id": 63,
+                "email": "MMcintyre@molestie.gov",
+                "username": "ESalter",
+                "password": "4WVnJ"
+            },
+            {
+                "id": 64,
+                "email": "VBriley@egestas.com",
+                "username": "EBrill",
+                "password": "N8AfR"
+            },
+            {
+                "id": 65,
+                "email": "JConk@eget.com",
+                "username": "LFreeburg",
+                "password": "rKbDU"
+            }
+        ]
+
+        console.log(students.length)
+      function displayStudents(){
+        document.querySelector('tbody').innerHTML = ""
+        for(i=0;i<students.length;i++){
+            var myTr = document.createElement("tr");
+            console.log(students[i])
+            for(a in students[i]){
+                var td = document.createElement('td');
+                td.innerHTML = students[i][a]
+                myTr.appendChild(td)
+            }
+
+
+
+            var editTd = document.createElement("td")
+            var editBtn = document.createElement("button");
+            editBtn.innerHTML = "Edit"
+            editTd.appendChild(editBtn);
+            myTr.appendChild(editTd)
+            
+
+           
+            var deleteTd = document.createElement("td")
+            var deleteBtn = document.createElement("button");
+            deleteBtn.innerHTML = "Delete"
+            deleteBtn.setAttribute("onClick","deleteUser("+i+")")
+            deleteTd.appendChild(deleteBtn)
+            myTr.appendChild(deleteTd)
+            document.querySelector("tbody").appendChild(myTr)
+        }
+
+      }
+
+        function deleteUser(i){
+            students.splice(i,1)
+            displayStudents()
+        }
+        displayStudents()
+    </script>
+</body>
+
+</html>
