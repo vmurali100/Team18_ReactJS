@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Phno</th>
+                <th>Email</th>
+                <th>id</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+        <script>
+            var user={
+                name:"ravi",
+                phno:9381639776,
+                email:"hnavi2002g@gmail.com",
+                id:7
+            }
+            var mytr=document.createElement("tr");
+            for(a in user){
+                var mytd=document.createElement("td");
+                mytd.innerHTML=user[a];
+                mytr.appendChild(mytd)
+            }
+            document.querySelector("tbody").appendChild(mytr)
+        </script>
+    </table>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table border="1">
+        <thead>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+        </thead>
+        <tbody></tbody>
+        <script>
+            var mytr=document.createElement("tr")
+            
+            var mytd1=document.createElement("td")
+            mytd1.innerHTML="New Value"
+            mytr.appendChild(mytd1)
+
+            var mytd2=document.createElement("td")
+            mytd2.innerHTML="New Value"
+            mytr.appendChild(mytd2)
+
+            var mytd3=document.createElement("td")
+            mytd3.innerHTML="New Value"
+            mytr.appendChild(mytd3)
+
+            document.querySelector("tbody").appendChild(mytr)
+        </script>
+    </table>
+</body>
+</html>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <style>
+        /* Add your custom styles here */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .disabledBtn {
+            background: lightgray;
+        }
+    </style>
+</head>
+
+<body>
+
+    <form id="registrationForm">
+        <label for="fullName">Full Name:</label>
+        <input type="text" id="fullName" name="fullName" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+        <label for="mobile">Mobile:</label>
+        <input type="mobile" id="mobile" name="password" required>
+
+        <button type="button" id="registerButton" onclick="addUser()">Register</button>
+    </form>
+    <table border="1">
+        <thead>
+            <th>fullName</th>
+            <th>email</th>
+            <th>Password</th>
+            <th>Mobile</th>
+        </thead>
+        <tbody></tbody>
+    </table>
+
+    <script>
+        var users = []
+        function addUser() {
+            var user = {
+                fullName: "",
+                email: "",
+                password: "",
+                mobile: ""
+            }
+            for (a in user) {
+                user[a] = document.getElementById(a).value;
+            }
+            users.push(user)
+            console.log(users)
+            displayusers()
+        }
+        function displayusers() {
+            document.querySelector("tbody").innerHTML = "";
+            for (i = 0; i < users.length; i++) {
+                var mytr = document.createElement("tr");
+                for (a in users[i]) {
+                    var mytd = document.createElement("td");
+                    mytd.innerHTML = users[i][a];
+                    mytr.appendChild(mytd)
+                }
+                document.querySelector("tbody").appendChild(mytr)
+            }
+        }
+
+        // function validateForm() {
+        //     var user = {
+        //         fullName: document.getElementById('fullName').value,
+        //         emai: document.getElementById('email').value,
+        //         password: document.getElementById('password').value,
+        //         mobile: document.getElementById('mobile').value
+        //     }
+
+        //     if (user.fullName !== ''  && user.password !== '') {
+
+        //         var pattern = /^\d{10}$/
+        //         var emailReg = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
+
+        //         var check = pattern.test(user.mobile);
+        //         console.log(check)
+        //         if (pattern.test(user.mobile) && emailReg.test(user.emai)) {
+        //             document.getElementById('registerButton').disabled = false;
+        //             document.getElementById('registerButton').removeAttribute('class', 'disabledBtn')
+        //         } else {
+        //             document.getElementById('registerButton').disabled = true;
+        //             document.getElementById('registerButton').setAttribute('class', 'disabledBtn')
+
+        //         }
+
+        //     }
+
+    </script>
+
+</body>
+
+</html>
