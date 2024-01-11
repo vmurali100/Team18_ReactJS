@@ -82,7 +82,7 @@
   </table>
   <script>
     var users = [];
-    var rbbts = document.getElementsByName("gender")
+    // var rbbts = document.getElementsByName("gender")
     function adduser() {
       var person = {
         name: "",
@@ -94,23 +94,23 @@
         date: "",
         gender: "",
       }
-      for (a in person) {
-        if (a !== "gender") {
-          person[a] = document.getElementById(a).value
-          console.log(person)
-        } else if (a == "gender") {
-          rbbts.forEach((rb) => {
-            if (rb.checked) {
-              person.gender = rb.value
-            }
-          })
-        }
+      // for (a in person) {
+      //   if (a !== "gender") {
+      //     person[a] = document.getElementById(a).value
+      //     console.log(person)
+      //   } else if (a == "gender") {
+      //     rbbts.forEach((rb) => {
+      //       if (rb.checked) {
+      //         person.gender = rb.value
+      //       }
+      //     })
+      //   }
 
-      }
+      // }
       users.push(person)
       displayUsers()
       clearForm()
-      // window.location.href="http://127.0.0.1:5500/Javascript/JS9_DOM/validations/sample4.html"
+      
     }
 
     function displayUsers() {
@@ -153,35 +153,35 @@
         date: "",
         gender: ""
       }
-      for (a in person) {
-        if (a != "gender") {
-          document.getElementById(a).value = ""
-        } else if (a == "gender") {
-          rbbts.forEach((rb) => {
-            rb.checked = false
-          })
-        }
+      // for (a in person) {
+      //   if (a != "gender") {
+      //     document.getElementById(a).value = ""
+      //   } else if (a == "gender") {
+      //     rbbts.forEach((rb) => {
+      //       rb.checked = false
+      //     })
+      //   }
 
 
 
-      }
+      // }
     }
-    function edituser(i) {
-      gIndex = i
-      for (a in users[i]) {
-        if (a != "gender") {
-          document.getElementById(a).value = users[i][a]
-        } else if (a == "gender") {
-          rbbts.forEach((radio) => {
-            if (radio.value == users[i].gender) {
-              radio.checked =true
-            }
-          })
-        }
+    // function edituser(i) {
+    //   gIndex = i
+    //   for (a in users[i]) {
+    //     if (a != "gender") {
+    //       document.getElementById(a).value = users[i][a]
+    //     } else if (a == "gender") {
+    //       rbbts.forEach((radio) => {
+    //         if (radio.value == users[i].gender) {
+    //           radio.checked =true
+    //         }
+    //       })
+    //     }
 
-      }
+    //   }
 
-    }
+    // }
 
     function updateuser() {
 
@@ -195,22 +195,22 @@
         date: "",
         gender: "",
       }
-      for (a in person) {
-        if (a !== "gender") {
-          person[a] = document.getElementById(a).value
-          console.log(person)
-        } else if (a == "gender") {
-          rbbts.forEach((rb) => {
-            if (rb.checked) {
-              person.gender = rb.value
-            }
-          })
-        }
+      // for (a in person) {
+      //   if (a !== "gender") {
+      //     person[a] = document.getElementById(a).value
+      //     console.log(person)
+      //   } else if (a == "gender") {
+      //     rbbts.forEach((rb) => {
+      //       if (rb.checked) {
+      //         person.gender = rb.value
+      //       }
+      //     })
+      //   }
 
-      }
-      users[gIndex] = person;
-      displayUsers()
-      clearform()
+      // }
+      // users[gIndex] = person;
+      // displayUsers()
+      // clearform()
     }
     function deleteuser(i) {
       users = users.filter((usr, index) => {

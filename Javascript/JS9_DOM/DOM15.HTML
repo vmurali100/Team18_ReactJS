@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Validation Form in Table</title>
+  <style>
+    table {
+      border-collapse: collapse;
+      width: 50%;
+      margin: 20px auto;
+    }
+
+    th, td {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+    }
+
+    input[type="text"], input[type="email"], input[type="password"] {
+      width: 100%;
+      padding: 8px;
+      box-sizing: border-box;
+    }
+
+    .error-message {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+
+  <form id="validationForm">
+    <table>
+      <tr>
+        <th>Field</th>
+        <th>Value</th>
+      </tr>
+      <tr>
+        <td>Username:</td>
+        <td><input type="text" name="username" id="username"></td>
+      </tr>
+      <tr>
+        <td>Email:</td>
+        <td><input type="email" name="email" id="email"></td>
+      </tr>
+      <tr>
+        <td>Password:</td>
+        <td><input type="password" name="password" id="password"></td>
+      </tr>
+    </table>
+
+    <div class="error-message" id="errorMessage"></div>
+
+    <button type="button" onclick="validateForm()">Submit</button>
+  </form>
+
+  <script>
+    function validateForm() {
+      var username = document.getElementById('username').value;
+      var email = document.getElementById('email').value;
+      var password = document.getElementById('password').value;
+      var errorMessage = document.getElementById('errorMessage');
+
+      errorMessage.innerHTML = '';
+
+      if (username === '' || email === '' || password === '') {
+        errorMessage.innerHTML = 'All fields are required';
+        return;
+      }
+
+      // Additional validation logic can be added here
+
+      // If all validations pass, you can submit the form or perform other actions
+      alert('Form submitted successfully!');
+    }
+  </script>
+
+</body>
+</html>

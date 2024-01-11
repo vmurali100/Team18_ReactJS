@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+         form {
+      width: 600px;
+      margin: auto;
+      text-align: center;
+      background-color: darkkhaki;
+      padding-top: 20px;
+    }
+
+    label {
+      float: left;
+      width: 150px;
+    }
+
+    table {
+      width: 600px;
+      margin: auto;
+      text-align: center;
+      padding: 10px;
+    }
+    </style>
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <h1 style="color: slateblue;">Student Registration form</h1>
+        <label for="">Full Name</label>
+        <input type="text" name="" id="fname"> <br><br>
+        <label for="">Email </label>
+        <input type="text" name="" id="email"> <br><br>
+        <p style="color: red;display: none;">Please enter a Valid Email Address</p>
+        <label for="">Password </label>
+        <input type="text" name="" id="password"> <br><br>
+       
+        <!-- <button disabled>Add User </button> -->
+        <button onclick="addUser()" type="button"onkeyup="validate()" onblur="handlefnameError()">Add User</button>
+      
+    </form>
+    <hr>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>email</th>
+                <th>password</th>
+                <!-- <th>Edit</th>
+                <th>Delete</th> -->
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+    <script>
+       var mytr=document.createElement("tr")
+       for(a in user){
+        var mytd=document.createElement("td")
+        mytd.innerHTML=user[a]
+        mytr.appendChild(mytd)
+       }
+       document.querySelector("tbody").appendChild(mytr)
+        function validate(){
+            document.querySelector("p").style.display="block"
+            var emailValue = document.getElementById("email").value 
+            var pattern = /^[a-z0-9]+@[a-z]+\.[a-z]{2,3}$/
+            if(pattern.test(emailValue)){
+                document.querySelector("button").removeAttribute("disabled")
+                document.querySelector("p").style.display="none"
+            }else{
+                document.querySelector("button").setAttribute("disabled",true)
+            }
+        }
+    </script>
+</body>
+</html>
