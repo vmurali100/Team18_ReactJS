@@ -11,8 +11,9 @@ const changeName =()=> {
 return(
     <>
      <button onClick={changeName}>changeName</button>
-     <h1>{myName}</h1>
+     <h1> welcome{myName}</h1>
     </>
+   
    
     
 )
