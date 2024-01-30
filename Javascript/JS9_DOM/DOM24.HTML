@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+
+        form {
+            max-width: 500px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        input[type="checkbox"] {
+            margin-bottom: 5px;
+        }
+
+        input[type="button"] {
+            background-color: #4caf50;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        table {
+            flex: 1;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid #ddd;
+            border-collapse: collapse;
+            padding: 8px;
+        }
+
+        th {
+            background-color: #f2f2f2;
+            text-align: left;
+        }
+
+        input[type="button"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+
+<body>
+    <form>
+        <label>Id</label>
+        <input type="text"  id="id">
+
+        <label for="fname">First Name</label>
+        <input type="text" id="fname">
+
+        <label for="email">Email</label>
+        <input type="email" id="email">
+
+        <label for="state">State</label>
+        <select name="state" id="state">
+            <option value="Select">Select</option>
+            <option value="Karnataka">Karnataka</option>
+            <option value="AndhraPradesh">Andhra Pradesh</option>
+            <option value="TamilNadu">TamilNadu</option>
+            <option value="Maharashtra">Maharashtra</option>
+        </select>
+
+        <label for="Gender">Gender</label><br>
+
+        <input type="radio" name="gender" value="male">
+        <label for="male">male</label>,<br>
+        <input type="radio" name="gender" value="female">
+        <label for="female">Female</label><br>
+        <input type="radio" name="gender" value="others">
+        <label for="others">Others</label><br>
+
+        <label for="Subjects">subjects</label><br>
+
+        <input type="checkbox" name="subjects" value="Html">
+        <label>Html</label><br>
+        <input type="checkbox" name="subjects" value="Css">
+        <label>Css</label><br>
+        <input type="checkbox" name="subjects" value="Javascript">
+        <label>Javascript</label><br>
+        <input type="checkbox" name="subjects" value="ReactJs">
+        <label>ReactJs</label><br>
+
+        <label>Date Of Birth</label>
+        <input type="date" name="date" id="dob"><br><br>
+
+        <input type="button" id="addUserBtn" value="submit" onclick="addUser()">
+        <input type="button" id="updateUserBtn" value="updateUser" onclick="updateUser()">
+        
+    </form>
+
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>First Name</th>
+            <th>Email</th>
+            <th>State</th>
+            <th>DOB</th>
+
+            <th>Subjects</th>
+            <th>Gender</th>
+
+           
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+
+        <tbody></tbody>
+    </table>
+    <script>
+        //Create user
+        function addUser() {
+            var user = {
+                id : document.getElementById("id").value,
+                fname: document.getElementById("fname").value,
+                email: document.getElementById("email").value,
+                state: document.getElementById("state").value,
+                dob: document.getElementById("dob").value,
+                subjects: [],
+                gender: null
+            }
+
+            var allRadioBtns = document.getElementsByName("gender");
+            for (var i = 0; i < allRadioBtns.length; i++) {
+                if (allRadioBtns[i].checked) {
+                    user.gender = allRadioBtns[i].value
+                }
+            }
+
+            var allCheckBoxes = document.getElementsByName("subjects");
+            for (var i = 0; i < allCheckBoxes.length; i++) {
+                if (allCheckBoxes[i].checked) {
+                    user.subjects.push(allCheckBoxes[i].value)
+                }
+            }
+
+            console.log("add User Called!!", user)
+            addUserToApi(user)
+
+        }
+
+        function addUserToApi(user) {
+            var sendData = new XMLHttpRequest();
+            sendData.onreadystatechange = function () {
+                if (sendData.status == 200 && sendData.onreadystate == 4) {
+                    console.log(JSON.parse(sendData.responseText))
+                }
+            }
+            sendData.open("POST", "http://localhost:3000/users");
+            sendData.setRequestHeader("content-type", "application/json")
+            sendData.send(JSON.stringify(user))
+        }
+
+        //Read User
+        var users = []
+        function getUsersFromApi() {
+            var getData = new XMLHttpRequest();
+            getData.onreadystatechange = function () {
+                if (getData.status == 200 && getData.readyState == 4) {
+                    console.log(JSON.parse(getData.responseText));
+                    users = JSON.parse(getData.responseText);
+                    displayUsers()
+
+                }
+            }
+            getData.open("GET", "http://localhost:3000/users");
+            getData.send()
+        }
+        getUsersFromApi()
+
+
+        function displayUsers() {
+            console.log(users)
+
+            for (var i = 0; i < users.length; i++) {
+                var myTr = document.createElement("tr")
+                var eachObj = users[i]
+
+                for (a in eachObj) {
+                    var myTd = document.createElement("td");
+                    myTd.innerHTML = eachObj[a]
+                    myTr.appendChild(myTd)
+                }
+
+                var editTd = document.createElement("td");
+               var editBtn = document.createElement("button");
+                editBtn.innerHTML = "Edit";
+                editTd.appendChild(editBtn);
+                myTr.appendChild(editTd);
+                editBtn.setAttribute("onclick", "editUser(" + i + ")")
+
+                var delTd = document.createElement("td");
+                var delBtn = document.createElement("button");
+                delBtn.innerHTML = "Delete";
+                delTd.appendChild(delBtn);
+                myTr.appendChild(delTd);
+                delBtn.setAttribute("onclick", "deleteUser(" + i + ")")
+
+
+                document.querySelector("tbody").appendChild(myTr)
+            }
+        }
+
+        //Edit User
+
+        var gIndex = null;
+        function editUser(i) {
+            console.log(users[i]);
+            gIndex = i
+            document.getElementById("id").value = users[i].id
+            document.getElementById("fname").value = users[i].fname;
+            document.getElementById("email").value = users[i].email;
+            document.getElementById("dob").value = users[i].dob;
+            document.getElementById("state").value = users[i].state;
+
+            var allRadioBtns = document.getElementsByName("gender");
+            for (let index = 0; index < allRadioBtns.length; index++) {
+                if (allRadioBtns[index].value === users[i].gender) {
+                    allRadioBtns[index].checked = true;
+                }
+            }
+
+            var allCheckBoxes = document.getElementsByName("subjects");
+            for (let index = 0; index < allCheckBoxes.length; index++) {
+                //    console.log(allCheckBoxes[index])
+                //     console.log( users[i].subjects)
+
+                var check = users[i].subjects.some((val) => allCheckBoxes[index].value === val);
+                allCheckBoxes[index].checked = check
+
+            }
+        }
+
+        //Update User
+
+        function updateUser() {
+            var user = {
+                id: document.getElementById("id").value,
+                fname: document.getElementById("fname").value,
+                email: document.getElementById("email").value,
+                state: document.getElementById("state").value,
+                dob: document.getElementById("dob").value,
+                subjects: [],
+                gender: null
+            }
+
+            var allRadioBtns = document.getElementsByName("gender");
+            for (i = 0; i < allRadioBtns.length; i++) {
+                if (allRadioBtns[i].checked) {
+                    user.gender = allRadioBtns[i].value
+                }
+            }
+
+            var allCheckBoxes = document.getElementsByName("subjects")
+            for (let i = 0; i < allCheckBoxes.length; i++) {
+                if (allCheckBoxes[i].checked) {
+                    user['subjects'].push(allCheckBoxes[i].value)
+                }
+
+            }
+            updateUserToApi(user)
+        }
+
+        function updateUserToApi(user) {
+            var postData = new XMLHttpRequest();
+            postData.onreadystatechange = function () {
+                if (postData.status == 200 && postData.readyState == 4) {
+                    console.log("User Added", JSON.parse(postData.response))
+                }
+            }
+            postData.open("PUT", "http://localhost:3000/users/" + users[gIndex].id);
+            postData.setRequestHeader("content-type", "application/json");
+            postData.send(JSON.stringify(user))
+        }
+        // Delete user
+
+        function deleteUser(i) {
+            console.log(users[i])
+
+            var deleteData = new XMLHttpRequest();
+            deleteData.onreadystatechange = function () {
+                if (deleteData.status == 200 && deleteData.readyState == 4) {
+                    users = JSON.parse(deleteData.response);
+                    displayUsers()
+                }
+            }
+            deleteData.open("DELETE", "http://localhost:3000/users/" + users[i].id);
+            deleteData.send()
+        }
+    </script>
+</body>
