@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form>
+        <select name="" id="states" onchange="validate()">
+            <option value="">Select A State</option>
+            <option value="Andhra">AP</option>
+            <option value="Telangana">TS</option>
+            <option value="Tamilnadu">TN</option>
+            <option value="karnata">KA</option>
+        </select> <br>
+        <span style="color:red" id="APerror">first name should be minimum 2 charecters</span><br>
+
+        <button type="button" disabled id="addbtn">Register</button>
+    </form>
+    <script>
+        function validate() {
+            document.getElementById("APerror").style.display = "block";
+            document.getElementById("addbtn").setAttribute("disabled", true)
+            var selectedValue = document.getElementById("states").value;
+            console.log(selectedValue)
+            if (selectedValue  !== "") {
+               document.getElementById("APerror").style.display = "none";
+                document.getElementById("addbtn").removeAttribute("disabled", true)
+            }
+        }
+    </script>
+</body>
+
+</html>

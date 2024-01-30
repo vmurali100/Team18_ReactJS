@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="">
+        <label for="'" onchange="validate()">Gender :  </label>
+        <input type="radio" name="gender" id="Male" > Male
+        <input type="radio" name="gender" id="Female"> Female
+        <input type="radio" name="gender" id="Others"> Others
+       
+<br>
+<button type="button" disabled id="addbtn">Register</button>
+        <span style="color:red" id="APerror">first name should be minimum 2 charecters</span><br>
+    </form>
+    <script>
+        function validate(){
+            document.querySelector("span").style.display="block"
+            document.getElementById("addbtn").setAttribute("disabled",true)
+            // document.getElementById("APerror")
+            var selectedValue=document.getElementById("gender").value;
+            console.log(selectedValue)
+            if (selectedValue  !== "") {
+               document.getElementById("APerror").style.display = "none";
+                document.getElementById("addbtn").removeAttribute("disabled", true)
+            }
+        }
+    </script>
+</body>
+</html>

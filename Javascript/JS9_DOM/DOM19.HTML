@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <label for="">Gender</label><br>
+        <input type="radio" name="gender" value="male" >male
+        <input type="radio" name="gender" value="female">female
+        <input type="radio" name="gender" value="others">others
+        <br><br>
+
+        <label for="">subjects:</label><br>
+        <input type="checkbox" name="subjects" value="html">html<br>
+        <input type="checkbox" name="subjects" value="css">css<br>
+        <input type="checkbox" name="subjects" value="javascript">javascript<br>
+        <input type="checkbox" name="subjects" value="reactjs">reactjs<br>
+
+        <label for="">DOB</label>
+        <input type="date" name="" id="dob"><br>
+
+        <label for="">state:</label>
+        <select name="" id="statename">
+            <option value="AP">AP</option>
+            <option value="TS">TS</option>
+            <option value="TN">TN</option>
+            <option value="KA">KA</option>
+            <option value="MP">MP</option>
+
+
+        </select><br><br>
+
+        <button type="button" onclick="adduser()">adduser</button>
+
+
+ <script>
+    function adduser(){
+        var person={
+            fname:'m.swapna',
+            lname:"swapna",
+            gender:"",
+            subjects:[],
+
+        }
+        var allcheckboxes=document.getElementsByName("subjects");
+        for(var i=0;i<allcheckboxes.length;i++){
+        if(allcheckboxes[i].checked===true){
+            person.subjects.push(allcheckboxes[i].value);
+
+        }
+        }
+        var allRadioBtns=document.getElementsByName("gender")
+        for(var i=0;i<allRadioBtns.length;i++){
+            if(allRadioBtns[i].checked){
+                person.gender=allRadioBtns[i].value;
+            }
+        }
+        person.dob=document.getElementById("dob").value
+        person.statename=document.getElementById("statename").value
+
+        
+        console.log(person)
+
+
+    }
+    
+ </script>
+
+
+    </form>
+</body>
+</html>
