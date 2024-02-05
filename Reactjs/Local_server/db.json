@@ -1,50 +1,28 @@
 {
   "users": [
     {
-      "cname": "",
-      "pname": "nmn,m,dm,m,dm",
-      "ppno": "",
-      "rv": "",
-      "pano": "",
-      "doe": "",
-      "en": "vanitha",
-      "bn": "",
-      "ebq": "",
-      "sp": "",
-      "id": 3
+      "id": "1",
+      "fname": "vanitha",
+      "email": "bvanithareedy77@gmail.com",
+      "state": "Karnataka",
+      "dob": "2023-06-22",
+      "subjects": [
+        "Html",
+        "Css",
+        "Javascript"
+      ],
+      "gender": "female"
     },
     {
-      "cname": "",
-      "pname": "jkhawdjhjwd",
-      "ppno": "",
-      "rv": "",
-      "pano": "",
-      "doe": "babnbanbnana",
-      "en": "",
-      "bn": "",
-      "ebq": "",
-      "sp": "",
-      "id": 4
-    },
-    {
-      "university": "nnmnnmbnmsd",
-      "institute": "",
-      "Branch": "",
-      "Degree": "",
-      "avgcpi": "",
-      "exp": "",
-      "wb": "",
-      "id": 6
-    },
-    {
-      "university": "hii",
-      "institute": "",
-      "Branch": "",
-      "Degree": "",
-      "avgcpi": "",
-      "exp": "",
-      "wb": "",
-      "id": 7
+      "id": "2",
+      "fname": "vanitha",
+      "email": "bvanithareedy77@gmail.com",
+      "state": "Andrapradesh",
+      "dob": "",
+      "subjects": [
+        "Reactjs"
+      ],
+      "gender": "female"
     }
   ]
 }

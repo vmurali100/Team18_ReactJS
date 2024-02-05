@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simple Form</title>
+    <title>Document</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -78,74 +78,77 @@
 
 <body>
     <form>
-        <label>Id</label>
-        <input type="text"  id="id">
+        <label for="">ID</label>
+        <input type="text" name="" id="id"><br>
 
-        <label for="fname">First Name</label>
-        <input type="text" id="fname">
+        <label for="fname">first Name</label>
+        <input type="text" id="fname"><br>
 
         <label for="email">Email</label>
-        <input type="email" id="email">
+        <input type="email" name="" id="email"><br>
 
-        <label for="state">State</label>
+        <label for="state">state</label>
         <select name="state" id="state">
-            <option value="Select">Select</option>
-            <option value="Karnataka">Karnataka</option>
-            <option value="AndhraPradesh">Andhra Pradesh</option>
-            <option value="TamilNadu">TamilNadu</option>
-            <option value="Maharashtra">Maharashtra</option>
+            <option value="select">select</option>
+            <option value="karnataka">karnataka</option>
+            <option value="Andrapradesh">Andrapradesh</option>
+            <option value="Tamilnadu">Tamilnadu</option>
+            <option value="Maharastra">Maharastra</option>
         </select>
+        <br>
         <label for="Gender">Gender</label><br>
 
         <input type="radio" name="gender" value="male">
-        <label for="male">male</label>,<br>
+        <label for="male">male</label><br>
         <input type="radio" name="gender" value="female">
-        <label for="female">Female</label><br>
+        <label for="female">female</label><br>
         <input type="radio" name="gender" value="others">
-        <label for="others">Others</label><br>
+        <label for="others">others</label><br>
 
-        <label for="Subjects">subjects</label><br>
+        <label for="subjects">subjects</label><br>
 
-        <input type="checkbox" name="subjects" value="Html">
-        <label>Html</label><br>
-        <input type="checkbox" name="subjects" value="Css">
-        <label>Css</label><br>
-        <input type="checkbox" name="subjects" value="Javascript">
-        <label>Javascript</label><br>
-        <input type="checkbox" name="subjects" value="ReactJs">
-        <label>ReactJs</label><br>
+        <input type="checkbox" name="subjects" value="HTML">
+        <label for="">HTML</label><br>
+        <input type="checkbox" name="subjects" value="css">
+        <label for="">css</label><br>
+        <input type="checkbox" name="subjects" value=javascript>
+        <label for="">javascript</label><br>
+        <input type="checkbox" name="subjects" value="Reactjs">
+        <label for="">Reactjs</label><br>
 
-        <label>Date Of Birth</label>
+        <label for="">Date of Birth</label>
         <input type="date" name="date" id="dob"><br><br>
+        <input type="button" id="Adduserbtn" value="submit" onclick="adduser()">
+        <input type="button" id="updateUserBtn" value="updateuser" onclick="updateuser()">
 
-        <input type="button" id="addUserBtn" value="submit" onclick="addUser()">
-        <input type="button" id="updateUserBtn" value="updateUser" onclick="updateUser()">
-        
+
     </form>
+    <table border="1px">
 
-    <table>
         <tr>
             <th>ID</th>
             <th>First Name</th>
             <th>Email</th>
-            <th>State</th>
-            <th>DOB</th>
+            <th>state</th>
+            <th>DoB</th>
 
-            <th>Subjects</th>
+            <th>subjects</th>
             <th>Gender</th>
 
-           
             <th>Edit</th>
             <th>Delete</th>
         </tr>
 
-        <tbody></tbody>
+        <tbody>
+
+        </tbody>
     </table>
     <script>
-        //Create user
-        function addUser() {
+        // ---create user---
+
+        function adduser() {
             var user = {
-                id : document.getElementById("id").value,
+                id: document.getElementById("id").value,
                 fname: document.getElementById("fname").value,
                 email: document.getElementById("email").value,
                 state: document.getElementById("state").value,
@@ -161,84 +164,83 @@
                 }
             }
 
-            var allCheckBoxes = document.getElementsByName("subjects");
-            for (var i = 0; i < allCheckBoxes.length; i++) {
-                if (allCheckBoxes[i].checked) {
-                    user.subjects.push(allCheckBoxes[i].value)
+            var allcheckboxes = document.getElementsByName("subjects");
+            for (var i = 0; i < allcheckboxes.length; i++) {
+                if (allcheckboxes[i].checked) {
+                    user.subjects.push(allcheckboxes[i].value)
                 }
             }
 
-            console.log("add User Called!!", user)
-            addUserToApi(user)
-
+            console.log("add user called!!", user)
+            adduserToApi(user)
         }
 
-        function addUserToApi(user) {
-            var sendData = new XMLHttpRequest();
-            sendData.onreadystatechange = function () {
-                if (sendData.status == 200 && sendData.onreadystate == 4) {
-                    console.log(JSON.parse(sendData.responseText))
-                }
+        function adduserToApi(user) {
+            var senddata = new XMLHttpRequest();
+            senddata.onreadystatechange = function () {
+                if (senddata.status === 200 && senddata.onreadystatechange === 4)
+                    console.log(JSON.parse(senddata.reaponseText))
             }
-            sendData.open("POST", "http://localhost:3000/users");
-            sendData.setRequestHeader("content-type", "application/json")
-            sendData.send(JSON.stringify(user))
+            senddata.open("POST", "http://localhost:3000/users");
+            senddata.setRequestHeader("content-type", "application/json")
+            senddata.send(JSON.stringify(user))
         }
 
-        //Read User
+
+        // ---read user---
+
         var users = []
-        function getUsersFromApi() {
-            var getData = new XMLHttpRequest();
-            getData.onreadystatechange = function () {
-                if (getData.status == 200 && getData.readyState == 4) {
-                    console.log(JSON.parse(getData.responseText));
-                    users = JSON.parse(getData.responseText);
-                    displayUsers()
-
+        function getusersfromApi() {
+            var getdata = new XMLHttpRequest();
+            getdata.onreadystatechange = function () {
+                if (getdata.status === 200 && getdata.readyState === 4) {
+                    console.log(JSON.parse(getdata.responseText));
+                    users = JSON.parse(getdata.responseText);
+                    displayuser()
                 }
             }
-            getData.open("GET", "http://localhost:3000/users");
-            getData.send()
+
+            getdata.open("GET", "http://localhost:3000/users");
+            getdata.send()
         }
-        getUsersFromApi()
-
-
-        function displayUsers() {
+        getusersfromApi()
+        function displayuser() {
             console.log(users)
 
             for (var i = 0; i < users.length; i++) {
-                var myTr = document.createElement("tr")
-                var eachObj = users[i]
+                var mytr = document.createElement("tr")
+                var eachobj = users[i]
 
-                for (a in eachObj) {
-                    var myTd = document.createElement("td");
-                    myTd.innerHTML = eachObj[a]
-                    myTr.appendChild(myTd)
+                for (a in eachobj) {
+                    var mytd = document.createElement("td");
+                    mytd.innerHTML = eachobj[a]
+                    mytr.appendChild(mytd)
                 }
-
-                var editTd = document.createElement("td");
-               var editBtn = document.createElement("button");
-                editBtn.innerHTML = "Edit";
-                editTd.appendChild(editBtn);
-                myTr.appendChild(editTd);
-                editBtn.setAttribute("onclick", "editUser(" + i + ")")
-
-                var delTd = document.createElement("td");
-                var delBtn = document.createElement("button");
-                delBtn.innerHTML = "Delete";
-                delTd.appendChild(delBtn);
-                myTr.appendChild(delTd);
-                delBtn.setAttribute("onclick", "deleteUser(" + i + ")")
+                var edittd = document.createElement("td");
+                var editbtn = document.createElement("button");
+                editbtn.innerHTML = "EDIT";
+                edittd.appendChild(editbtn);
+                mytr.appendChild(edittd);
+                editbtn.setAttribute("onclick", "edituser(" + i + ")")
 
 
-                document.querySelector("tbody").appendChild(myTr)
+                var deletetd = document.createElement("td");
+                var deletebtn = document.createElement("button");
+                deletebtn.innerHTML = "DELETE";
+                deletetd.appendChild(deletebtn);
+                mytr.appendChild(deletetd);
+                deletebtn.setAttribute("onclick", "deleteUser(" + i + ")")
+
+                document.querySelector("tbody").appendChild(mytr)
+
             }
+
         }
 
-        //Edit User
+        // ---EDIT user---
 
         var gIndex = null;
-        function editUser(i) {
+        function edituser(i) {
             console.log(users[i]);
             gIndex = i
             document.getElementById("id").value = users[i].id
@@ -248,26 +250,23 @@
             document.getElementById("state").value = users[i].state;
 
             var allRadioBtns = document.getElementsByName("gender");
-            for (let index = 0; index < allRadioBtns.length; index++) {
+            for (var index = 0; index < allRadioBtns.length; index++) {
                 if (allRadioBtns[index].value === users[i].gender) {
                     allRadioBtns[index].checked = true;
                 }
             }
 
-            var allCheckBoxes = document.getElementsByName("subjects");
-            for (let index = 0; index < allCheckBoxes.length; index++) {
-                //    console.log(allCheckBoxes[index])
-                //     console.log( users[i].subjects)
-
-                var check = users[i].subjects.some((val) => allCheckBoxes[index].value === val);
-                allCheckBoxes[index].checked = check
-
+            var allcheckboxes = document.getElementsByName("subnzjects");
+            for (var index = 0; index < allcheckboxes.length; index++) {
+                var check = users[i].subjects.some((val) => allcheckboxes[index].value === val);
+                allcheckboxes[index].checked = check
             }
         }
 
-        //Update User
 
-        function updateUser() {
+        // ---update user---
+
+        function updateuser() {
             var user = {
                 id: document.getElementById("id").value,
                 fname: document.getElementById("fname").value,
@@ -305,8 +304,10 @@
             postData.open("PUT", "http://localhost:3000/users/" + users[gIndex].id);
             postData.setRequestHeader("content-type", "application/json");
             postData.send(JSON.stringify(user))
+
         }
-        // Delete user
+
+        // ---delete user--
 
         function deleteUser(i) {
             console.log(users[i])
@@ -321,5 +322,8 @@
             deleteData.open("DELETE", "http://localhost:3000/users/" + users[i].id);
             deleteData.send()
         }
+
     </script>
 </body>
+
+</html>
