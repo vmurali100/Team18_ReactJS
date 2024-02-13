@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>name</th>
+                <th>email</th>
+                <th>age</th>
+                <th>occupation</th>
+                <th>ans</th>
+                <th>subjects</th>
+                <th>edit</th>
+                <th>delete</th>
+
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+    <script>
+        users = [];
+        function getusersfromAPI() {
+            var getdata = new XMLHttpRequest();
+            getdata.onreadystatechange = function () {
+                if (getdata.onreadystatechange == 4 && getdata.status == 200) {
+                    users = JSON.parse(getdata.response);
+                    displayusers();
+                }
+            }
+            getdata.open("GET", " http://localhost:3000/users")
+            getdata.send()
+        }
+        getusersfromAPI();
+        function displayusers() {
+            for (i = 0; i < users.length; i++) {
+                var mytr = document.createElement("tr")
+                var eachobj = users[i]
+                for (a in eachobj) {
+                    var mytd = document.createElement(td)
+                    mytd.innerHTML = eachobj[a]
+                    mytr.appendChild(mytd)
+                }
+                var edittd = document.createElement("td");
+                var editbtn = document.createElement("button");
+                editbtn.innerHTML = "Edit";
+                editbtn.setAttribute("onclick", "edituser(" + i + ")");
+                edittd.appendChild(editbtn);
+                mytr.appendChild(edittd);
+
+                var deltd = document.createElement("td");
+                var delbtn = document.createElement("button");
+                delbtn.innerHTML = "Delete";
+                delbtn.setAttribute("onclick", "deleteuser(" + i + ")");
+                deltd.appendChild(delbtn);
+                mytr.appendChild(deltd);
+
+                document.querySelector("tbody").appendChild(mytr);
+
+            }
+        }
+        function deleteuser(i){
+        localStorage.setItem("usertodelete", JSON.stringify(users[i]));
+        window.location.href = "deleteUser.html";
+      }
+      function edituser(i) {
+        localStorage.setItem("usertoedit", JSON.stringify(users[i]));
+        window.location.href = "edituser.html";
+      }
+
+    </script>
+</body>
+
+</html>
