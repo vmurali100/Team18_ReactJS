@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        button {
+            background-color: red;
+            border-radius: 20px;
+            padding: 5px;
+            cursor: pointer;
+        }
+
+        #backto {
+            background-color: yellow;
+            border-radius: 20px;
+            padding: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>In Delete Users Page</h2><br><br>
+    <table border="1">
+        <tr>
+            <thead>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Age</th>
+                <th>occupation</th>
+                <th>Answer</th>
+                <th>Languages</th>
+                <th>Suggestions</th>
+                
+            </thead>
+        </tr>
+        <tbody></tbody>
+    </table><br>
+    <button type="button" onclick="deleteUser()">Delete</button>
+    <button type="button" id="backto" onclick="backTo()">Back To DisplayUsers page</button>
+
+    <script>
+        var userToDelete = JSON.parse(localStorage.getItem("userToDelete"));
+        console.log(userToDelete)
+
+
+        function displayUser() {
+            var myTr = document.createElement("tr")
+
+            for (a in userToDelete) {
+                if (a !== "answer" && a !== "languages") {
+                    var myTd = document.createElement("td");
+                    myTd.innerHTML = userToDelete[a];
+                    myTr.appendChild(myTd)
+                }
+                else if (a == "answer") {
+                    var res = ""
+                    for (b in userToDelete[a]) {
+                        res = res + userToDelete[a][b] + "<br>"
+                    }
+                    var myTd = document.createElement("td");
+                    myTd.innerHTML = res;
+                    myTr.appendChild(myTd)
+                }
+                else if (a == "languages") {
+                    var result = "";
+                    for (c in userToDelete[a]) {
+                        result = result + userToDelete[a][c] + "<br>"
+                    }
+                    var myTd = document.createElement("td");
+                    myTd.innerHTML = result;
+                    myTr.appendChild(myTd)
+                }
+
+            }
+            document.querySelector("tbody").appendChild(myTr)
+        }
+
+        displayUser();
+
+        function deleteUser() {
+            fetch("http://localhost:3000/student/" + userToDelete.id, {
+                method: "DELETE",
+
+            })
+                .then(() => {
+                    console.log("user deleted Succesfully");
+                    window.location.href = "displayUsers.html"
+                })
+        }
+        function backTo() {
+            window.location.href = "displayUsers.html"
+        }
+    </script>
+</body>
+
+</html>
