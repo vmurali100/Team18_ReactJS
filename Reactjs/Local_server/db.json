@@ -23,6 +23,20 @@
         "Reactjs"
       ],
       "gender": "female"
+    },
+    {
+      "firstname": "vanitha",
+      "lastname": "",
+      "email": "bvanithareedy77@gmail.com",
+      "phone": "",
+      "address": "chittoor",
+      "address2": "",
+      "state": "",
+      "country": "",
+      "post": "123456",
+      "area": "",
+      "supportCheckbox": null,
+      "id": "kHsj2UM"
     }
   ]
 }

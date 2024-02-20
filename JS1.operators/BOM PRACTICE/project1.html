@@ -1,535 +1,293 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="./mystyles.css" />
-  </head>
-  <body>
+  <style>
+    
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Inter', sans-serif;
+}
+.formbold-mb-3 {
+  margin-bottom: 15px;
+}
+.formbold-relative {
+  position: relative;
+}
+.formbold-opacity-0 {
+  opacity: 0;
+}
+.formbold-stroke-current {
+  stroke: currentColor;
+}
+#supportCheckbox:checked ~ div span {
+  opacity: 1;
+}
+
+.formbold-main-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px;
+}
+
+.formbold-form-wrapper {
+  margin: 0 auto;
+  max-width: 570px;
+  width: 100%;
+  background: white;
+  padding: 40px;
+}
+
+.formbold-img {
+  margin-bottom: 45px;
+}
+
+.formbold-form-title {
+  margin-bottom: 30px;
+}
+.formbold-form-title h2 {
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 34px;
+  color: #07074d;
+}
+.formbold-form-title p {
+  font-size: 16px;
+  line-height: 24px;
+  color: #536387;
+  margin-top: 12px;
+}
+
+.formbold-input-flex {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 15px;
+}
+.formbold-input-flex > div {
+  width: 50%;
+}
+.formbold-form-input {
+  text-align: center;
+  width: 100%;
+  padding: 13px 22px;
+  border-radius: 5px;
+  border: 1px solid #dde3ec;
+  background: #ffffff;
+  font-weight: 500;
+  font-size: 16px;
+  color: #536387;
+  outline: none;
+  resize: none;
+}
+.formbold-form-input:focus {
+  border-color: #6a64f1;
+  box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.05);
+}
+.formbold-form-label {
+  color: #536387;
+  font-size: 14px;
+  line-height: 24px;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.formbold-checkbox-label {
+  display: flex;
+  cursor: pointer;
+  user-select: none;
+  font-size: 16px;
+  line-height: 24px;
+  color: #536387;
+}
+.formbold-checkbox-label a {
+  margin-left: 5px;
+  color: #6a64f1;
+}
+.formbold-input-checkbox {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+.formbold-checkbox-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  margin-right: 16px;
+  margin-top: 2px;
+  border: 0.7px solid #dde3ec;
+  border-radius: 3px;
+}
+
+.formbold-btn {
+  font-size: 16px;
+  border-radius: 5px;
+  padding: 14px 25px;
+  border: none;
+  font-weight: 500;
+  background-color: #6a64f1;
+  color: white;
+  cursor: pointer;
+  margin-top: 25px;
+}
+.formbold-btn:hover {
+  box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.05);
+}
+  </style>
+</head>
+
+<body>
     <div class="formbold-main-wrapper">
-      <!-- Author: FormBold Team -->
-      <!-- Learn More: https://formbold.com -->
-      <div class="formbold-form-wrapper">
-        <form action="https://formbold.com/s/FORM_ID" method="POST">
-          <div class="formbold-input-group" hidden>
-            <label for="name" class="formbold-form-label"> ID </label>
-            <input
-              type="text"
-              name="name"
-              id="id"
-              placeholder="Enter your name"
-              class="formbold-form-input"
-            />
-          </div>
-          <div class="formbold-input-group">
-            <label for="name" class="formbold-form-label"> Name </label>
-            <input
-              type="text"
-              name="name"
-              id="name"
-              placeholder="Enter your name"
-              class="formbold-form-input"
-            />
-          </div>
 
-          <div class="formbold-input-group">
-            <label for="email" class="formbold-form-label"> Email </label>
-            <input
-              type="email"
-              name="lastname"
-              id="email"
-              placeholder="Enter your email"
-              class="formbold-form-input"
-            />
-          </div>
+        <div class="formbold-form-wrapper">
 
-          <div class="formbold-input-group">
-            <label for="age" class="formbold-form-label"> Age </label>
-            <input
-              type="text"
-              name="age"
-              id="age"
-              placeholder="Enter your age"
-              class="formbold-form-input"
-            />
-          </div>
+            <form action="https://formbold.com/s/FORM_ID" method="POST">
+                <div class="formbold-form-title">
+                    <h2 class="">Register now</h2>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                        eiusmod tempor incididunt.
+                    </p>
+                </div>
 
-          <div class="formbold-input-group">
-            <label class="formbold-form-label">
-              Which option best describes you?
-            </label>
+                <div class="formbold-input-flex">
+                    <div>
+                        <label for="firstname" class="formbold-form-label">
+                            First name
+                        </label>
+                        <input type="text" name="firstname" id="firstname" class="formbold-form-input" />
+                    </div>
+                    <div>
+                        <label for="lastname" class="formbold-form-label"> Last name </label>
+                        <input type="text" name="lastname" id="lastname" class="formbold-form-input" />
+                    </div>
+                </div>
 
-            <select
-              class="formbold-form-select"
-              name="occupation"
-              id="occupation"
-            >
-              <option value="Student">Student</option>
-              <option value="designer">UX/UI Designer</option>
-              <option value="fullstack">Full Stack Developer</option>
-              <option value="frontend">Front End Developer</option>
-            </select>
-          </div>
+                <div class="formbold-input-flex">
+                    <div>
+                        <label for="email" class="formbold-form-label"> Email </label>
+                        <input type="email" name="email" id="email" class="formbold-form-input" />
+                    </div>
+                    <div>
+                        <label for="phone" class="formbold-form-label"> Phone number </label>
+                        <input type="text" name="phone" id="phone" class="formbold-form-input" />
+                    </div>
+                </div>
 
-          <div class="formbold-input-radio-wrapper">
-            <label for="ans" class="formbold-form-label">
-              Would you recomend our site to a friend?
-            </label>
+                <div class="formbold-mb-3">
+                    <label for="address" class="formbold-form-label">
+                        Street Address
+                    </label>
+                    <input type="text" name="address" id="address" class="formbold-form-input" />
+                </div>
 
-            <div class="formbold-radio-flex">
-              <div class="formbold-radio-group">
-                <label class="formbold-radio-label">
-                  <input
-                    class="formbold-input-radio"
-                    type="radio"
-                    name="ans"
-                    id="ans"
-                    value="yes"
-                  />
-                  Yes
-                  <span class="formbold-radio-checkmark"></span>
-                </label>
-              </div>
+                <div class="formbold-mb-3">
+                    <label for="address2" class="formbold-form-label">
+                        Street Address Line 2
+                    </label>
+                    <input type="text" name="address2" id="address2" class="formbold-form-input" />
+                </div>
 
-              <div class="formbold-radio-group">
-                <label class="formbold-radio-label">
-                  <input
-                    class="formbold-input-radio"
-                    type="radio"
-                    name="ans"
-                    id="ans"
-                    value="no"
-                  />
-                  No
-                  <span class="formbold-radio-checkmark"></span>
-                </label>
-              </div>
+                <div class="formbold-input-flex">
+                    <div>
+                        <label for="state" class="formbold-form-label"> State/Prvince </label>
+                        <input type="text" name="state" id="state" class="formbold-form-input" />
+                    </div>
+                    <div>
+                        <label for="country" class="formbold-form-label"> Country </label>
+                        <input type="text" name="country" id="country" class="formbold-form-input" />
+                    </div>
+                </div>
 
-              <div class="formbold-radio-group">
-                <label class="formbold-radio-label">
-                  <input
-                    class="formbold-input-radio"
-                    type="radio"
-                    name="ans"
-                    id="ans"
-                    value="maybe"
-                  />
-                  Maybe
-                  <span class="formbold-radio-checkmark"></span>
-                </label>
-              </div>
-            </div>
-          </div>
+                <div class="formbold-input-flex">
+                    <div>
+                        <label for="post" class="formbold-form-label"> Post/Zip code </label>
+                        <input type="text" name="post" id="post" class="formbold-form-input" />
+                    </div>
+                    <div>
+                        <label for="area" class="formbold-form-label"> Area Code </label>
+                        <input type="text" name="area" id="area" class="formbold-form-input" />
+                    </div>
+                </div>
 
-          <div class="formbold-input-radio-wrapper">
-            <label class="formbold-form-label">
-              Which languages & freameworks you know?
-            </label>
+                <div class="formbold-checkbox-wrapper">
+                    <label for="supportCheckbox" class="formbold-checkbox-label">
+                        <div class="formbold-relative">
+                            <input type="checkbox" id="supportCheckbox" name="box" value="yes"
+                                class="formbold-input-checkbox" />
+                            <div class="formbold-checkbox-inner">
+                                <span class="formbold-opacity-0">
+                                    <svg width="11" height="8" viewBox="0 0 11 8" fill="none"
+                                        class="formbold-stroke-current">
+                                        <path
+                                            d="M10.0915 0.951972L10.0867 0.946075L10.0813 0.940568C9.90076 0.753564 9.61034 0.753146 9.42927 0.939309L4.16201 6.22962L1.58507 3.63469C1.40401 3.44841 1.11351 3.44879 0.932892 3.63584C0.755703 3.81933 0.755703 4.10875 0.932892 4.29224L0.932878 4.29225L0.934851 4.29424L3.58046 6.95832C3.73676 7.11955 3.94983 7.2 4.1473 7.2C4.36196 7.2 4.55963 7.11773 4.71406 6.9584L10.0468 1.60234C10.2436 1.4199 10.2421 1.1339 10.0915 0.951972ZM4.2327 6.30081L4.2317 6.2998C4.23206 6.30015 4.23237 6.30049 4.23269 6.30082L4.2327 6.30081Z"
+                                            stroke-width="0.4"></path>
+                                    </svg>
+                                </span>
+                            </div>
+                        </div>
+                        I agree to the defined
+                        <a href="#"> terms, conditions, and policies</a>
+                    </label>
+                </div>
 
-            <div class="formbold-radio-flex">
-              <div class="formbold-radio-group">
-                <label class="formbold-radio-label" for="c">
-                  <input
-                    class="formbold-input-radio"
-                    type="checkbox"
-                    name="subjects"
-                    value="c"
-                    id="c"
-                  />
-                  C
-                  <span class="formbold-radio-checkmark"></span>
-                </label>
-              </div>
-
-              <div class="formbold-radio-group">
-                <label class="formbold-radio-label" for="c++">
-                  <input
-                    class="formbold-input-radio"
-                    type="checkbox"
-                    name="subjects"
-                    value="c++"
-                    id="c++"
-                  />
-                  c++
-                  <span class="formbold-radio-checkmark"></span>
-                </label>
-              </div>
-
-              <div class="formbold-radio-group">
-                <label class="formbold-radio-label" for="java">
-                  <input
-                    class="formbold-input-radio"
-                    type="checkbox"
-                    name="subjects"
-                    value="java"
-                    id="java"
-                  />
-                  Java
-                  <span class="formbold-radio-checkmark"></span>
-                </label>
-              </div>
-
-              <div class="formbold-radio-group">
-                <label class="formbold-radio-label" for="python">
-                  <input
-                    class="formbold-input-radio"
-                    type="checkbox"
-                    name="subjects"
-                    value="python"
-                    id="python"
-                  />
-                  Python
-                  <span class="formbold-radio-checkmark"></span>
-                </label>
-              </div>
-
-              <div class="formbold-radio-group">
-                <label class="formbold-radio-label" for="javaScript">
-                  <input
-                    class="formbold-input-radio"
-                    type="checkbox"
-                    name="subjects"
-                    value="javaScript"
-                    id="javaScript"
-                  />
-                  JavaScript
-                  <span class="formbold-radio-checkmark"></span>
-                </label>
-              </div>
-
-              <div class="formbold-radio-group">
-                <label class="formbold-radio-label" for="react">
-                  <input
-                    class="formbold-input-radio"
-                    type="checkbox"
-                    name="subjects"
-                    value="react"
-                    id="react"
-                  />
-                  React
-                  <span class="formbold-radio-checkmark"></span>
-                </label>
-              </div>
-
-              <div class="formbold-radio-group">
-                <label class="formbold-radio-label" for="angular">
-                  <input
-                    class="formbold-input-radio"
-                    type="checkbox"
-                    name="subjects"
-                    value="angular"
-                    id="angular"
-                  />
-                  Angular
-                  <span class="formbold-radio-checkmark"></span>
-                </label>
-              </div>
-
-              <div class="formbold-radio-group">
-                <label class="formbold-radio-label" for="django">
-                  <input
-                    class="formbold-input-radio"
-                    type="checkbox"
-                    name="subjects"
-                    value="diango"
-                    id="django"
-                  />
-                  Django
-                  <span class="formbold-radio-checkmark"></span>
-                </label>
-              </div>
-
-              <div class="formbold-radio-group">
-                <label class="formbold-radio-label" for="tailwind">
-                  <input
-                    class="formbold-input-radio"
-                    type="checkbox"
-                    name="subjects"
-                    value="tailwind"
-                    id="tailwind"
-                  />
-                  Tailwind CSS
-                  <span class="formbold-radio-checkmark"></span>
-                </label>
-              </div>
-
-              <div class="formbold-radio-group">
-                <label class="formbold-radio-label" for="bootstrap">
-                  <input
-                    class="formbold-input-radio"
-                    type="checkbox"
-                    name="subjects"
-                    value="bootstrap"
-                    id="bootstrap"
-                  />
-                  Bootstrap
-                  <span class="formbold-radio-checkmark"></span>
-                </label>
-              </div>
-            </div>
-          </div>
-
-          <div>
-            <label for="message" class="formbold-form-label">
-              Any comments or suggestions
-            </label>
-            <textarea
-              rows="6"
-              name="message"
-              id="message"
-              placeholder="Type here..."
-              class="formbold-form-input"
-            ></textarea>
-          </div>
-
-          <button type="button" onclick="updateuser()">update</button>
-        </form>
-      </div>
+                <button class="formbold-btn" type="button" onclick="addUser()">Register Now</button>
+            </form>
+        </div>
     </div>
-    <style>
-      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
-
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-
-      body {
-        font-family: "Inter", sans-serif;
-      }
-
-      .formbold-main-wrapper {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 48px;
-      }
-
-      .formbold-form-wrapper {
-        margin: 0 auto;
-        max-width: 570px;
-        width: 100%;
-        background: white;
-        padding: 40px;
-      }
-
-      .formbold-form-img {
-        margin-bottom: 45px;
-      }
-
-      .formbold-input-group {
-        margin-bottom: 18px;
-      }
-
-      .formbold-form-select {
-        width: 100%;
-        padding: 12px 22px;
-        border-radius: 5px;
-        border: 1px solid #dde3ec;
-        background: #ffffff;
-        font-size: 16px;
-        color: #536387;
-        outline: none;
-        resize: none;
-      }
-
-      .formbold-input-radio-wrapper {
-        margin-bottom: 25px;
-      }
-
-      .formbold-radio-flex {
-        display: flex;
-        flex-direction: column;
-        gap: 15px;
-      }
-
-      .formbold-radio-label {
-        font-size: 14px;
-        line-height: 24px;
-        color: #07074d;
-        position: relative;
-        padding-left: 25px;
-        cursor: pointer;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
-      }
-
-      .formbold-input-radio {
-        position: absolute;
-        opacity: 0;
-        cursor: pointer;
-      }
-
-      .formbold-radio-checkmark {
-        position: absolute;
-        top: -1px;
-        left: 0;
-        height: 18px;
-        width: 18px;
-        background-color: #ffffff;
-        border: 1px solid #dde3ec;
-        border-radius: 50%;
-      }
-
-      .formbold-radio-label
-        .formbold-input-radio:checked
-        ~ .formbold-radio-checkmark {
-        background-color: #6a64f1;
-      }
-
-      .formbold-radio-checkmark:after {
-        content: "";
-        position: absolute;
-        display: none;
-      }
-
-      .formbold-radio-label
-        .formbold-input-radio:checked
-        ~ .formbold-radio-checkmark:after {
-        display: block;
-      }
-
-      .formbold-radio-label .formbold-radio-checkmark:after {
-        top: 50%;
-        left: 50%;
-        width: 10px;
-        height: 10px;
-        border-radius: 50%;
-        background: #ffffff;
-        transform: translate(-50%, -50%);
-      }
-
-      .formbold-form-input {
-        width: 100%;
-        padding: 13px 22px;
-        border-radius: 5px;
-        border: 1px solid #dde3ec;
-        background: #ffffff;
-        font-weight: 500;
-        font-size: 16px;
-        color: #07074d;
-        outline: none;
-        resize: none;
-      }
-
-      .formbold-form-input::placeholder {
-        color: #536387;
-      }
-
-      .formbold-form-input:focus {
-        border-color: #6a64f1;
-        box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.05);
-      }
-
-      .formbold-form-label {
-        color: #07074d;
-        font-size: 14px;
-        line-height: 24px;
-        display: block;
-        margin-bottom: 10px;
-      }
-
-      .formbold-btn {
-        text-align: center;
-        width: 100%;
-        font-size: 16px;
-        border-radius: 5px;
-        padding: 14px 25px;
-        border: none;
-        font-weight: 500;
-        background-color: #6a64f1;
-        color: white;
-        cursor: pointer;
-        margin-top: 25px;
-      }
-
-      .formbold-btn:hover {
-        box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.05);
-      }
-    </style>
-
     <script>
-      var user = JSON.parse(localStorage.getItem("usertoedit"));
+        function addUser() {
+            var users = {
+                firstname: document.getElementById("firstname").value,
+                lastname: document.getElementById("lastname").value,
+                email: document.getElementById("email").value,
+                phone: document.getElementById("phone").value,
+                address: document.getElementById("address").value,
+                address2: document.getElementById("address2").value,
+                state: document.getElementById("state").value,
+                country: document.getElementById("country").value,
+                post: document.getElementById("post").value,
+                area: document.getElementById("area").value,
+                supportCheckbox: null
 
-      for (a in user) {
-        if (a !== "ans" && a !== "subjects") {
-          document.getElementById(a).value = user[a];
-        }
-
-        if (a == "ans") {
-          var allradiobtns = document.getElementsByName("ans");
-          for (index = 0; index < allradiobtns.length; index++) {
-            if (allradiobtns[index].value == user.ans) {
-              allradiobtns[index].checked = true;
             }
-          }
+            var box = document.getElementsByName("box");
+            for (var i = 0; i < box.length; i++) {
+                if (box[i].checked) {
+                    users.supportCheckbox = box[i].value
+                }
+            }
+
+            fetch("http://localhost:3000/users", {
+                method: "POST",
+                body: JSON.stringify(users),
+                headers: { "content-type": "application/json" }
+            })
+                .then(() => {
+                    console.log("users Added Successfully")
+                    // getUsersFromApi();
+                    window.location.href = "displayUsers.html"
+                })
         }
 
-        if (a == "subjects") {
-          var allcheckboxes = document.getElementsByName("subjects");
-          for (index = 0; index < allcheckboxes.length; index++) {
-            var check = user.subjects.some((val) => {
-              return allcheckboxes[index].value == val;
-            });
-            allcheckboxes[index].checked = check;
-          }
-        }
-      }
-
-
-      function updateuser() {
-        var user = {
-          id: document.getElementById("id").value,
-          name: document.getElementById("name").value,
-          email: document.getElementById("email").value,
-          age: document.getElementById("age").value,
-          occupation: document.getElementById("occupation").value,
-          ans: "",
-          subjects: [],
-        };
-
-        var allradiobtns = document.getElementsByName("ans");
-        for (i = 0; i < allradiobtns.length; i++) {
-          if (allradiobtns[i].checked) {
-            user.ans = allradiobtns[i].value;
-          }
-        }
-
-        var allcheckboxes = document.getElementsByName("subjects");
-        for (i = 0; i < allcheckboxes.length; i++) {
-          if (allcheckboxes[i].checked) {
-            user.subjects.push(allcheckboxes[i].value);
-          }
-        }
-        updateuserfromAPI(user);
-      }
-
-      function updateuserfromAPI(user) {
-        var updatedata = new XMLHttpRequest();
-        updatedata.onreadystatechange = function () {
-          if (updatedata.readyState == 4 && updatedata.status == 200) {
-            window.location.href = "displayusers.html";          }
-        };
-
-        updatedata.open("PUT", "http://localhost:3000/users/" +user.id);
-        updatedata.setRequestHeader("content-type", "application/json");
-        updatedata.send(JSON.stringify(user));
-      }
-
-     
-
-
-
-
-
-
-      
-
-      
+       
     </script>
-  </body>
+</body>
+
 </html>
