@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table border="1">
+        <tr>
+            <thead>
+                <th>Id</th>
+                <th>FullName</th>
+                <th>PhoneNumber</th>
+                <th>Email</th>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Area</th>
+                <th>city</th>
+                <th>state</th>
+                <th>PostCode</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </thead>
+        </tr>
+        <tbody></tbody>
+
+    </table>
+    <script>
+        var users = []
+        function getUsersFromApi(){
+            fetch("http://localhost:3000/userdetails")
+            .then((response)=>{
+               return response.json()
+            })
+            .then((data)=>{
+               users = data;
+               displayUsers()
+            })
+        }
+        getUsersFromApi();
+
+        function displayUsers(){
+        for(var i = 0 ; i < users.length ; i++){
+            var myTr = document.createElement("tr");
+            for(a in users[i]){
+                var myTd = document.createElement("td");
+                myTd.innerHTML = users[i][a];
+                myTr.appendChild(myTd)
+            }
+
+            var editTd = document.createElement("td");
+            var editBtn = document.createElement("button");
+            editBtn.innerHTML = "EDIT";
+            editBtn.style.backgroundColor = "yellow";
+            editTd.appendChild(editBtn);
+            myTr.appendChild(editTd);
+            editBtn.setAttribute("onclick", "editUser("+ i +")")
+
+
+            var delTd = document.createElement("td");
+            var delBtn = document.createElement("button");
+            delBtn.innerHTML = "DELETE";
+            delBtn.style.backgroundColor = "red";
+            delTd.appendChild(delBtn);
+            myTr.appendChild(delTd);
+            delBtn.setAttribute("onclick", "delUser("+ i+")")
+
+            document.querySelector("tbody").appendChild(myTr)
+        }
+    }
+
+    function editUser(i){
+        localStorage.setItem("editusr" , JSON.stringify(users[i]));
+        window.location.href = "editUsers.html"
+    }
+
+    function delUser(i){
+        localStorage.setItem("deleteusr", JSON.stringify(users[i]));
+        window.location.href = "deleteUsers.html"
+    }
+    </script>
+</body>
+</html>

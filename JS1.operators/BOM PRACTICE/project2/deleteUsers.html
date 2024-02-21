@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+  <h2>In Delete Users page</h2>
+  <h3 id="dlt"></h3>
+  <button type="button"   onclick="deleteUser()">Yes, You want to Delete</button>
+  <button type="button"  onclick="backTo()">No, Cancel</button>
+
+    <script>
+        var userToDelete = JSON.parse(localStorage.getItem("delUser"));
+
+        document.getElementById("dlt").innerHTML = "Are You Sure   " + userToDelete.firstname + "  want To Delete!!!!";
+
+        function deleteUser(){
+            fetch("http://localhost:3000/quesForm/" + userToDelete.id,{
+                method:"DELETE"
+            })
+            .then(()=>{
+                console.log("user deleted succesfully");
+                window.location.href = "displayUsers.html"
+            });
+
+        }
+        function backTo(){
+            window.location.href = "displayUsers.html"
+        }
+
+    </script>
+</body>
+</html>
