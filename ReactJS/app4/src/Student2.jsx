@@ -3,38 +3,40 @@ import React, { Component } from 'react'
 export default class Student2 extends Component {
     constructor(){
         super();
-        this.state ={
-            message:"Hi,iam from class component",
-            Person:{},
-            User:[]
+        this.state={
+            message:"Hi..Iam from class components",
+            User:{},
+            Person:[]
         }
-
-        
-     };
-     handlechangemessage = () =>{
+    }
+    handlechangemessage = () =>{
+this.setState({
+message:"iam from new class components"
+})
+    }
+    handlechangeobject = ()=>{
         this.setState({
-            message:"I am from new class component"   
-        })
-     }
-     handlechangeobject = ()=>{
-        this.setState({
-            Person: {
-                fname:"vanitha",
-                lname:"reddy"
+            User:{
+                fname:"babu",
+                lname:"reddy",
+                email:"babu@123"
             }
         })
-     }
-     handlechangearray = ()=>{
+    }
+    handlechangearray = ()=>{
         this.setState({
-            User:[
+            Person:[
+                "vanitha",
                 "mokshith",
-                "mokshagna"
+                "mokshagna",
+                "babu",
+                "thulasi"
             ]
         })
-     }
+    }
   render() {
     return (
-      <div>Student2</div>
+      <div>{message}</div>
     )
   }
 }
