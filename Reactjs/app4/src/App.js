@@ -10,8 +10,8 @@ import Student6 from './Student6';
 import Student7 from './Student7';
 import Student8 from './Student8';
 import Student9 from './Student9';
-import { Student10 } from './Student10';
-
+import Student10  from './Student10';
+import Student11 from './Student9';
 function App() {
   return (
     <div className="App">   
@@ -26,6 +26,8 @@ function App() {
     <Student8/>
     <Student9/>
     <Student10/>
+    <Student11/>
+   
     </div>
   );
 }
