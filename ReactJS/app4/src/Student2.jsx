@@ -36,7 +36,7 @@ message:"iam from new class components"
     }
   render() {
     return (
-      <div>{message}</div>
+      <div>{this.state.message}</div>
     )
   }
 }

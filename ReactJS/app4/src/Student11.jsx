@@ -1,14 +1,14 @@
 import { useState } from "react";
 
 export default function Taggle(){
-    const[array,setarray]=useState(true)
+    const[change,setchange] = useState(true)
     const Taggle =()=>{
-        setarray(!true) 
+        setchange(!change) 
     }
     return(
         <div>
-            <h3>{Taggle ? "Start" :"stop"}</h3>
-            <button onClick={Taggle}>taggle</button>
+            <h3>{change ? "Start" :"stop"}</h3>
+            <button onClick={Taggle}>taggle</button><hr/>
            
         </div>
     )

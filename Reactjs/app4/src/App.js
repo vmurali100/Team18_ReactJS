@@ -11,7 +11,10 @@ import Student7 from './Student7';
 import Student8 from './Student8';
 import Student9 from './Student9';
 import Student10  from './Student10';
-import Student11 from './Student9';
+import Taggle from './Student11';
+import Student12 from './Student12';
+import { Student13 } from './Student13';
+
 function App() {
   return (
     <div className="App">   
@@ -25,8 +28,11 @@ function App() {
     <Student7/>
     <Student8/>
     <Student9/>
-    <Student10/>
-    <Student11/>
+    {/* <Student10/> */}
+    <Taggle/>
+    <Student12/>
+    <Student13/>
+    
    
     </div>
   );
