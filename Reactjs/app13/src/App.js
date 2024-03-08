@@ -11,13 +11,13 @@ import './App.css';
 // import CComponent from './Example5';
 import Example1 from '../src/components/Example1';
 import { Example6 } from './components/Example6';
-
+import Hovercounter from './components/Hover';
 
 
 function App() {
   return (
     <div className="App">
-      <Example1/>
+      {/* <Example1/> */}
       {/* <Sample1/> */}
       {/* <ClassComponent/> */}
       {/* <Sample2/> */}
@@ -26,7 +26,9 @@ function App() {
       <ArrayIteratorComponent/>
       <MyComponent/>
       <CComponent/> */}
-      <Example6/>
+      {/* <Example6/> */}
+      <Hovercounter/>
+      
       
     </div>
   );
