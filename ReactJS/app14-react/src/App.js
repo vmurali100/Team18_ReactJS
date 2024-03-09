@@ -1,5 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
+import HoverExample from './Components/Hover2';
 // import ParentComp from './Components/Userparent';
 // import ChildCom from './Components/Userchild';
 
@@ -7,9 +8,10 @@ import './App.css';
 function App() {
   return (
     <div className="App">
-{/* <ParentComp/>
+      {/* <ParentComp/>
 <ChildCom/> */}
-<hovercounter/>
+      {/* <hovercounter/> */}
+      <HoverExample />
     </div>
   );
 }
